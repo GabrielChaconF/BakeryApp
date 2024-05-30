@@ -26,10 +26,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp_v1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Administrador/AgregarCategoria.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxBZ3JlZ2FyQ2F0ZWdvcmlhLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Administrador/AgregarInventario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxBZ3JlZ2FySW52ZW50YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,14 +36,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Administrador/AgregarReceta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxBZ3JlZ2FyUmVjZXRhLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Administrador/Categorias.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxDYXRlZ29yaWFzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Administrador/EditarCategoria.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFZGl0YXJDYXRlZ29yaWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Administrador/EditarInventario.cshtml]
@@ -112,6 +100,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Administrador/VerPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxWZXJQZWRpZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Categoria/AgregarCategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEFncmVnYXJDYXRlZ29yaWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Categoria/EditarCategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXRhckNhdGVnb3JpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Categoria/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp_v1/Views/Empleado/AgregarCategoria.cshtml]

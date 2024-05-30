@@ -1,253 +1,113 @@
 ﻿@{
-	Layout = null;
+    Layout = "_LayoutAdministrador";
 }
 <!DOCTYPE html>
 <html>
-<head>
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Bakery App</title>
-	<!-- Tell the browser to be responsive to screen width -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Ionicons -->
-	<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-	<!-- Google Font: Source Sans Pro -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-	<!-- Theme style -->
-	<link href="~/dist/css/adminlte.min.css" rel="stylesheet" />
-	<!-- Font Awesome -->
-
-	<link href="~/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
-
-	<link href="~/css/bootstrap.min.css" rel="stylesheet">
-	<link href="~/css/tiny-slider.css" rel="stylesheet">
-	<link href="~/css/style.css" rel="stylesheet">
-
-
-	<link rel="shortcut icon" href="favicon.png">
-
-</head>
 <body>
-	<div class="wrapper">
-		<!-- Navbar -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
-			<div class="container">
-				<a class="navbar-brand" href="@Url.Action("Index", "Administrador")">Dulce Espiga<span>.</span></a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item">
-							<a class="nav-link" href="@Url.Action("PerfilAdministrador", "Administrador")">Perfil</a>
-						</li>
-						<li><a class="nav-link" href="@Url.Action("Inventario", "Administrador")">Inventario</a></li>
-						<li><a class="nav-link active" href="@Url.Action("Productos", "Administrador")">Productos</a></li>
-						<li><a class="nav-link" href="@Url.Action("Categorias", "Administrador")">Categorias </a></li>
-						<li><a class="nav-link active" href="@Url.Action("Recetas", "Administrador")">Recetas</a></li>
-						<li><a class="nav-link" href="@Url.Action("Facturas", "Administrador")">Facturas</a></li>
-						<li><a class="nav-link" href="@Url.Action("Pedidos", "Administrador")">Pedidos</a></li>
-						<li><a class="nav-link" href="@Url.Action("Marketing", "Administrador")">Marketing </a></li>
-					</ul>
-
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="btn btn-white-outline" href="@Url.Action("Index", "Home")">Cerrar Sesion</a></li>
-
-					</ul>
-				</div>
-			</div>
-
-		</nav>
+    <div>
+        <br />
+        <section class="content ">
 
 
-		<!-- Content Wrapper. Contains page content -->
-		<!-- Main content -->
-		<!-- Content Wrapper. Contains page content -->
-		<div>
-			<!-- Content Header (Page header) -->
-			<!-- Main content -->
-			<br />
-			<section class="content ">
+            <div class="col-md-12 ">
+                <div class="card card-primary ">
+                    <div class="card-header custom-navbar">
+                        <h3 class="card-title">Informacion del pedido</h3>
+                    </div>
 
-				<!-- /.col -->
-				<div class="col-md-12 ">
-					<div class="card card-primary ">
-						<div class="card-header custom-navbar">
-							<h3 class="card-title">Informacion del pedido</h3>
-						</div>
-						<!-- /.card-header -->
-						<div class="card-body">
-							<strong> Usuario</strong>
+                    <div class="card-body">
+                        <strong> Usuario</strong>
 
-							<p class="text-muted">
-								prueba
-							</p>
+                        <p class="text-muted">
+                            prueba
+                        </p>
 
-							<hr>
+                        <hr>
 
-							<strong> Número de Pedido</strong>
+                        <strong> Número de Pedido</strong>
 
-							<p class="text-muted">
-								1
-							</p>
+                        <p class="text-muted">
+                            1
+                        </p>
 
-							<hr>
+                        <hr>
 
-							<strong> Productos</strong>
+                        <strong> Productos</strong>
 
-							<table class="table ">
-								<tr >
-									<th>Producto</th>
-									<th>Cantidad</th>
-									<th>Precio unitario</th>
-								</tr>
-								<tr>
-									<td>Cupcake</td>
-									<td>1</td>
-									<td>₡2500</td>
-								</tr>
-								<tr>
-									<td>Cupcake</td>
-									<td>1</td>
-									<td>₡2500</td>
-								</tr>
-								
-							</table>
+                        <table class="table ">
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio unitario</th>
+                            </tr>
+                            <tr>
+                                <td>Cupcake</td>
+                                <td>1</td>
+                                <td>₡2500</td>
+                            </tr>
+                            <tr>
+                                <td>Cupcake</td>
+                                <td>1</td>
+                                <td>₡2500</td>
+                            </tr>
 
-							<hr>
+                        </table>
 
-							<strong> Metodo de pago</strong>
+                        <hr>
 
-							<p class="text-muted">
-								Efectivo
-							</p>
+                        <strong> Metodo de pago</strong>
 
-							<hr>
+                        <p class="text-muted">
+                            Efectivo
+                        </p>
 
-							<strong> Tipo de entrega</strong>
-							<p class="text-muted">Entrega por Motorizado</p>
+                        <hr>
 
-							<hr>
-							<strong> Direccion de entrega</strong>
+                        <strong> Tipo de entrega</strong>
+                        <p class="text-muted">Entrega por Motorizado</p>
 
-							<p class="text-muted">Heredia, Heredia, Mercedes, Por la iglesia</p>
+                        <hr>
+                        <strong> Direccion de entrega</strong>
 
-							
-
-							<hr>
-
-							<strong> Notas</strong>
-
-							<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-						</div>
-
-
-						<!-- /.card-body -->
-						<div class="card-footer clearfix">
-							<button type="button" class="btn btn-primary btn-sm float-right"> Cancelar pedido</button>
-						</div>
-					</div>
-
-					<!-- /.nav-tabs-custom -->
-				</div>
-				<!-- /.col -->
-			</section>
-		</div>
-		<!-- /.row -->
-		<!-- /.container-fluid -->
-		<!-- /.content -->
-	</div>
-	
-	<!-- /.content-wrapper -->
-	<!--------------------------------------------- /.Dashboard ---------------------------------------------------------------------->
-	<!-- Start Footer Section -->
-
-
-	<footer class="footer-section">
-		<div class="container relative">
+                        <p class="text-muted">Heredia, Heredia, Mercedes, Por la iglesia</p>
 
 
 
+                        <hr>
 
+                        <strong> Notas</strong>
 
-			<div class="row g-5 mb-5">
-				<div class="col-lg-4">
-					<div class="mb-4 footer-logo-wrap"><a href="@Url.Action("Index", "Home")" class="footer-logo">Dulce Espiga<span>.</span></a></div>
-					<p class="mb-4">
-						Dulce Espiga es un emprendimiento familiar, centrado en la elaboración de productos relacionados a la pastaleria
-						artesanal, actualmente estamos ubicamos en Heredia.
-					</p>
-
-					<ul class="list-unstyled custom-social">
-						<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-						<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-						<li><a href="#"><span class="fa fa-brands fa-whatsapp"></span></a></li>
-					</ul>
-				</div>
-
-				<div class="col-lg-8">
-					<div class="row links-wrap">
-						<div class="col-6 col-sm-6 col-md-3">
-							<ul class="list-unstyled">
-								<li><a href="@Url.Action("Tienda", "Home")">Tienda</a></li>
-								<li><a href="@Url.Action("Servicios", "Home")">Servicios</a></li>
-								<li><a href="@Url.Action("SobreNosotros", "Home")">Sobre Nosotros</a></li>
-							</ul>
-						</div>
-
-						<div class="col-6 col-sm-6 col-md-3">
-							<ul class="list-unstyled">
-								<li><a href="@Url.Action("Contacto", "Home")">Contacto</a></li>
-								<li><a href="@Url.Action("RegistrarUsuario", "Home")">Registrarse</a></li>
-							</ul>
-						</div>
-
-
-					</div>
-				</div>
-
-			</div>
-
-			<div class="border-top copyright">
-				<div class="row pt-4">
-					<div class="col-lg-6">
-						<p class="mb-2 text-center text-lg-start">
-							BakeryApp &copy;<script>document.write(new Date().getFullYear());</script>
-						</p>
-					</div>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                    </div>
 
 
 
-				</div>
-			</div>
+                    <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-primary btn-sm float-right"> Cancelar pedido</button>
+                    </div>
+                </div>
 
-		</div>
-	</footer>
 
-	<!-- End Footer Section -->
-	<!-- Control Sidebar -->
-	<aside class="control-sidebar control-sidebar-dark">
-		<!-- Control sidebar content goes here -->
-	</aside>
-	<!-- /.control-sidebar -->
-	</div></div>
-	<!-- ./wrapper -->
-	<!-- jQuery -->
-	<script src="../../plugins/jquery/jquery.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+            </div>
 
-	<!-- AdminLTE App -->
-	<script src="../../dist/js/adminlte.min.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="../../dist/js/demo.js"></script>
+        </section>
+    </div>
 
-	<script src="~\plugins\chart.js\chart.min.js"></script>
+    </div>
+
+
+
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <script src="../../dist/js/demo.js"></script>
+
+    <script src="~\plugins\chart.js\chart.min.js"></script>
 </body>
 </html>

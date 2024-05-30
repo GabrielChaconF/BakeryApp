@@ -1,5 +1,168 @@
 ﻿
 
+
+
 @{
 	Layout = "_LayoutAdministrador";
 }
+
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Dashboard Administrativo</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>2</h3>
+
+                        <p>Ordenes Nuevas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Ver Ordenes <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+           
+            <div class="col-lg-3 col-6">
+                
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>2<sup style="font-size: 20px"></sup></h3>
+
+                        <p>Ordenes pendientes</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Ver Ordenes <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+           
+            <div class="col-lg-3 col-6">
+                
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>1</h3>
+
+                        <p>Usuarios Registrados</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Ver usuarios <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-6">
+                
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>65</h3>
+
+                        <p>Visitas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    @* <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> *@
+                </div>
+            </div>
+           
+        </div>
+       
+        <div class="row">
+           
+            <section class="col-lg-7 connectedSortable">
+                <!--------------------------------- /.Tareas pendientes ---------------------------->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="ion ion-clipboard mr-1"></i>
+                            Pedidos Pendientes
+                        </h3>
+
+
+                    </div>
+                 
+
+                    <div class="card-body">
+                        <ul class="todo-list" data-widget="todo-list">
+                            <li>
+                               
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+
+
+                               
+                                <span class="text">Pedido 1</span>
+
+                            </li>
+                            <li>
+                               
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+
+
+                                
+                                <span class="text">Pedido 2</span>
+
+                            </li>
+                            <li>
+                                
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+
+
+                               
+                                <span class="text">Pedido 3</span>
+
+                            </li>
+                            <li>
+                               
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+
+
+                                
+                                <span class="text">Pedido 4</span>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!--------------------------------- /.Tareas pendientes ---------------------------->
+                    <!-- /.card-body -->
+                    @* <div class="card-footer clearfix">
+                    <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Agregar tarea</button>
+                    </div> *@
+                </div>
+                
+            </section>
+          
+
+        </div>
+       
+    </div>
+</section>
+
