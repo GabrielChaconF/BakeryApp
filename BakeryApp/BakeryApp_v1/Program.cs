@@ -1,7 +1,23 @@
+using BakeryApp_v1.DAO;
+using BakeryApp_v1.Models;
+using BakeryApp_v1.Services;
+using BakeryApp_v1.Utilidades;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+
+builder.Services.AddDbContext<BakeryAppContext>(options =>
+      options.UseMySQL(builder.Configuration.GetConnectionString("conexion")));
+builder.Services.AddScoped<CategoriaDAO, CategoriaDAOImpl>();
+builder.Services.AddScoped<CategoriaService, CategoriaServiceImpl>();
+builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
+
 
 var app = builder.Build();
 

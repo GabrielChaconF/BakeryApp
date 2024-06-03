@@ -22,86 +22,125 @@
 
         <section class="content">
 
-   
+
             <div class="card card-solid">
                 <div class="card-body pb-0">
                     <div class="row d-flex align-items-stretch">
                         <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                             <div class="card bg-light">
-
                                 <br />
-                                <div class="card-body pt-0">
-                                    <div class="form-group">
+                                <form method="post" onsubmit="GuardarCategoria(event)">
+                                    <div class="card-body pt-0">
+                                        <div class="form-group">
+                                            <label>Nombre:</label>
+                                            <input type="text" class="form-control" placeholder="Nombre" id="nombre">
+                                        </div>
+                                        <br />
+                                        <div class="form group">
 
 
-                                        <label>Nombre:</label>
-                                        <input type="text" class="form-control" placeholder="Nombre">
+                                            <label>Detalles:</label>
+                                            <input type="text" class="form-control" placeholder="Detalles" id="detalles">
 
+
+                                        </div>
+
+
+
+                                        <div class="col-5 text-left">
+                                            <label>Imagen:</label>
+                                            <img src="~/img/CupcakePrueba.jpg" id="imagenFront" alt="No se ha podida cargar la imagen" class="img-circle img-fluid">
+                                        </div>
+
+                                        <br />
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="customFile">Cargar Archivo</label>
+                                            <input type="file" class="form-control" id="imagenCategoria" onchange="mostrarImagenSeleccionada()"/>
+                                        </div>
 
                                     </div>
-                                    <br />
-                                    <div class="form group">
-
-
-                                        <label>Detalles:</label>
-                                        <input type="text" class="form-control" placeholder="Detalles">
-
-
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <button class="btn btn-sm btn-primary" type="submit">
+                                                Guardar
+                                            </button>
+                                        </div>
                                     </div>
-
-
-
-                                    <div class="col-5 text-left">
-                                        <label>Ejemplo:</label>
-                                        <img src="~/img/CupcakePrueba.jpg" alt="" class="img-circle img-fluid">
-                                    </div>
-
-                                    <br />
-
-                                    <div class="form-group">
-                                        <label class="form-label" for="customFile">Cargar Archivo</label>
-                                        <input type="file" class="form-control" id="customFile" />
-                                    </div>
-
-                                </div>
-                                <div class="card-footer">
-                                    <div class="text-right">
-                                        <a href="@Url.Action("Categorias", "Administrador")" class="btn btn-sm btn-primary">
-                                            Guardar
-                                        </a>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
 
                     </div>
                 </div>
-             
+
 
             </div>
-        
+
 
         </section>
- 
+
     </div>
-
-
-
-
-
-
-
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-
-    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-
-    <script src="../../dist/js/adminlte.min.js"></script>
-
-
-    <script src="../../dist/js/demo.js"></script>
-
-    <script src="~\plugins\chart.js\chart.min.js"></script>
 </body>
 </html>
 
+@section Scripts {
+    <script>
+        function GuardarCategoria(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+
+            const detalles = document.getElementById("detalles").value;
+
+            const imagenCategoria = document.getElementById('imagenCategoria').files[0];
+
+         
+
+            const categoria = new FormData();
+
+
+            categoria.append("NombreCategoria", nombre);
+            categoria.append("DescripcionCategoria", detalles);
+            categoria.append("ArchivoCategoria", imagenCategoria);
+
+           
+            fetch('@Url.Action("GuardarCategoria", "Categoria")', {
+                method: "POST",
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                body: categoria
+            }).then(respuesta => {
+                return respuesta.json()
+            .then(respuesta => {
+                swal({
+                        text: respuesta.mensaje
+                    });
+            })
+            }).catch(error => {
+                console.error("Error", error);
+            });
+        }
+    </script>
+
+
+    <script>
+        function mostrarImagenSeleccionada() {
+            const imagenCategoria = document.getElementById('imagenCategoria').files[0];
+            const imagenFront = document.getElementById('imagenFront');
+
+            const lector = new FileReader();
+
+            lector.onload = function (evento) {
+                imagenFront.src = evento.target.result;
+            };
+
+            if (imagenCategoria) {
+                lector.readAsDataURL(imagenCategoria);
+            }
+        }
+
+    </script>
+
+}

@@ -19,150 +19,190 @@
             </div>
         </section>
 
-     
-        <section class="content">
 
-        
-            <div class="card card-solid">
-                <div class="card-body pb-0">
-                    <div class="row d-flex align-items-stretch">
-                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-                            <div class="card bg-light">
-                                <div class="card-header text-muted border-bottom-0">
-                                    Categoria 1
-                                </div>
-                                <br />
-                                <div class="card-body pt-0">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="lead"><b>Categoria Cupcakes</b></h2>
-                                            <p class="text-muted text-sm"><b>Nombre: </b> Cupcakes </p>
-                                            <p class="text-muted text-sm"><b>Detalles: </b> Productos muy dulces </p>
 
-                                        </div>
-                                        <div class="col-5 text-center">
-                                            <img src="~/img/CupcakePrueba.jpg" alt="" class="img-circle img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="text-right">
-                                        <a href="@Url.Action("EditarCategoria", "Categoria")" class="btn btn-sm btn-primary">
-                                            Editar
-                                        </a>
-                                        <a href="#" class="btn btn-sm">
-                                            Eliminar
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-                            <div class="card bg-light">
-                                <div class="card-header text-muted border-bottom-0">
-                                    Categoria 2
-                                </div>
-                                <br />
-                                <div class="card-body pt-0">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="lead"><b>Categoria Cupcakes</b></h2>
-                                            <p class="text-muted text-sm"><b>Nombre: </b> Cupcakes </p>
-                                            <p class="text-muted text-sm"><b>Detalles: </b> Productos muy dulces </p>
 
-                                        </div>
-                                        <div class="col-5 text-center">
-                                            <img src="~/img/CupcakePrueba.jpg" alt="" class="img-circle img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="text-right">
-                                        <a href="@Url.Action("EditarCategoria", "Categoria")" class="btn btn-sm btn-primary">
-                                            Editar
-                                        </a>
-                                        <a href="#" class="btn btn-sm">
-                                            Eliminar
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-                            <div class="card bg-light">
-                                <div class="card-header text-muted border-bottom-0">
-                                    Categoria 3
-                                </div>
-                                <br />
-                                <div class="card-body pt-0">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="lead"><b>Categoria Cupcakes</b></h2>
-                                            <p class="text-muted text-sm"><b>Nombre: </b> Cupcakes </p>
-                                            <p class="text-muted text-sm"><b>Detalles: </b> Productos muy dulces </p>
 
-                                        </div>
-                                        <div class="col-5 text-center">
-                                            <img src="~/img/CupcakePrueba.jpg" alt="" class="img-circle img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="text-right">
-                                        <a href="@Url.Action("EditarCategoria", "Categoria")" class="btn btn-sm btn-primary">
-                                            Editar
-                                        </a>
-                                        <a href="#" class="btn btn-sm">
-                                            Eliminar
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch" id="agregar">
+                   
 
 
 
 
 
-                    </div>
                 </div>
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                <nav aria-label="Contacts Page Navigation">
-                    <ul class="pagination justify-content-center m-0">
-                        @* <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li> *@
-                        <li>
-                            <a href="@Url.Action("AgregarCategoria", "Categoria")" class="btn btn-sm btn-primary">
-                                Agregar Categoria
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- /.card-footer -->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <nav aria-label="Contacts Page Navigation">
+                <ul class="pagination justify-content-center m-0">
+                    @* <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item"><a class="page-link" href="#">7</a></li>
+                    <li class="page-item"><a class="page-link" href="#">8</a></li> *@
+                    <li>
+                        <a href="@Url.Action("AgregarCategoria", "Categoria")" class="btn btn-sm btn-primary">
+                            Agregar Categoria
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
     </div>
-   
-    
 
-    <!-- ./wrapper -->
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
 
-    <script src="~\plugins\chart.js\chart.min.js"></script>
+
 </body>
 </html>
+
+@section Scripts {
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            ObtenerTodasLasCategorias();
+        });
+
+        function ObtenerTodasLasCategorias() {
+            fetch('@Url.Action("ObtenerCategorias", "Categoria")', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            }).then(respuesta => {
+                return respuesta.json()
+            }).then(respuesta => {
+                CrearTarjetas(respuesta)
+            }).catch(error => {
+                console.error("Error", error);
+            });
+        }
+
+        function CrearTarjetas(respuesta) {
+            respuesta.arregloCategorias.forEach(categoria => {
+                const divAgregar = document.getElementById("agregar");
+
+                const divPrincipal = document.createElement("div");
+                const hijoDivPrincipal = document.createElement("div");
+                const cardHeader = document.createElement("div");
+                const saltoLinea1 = document.createElement("br");
+                const cardBody = document.createElement("div");
+                const rowCardBody = document.createElement("div");
+                const colRowCardBody = document.createElement("div");
+                const h2ColRowCardBody = document.createElement("h2");
+                const negritaH2 = document.createElement("b");
+                const negrita1 = document.createElement("b");
+                const negrita2 = document.createElement("b");
+                const pColRowCardBody1 = document.createElement("p");
+                const pColRowCardBody2 = document.createElement("p");
+                const col5RowCardBody = document.createElement("div");
+                const imgCard = document.createElement("img");
+                const divFooter = document.createElement("div");
+                const divFooterRight = document.createElement("div");
+                const aFooter1 = document.createElement("a");
+                const aFooter2 = document.createElement("a");
+
+                divAgregar.appendChild(divPrincipal);
+                divPrincipal.appendChild(hijoDivPrincipal);
+                hijoDivPrincipal.appendChild(cardHeader);
+                hijoDivPrincipal.appendChild(saltoLinea1);
+                hijoDivPrincipal.appendChild(cardBody);
+                cardBody.appendChild(rowCardBody);
+                rowCardBody.appendChild(colRowCardBody);
+                colRowCardBody.appendChild(h2ColRowCardBody);
+                colRowCardBody.appendChild(pColRowCardBody1);
+                colRowCardBody.appendChild(pColRowCardBody2);
+                rowCardBody.appendChild(col5RowCardBody);
+                col5RowCardBody.appendChild(imgCard);
+                hijoDivPrincipal.appendChild(divFooter);
+                divFooter.appendChild(divFooterRight);
+                divFooterRight.appendChild(aFooter1);
+                divFooterRight.appendChild(aFooter2);
+
+                divPrincipal.classList.add("col-12", "col-sm-6", "col-md-4", "d-flex", "align-items-stretch");
+                hijoDivPrincipal.classList.add("card", "bg-light");
+                cardHeader.classList.add("card-header", "text-muted", "border-bottom-0");
+                cardBody.classList.add("card-body", "pt-0");
+                rowCardBody.classList.add("row");
+                colRowCardBody.classList.add("col-7");
+                h2ColRowCardBody.classList.add("lead");
+                pColRowCardBody1.classList.add("text-muted", "text-sm");
+                pColRowCardBody2.classList.add("text-muted", "text-sm");
+                col5RowCardBody.classList.add("col-5", "text-center");
+                imgCard.classList.add("img-circle", "img-fluid");
+                divFooter.classList.add("card-footer");
+                divFooterRight.classList.add("text-right");
+                aFooter1.classList.add("btn", "btn-sm", "btn-primary", "text-white");
+                aFooter2.classList.add("btn", "btn-sm", "text-white");
+
+                cardHeader.textContent = categoria.idCategoria;
+
+                negritaH2.textContent = "Categoria: ";
+                h2ColRowCardBody.appendChild(negritaH2);
+                h2ColRowCardBody.appendChild(document.createTextNode(categoria.nombreCategoria));
+
+                negrita1.textContent = "Nombre: ";
+                pColRowCardBody1.appendChild(negrita1);
+                pColRowCardBody1.appendChild(document.createTextNode(categoria.nombreCategoria));
+
+                negrita2.textContent = "Detalles: ";
+                pColRowCardBody2.appendChild(negrita2);
+                pColRowCardBody2.appendChild(document.createTextNode(categoria.descripcionCategoria));
+
+
+
+
+                imgCard.src = "data:image/jpg;base64," + categoria.imagenCategoria;
+                imgCard.alt = "No se pudo cargar la imagen";
+
+                aFooter1.innerText = "Editar";
+                aFooter2.innerText = "Eliminar";
+                
+            });
+        }
+
+
+    </script>
+}
+
+@* <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+   <div class="card bg-light">
+        <div class="card-header text-muted border-bottom-0">
+            Categoria 2
+        </div>
+        <br />
+        <div class="card-body pt-0">
+            <div class="row">
+                <div class="col-7">
+                    <h2 class="lead"><b>Categoria Cupcakes</b></h2>
+                    <p class="text-muted text-sm"><b>Nombre: </b> Cupcakes </p>
+                    <p class="text-muted text-sm"><b>Detalles: </b> Productos muy dulces </p>
+
+                </div>
+                <div class="col-5 text-center">
+                    <img src="~/img/CupcakePrueba.jpg" alt="" class="img-circle img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="text-right">
+                <a href="@Url.Action("EditarCategoria", "Categoria")" class="btn btn-sm btn-primary">
+                    Editar
+                </a>
+                <a href="#" class="btn btn-sm">
+                    Eliminar
+                </a>
+            </div>
+        </div>
+    </div>
+</div> *@
