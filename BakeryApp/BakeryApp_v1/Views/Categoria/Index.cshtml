@@ -26,27 +26,14 @@
         <div class="card card-solid">
             <div class="card-body pb-0">
                 <div class="row d-flex align-items-stretch" id="agregar">
-                   
-
-
-
-
-
                 </div>
             </div>
         </div>
-        <!-- /.card-body -->
+
         <div class="card-footer">
             <nav aria-label="Contacts Page Navigation">
                 <ul class="pagination justify-content-center m-0">
-                    @* <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                    <li class="page-item"><a class="page-link" href="#">8</a></li> *@
+
                     <li>
                         <a href="@Url.Action("AgregarCategoria", "Categoria")" class="btn btn-sm btn-primary">
                             Agregar Categoria
@@ -73,11 +60,14 @@
         });
 
         function ObtenerTodasLasCategorias() {
+
+
+
             fetch('@Url.Action("ObtenerCategorias", "Categoria")', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "X-Requested-With": "XMLHttpRequest"
+                    "X-Requested-With": "XMLHttpRequest",
                 }
             }).then(respuesta => {
                 return respuesta.json()
@@ -89,9 +79,11 @@
         }
 
         function CrearTarjetas(respuesta) {
+            var contador = 1;
+            var token = '@Html.AntiForgeryToken()'
+
             respuesta.arregloCategorias.forEach(categoria => {
                 const divAgregar = document.getElementById("agregar");
-
                 const divPrincipal = document.createElement("div");
                 const hijoDivPrincipal = document.createElement("div");
                 const cardHeader = document.createElement("div");
@@ -109,8 +101,9 @@
                 const imgCard = document.createElement("img");
                 const divFooter = document.createElement("div");
                 const divFooterRight = document.createElement("div");
+                const formBorrar = document.createElement("form");
                 const aFooter1 = document.createElement("a");
-                const aFooter2 = document.createElement("a");
+                const bFooter2 = document.createElement("button");
 
                 divAgregar.appendChild(divPrincipal);
                 divPrincipal.appendChild(hijoDivPrincipal);
@@ -126,8 +119,11 @@
                 col5RowCardBody.appendChild(imgCard);
                 hijoDivPrincipal.appendChild(divFooter);
                 divFooter.appendChild(divFooterRight);
+                divFooterRight.appendChild(formBorrar);
                 divFooterRight.appendChild(aFooter1);
-                divFooterRight.appendChild(aFooter2);
+                formBorrar.appendChild(bFooter2);
+
+                formBorrar.insertAdjacentHTML("afterbegin", token)
 
                 divPrincipal.classList.add("col-12", "col-sm-6", "col-md-4", "d-flex", "align-items-stretch");
                 hijoDivPrincipal.classList.add("card", "bg-light");
@@ -141,11 +137,17 @@
                 col5RowCardBody.classList.add("col-5", "text-center");
                 imgCard.classList.add("img-circle", "img-fluid");
                 divFooter.classList.add("card-footer");
-                divFooterRight.classList.add("text-right");
+                divFooterRight.classList.add("text-right", "d-flex", "justify-content-end");
                 aFooter1.classList.add("btn", "btn-sm", "btn-primary", "text-white");
-                aFooter2.classList.add("btn", "btn-sm", "text-white");
+                bFooter2.classList.add("btn", "btn-sm", "text-white", "mr-2");
 
-                cardHeader.textContent = categoria.idCategoria;
+
+
+                divPrincipal.id = categoria.idCategoria;
+
+
+
+                cardHeader.textContent = contador;
 
                 negritaH2.textContent = "Categoria: ";
                 h2ColRowCardBody.appendChild(negritaH2);
@@ -162,17 +164,85 @@
 
 
 
-                imgCard.src = "data:image/jpg;base64," + categoria.imagenCategoria;
+                imgCard.src = categoria.imagenCategoria;
                 imgCard.alt = "No se pudo cargar la imagen";
 
                 aFooter1.innerText = "Editar";
-                aFooter2.innerText = "Eliminar";
-                
+                aFooter1.setAttribute("data-id", categoria.idCategoria)
+
+                aFooter1.onclick = (event) => {
+                    VerPaginaEditar(event)
+                }
+
+
+                bFooter2.innerText = "Eliminar";
+                bFooter2.type = "submit";
+                bFooter2.setAttribute("data-id", categoria.idCategoria)
+
+
+              
+                formBorrar.onsubmit = (event) => {
+                    EliminarCategoria(event);
+                }
+
+                contador++;
             });
         }
 
 
     </script>
+
+
+    <script>
+        function EliminarCategoria(event) {
+            event.preventDefault();
+            const boton = event.submitter;
+
+            const idCategoria = boton.getAttribute("data-id");
+            var token = event.currentTarget.querySelector('input[name="__RequestVerificationToken"]').value;
+
+
+
+            const categoria = {
+                IdCategoria: idCategoria
+            }
+
+            fetch('@Url.Action("EliminarCategoria", "Categoria")', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "RequestVerificationToken": token
+                },
+                body: JSON.stringify(categoria)
+            }).then(respuesta => {
+                return respuesta.json()
+            }).then(respuesta => {
+                swal({
+                    text: respuesta.mensaje
+                })
+                const cardAEliminar = document.getElementById(idCategoria)
+                cardAEliminar.remove()
+            })
+                .catch(error => {
+                    console.error("Error", error);
+                });
+        }
+    </script>
+
+
+    <script>
+        function VerPaginaEditar(event) {
+            const idCategoria = event.currentTarget.getAttribute("data-id");
+
+            var urlActual = window.location.href
+
+            urlActual += "/EditarCategoria?idCategoria=" + idCategoria;
+
+            window.location.replace(urlActual);
+        }
+    </script>
+
 }
 
 @* <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
@@ -205,4 +275,4 @@
             </div>
         </div>
     </div>
-</div> *@
+</div>  *@

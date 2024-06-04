@@ -661,6 +661,14 @@
       "PackagePath": "staticwebassets\\img\\cart.svg"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\627ce082-4542-49e6-9123-d8586e511540.png",
+      "PackagePath": "staticwebassets\\img\\categorias\\627ce082-4542-49e6-9123-d8586e511540.png"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\b8a9b377-cc32-4977-8205-87e26258dbc8.png",
+      "PackagePath": "staticwebassets\\img\\categorias\\b8a9b377-cc32-4977-8205-87e26258dbc8.png"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\chat.png",
       "PackagePath": "staticwebassets\\img\\chat.png"
     },

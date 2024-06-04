@@ -12,7 +12,7 @@ namespace BakeryApp_v1.Controllers
         public CategoriaController(CategoriaService categoriaService, IFuncionesUtiles funcionesUtiles)
         {
             this.categoriaService = categoriaService;
-            this.funcionesUtiles = funcionesUtiles; 
+            this.funcionesUtiles = funcionesUtiles;
         }
 
         public IActionResult Index()
@@ -24,14 +24,13 @@ namespace BakeryApp_v1.Controllers
         {
             return View();
         }
-
-        public IActionResult EditarCategoria()
+        
+        public IActionResult EditarCategoria([FromQuery]int idCategoria)
         {
             return View();
         }
 
         [HttpPost]
-
         public async Task<JsonResult> ObtenerCategorias()
         {
             return new JsonResult(new { arregloCategorias = await categoriaService.ObtenerTodasLasCategorias() });
@@ -39,31 +38,65 @@ namespace BakeryApp_v1.Controllers
 
 
         [HttpPost]
-
-        public async Task<JsonResult> GuardarCategoria([FromForm]Categoria categoria)
+        [ValidateAntiForgeryToken]
+        public async Task<JsonResult> GuardarCategoria([FromForm] Categoria categoria)
         {
-            if (categoriaService.VerificarDatosVaciosONulos(categoria))
+            try
             {
-                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise"});
+
+                if (categoriaService.VerificarDatosVaciosONulos(categoria))
+                {
+                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                }
+
+
+
+                bool resultadoRepetida = await categoriaService.VerificarNombreRepetido(categoria);
+
+                if (resultadoRepetida)
+                {
+                    return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado" });
+                }
+
+                Categoria categoriaConImagen = await funcionesUtiles.GuardarImagenEnSistemaCategoria(categoria);
+
+                if (categoriaConImagen == null)
+                {
+                    return new JsonResult(new { mensaje = "Error al guardar la imagen" });
+                }
+
+                await categoriaService.Guardar(categoriaConImagen);
+                return new JsonResult(new { mensaje = "Categoria guardada con éxito" });
             }
-
-            bool resultadoSubida = await funcionesUtiles.ConvertirArchivoABytes(categoria);
-
-            if (!resultadoSubida)
+            catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Error al convertir la imagen" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar la categoria" });
             }
-
-            bool resultadoRepetida = await categoriaService.VerificarNombreRepetido(categoria);
-
-            if (resultadoRepetida)
-            {
-                return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado" });
-            }
-
-            await categoriaService.Guardar(categoria);
-            return new JsonResult(new{mensaje = "Categoria guardada con éxito"});
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<JsonResult> EliminarCategoria([FromBody] Categoria categoria)
+        {
+            try
+            {
+                Categoria categoriaBorrarImagen = await categoriaService.ObtenerCategoriaEspecifica(categoria);
+
+                if (!funcionesUtiles.BorrarImagenGuardadaEnSistemaCategoria(categoriaBorrarImagen))
+                {
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen" });
+                }
+                await categoriaService.Eliminar(categoriaBorrarImagen);
+                return new JsonResult(new { mensaje = "Categoria eliminada con éxito" });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar la categoria" });
+            }
+        }
+
+        
 
 
     }

@@ -30,6 +30,7 @@
                             <div class="card bg-light">
                                 <br />
                                 <form method="post" onsubmit="GuardarCategoria(event)">
+                                    @Html.AntiForgeryToken()
                                     <div class="card-body pt-0">
                                         <div class="form-group">
                                             <label>Nombre:</label>
@@ -56,7 +57,7 @@
 
                                         <div class="form-group">
                                             <label class="form-label" for="customFile">Cargar Archivo</label>
-                                            <input type="file" class="form-control" id="imagenCategoria" onchange="mostrarImagenSeleccionada()"/>
+                                            <input type="file" class="form-control" id="imagenCategoria" onchange="mostrarImagenSeleccionada()" />
                                         </div>
 
                                     </div>
@@ -89,13 +90,15 @@
         function GuardarCategoria(event) {
             event.preventDefault();
 
+            var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
             const nombre = document.getElementById("nombre").value;
 
             const detalles = document.getElementById("detalles").value;
 
             const imagenCategoria = document.getElementById('imagenCategoria').files[0];
 
-         
+
 
             const categoria = new FormData();
 
@@ -104,20 +107,20 @@
             categoria.append("DescripcionCategoria", detalles);
             categoria.append("ArchivoCategoria", imagenCategoria);
 
-           
             fetch('@Url.Action("GuardarCategoria", "Categoria")', {
                 method: "POST",
                 headers: {
-                    "X-Requested-With": "XMLHttpRequest"
+                    "X-Requested-With": "XMLHttpRequest",
+                    "RequestVerificationToken": token
                 },
                 body: categoria
             }).then(respuesta => {
-                return respuesta.json()
-            .then(respuesta => {
-                swal({
-                        text: respuesta.mensaje
-                    });
-            })
+                    return respuesta.json()
+                    .then(respuesta => {
+                    swal({
+                            text: respuesta.mensaje
+                        });
+                    })
             }).catch(error => {
                 console.error("Error", error);
             });

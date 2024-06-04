@@ -2,7 +2,9 @@ using BakeryApp_v1.DAO;
 using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +15,14 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<BakeryAppContext>(options =>
-      options.UseMySQL(builder.Configuration.GetConnectionString("conexion")));
+options.UseMySQL(builder.Configuration.GetConnectionString("conexion")));
+
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "RequestVerificationToken";
+});
+
+
 builder.Services.AddScoped<CategoriaDAO, CategoriaDAOImpl>();
 builder.Services.AddScoped<CategoriaService, CategoriaServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
@@ -32,9 +41,14 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+
+
 app.UseRouting();
 
 app.UseAuthorization();
+
+
+
 
 app.MapControllerRoute(
     name: "default",

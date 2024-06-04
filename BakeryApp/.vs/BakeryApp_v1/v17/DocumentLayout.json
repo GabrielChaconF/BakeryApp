@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\users\\gabri\\onedrive\\desktop\\pruebas y pruebas\\githubdesarrollosistemas\\bakeryapp\\bakeryapp_v1\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\users\\gabri\\onedrive\\desktop\\pruebas y pruebas\\githubdesarrollosistemas\\bakeryapp\\bakeryapp_v1\\views\\categoria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\views\\categoria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,6 +71,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoriaController.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Controllers\\CategoriaController.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Controllers\\CategoriaController.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Controllers\\CategoriaController.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Controllers\\CategoriaController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAmwB0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T07:50:00.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Views\\Categoria\\Index.cshtml",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Views\\Categoria\\Index.cshtml",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Views\\Categoria\\Index.cshtml",
+              "RelativeToolTip": "BakeryApp_v1\\Views\\Categoria\\Index.cshtml",
+              "ViewState": "AQIAAAMBAAAAAAAAAAAuwA8BAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-04T07:49:21.804Z",
+              "EditorCaption": ""
             }
           ]
         }

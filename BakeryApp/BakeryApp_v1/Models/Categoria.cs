@@ -12,8 +12,8 @@ public partial class Categoria
 
     public string DescripcionCategoria { get; set; } = null!;
 
-    public byte[] ImagenCategoria { get; set; } = null!;
+    public string ImagenCategoria { get; set; } = null!;
 
     [NotMapped]
-    public IFormFile ArchivoCategoria { get; set; } = null!;
+    public IFormFile ArchivoCategoria { get; set; }
 }

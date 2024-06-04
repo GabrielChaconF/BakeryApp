@@ -32,7 +32,7 @@ public partial class BakeryAppContext : DbContext
             entity.HasIndex(e => e.NombreCategoria, "uq_nombre_categoria").IsUnique();
 
             entity.Property(e => e.DescripcionCategoria).HasMaxLength(255);
-            entity.Property(e => e.ImagenCategoria).HasColumnType("blob");
+            entity.Property(e => e.ImagenCategoria).HasMaxLength(70);
             entity.Property(e => e.NombreCategoria).HasMaxLength(40);
         });
 
