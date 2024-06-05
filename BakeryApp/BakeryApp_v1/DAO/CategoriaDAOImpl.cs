@@ -15,20 +15,20 @@ public class CategoriaDAOImpl : CategoriaDAO
 
     public async Task Guardar(Categoria categoria) 
     {
-        dbContext.Add(categoria);
+        dbContext.Categorias.Add(categoria);
         await dbContext.SaveChangesAsync();
     }
 
     public async Task Editar(Categoria categoria)
     {
-        dbContext.Update(categoria);
+        dbContext.Categorias.Update(categoria);
         await dbContext.SaveChangesAsync();
     }
 
 
     public async Task Eliminar(Categoria categoria)
     {
-        dbContext.Remove(categoria);
+        dbContext.Categorias.Remove(categoria);
         await dbContext.SaveChangesAsync();
     }
 
