@@ -235,11 +235,11 @@
         function VerPaginaEditar(event) {
             const idCategoria = event.currentTarget.getAttribute("data-id");
 
-            var urlActual = window.location.href
 
-            urlActual += "/EditarCategoria?idCategoria=" + idCategoria;
 
-            window.location.replace(urlActual);
+            var urlEditar = "@Url.Action("EditarCategoria", "Categoria")" + "/" + idCategoria;
+
+            window.location.replace(urlEditar);
         }
     </script>
 

@@ -25,8 +25,10 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
         
-        public IActionResult EditarCategoria([FromQuery]int idCategoria)
+        public IActionResult EditarCategoria(int idCategoria)
         {
+
+
             return View();
         }
 

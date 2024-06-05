@@ -38,6 +38,12 @@ public class CategoriaDAOImpl : CategoriaDAO
         return categoriaEncontrada;
     }
 
+    public async Task<Categoria> ObtenerCategoriaPorId(int idCategoria)
+    {
+        Categoria categoriaEncontrada = await dbContext.Categorias.FirstOrDefaultAsync(Categoria => Categoria.IdCategoria == idCategoria);
+        return categoriaEncontrada;
+    }
+
     public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias()
     {
         IEnumerable<Categoria> todasLasCategorias = await dbContext.Categorias.ToListAsync();

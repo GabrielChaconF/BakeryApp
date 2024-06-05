@@ -1,4 +1,3 @@
 
-#Ignorar diferentes carpetes de imagenes
-
-BakeryApp/BakeryApp_v1/wwwroot/img/categorias
+#Ignorar los archivos de las distintas carpetas
+BakeryApp/BakeryApp_v1/wwwroot/img/categorias/*

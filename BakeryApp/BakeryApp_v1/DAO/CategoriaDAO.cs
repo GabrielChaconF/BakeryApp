@@ -13,6 +13,8 @@ public interface CategoriaDAO
 
     public Task<Categoria> ObtenerCategoriaEspecifica(Categoria categoria);
 
+    public Task<Categoria> ObtenerCategoriaPorId(int idCategoria);
+
     public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias();
 
     public Task<Categoria> ObtenerCategoriaPorNombre(Categoria categoria);

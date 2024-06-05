@@ -11,6 +11,8 @@ public interface CategoriaService
 
     public Task<Categoria> ObtenerCategoriaEspecifica(Categoria categoria);
 
+    public Task<Categoria> ObtenerCategoriaPorId(int idCategoria);  
+
     public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias();
 
     public bool VerificarDatosVaciosONulos(Categoria categoria);

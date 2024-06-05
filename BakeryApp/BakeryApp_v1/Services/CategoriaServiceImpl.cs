@@ -33,6 +33,12 @@ public class CategoriaServiceImpl : CategoriaService
         return categoriaBuscada;
     }
 
+    public async Task<Categoria> ObtenerCategoriaPorId(int idCategoria)
+    {
+        Categoria categoriaBuscada = await categoriaDAO.ObtenerCategoriaPorId(idCategoria);
+        return categoriaBuscada;
+    }
+
     public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias()
     {
         IEnumerable<Categoria> todasLasCategorias = await categoriaDAO.ObtenerTodasLasCategorias();
