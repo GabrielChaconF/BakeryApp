@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BakeryApp_v1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa9bce9d98e4b0218a4c69882cdcb062058d3031")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74e92e3323ae67c84c1989d71c2f64e1dd558c69")]
 [assembly: System.Reflection.AssemblyProductAttribute("BakeryApp_v1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BakeryApp_v1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

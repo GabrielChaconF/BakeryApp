@@ -178,7 +178,7 @@
                 bFooter2.setAttribute("data-id", categoria.idCategoria)
 
 
-              
+
                 formBorrar.onsubmit = (event) => {
                     EliminarCategoria(event);
                 }
@@ -205,6 +205,8 @@
                 IdCategoria: idCategoria
             }
 
+
+
             fetch('@Url.Action("EliminarCategoria", "Categoria")', {
                 method: "POST",
                 headers: {
@@ -221,10 +223,10 @@
                 })
                 const cardAEliminar = document.getElementById(idCategoria)
                 cardAEliminar.remove()
+            }).catch(error => {
+                console.error("Error", error);
             })
-                .catch(error => {
-                    console.error("Error", error);
-                });
+            
         }
     </script>
 
@@ -235,7 +237,7 @@
 
 
 
-            var urlEditar = "@Url.Action("EditarCategoria", "Categoria")" + "/" + idCategoria;
+            var urlEditar = '@Url.Action("EditarCategoria", "Categoria")' + "?idCategoria=" + idCategoria;
 
             window.location.replace(urlEditar);
         }

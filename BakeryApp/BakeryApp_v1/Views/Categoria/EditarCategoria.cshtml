@@ -33,49 +33,55 @@
                             <div class="card bg-light">
 
                                 <br />
-                                <div class="card-body pt-0">
-                                    <div class="form-group">
+                                <form method="post" onsubmit="EditarCategoria(event)">
+                                    @Html.AntiForgeryToken();
+                                    <div class="card-body pt-0">
+                                        <div class="form-group">
 
 
-                                        <label>Nombre:</label>
-                                        <input type="text" class="form-control" placeholder="Nombre nuevo">
+                                            <label>Nombre:</label>
+                                            <input type="text" class="form-control" placeholder="Nombre nuevo" id="nombreCategoria">
 
+
+                                        </div>
+                                        <br />
+                                        <div class="form group">
+
+
+                                            <label>Detalles:</label>
+                                            <input type="text" class="form-control" placeholder="Detalles nuevos" id="descripcionCategoria">
+
+
+                                        </div>
+
+                                        <br />
+
+
+
+                                        <div class="col-5 text-left">
+                                            <label>Ejemplo:</label>
+                                            <img alt="No se pudo cargar la imagen" class="img-circle img-fluid" id="imagenCategoria">
+                                        </div>
+
+                                        <br />
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="customFile">Cargar Archivo</label>
+                                            <input type="file" class="form-control" id="imagenFormulario" onchange="mostrarImagenSeleccionada()" />
+                                        </div>
 
                                     </div>
-                                    <br />
-                                    <div class="form group">
-
-
-                                        <label>Detalles:</label>
-                                        <input type="text" class="form-control" placeholder="Detalles nuevos">
-
-
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <button class="btn btn-sm btn-primary" type="submit">
+                                                Guardar
+                                            </button>
+                                        </div>
                                     </div>
 
-                                    <br />
+                                    <input type="hidden" id="imagenBorrar">
 
-
-
-                                    <div class="col-5 text-left">
-                                        <label>Ejemplo:</label>
-                                        <img src="~/img/CupcakePrueba.jpg" alt="" class="img-circle img-fluid">
-                                    </div>
-
-                                    <br />
-
-                                    <div class="form-group">
-                                        <label class="form-label" for="customFile">Cargar Archivo</label>
-                                        <input type="file" class="form-control" id="customFile" />
-                                    </div>
-
-                                </div>
-                                <div class="card-footer">
-                                    <div class="text-right">
-                                        <a href="@Url.Action("Categorias", "Administrador")" class="btn btn-sm btn-primary">
-                                            Guardar
-                                        </a>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
 
@@ -83,12 +89,11 @@
                 </div>
             </div>
 
-
+        </section>
     </div>
 
-    </section>
 
-    </div>
+
 
 
 
@@ -96,3 +101,183 @@
 </body>
 </html>
 
+
+@section Scripts
+{
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            ObtenerCategoriaEspecifica()
+        });
+
+
+        function ObtenerCategoriaEspecifica() {
+
+
+            const url = window.location.search;
+
+            const parametrosUrl = new URLSearchParams(url);
+
+            const categoria = {
+                IdCategoria: parametrosUrl.get("idCategoria")
+            }
+
+            fetch('@Url.Action("DevolverCategoriaEspecifica", "Categoria")', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                },
+                body: JSON.stringify(categoria)
+            }).then(respuesta => {
+                return respuesta.json()
+            }).then(respuesta => {
+                RellenarDatosFormulario(respuesta.categoria)
+            }).catch(error => {
+                console.error("Error", error);
+            });
+        }
+
+
+        function RellenarDatosFormulario(categoria) {
+            const inputNombre = document.getElementById("nombreCategoria")
+            inputNombre.value = categoria.nombreCategoria;
+
+            const inputDescripcion = document.getElementById("descripcionCategoria")
+            inputDescripcion.value = categoria.nombreCategoria;
+
+            const imagen = document.getElementById("imagenCategoria")
+
+            imagen.src = "\\" + categoria.imagenCategoria;
+
+            const imagenBorrar = document.getElementById("imagenBorrar")
+            imagenBorrar.value = categoria.imagenCategoria;
+        }
+
+
+
+    </script>
+
+
+
+    <script>
+        function mostrarImagenSeleccionada() {
+            const imagenCategoria = document.getElementById("imagenFormulario").files[0];
+            const imagenFront = document.getElementById("imagenCategoria");
+
+            const lector = new FileReader();
+
+            lector.onload = function (evento) {
+                imagenFront.src = evento.target.result;
+            };
+
+            if (imagenCategoria) {
+                lector.readAsDataURL(imagenCategoria);
+            }
+        }
+    </script>
+
+    <script>
+        function EditarCategoria(event) {
+            event.preventDefault();
+
+
+            if (VerificarImagenFormulario()) {
+                swal({
+                    text: "Debe seleccionar una imagen"
+                });
+                return
+            }
+
+            const url = window.location.search;
+
+            const parametrosUrl = new URLSearchParams(url);
+
+            var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            const nombre = document.getElementById("nombreCategoria").value;
+
+            const detalles = document.getElementById("descripcionCategoria").value;
+
+            const imagenCategoria = document.getElementById("imagenFormulario").files[0];
+
+
+
+            const categoria = new FormData();
+
+            categoria.append("IdCategoria", parametrosUrl.get("idCategoria"))
+            categoria.append("NombreCategoria", nombre);
+            categoria.append("DescripcionCategoria", detalles);
+            categoria.append("ArchivoCategoria", imagenCategoria);
+
+            fetch('@Url.Action("GuardarEditada", "Categoria")', {
+                method: "POST",
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "RequestVerificationToken": token
+                },
+                body: categoria
+            }).then(respuesta => {
+                return respuesta.json()
+                    .then(respuesta => {
+                        swal({
+                            text: respuesta.mensaje
+                        });
+                        if (respuesta.correcto) {
+                            EliminarImagenEditar()
+                        }
+                    })
+            }).catch(error => {
+                console.error("Error", error);
+            });
+        }
+    </script>
+
+    <script>
+        function VerificarImagenFormulario() {
+
+            const imagenCategoria = document.getElementById("imagenFormulario").files[0];
+
+            if (imagenCategoria === undefined) {
+                return true
+            }
+            return false
+        }
+
+
+
+    </script>
+
+
+    <script>
+        function EliminarImagenEditar() {
+
+            const rutaBorrar = document.getElementById("imagenBorrar").value;
+
+            const categoria = {
+                ImagenCategoria: rutaBorrar
+            }
+
+            fetch('@Url.Action("BorrarImagenEditar", "Categoria")', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                body: JSON.stringify(categoria)
+            }).then(respuesta => {
+                     return respuesta.json()
+                    .then(respuesta => {
+                        if (respuesta.mensaje) {
+                            swal({
+                                text: respuesta.mensaje
+                            });
+                        }
+                    })
+            }).catch(error => {
+                console.error("Error", error);
+            });
+
+        }
+    </script>
+}
