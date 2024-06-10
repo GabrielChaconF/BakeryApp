@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BakeryApp_v1.Models;
 
@@ -14,6 +13,5 @@ public partial class Categoria
 
     public string ImagenCategoria { get; set; } = null!;
 
-    [NotMapped]
-    public IFormFile ArchivoCategoria { get; set; }
+    public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
 }
