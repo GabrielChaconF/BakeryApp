@@ -13,9 +13,11 @@ public interface CategoriaService
 
     public Task<Categoria> ObtenerCategoriaPorId(int idCategoria);  
 
-    public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias();
+    public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias(int pagina);
 
     public bool VerificarDatosVaciosONulos(Categoria categoria);
 
     public Task<bool> VerificarNombreRepetido(Categoria categoria);
+
+    public Task<int> CalcularTotalPaginas();
 }

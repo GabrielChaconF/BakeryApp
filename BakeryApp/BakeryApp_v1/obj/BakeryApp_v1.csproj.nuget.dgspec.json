@@ -76,6 +76,10 @@
             "MySql.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "PagedList": {
+              "target": "Package",
+              "version": "[1.17.0, )"
             }
           },
           "imports": [

@@ -1,5 +1,6 @@
 ﻿using BakeryApp_v1.Models;
 using Microsoft.EntityFrameworkCore;
+using PagedList;
 
 namespace BakeryApp_v1.DAO;
 
@@ -44,9 +45,11 @@ public class CategoriaDAOImpl : CategoriaDAO
         return categoriaEncontrada;
     }
 
-    public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias()
+    public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias(int pagina)
     {
-        IEnumerable<Categoria> todasLasCategorias = await dbContext.Categorias.ToListAsync();
+        int numeroDeElementosPorPagina = 9;
+
+        IPagedList<Categoria> todasLasCategorias =  dbContext.Categorias.OrderBy(Categoria => Categoria.IdCategoria).ToPagedList(pageNumber: pagina, pageSize: numeroDeElementosPorPagina);
         return todasLasCategorias;
     }
 
@@ -54,6 +57,12 @@ public class CategoriaDAOImpl : CategoriaDAO
     {
         Categoria categoriaEncontrada = await dbContext.Categorias.FirstOrDefaultAsync(Categoria => Categoria.NombreCategoria == categoria.NombreCategoria);
         return categoriaEncontrada;
+    }
+
+    public async Task<int> ContarTotalCategorias()
+    {
+        int totalCategorias = await dbContext.Categorias.CountAsync();
+        return totalCategorias;
     }
 
 }

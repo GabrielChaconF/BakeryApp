@@ -1,5 +1,6 @@
 ﻿using BakeryApp_v1.DAO;
 using BakeryApp_v1.Models;
+using PagedList;
 
 namespace BakeryApp_v1.Services;
 
@@ -39,9 +40,9 @@ public class CategoriaServiceImpl : CategoriaService
         return categoriaBuscada;
     }
 
-    public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias()
+    public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias(int pagina)
     {
-        IEnumerable<Categoria> todasLasCategorias = await categoriaDAO.ObtenerTodasLasCategorias();
+        IEnumerable<Categoria> todasLasCategorias = await categoriaDAO.ObtenerTodasLasCategorias(pagina);
         return todasLasCategorias;
     }
 
@@ -68,5 +69,15 @@ public class CategoriaServiceImpl : CategoriaService
         }
 
         return true;
+    }
+
+    public async Task<int> CalcularTotalPaginas()
+    {
+        int totalCategorias = await categoriaDAO.ContarTotalCategorias();
+        int elementosPorPagina = 9;
+        double totalPaginas = (double)totalCategorias / elementosPorPagina;
+        totalPaginas = Math.Ceiling(totalPaginas);
+
+        return (int)totalPaginas;
     }
 }

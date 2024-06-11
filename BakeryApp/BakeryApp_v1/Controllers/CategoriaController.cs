@@ -15,7 +15,7 @@ namespace BakeryApp_v1.Controllers
             this.funcionesUtiles = funcionesUtiles;
         }
 
-        public IActionResult Index()
+        public IActionResult Index([FromQuery]int pagina)
         {
             return View();
         }
@@ -25,7 +25,11 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-        public async Task<IActionResult> EditarCategoria([FromQuery] int idCategoria)
+
+       
+
+
+        public async Task<IActionResult> EditarCategoria([FromQuery]int idCategoria)
         {
             Categoria categoriaEditar = await categoriaService.ObtenerCategoriaPorId(idCategoria);
 
@@ -39,9 +43,9 @@ namespace BakeryApp_v1.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> ObtenerCategorias()
+        public async Task<JsonResult> ObtenerCategorias([FromBody]int pagina)
         {
-            return new JsonResult(new { arregloCategorias = await categoriaService.ObtenerTodasLasCategorias() });
+            return new JsonResult(new { arregloCategorias = await categoriaService.ObtenerTodasLasCategorias(pagina) });
         }
 
 
@@ -169,6 +173,17 @@ namespace BakeryApp_v1.Controllers
             {
                 return new JsonResult(new { mensaje = "Ha ocurrido un error", correcto = false });
             }
+
+
+
+            
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ObtenerTotalPaginas([FromBody] Categoria categoria)
+        {
+            int totalPaginas = await categoriaService.CalcularTotalPaginas();
+            return new JsonResult(new { paginas = totalPaginas });
         }
     }
 }
