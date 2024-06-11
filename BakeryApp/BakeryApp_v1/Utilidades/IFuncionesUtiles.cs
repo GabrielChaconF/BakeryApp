@@ -7,4 +7,7 @@ public interface IFuncionesUtiles
     public Task<Categoria> GuardarImagenEnSistemaCategoria(Categoria objeto);
 
     public bool BorrarImagenGuardadaEnSistemaCategoria(Categoria categoria);
+
+
+    public Persona EncriptarContraseña(Persona persona);
 }

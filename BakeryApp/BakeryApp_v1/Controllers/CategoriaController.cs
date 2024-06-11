@@ -15,7 +15,7 @@ namespace BakeryApp_v1.Controllers
             this.funcionesUtiles = funcionesUtiles;
         }
 
-        public IActionResult Index([FromQuery]int pagina)
+        public IActionResult Index([FromQuery] int pagina)
         {
             return View();
         }
@@ -25,10 +25,7 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-
-       
-
-
+      
         public async Task<IActionResult> EditarCategoria([FromQuery]int idCategoria)
         {
             Categoria categoriaEditar = await categoriaService.ObtenerCategoriaPorId(idCategoria);
@@ -42,9 +39,16 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<JsonResult> ObtenerCategorias([FromBody]int pagina)
+        [HttpGet("/Categoria/ObtenerCategorias/{pagina}")]
+        public async Task<IActionResult> ObtenerCategorias(int pagina)
         {
+            //Si se intenta acceder por URL y por accidente se pone la pagina 0,
+            //para que la aplicacion no se caiga
+            if (pagina == 0)
+            {
+                return BadRequest();
+            }
+
             return new JsonResult(new { arregloCategorias = await categoriaService.ObtenerTodasLasCategorias(pagina) });
         }
 
@@ -86,14 +90,15 @@ namespace BakeryApp_v1.Controllers
             }
         }
 
-        [HttpPost]
+
+        [HttpDelete("/Categoria/EliminarCategoria/{idCategoria}")]
         [ValidateAntiForgeryToken]
 
-        public async Task<JsonResult> EliminarCategoria([FromBody] Categoria categoria)
+        public async Task<JsonResult> EliminarCategoria(int idCategoria)
         {
             try
             {
-                Categoria categoriaBorrarImagen = await categoriaService.ObtenerCategoriaEspecifica(categoria);
+                Categoria categoriaBorrarImagen = await categoriaService.ObtenerCategoriaPorId(idCategoria);
 
                 if (!funcionesUtiles.BorrarImagenGuardadaEnSistemaCategoria(categoriaBorrarImagen))
                 {
@@ -109,15 +114,15 @@ namespace BakeryApp_v1.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<JsonResult> DevolverCategoriaEspecifica([FromBody] Categoria categoria)
+        [HttpGet("/Categoria/DevolverCategoriaEspecifica/{idCategoria}")]
+        public async Task<JsonResult> DevolverCategoriaEspecifica(int idCategoria)
         {
-            Categoria categoriaEncontrada = await categoriaService.ObtenerCategoriaEspecifica(categoria);
+            Categoria categoriaEncontrada = await categoriaService.ObtenerCategoriaPorId(idCategoria);
             return new JsonResult(new { categoria = categoriaEncontrada });
         }
 
 
-        [HttpPost]
+        [HttpPut]
         [ValidateAntiForgeryToken]
         public async Task<JsonResult> GuardarEditada([FromForm] Categoria categoria)
         {
@@ -125,7 +130,7 @@ namespace BakeryApp_v1.Controllers
 
             if (categoriaService.VerificarDatosVaciosONulos(categoria))
             {
-                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false});
+                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
             }
 
 
@@ -133,18 +138,18 @@ namespace BakeryApp_v1.Controllers
 
             if (resultadoRepetida)
             {
-                return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado", correcto = false});
+                return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado", correcto = false });
             }
 
             Categoria categoriaConImagen = await funcionesUtiles.GuardarImagenEnSistemaCategoria(categoria);
 
             if (categoriaConImagen == null)
             {
-                return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false});
+                return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false });
             }
 
             await categoriaService.Editar(categoriaConImagen);
-            return new JsonResult(new { mensaje = "Categoria modificada con éxito", correcto = true});
+            return new JsonResult(new { mensaje = "Categoria modificada con éxito", correcto = true });
         }
 
 
@@ -176,11 +181,11 @@ namespace BakeryApp_v1.Controllers
 
 
 
-            
+
         }
 
-        [HttpPost]
-        public async Task<JsonResult> ObtenerTotalPaginas([FromBody] Categoria categoria)
+        [HttpGet]
+        public async Task<JsonResult> ObtenerTotalPaginas()
         {
             int totalPaginas = await categoriaService.CalcularTotalPaginas();
             return new JsonResult(new { paginas = totalPaginas });

@@ -14,6 +14,9 @@ public partial class Categoria
 
     public string ImagenCategoria { get; set; } = null!;
 
+    public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
+
+
     [NotMapped]
     public IFormFile ArchivoCategoria { get; set; }
 }

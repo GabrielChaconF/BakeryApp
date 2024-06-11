@@ -264,3 +264,4 @@ C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\Baker
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp_v1\obj\Debug\net8.0\BakeryApp_v1.pdb
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp_v1\obj\Debug\net8.0\BakeryApp_v1.genruntimeconfig.cache
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp_v1\obj\Debug\net8.0\ref\BakeryApp_v1.dll
+C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\BCrypt.Net-Next.dll

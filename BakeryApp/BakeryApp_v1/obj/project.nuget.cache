@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "B9NwpPdcS3A=",
+  "dgSpecHash": "kKlsO3pPRfk=",
   "success": true,
   "projectFilePath": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\BakeryApp_v1.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\gabri\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

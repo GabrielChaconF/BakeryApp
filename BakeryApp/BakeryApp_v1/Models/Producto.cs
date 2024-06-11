@@ -18,4 +18,6 @@ public partial class Producto
     public string RecetaProducto { get; set; } = null!;
 
     public string ImagenProducto { get; set; } = null!;
+
+    public virtual Categoria IdCategoriaNavigation { get; set; } = null!;
 }

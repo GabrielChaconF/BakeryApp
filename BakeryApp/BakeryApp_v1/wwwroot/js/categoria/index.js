@@ -24,13 +24,11 @@ function CargarAlInicio() {
 
 
 function ObtenerTodasLasCategorias(pagina) {
-    fetch("/Categoria/ObtenerCategorias", {
-        method: "POST",
+    fetch("/Categoria/ObtenerCategorias/"+pagina, {
+        method: "GET",
         headers: {
-            "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
-        },
-        body: JSON.stringify(pagina)
+        }
     }).then(respuesta => {
         return respuesta.json()
     }).then(respuesta => {
@@ -164,20 +162,15 @@ function EliminarCategoria(event) {
 
 
 
-    const categoria = {
-        IdCategoria: idCategoria
-    }
 
 
 
-    fetch("/Categoria/EliminarCategoria", {
-        method: "POST",
+    fetch("/Categoria/EliminarCategoria/" + idCategoria, {
+        method: "DELETE",
         headers: {
-            "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
             "RequestVerificationToken": token
-        },
-        body: JSON.stringify(categoria)
+        }
     }).then(respuesta => {
         return respuesta.json()
     }).then(respuesta => {
@@ -197,7 +190,7 @@ function VerPaginaEditar(event) {
 
 
 
-    var urlEditar = "Categoria/EditarCategoria?idCategoria=" + idCategoria;
+    var urlEditar = "/Categoria/EditarCategoria?idCategoria=" + idCategoria;
 
 
     window.location.replace(urlEditar);
@@ -208,9 +201,8 @@ function ObtenerTodasLasPaginas() {
 
 
     fetch("/Categoria/ObtenerTotalPaginas", {
-        method: "POST",
+        method: "GET",
         headers: {
-            "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
         }
     }).then(respuesta => {

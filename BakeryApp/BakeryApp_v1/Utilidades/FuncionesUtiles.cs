@@ -1,4 +1,5 @@
 ﻿using BakeryApp_v1.Models;
+using Org.BouncyCastle.Crypto.Generators;
 using System.Diagnostics;
 
 namespace BakeryApp_v1.Utilidades;
@@ -68,6 +69,19 @@ public class FuncionesUtiles : IFuncionesUtiles
         return true;
     }
 
+    public Persona EncriptarContraseña(Persona persona)
+    {
+        try
+        {
+            persona.Contra = BCrypt.Net.BCrypt.HashPassword(persona.Contra);
+            return persona;
+        }
+        catch (Exception ex)
+        {
 
+            return null;
+        }
+        
 
+    }
 }

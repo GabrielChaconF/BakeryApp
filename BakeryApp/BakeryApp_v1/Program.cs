@@ -25,6 +25,10 @@ builder.Services.AddAntiforgery(options =>
 
 builder.Services.AddScoped<CategoriaDAO, CategoriaDAOImpl>();
 builder.Services.AddScoped<CategoriaService, CategoriaServiceImpl>();
+builder.Services.AddScoped<PersonaDAO, PersonaDAOImpl>();
+builder.Services.AddScoped<PersonaService, PersonaServiceImpl>();
+builder.Services.AddScoped<RolDAO, RolDAOImpl>();
+builder.Services.AddScoped<RolService, RolServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
 
 

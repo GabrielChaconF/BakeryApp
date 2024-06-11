@@ -12,17 +12,14 @@ function ObtenerCategoriaEspecifica() {
 
     const parametrosUrl = new URLSearchParams(url);
 
-    const categoria = {
-        IdCategoria: parametrosUrl.get("idCategoria")
-    }
- 
-    fetch("/Categoria/DevolverCategoriaEspecifica", {
-        method: "POST",
+    IdCategoria = parametrosUrl.get("idCategoria");
+
+
+    fetch("/Categoria/DevolverCategoriaEspecifica/" + IdCategoria, {
+        method: "GET",
         headers: {
-            "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
-        },
-        body: JSON.stringify(categoria)
+        }
     }).then(respuesta => {
         return respuesta.json()
     }).then(respuesta => {
@@ -99,7 +96,7 @@ function EditarCategoria(event) {
     categoria.append("ArchivoCategoria", imagenCategoria);
 
     fetch("/Categoria/GuardarEditada", {
-        method: "POST",
+        method: "PUT",
         headers: {
             "X-Requested-With": "XMLHttpRequest",
             "RequestVerificationToken": token
