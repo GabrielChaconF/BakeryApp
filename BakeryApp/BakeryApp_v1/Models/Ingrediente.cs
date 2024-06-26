@@ -18,4 +18,6 @@ public partial class Ingrediente
     public decimal PrecioUnidadIngrediente { get; set; }
 
     public DateTime? FechaCaducidadIngrediente { get; set; }
+
+    public virtual ICollection<Receta> IdReceta { get; set; } = new List<Receta>();
 }

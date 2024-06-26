@@ -14,8 +14,9 @@ builder.Services.AddControllersWithViews();
 
 
 
-builder.Services.AddDbContext<BakeryAppContext>(options =>
+builder.Services.AddDbContext<BakeryAppContext>(options => 
 options.UseMySQL(builder.Configuration.GetConnectionString("conexion")));
+
 
 builder.Services.AddAntiforgery(options =>
 {
@@ -30,6 +31,8 @@ builder.Services.AddScoped<PersonaService, PersonaServiceImpl>();
 builder.Services.AddScoped<RolDAO, RolDAOImpl>();
 builder.Services.AddScoped<RolService, RolServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
+
+
 
 
 var app = builder.Build();

@@ -23,6 +23,8 @@ public partial class BakeryAppContext : DbContext
 
     public virtual DbSet<Producto> Productos { get; set; }
 
+    public virtual DbSet<Receta> Recetas { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -56,6 +58,24 @@ public partial class BakeryAppContext : DbContext
             entity.Property(e => e.NombreIngrediente).HasMaxLength(50);
             entity.Property(e => e.PrecioUnidadIngrediente).HasPrecision(10);
             entity.Property(e => e.UnidadMedidaIngrediente).HasMaxLength(50);
+
+            entity.HasMany(d => d.IdReceta).WithMany(p => p.IdIngredientes)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Ingredientesreceta",
+                    r => r.HasOne<Receta>().WithMany()
+                        .HasForeignKey("IdReceta")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("fk_id_receta_rec"),
+                    l => l.HasOne<Ingrediente>().WithMany()
+                        .HasForeignKey("IdIngrediente")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("fk_id_ingrediente_rec"),
+                    j =>
+                    {
+                        j.HasKey("IdIngrediente", "IdReceta").HasName("PRIMARY");
+                        j.ToTable("ingredientesrecetas");
+                        j.HasIndex(new[] { "IdReceta" }, "fk_id_receta_rec");
+                    });
         });
 
         modelBuilder.Entity<Persona>(entity =>
@@ -92,18 +112,33 @@ public partial class BakeryAppContext : DbContext
 
             entity.HasIndex(e => e.IdCategoria, "fk_id_Categoria");
 
+            entity.HasIndex(e => e.IdReceta, "fk_id_receta");
+
             entity.HasIndex(e => e.NombreProducto, "uq_nombre_Producto").IsUnique();
 
             entity.Property(e => e.DescripcionProducto).HasMaxLength(255);
             entity.Property(e => e.ImagenProducto).HasMaxLength(80);
             entity.Property(e => e.NombreProducto).HasMaxLength(40);
             entity.Property(e => e.PrecioProducto).HasMaxLength(80);
-            entity.Property(e => e.RecetaProducto).HasMaxLength(80);
 
             entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdCategoria)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_id_Categoria");
+
+            entity.HasOne(d => d.IdRecetaNavigation).WithMany(p => p.Productos)
+                .HasForeignKey(d => d.IdReceta)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_id_receta");
+        });
+
+        modelBuilder.Entity<Receta>(entity =>
+        {
+            entity.HasKey(e => e.IdReceta).HasName("PRIMARY");
+
+            entity.ToTable("recetas");
+
+            entity.Property(e => e.NombreReceta).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Role>(entity =>

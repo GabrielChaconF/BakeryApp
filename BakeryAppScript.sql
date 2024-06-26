@@ -11,32 +11,12 @@ use BakeryApp;
 /* Creación de Tablas */
 
 create table Categorias(
-
 	IdCategoria int not null auto_increment,
-
 	NombreCategoria varchar(40) not null,
-
     DescripcionCategoria varchar(255) not null,
-
     ImagenCategoria varchar(80) not null,
-
     constraint pk_id_categoria primary key (IdCategoria),
-
     constraint uq_nombre_categoria unique (NombreCategoria)
-
-);
- 
- create table Productos(
-	IdProducto int not null auto_increment,
-	NombreProducto varchar(40) not null,
-    DescripcionProducto varchar(255) not null,
-    PrecioProducto varchar(80) not null,
-    IdCategoria int not null, 
-    RecetaProducto varchar(80) not null,
-    ImagenProducto varchar(80) not null,
-    constraint pk_id_Producto primary key (IdProducto),
-    constraint fk_id_Categoria foreign key (IdCategoria) references Categorias(IdCategoria),
-    constraint uq_nombre_Producto unique (NombreProducto)
 );
 
 create table Ingredientes(
@@ -46,9 +26,40 @@ create table Ingredientes(
     CantidadIngrediente decimal(10,2) not null,
     UnidadMedidaIngrediente varchar(50) not null,
     PrecioUnidadIngrediente decimal(10,2) not null,
-    FechaCaducidadIngrediente date,
+    FechaCaducidadIngrediente date not null,
     constraint pk_id_Ingrediente primary key (IdIngrediente)
 );
+
+create table Recetas(
+	IdReceta int not null auto_increment,
+    NombreReceta varchar(50) not null,
+    Instrucciones longtext not null,
+    constraint pk_id_receta primary key (IdReceta)
+);
+
+create table IngredientesRecetas(
+	IdIngrediente int not null,
+    IdReceta int not null,
+    constraint pk_id_ingredientes_recetas primary key (IdIngrediente, IdReceta),
+    constraint fk_id_ingrediente_rec foreign key(IdIngrediente) references Ingredientes(IdIngrediente),
+    constraint fk_id_receta_rec foreign key(IdReceta) references Recetas(IdReceta)
+);
+
+ 
+create table Productos(
+	IdProducto int not null auto_increment,
+	NombreProducto varchar(40) not null,
+    DescripcionProducto varchar(255) not null,
+    PrecioProducto varchar(80) not null,
+    IdCategoria int not null, 
+    IdReceta int not null,
+    ImagenProducto varchar(80) not null,
+    constraint pk_id_Producto primary key (IdProducto),
+    constraint fk_id_Categoria foreign key (IdCategoria) references Categorias(IdCategoria),
+    constraint fk_id_receta foreign key (IdReceta) references Recetas(IdReceta),
+    constraint uq_nombre_Producto unique (NombreProducto)
+);
+
 
 create table Roles(	
 	IdRol int not null,

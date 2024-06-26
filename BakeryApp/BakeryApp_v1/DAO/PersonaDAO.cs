@@ -1,4 +1,5 @@
-﻿using BakeryApp_v1.Models;
+﻿using BakeryApp_v1.DTO;
+using BakeryApp_v1.Models;
 
 namespace BakeryApp_v1.DAO;
 
@@ -15,7 +16,7 @@ public interface PersonaDAO
 
     public Task<Persona> ObtenerPersonaPorId(int idPersona);
 
-    public Task<IEnumerable<Persona>> ObtenerTodasLasPersonas(int pagina);
+    public Task<IEnumerable<PersonaDTO>> ObtenerTodasLasPersonas(int pagina);
 
     public Task<Persona> ObtenerPersonaPorCorreo(Persona persona);
 

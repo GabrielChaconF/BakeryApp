@@ -1,4 +1,5 @@
-﻿using BakeryApp_v1.Models;
+﻿using BakeryApp_v1.DTO;
+using BakeryApp_v1.Models;
 
 namespace BakeryApp_v1.Services;
 
@@ -19,7 +20,7 @@ public interface PersonaService
 
     public bool ValidarLongitudContraseña(Persona persona);
 
-    public Task<IEnumerable<Persona>> ObtenerTodasLasPersonas(int pagina);
+    public Task<IEnumerable<PersonaDTO>> ObtenerTodasLasPersonas(int pagina);
 
     public Task<bool> VerificarCorreoRepetido(Persona persona);
 
@@ -29,4 +30,6 @@ public interface PersonaService
 
     public bool ValidarLongitudTelefono(Persona persona);
     public bool ValidarNumeroTelefono(Persona persona);
+
+    public bool VerificarCorreoElectronico(Persona persona);
 }

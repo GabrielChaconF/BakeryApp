@@ -15,8 +15,14 @@ namespace BakeryApp_v1.Controllers
             this.funcionesUtiles = funcionesUtiles;
         }
 
-        public IActionResult Index([FromQuery] int pagina)
+        public async Task<IActionResult> Index([FromQuery] int pagina)
         {
+            int totalPaginas = await categoriaService.CalcularTotalPaginas();
+            if (pagina > totalPaginas)
+            {
+                return NotFound();
+            }
+
             return View();
         }
 
@@ -25,7 +31,12 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-      
+        //[HttpGet("/Categoria/Pagina/{pagina}")]
+        //public IActionResult Pagina(int pagina)
+        //{
+        //    return RedirectToAction("Index");
+        //}
+
         public async Task<IActionResult> EditarCategoria([FromQuery]int idCategoria)
         {
             Categoria categoriaEditar = await categoriaService.ObtenerCategoriaPorId(idCategoria);
@@ -44,7 +55,7 @@ namespace BakeryApp_v1.Controllers
         {
             //Si se intenta acceder por URL y por accidente se pone la pagina 0,
             //para que la aplicacion no se caiga
-            if (pagina == 0)
+            if (pagina <= 0)
             {
                 return BadRequest();
             }

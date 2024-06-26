@@ -1,7 +1,7 @@
 ﻿using BakeryApp_v1.Models;
-using Microsoft.EntityFrameworkCore;
 using PagedList;
-
+using Microsoft.EntityFrameworkCore;
+using BakeryApp_v1.DTO;
 namespace BakeryApp_v1.DAO;
 
 public class PersonaDAOImpl : PersonaDAO
@@ -14,7 +14,7 @@ public class PersonaDAOImpl : PersonaDAO
     }
 
 
-    public async Task Guardar(Persona persona) 
+    public async Task Guardar(Persona persona)
     {
         dbContext.Add(persona);
         await dbContext.SaveChangesAsync();
@@ -45,11 +45,32 @@ public class PersonaDAOImpl : PersonaDAO
         return personaEncontrada;
     }
 
-    public async Task<IEnumerable<Persona>> ObtenerTodasLasPersonas(int pagina)
+    public async Task<IEnumerable<PersonaDTO>> ObtenerTodasLasPersonas(int pagina)
     {
         int numeroDeElementosPorPagina = 10;
 
-        IPagedList<Persona> todasLasPersonas =  dbContext.Personas.OrderBy(Persona => Persona.IdPersona).ToPagedList(pageNumber: pagina, pageSize: numeroDeElementosPorPagina);
+        var todasLasPersonas = dbContext.Personas
+        .Include(persona => persona.IdRolNavigation)
+        .OrderBy(persona => persona.IdPersona)
+        .Select(persona => new PersonaDTO
+        {
+            IdPersona = persona.IdPersona,
+            Nombre = persona.Nombre,
+            PrimerApellido = persona.PrimerApellido,
+            SegundoApellido = persona.SegundoApellido,
+            Correo = persona.Correo,
+            Telefono = persona.Telefono,
+            IdRol = persona.IdRol,
+            Rol = new RoleDTO
+            {
+                IdRol = persona.IdRolNavigation.IdRol,
+                NombreRol = persona.IdRolNavigation.NombreRol
+            }
+        })
+        .ToPagedList(pageNumber: pagina, pageSize: numeroDeElementosPorPagina);
+
+
+
         return todasLasPersonas;
     }
 

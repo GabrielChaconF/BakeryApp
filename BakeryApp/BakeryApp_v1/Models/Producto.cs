@@ -15,9 +15,11 @@ public partial class Producto
 
     public int IdCategoria { get; set; }
 
-    public string RecetaProducto { get; set; } = null!;
+    public int IdReceta { get; set; }
 
     public string ImagenProducto { get; set; } = null!;
 
     public virtual Categoria IdCategoriaNavigation { get; set; } = null!;
+
+    public virtual Receta IdRecetaNavigation { get; set; } = null!;
 }

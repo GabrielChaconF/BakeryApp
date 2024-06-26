@@ -1,6 +1,9 @@
 ﻿using BakeryApp_v1.DAO;
+using BakeryApp_v1.DTO;
 using BakeryApp_v1.Models;
 using PagedList;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace BakeryApp_v1.Services;
@@ -41,9 +44,9 @@ public class PersonaServiceImpl : PersonaService
         return PersonaBuscada;
     }
 
-    public async Task<IEnumerable<Persona>> ObtenerTodasLasPersonas(int pagina)
+    public async Task<IEnumerable<PersonaDTO>> ObtenerTodasLasPersonas(int pagina)
     {
-        IEnumerable<Persona> todasLasPersonas = await personaDAO.ObtenerTodasLasPersonas(pagina);
+        IEnumerable<PersonaDTO> todasLasPersonas = await personaDAO.ObtenerTodasLasPersonas(pagina);
         return todasLasPersonas;
     }
 
@@ -95,6 +98,17 @@ public class PersonaServiceImpl : PersonaService
     }
 
 
+    public bool VerificarCorreoElectronico(Persona persona)
+    {
+        EmailAddressAttribute validacionCorreo = new EmailAddressAttribute();
+
+        if (!validacionCorreo.IsValid(persona.Correo))
+        {
+            return false;
+        }
+
+        return true;
+    }
 
 
 

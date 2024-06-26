@@ -23,7 +23,7 @@
             </div>
         </section>
 
-        
+        @Html.AntiForgeryToken()
         <section class="content" id="tabla">
             <div class="row">
                 <div class="col-12">
@@ -32,7 +32,7 @@
                             <h3 class="card-title">Historial de Perfiles.</h3>
                         </div>
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
+                            <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -42,6 +42,8 @@
                                         <th>Correo</th>
                                         <th>Teléfono</th>
                                         <th>Rol</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody id="agregar">

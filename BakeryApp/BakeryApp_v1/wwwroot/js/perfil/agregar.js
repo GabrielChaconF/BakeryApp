@@ -46,7 +46,7 @@ function GuardarPersona(event) {
 
     const primerApellido = document.getElementById("primerApellidoPersona").value;
 
-    const segundoApellido = document.getElementById("primerApellidoPersona").value;
+    const segundoApellido = document.getElementById("segundoApellidoPersona").value;
 
     const correo = document.getElementById("correo").value;
 
