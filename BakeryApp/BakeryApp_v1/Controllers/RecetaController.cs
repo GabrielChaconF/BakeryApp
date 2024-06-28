@@ -1,0 +1,119 @@
+﻿using BakeryApp_v1.Models;
+using BakeryApp_v1.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+
+namespace BakeryApp_v1.Controllers;
+
+public class RecetaController : Controller
+{
+    private readonly IngredienteService ingredienteService;
+    private readonly RecetaService recetaService;
+    public RecetaController(IngredienteService ingredienteService, RecetaService recetaService)
+    {
+        this.ingredienteService = ingredienteService;
+        this.recetaService = recetaService;
+    }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult AgregarReceta()
+    {
+        return View();
+    }
+
+
+    [HttpGet]
+    public async Task<JsonResult> ObtenerTotalPaginas()
+    {
+        int totalPaginas = await recetaService.CalcularTotalPaginas();
+        return new JsonResult(new { paginas = totalPaginas });
+    }
+
+    [HttpGet("/Receta/ObtenerTodosLosIngredientes")]
+
+    public async Task<JsonResult> ObtenerTodosLosIngredientes()
+    {
+        return new JsonResult(new { arregloIngredientes = await ingredienteService.ObtenerTodasLasIngredientes() });
+    }
+
+    [HttpGet("/Recetas/ObtenerTodasLasRecetas/{pagina}")]
+    public async Task<IActionResult> ObtenerTodasLasPersonas(int pagina)
+    {
+        if (pagina <= 0)
+        {
+            return BadRequest();
+        }
+        return new JsonResult(new { arregloRecetas = await recetaService.ObtenerTodasLasRecetas(pagina) });
+    }
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+
+    public async Task<JsonResult> GuardarReceta([FromBody] Receta receta)
+    {
+
+        try
+        {
+
+            if (recetaService.VerificarDatosVaciosONulos(receta))
+            {
+                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+            }
+
+
+
+            bool resultadoRepetida = await recetaService.VerificarNombreRepetido(receta);
+
+            if (resultadoRepetida)
+            {
+                return new JsonResult(new { mensaje = "El nombre de la receta ya se encuentra registrado" });
+            }
+
+
+
+            // Se buscan los ingredientes relacionados a la receta
+            List<Ingrediente> ingredientesBuscados = new List<Ingrediente>();
+            foreach (Ingrediente ingrediente in receta.IdIngredientes)
+            {
+                Ingrediente ingredienteEncontrado = await ingredienteService.ObtenerIngredientePorId(ingrediente.IdIngrediente);
+                ingredientesBuscados.Add(ingredienteEncontrado);
+            }
+
+
+            //Se crea la receta con los ingredientes asociados
+            Receta recetaConIngredientes = new Receta
+            {
+                IdReceta = receta.IdReceta,
+                NombreReceta = receta.NombreReceta,
+                Instrucciones = receta.Instrucciones,
+                IdIngredientes = ingredientesBuscados
+            };
+
+
+
+
+            ingredienteService.AttachIngredientes(ingredientesBuscados);
+
+            await recetaService.Guardar(recetaConIngredientes);
+
+
+
+
+            return new JsonResult(new { mensaje = "Receta guardada con éxito" });
+        }
+        catch (Exception ex)
+        {
+
+            return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar la receta" });
+        }
+
+    }
+
+
+}

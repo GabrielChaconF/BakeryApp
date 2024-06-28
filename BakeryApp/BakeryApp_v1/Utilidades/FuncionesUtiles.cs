@@ -1,6 +1,4 @@
 ﻿using BakeryApp_v1.Models;
-using Org.BouncyCastle.Crypto.Generators;
-using System.Diagnostics;
 
 namespace BakeryApp_v1.Utilidades;
 
@@ -33,7 +31,7 @@ public class FuncionesUtiles : IFuncionesUtiles
                 {
                     await categoria.ArchivoCategoria.CopyToAsync(stream);
                 }
-               
+
                 categoria.ImagenCategoria = rutaBaseDatos;
             }
         }
@@ -81,7 +79,7 @@ public class FuncionesUtiles : IFuncionesUtiles
 
             return null;
         }
-        
+
 
     }
 }

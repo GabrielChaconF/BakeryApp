@@ -1,7 +1,7 @@
 ﻿using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
-using Microsoft.AspNetCore.Mvc;
 using BakeryApp_v1.Utilidades;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BakeryApp_v1.Controllers
 {
@@ -37,7 +37,7 @@ namespace BakeryApp_v1.Controllers
         //    return RedirectToAction("Index");
         //}
 
-        public async Task<IActionResult> EditarCategoria([FromQuery]int idCategoria)
+        public async Task<IActionResult> EditarCategoria([FromQuery] int idCategoria)
         {
             Categoria categoriaEditar = await categoriaService.ObtenerCategoriaPorId(idCategoria);
 

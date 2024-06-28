@@ -1,6 +1,6 @@
 
 create database if not exists BakeryApp;
- 
+
 create user 'Bakery' identified by "BakeryApp.*";
  
 grant all privileges on BakeryApp.* to 'Bakery';
@@ -23,7 +23,7 @@ create table Ingredientes(
 	IdIngrediente int not null auto_increment,
     NombreIngrediente varchar(50) not null,
     DescripcionIngrediente varchar(100) not null,
-    CantidadIngrediente decimal(10,2) not null,
+    CantidadIngrediente int not null,
     UnidadMedidaIngrediente varchar(50) not null,
     PrecioUnidadIngrediente decimal(10,2) not null,
     FechaCaducidadIngrediente date not null,
@@ -41,11 +41,11 @@ create table IngredientesRecetas(
 	IdIngrediente int not null,
     IdReceta int not null,
     constraint pk_id_ingredientes_recetas primary key (IdIngrediente, IdReceta),
-    constraint fk_id_ingrediente_rec foreign key(IdIngrediente) references Ingredientes(IdIngrediente),
-    constraint fk_id_receta_rec foreign key(IdReceta) references Recetas(IdReceta)
+    constraint fk_id_ingrediente_rec foreign key(IdIngrediente) references Ingredientes(IdIngrediente) on delete cascade,
+    constraint fk_id_receta_rec foreign key(IdReceta) references Recetas(IdReceta) on delete cascade
 );
 
- 
+
 create table Productos(
 	IdProducto int not null auto_increment,
 	NombreProducto varchar(40) not null,
@@ -59,7 +59,6 @@ create table Productos(
     constraint fk_id_receta foreign key (IdReceta) references Recetas(IdReceta),
     constraint uq_nombre_Producto unique (NombreProducto)
 );
-
 
 create table Roles(	
 	IdRol int not null,
@@ -97,6 +96,11 @@ select * from Roles;
 
 select * from Personas;
  
+select * from Ingredientes;
+ 
+select * from Recetas;
+
+select * from ingredientesRecetas;
 /* Consulta para ver el tamaño de la base de datos en MB */
 
 SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Database Size (MB)"

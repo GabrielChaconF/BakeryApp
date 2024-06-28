@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BakeryApp_v1;
 
 namespace BakeryApp_v1.Controllers
 {
-	public class EmpleadoController : Controller
-	{
-		public IActionResult Index()
-		{
-			return View();
-		}
+    public class EmpleadoController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         //----------------Perfil------------------
         public IActionResult PerfilEmpleado()

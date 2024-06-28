@@ -14,7 +14,7 @@ public class CategoriaDAOImpl : CategoriaDAO
     }
 
 
-    public async Task Guardar(Categoria categoria) 
+    public async Task Guardar(Categoria categoria)
     {
         dbContext.Add(categoria);
         await dbContext.SaveChangesAsync();
@@ -35,6 +35,7 @@ public class CategoriaDAOImpl : CategoriaDAO
 
     public async Task<Categoria> ObtenerCategoriaEspecifica(Categoria categoria)
     {
+        
         Categoria categoriaEncontrada = await dbContext.Categorias.FirstOrDefaultAsync(Categoria => Categoria.IdCategoria == categoria.IdCategoria);
         return categoriaEncontrada;
     }
@@ -49,7 +50,7 @@ public class CategoriaDAOImpl : CategoriaDAO
     {
         int numeroDeElementosPorPagina = 9;
 
-        IPagedList<Categoria> todasLasCategorias =  dbContext.Categorias.OrderBy(Categoria => Categoria.IdCategoria).ToPagedList(pageNumber: pagina, pageSize: numeroDeElementosPorPagina);
+        IPagedList<Categoria> todasLasCategorias = dbContext.Categorias.OrderBy(Categoria => Categoria.IdCategoria).ToPagedList(pageNumber: pagina, pageSize: numeroDeElementosPorPagina);
         return todasLasCategorias;
     }
 

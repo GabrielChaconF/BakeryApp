@@ -11,7 +11,7 @@ public interface CategoriaService
 
     public Task<Categoria> ObtenerCategoriaEspecifica(Categoria categoria);
 
-    public Task<Categoria> ObtenerCategoriaPorId(int idCategoria);  
+    public Task<Categoria> ObtenerCategoriaPorId(int idCategoria);
 
     public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias(int pagina);
 

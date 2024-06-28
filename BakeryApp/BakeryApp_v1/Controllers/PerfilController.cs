@@ -1,14 +1,13 @@
 ﻿using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BakeryApp_v1.Controllers
 {
 
     public class PerfilController : Controller
-    {   
+    {
         private readonly PersonaService personaService;
         private readonly RolService rolService;
         private readonly IFuncionesUtiles funcionesUtiles;
@@ -20,7 +19,7 @@ namespace BakeryApp_v1.Controllers
         }
 
 
-        public async Task<ActionResult> Index([FromQuery]int pagina)
+        public async Task<ActionResult> Index([FromQuery] int pagina)
         {
             int totalPaginas = await personaService.CalcularTotalPaginas();
             if (pagina > totalPaginas)
@@ -52,7 +51,7 @@ namespace BakeryApp_v1.Controllers
 
 
         [HttpGet("/Perfil/DevolverPerfilEspecifico/{idPersona}")]
-        public async Task<JsonResult> DevolverCategoriaEspecifica(int idPersona)
+        public async Task<JsonResult> DevolverPerfilEspecifico(int idPersona)
         {
             Persona personaEncontrada = await personaService.ObtenerPersonaPorId(idPersona);
             return new JsonResult(new { persona = personaEncontrada });
@@ -192,7 +191,7 @@ namespace BakeryApp_v1.Controllers
                 {
                     return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña" });
                 }
-                
+
                 await personaService.Editar(persona);
                 return new JsonResult(new { mensaje = "Persona modificada con éxito" });
             }
@@ -226,7 +225,7 @@ namespace BakeryApp_v1.Controllers
             try
             {
                 Persona personaABorrar = await personaService.ObtenerPersonaPorId(idPersona);
-                
+
                 await personaService.Eliminar(personaABorrar);
                 return new JsonResult(new { mensaje = "Perfil borrado con exito" });
             }

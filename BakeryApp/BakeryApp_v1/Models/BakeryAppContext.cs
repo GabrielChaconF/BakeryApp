@@ -52,7 +52,6 @@ public partial class BakeryAppContext : DbContext
 
             entity.ToTable("ingredientes");
 
-            entity.Property(e => e.CantidadIngrediente).HasPrecision(10);
             entity.Property(e => e.DescripcionIngrediente).HasMaxLength(100);
             entity.Property(e => e.FechaCaducidadIngrediente).HasColumnType("date");
             entity.Property(e => e.NombreIngrediente).HasMaxLength(50);
@@ -64,11 +63,9 @@ public partial class BakeryAppContext : DbContext
                     "Ingredientesreceta",
                     r => r.HasOne<Receta>().WithMany()
                         .HasForeignKey("IdReceta")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("fk_id_receta_rec"),
                     l => l.HasOne<Ingrediente>().WithMany()
                         .HasForeignKey("IdIngrediente")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("fk_id_ingrediente_rec"),
                     j =>
                     {

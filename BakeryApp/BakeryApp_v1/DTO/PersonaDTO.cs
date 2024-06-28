@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-
-namespace BakeryApp_v1.DTO;
+﻿namespace BakeryApp_v1.DTO;
 
 public class PersonaDTO
 {

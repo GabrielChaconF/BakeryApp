@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\users\\gabri\\onedrive\\desktop\\pruebas y pruebas\\githubdesarrollosistemas\\bakeryapp\\bakeryapp_v1\\models\\receta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\models\\receta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\users\\gabri\\onedrive\\desktop\\pruebas y pruebas\\githubdesarrollosistemas\\bakeryapp\\bakeryapp_v1\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -75,14 +75,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Receta.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Models\\Receta.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Models\\Receta.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Models\\Receta.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Models\\Receta.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp_v1\\Models\\Categoria.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Models\\Categoria.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABMAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T02:05:44.811Z",
+              "WhenOpened": "2024-06-28T07:27:54.568Z",
               "EditorCaption": ""
             }
           ]

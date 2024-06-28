@@ -9,7 +9,7 @@ public interface PersonaDAO
 
     public Task Editar(Persona persona);
 
-  
+
     public Task Eliminar(Persona persona);
 
     public Task<Persona> ObtenerPersonaEspecifica(Persona persona);
@@ -22,6 +22,6 @@ public interface PersonaDAO
 
     public Task<Persona> ObtenerPersonaPorTelefono(Persona persona);
 
-    public Task<int> ContarTotalPersonas(); 
+    public Task<int> ContarTotalPersonas();
 
 }

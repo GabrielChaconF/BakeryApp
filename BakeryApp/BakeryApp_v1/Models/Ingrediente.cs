@@ -11,13 +11,13 @@ public partial class Ingrediente
 
     public string DescripcionIngrediente { get; set; } = null!;
 
-    public decimal CantidadIngrediente { get; set; }
+    public int CantidadIngrediente { get; set; }
 
     public string UnidadMedidaIngrediente { get; set; } = null!;
 
     public decimal PrecioUnidadIngrediente { get; set; }
 
-    public DateTime? FechaCaducidadIngrediente { get; set; }
+    public DateTime FechaCaducidadIngrediente { get; set; }
 
     public virtual ICollection<Receta> IdReceta { get; set; } = new List<Receta>();
 }

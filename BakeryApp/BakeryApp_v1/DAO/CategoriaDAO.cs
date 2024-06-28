@@ -8,7 +8,7 @@ public interface CategoriaDAO
 
     public Task Editar(Categoria categoria);
 
-  
+
     public Task Eliminar(Categoria categoria);
 
     public Task<Categoria> ObtenerCategoriaEspecifica(Categoria categoria);
@@ -19,6 +19,6 @@ public interface CategoriaDAO
 
     public Task<Categoria> ObtenerCategoriaPorNombre(Categoria categoria);
 
-    public Task<int> ContarTotalCategorias(); 
+    public Task<int> ContarTotalCategorias();
 
 }

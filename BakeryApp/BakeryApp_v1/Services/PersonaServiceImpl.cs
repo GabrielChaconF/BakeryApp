@@ -1,9 +1,7 @@
 ﻿using BakeryApp_v1.DAO;
 using BakeryApp_v1.DTO;
 using BakeryApp_v1.Models;
-using PagedList;
 using System.ComponentModel.DataAnnotations;
-using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace BakeryApp_v1.Services;
@@ -58,7 +56,7 @@ public class PersonaServiceImpl : PersonaService
             return true;
         }
 
-      
+
 
         return false;
     }

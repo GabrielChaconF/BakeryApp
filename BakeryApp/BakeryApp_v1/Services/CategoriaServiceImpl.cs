@@ -1,6 +1,5 @@
 ﻿using BakeryApp_v1.DAO;
 using BakeryApp_v1.Models;
-using PagedList;
 
 namespace BakeryApp_v1.Services;
 
@@ -53,7 +52,7 @@ public class CategoriaServiceImpl : CategoriaService
             return true;
         }
 
-      
+
 
         return false;
     }

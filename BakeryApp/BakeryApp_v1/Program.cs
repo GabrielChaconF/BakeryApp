@@ -2,10 +2,7 @@ using BakeryApp_v1.DAO;
 using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
-using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +11,7 @@ builder.Services.AddControllersWithViews();
 
 
 
-builder.Services.AddDbContext<BakeryAppContext>(options => 
+builder.Services.AddDbContext<BakeryAppContext>(options =>
 options.UseMySQL(builder.Configuration.GetConnectionString("conexion")));
 
 
@@ -30,6 +27,10 @@ builder.Services.AddScoped<PersonaDAO, PersonaDAOImpl>();
 builder.Services.AddScoped<PersonaService, PersonaServiceImpl>();
 builder.Services.AddScoped<RolDAO, RolDAOImpl>();
 builder.Services.AddScoped<RolService, RolServiceImpl>();
+builder.Services.AddScoped<IngredienteDAO, IngredienteDAOImpl>();
+builder.Services.AddScoped<IngredienteService, IngredienteServiceImpl>();
+builder.Services.AddScoped<RecetaDAO, RecetaDAOImpl>();
+builder.Services.AddScoped<RecetaService, RecetaServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
 
 

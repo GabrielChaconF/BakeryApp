@@ -17,68 +17,68 @@ namespace BakeryApp_v1.Controllers
         {
             return View();
         }
-		//---------------TIENDA-------------------
-		public IActionResult Tienda()
-		{
-			return View();
-		}
-
-		public IActionResult Categorias()
-		{
-			return View();
-		}
-
-		public IActionResult PersonalizarProducto()
-		{
-			return View();
-		}
-
-		public IActionResult Servicios()
-		{
-			return View();
-		}
-
-		public IActionResult SobreNosotros()
-		{
-			return View();
-		}
-
-		public IActionResult Contacto()
-		{
-			return View();
-		}
-
-		public IActionResult IniciarSesion()
-		{
-			return View();
-		}
-
-		public IActionResult RegistrarUsuario()
-		{
-			return View();
-		}
-
-		public IActionResult RecuperarContrasena()
-		{
-			return View();
-		}
-
-		public IActionResult CambiarContrasena()
-		{
-			return View();
-		}
-
-		public IActionResult Carro()
-		{
-			return View();
-		}
-
-		public IActionResult Privacy()
+        //---------------TIENDA-------------------
+        public IActionResult Tienda()
         {
             return View();
         }
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Categorias()
+        {
+            return View();
+        }
+
+        public IActionResult PersonalizarProducto()
+        {
+            return View();
+        }
+
+        public IActionResult Servicios()
+        {
+            return View();
+        }
+
+        public IActionResult SobreNosotros()
+        {
+            return View();
+        }
+
+        public IActionResult Contacto()
+        {
+            return View();
+        }
+
+        public IActionResult IniciarSesion()
+        {
+            return View();
+        }
+
+        public IActionResult RegistrarUsuario()
+        {
+            return View();
+        }
+
+        public IActionResult RecuperarContrasena()
+        {
+            return View();
+        }
+
+        public IActionResult CambiarContrasena()
+        {
+            return View();
+        }
+
+        public IActionResult Carro()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

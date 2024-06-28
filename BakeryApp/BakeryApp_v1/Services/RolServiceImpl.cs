@@ -1,6 +1,5 @@
 ﻿using BakeryApp_v1.DAO;
 using BakeryApp_v1.Models;
-using System.Collections;
 
 
 namespace BakeryApp_v1.Services;
@@ -11,7 +10,7 @@ public class RolServiceImpl : RolService
 
     public RolServiceImpl(RolDAO rolDAO)
     {
-        this.rolDAO = rolDAO;   
+        this.rolDAO = rolDAO;
     }
 
     public async Task<IEnumerable<Role>> ObtenerTodosLosRoles()

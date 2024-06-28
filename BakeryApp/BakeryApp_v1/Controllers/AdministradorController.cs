@@ -1,19 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BakeryApp_v1;
 
 namespace BakeryApp_v1.Controllers
 {
-	public class AdministradorController : Controller
-	{
-		public IActionResult Index()
-		{
-			return View();
-		}
+    public class AdministradorController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
         //----------------Perfil------------------
         public IActionResult PerfilAdministrador()
-		{
-			return View();
-		}
+        {
+            return View();
+        }
         //----------------Inventario------------------
         public IActionResult Inventario()
         {
@@ -51,10 +50,10 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-		public IActionResult EditarProducto()
-		{
-			return View();
-		}
+        public IActionResult EditarProducto()
+        {
+            return View();
+        }
 
         public IActionResult AgregarProducto()
         {
