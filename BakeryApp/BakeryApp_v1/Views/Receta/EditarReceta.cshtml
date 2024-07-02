@@ -33,48 +33,46 @@
                                 <div class="card bg-light">
 
                                     <br />
-                                    <div class="card-body pt-0">
-                                        <div class="form-group">
+                                    <form onsubmit="EditarReceta(event)">
+                                        <div class="card-body pt-0">
+                                            @Html.AntiForgeryToken()
+                                            <div class="form-group">
 
-                                            <label>Nombre:</label>
-                                            <input type="text" class="form-control" placeholder="Nombre receta">
+
+                                            <label for="nombreReceta">Nombre:</label>
+                                            <input id="nombreReceta" type="text" class="form-control" placeholder="Nombre receta">
+
+
+                                            </div>
+                                            <br />
+
+
+                                            <br />
+
+                                            <div class="form-group">
+                                                <label for="instruccionesReceta" class="text-black">Instrucciones exactas</label>
+                                                <textarea name="instruccionesReceta" id="instruccionesReceta" cols="30" rows="5" class="form-control" placeholder="Escriba las instrucciones de la receta aca..."></textarea>
+
+                                            </div>
+                                            <label for="listaIngredientes" class="text-black">Ingredientes relacionados:</label>
+                                            <ul id="listaIngredientes">
+                                            </ul>
+                                            <br />
+                                            <div class="from-group">
+                                                <label for="ingredientes" class="text-black">Ingredientes <span class="text-danger"></span></label>
+                                                <select id="ingredientes" class="form-control" multiple>
+                                                </select>
+                                            </div>
 
                                         </div>
-                                        <br />
-                                        <div class="form-group">
-                                            <label>Detalles:</label>
-                                            <input type="text" class="form-control" placeholder="Detalles receta">
+                                        <div class="card-footer">
+                                            <div class="text-right">
+                                                <button type="submit" class="btn btn-sm btn-primary">
+                                                    Modificar
+                                                </button>
+                                            </div>
                                         </div>
-
-                                        <br />
-
-
-                                        <div class="form-group">
-                                            <label for="c_order_notes" class="text-black">Instrucciones exactas</label>
-                                            <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Escriba las instrucciones de la receta aca..."></textarea>
-
-                                        </div>
-
-                                        <br />
-                                        <div class="form-group">
-                                            <label for="c_country" class="text-black">Ingredientes <span class="text-danger"></span></label>
-                                            <select id="c_country" class="form-control">
-                                                <option value="1">Seleccione los ingredientes necesarios para preparar la receta</option>
-                                                <option value="2">Ingrediente 1</option>
-                                                <option value="3">Ingrediente 2</option>
-                                                <option value="3">Ingrediente 3</option>
-                                                <option value="3">Ingrediente 4</option>
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="text-right">
-                                            <a href="@Url.Action("Recetas", "Administrador")" class="btn btn-sm btn-primary">
-                                                Modificar
-                                            </a>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
 
@@ -94,6 +92,15 @@
     </div>
 
 
-   
+
 </body>
 </html>
+@section Scripts
+{
+
+
+    <script type="text/javascript" src="~/js/receta/editar.js" asp-append-version=true>
+
+
+    </script>
+}

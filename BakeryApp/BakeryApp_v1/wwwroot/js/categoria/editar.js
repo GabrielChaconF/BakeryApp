@@ -35,7 +35,7 @@ function RellenarDatosFormulario(categoria) {
     inputNombre.value = categoria.nombreCategoria;
 
     const inputDescripcion = document.getElementById("descripcionCategoria")
-    inputDescripcion.value = categoria.nombreCategoria;
+    inputDescripcion.value = categoria.descripcionCategoria;
 
     const imagen = document.getElementById("imagenCategoria")
 

@@ -31,7 +31,10 @@ builder.Services.AddScoped<IngredienteDAO, IngredienteDAOImpl>();
 builder.Services.AddScoped<IngredienteService, IngredienteServiceImpl>();
 builder.Services.AddScoped<RecetaDAO, RecetaDAOImpl>();
 builder.Services.AddScoped<RecetaService, RecetaServiceImpl>();
+builder.Services.AddScoped<ProductoDAO, ProductoDAOImpl>();
+builder.Services.AddScoped<ProductoService, ProductoServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
+
 
 
 

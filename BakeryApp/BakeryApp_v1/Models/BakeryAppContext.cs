@@ -116,16 +116,14 @@ public partial class BakeryAppContext : DbContext
             entity.Property(e => e.DescripcionProducto).HasMaxLength(255);
             entity.Property(e => e.ImagenProducto).HasMaxLength(80);
             entity.Property(e => e.NombreProducto).HasMaxLength(40);
-            entity.Property(e => e.PrecioProducto).HasMaxLength(80);
+            entity.Property(e => e.PrecioProducto).HasPrecision(10);
 
             entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdCategoria)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_id_Categoria");
 
             entity.HasOne(d => d.IdRecetaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdReceta)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_id_receta");
         });
 

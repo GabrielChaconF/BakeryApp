@@ -15,6 +15,7 @@ public interface CategoriaService
 
     public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias(int pagina);
 
+    public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias();
     public bool VerificarDatosVaciosONulos(Categoria categoria);
 
     public Task<bool> VerificarNombreRepetido(Categoria categoria);

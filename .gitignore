@@ -2,4 +2,5 @@
 #Ignorar los archivos de las distintas carpetas
 BakeryApp/BakeryApp_v1/wwwroot/img/categorias/*
 !BakeryApp/BakeryApp_v1/wwwroot/img/categorias/.gitkeep
-
+BakeryApp/BakeryApp_v1/wwwroot/img/productos/*
+!BakeryApp/BakeryApp_v1/wwwroot/img/productos/.gitkeep

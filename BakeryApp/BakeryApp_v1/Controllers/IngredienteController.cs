@@ -117,13 +117,7 @@ namespace BakeryApp_v1.Controllers
         {
             try
             {
-                bool tieneReceta = await ingredienteService.VerificarIngredienteConReceta(idIngrediente);
 
-                if (tieneReceta)
-                {
-                    return new JsonResult(new { mensaje = "El ingrediente esta relacionado a una receta por lo que no se puede borrar" });
-                }
-                 
 
 
                 Ingrediente ingredienteABorrar = await ingredienteService.ObtenerIngredientePorId(idIngrediente);

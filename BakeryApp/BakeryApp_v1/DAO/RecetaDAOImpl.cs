@@ -35,13 +35,26 @@ public class RecetaDAOImpl : RecetaDAO
     }
 
 
+    public async Task<RecetaDTO> ObtenerRecetaPorIdDTO(int idReceta)
+    {
+        Receta recetaEncontrada = await dbContext.Recetas.Include(Receta => Receta.IdIngredientes).FirstOrDefaultAsync(Receta => Receta.IdReceta == idReceta);
+
+        return RecetaDTO.ConvertirRecetaARecetaDTO(recetaEncontrada);
+    }
 
     public async Task<Receta> ObtenerRecetaPorId(int idReceta)
     {
 
-        Receta RecetaEncontrado = await dbContext.Recetas.FirstOrDefaultAsync(Receta => Receta.IdReceta == idReceta);
+        Receta recetaEncontrada = await dbContext.Recetas.Include(Receta => Receta.IdIngredientes).FirstOrDefaultAsync(Receta => Receta.IdReceta == idReceta);
 
-        return RecetaEncontrado;
+        return recetaEncontrada;
+    }
+
+    public async Task<IEnumerable<Receta>> ObtenerTodasLasRecetas()
+    {
+        IEnumerable<Receta> todasLasRecetas = await dbContext.Recetas.ToListAsync();
+
+        return todasLasRecetas; 
     }
 
 

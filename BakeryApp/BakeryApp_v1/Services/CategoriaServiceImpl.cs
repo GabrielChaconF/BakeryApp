@@ -27,6 +27,12 @@ public class CategoriaServiceImpl : CategoriaService
         await categoriaDAO.Eliminar(categoria);
     }
 
+    public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias()
+    {
+        IEnumerable<Categoria> todasLasCategorias = await categoriaDAO.ObtenerTodasLasCategorias();
+        return todasLasCategorias;
+    }
+
     public async Task<Categoria> ObtenerCategoriaEspecifica(Categoria categoria)
     {
         Categoria categoriaBuscada = await categoriaDAO.ObtenerCategoriaEspecifica(categoria);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BakeryApp_v1.Models;
 
@@ -11,7 +12,7 @@ public partial class Producto
 
     public string DescripcionProducto { get; set; } = null!;
 
-    public string PrecioProducto { get; set; } = null!;
+    public decimal PrecioProducto { get; set; }
 
     public int IdCategoria { get; set; }
 
@@ -22,4 +23,7 @@ public partial class Producto
     public virtual Categoria IdCategoriaNavigation { get; set; } = null!;
 
     public virtual Receta IdRecetaNavigation { get; set; } = null!;
+
+    [NotMapped]
+    public IFormFile ArchivoProducto { get; set; }
 }

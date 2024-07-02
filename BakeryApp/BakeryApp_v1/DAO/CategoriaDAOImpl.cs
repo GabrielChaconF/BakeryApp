@@ -33,6 +33,12 @@ public class CategoriaDAOImpl : CategoriaDAO
         await dbContext.SaveChangesAsync();
     }
 
+    public async Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias()
+    {
+        IEnumerable<Categoria> todasLasCategorias = await dbContext.Categorias.ToListAsync();
+        return todasLasCategorias;
+    }
+
     public async Task<Categoria> ObtenerCategoriaEspecifica(Categoria categoria)
     {
         

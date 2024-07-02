@@ -14,7 +14,8 @@ public interface RecetaDAO
     public Task<Receta> ObtenerRecetaPorId(int idReceta);
     public Task<IEnumerable<RecetaDTO>> ObtenerTodasLasRecetas(int pagina);
 
-
+    public Task<IEnumerable<Receta>> ObtenerTodasLasRecetas();
+    public Task<RecetaDTO> ObtenerRecetaPorIdDTO(int idReceta);
 
     public Task<Receta> ObtenerRecetaPorNombre(Receta receta);
   

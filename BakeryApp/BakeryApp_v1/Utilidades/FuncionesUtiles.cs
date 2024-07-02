@@ -67,6 +67,69 @@ public class FuncionesUtiles : IFuncionesUtiles
         return true;
     }
 
+
+
+
+    public async Task<Producto> GuardarImagenEnSistemaProducto(Producto producto)
+    {
+        string carpetaImagenes = ambiente.WebRootPath;
+        carpetaImagenes = Path.Combine(carpetaImagenes, "img", "productos");
+
+
+        try
+        {
+            if (producto.ArchivoProducto.Length > 0)
+            {
+
+                string identificadorImagen = Guid.NewGuid().ToString() + Path.GetExtension(producto.ArchivoProducto.FileName);
+                string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
+                string rutaBaseDatos = "";
+                rutaBaseDatos = Path.Combine(rutaBaseDatos, "img", "productos", identificadorImagen);
+
+                using (Stream stream = File.Create(rutaImagenSistema))
+                {
+                    await producto.ArchivoProducto.CopyToAsync(stream);
+                }
+
+                producto.ImagenProducto = rutaBaseDatos;
+            }
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+
+
+
+        return producto;
+    }
+
+
+    public bool BorrarImagenGuardadaEnSistemaProducto(Producto producto)
+    {
+        string carpetaImagenes = ambiente.WebRootPath;
+
+        try
+        {
+            string identificadorImagen = "";
+            string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
+            rutaImagenSistema = Path.Combine(rutaImagenSistema, producto.ImagenProducto);
+            File.Delete(rutaImagenSistema);
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+
+
+        return true;
+    }
+
+
+
+
+
     public Persona EncriptarContraseña(Persona persona)
     {
         try

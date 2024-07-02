@@ -17,6 +17,8 @@ public interface CategoriaDAO
 
     public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias(int pagina);
 
+    public Task<IEnumerable<Categoria>> ObtenerTodasLasCategorias();
+
     public Task<Categoria> ObtenerCategoriaPorNombre(Categoria categoria);
 
     public Task<int> ContarTotalCategorias();

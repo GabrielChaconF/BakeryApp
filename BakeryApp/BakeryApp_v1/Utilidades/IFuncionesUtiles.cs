@@ -8,6 +8,11 @@ public interface IFuncionesUtiles
 
     public bool BorrarImagenGuardadaEnSistemaCategoria(Categoria categoria);
 
+    public Task<Producto> GuardarImagenEnSistemaProducto(Producto objeto);
+
+    public bool BorrarImagenGuardadaEnSistemaProducto(Producto producto);
+
+
 
     public Persona EncriptarContraseña(Persona persona);
 }

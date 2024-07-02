@@ -83,6 +83,7 @@ function CrearTarjetas(respuesta) {
 
         
 
+        divPrincipal.id = receta.idReceta;
 
 
         divPrincipal.classList.add("col-12", "col-sm-6", "col-md-4", "mb-4")
@@ -127,7 +128,27 @@ function CrearTarjetas(respuesta) {
 
 
         aEditar.textContent = "Editar"
+
+
+        aEditar.setAttribute("idReceta", receta.idReceta)
+
+        aEditar.onclick = (event) => {
+            VerPaginaEditar(event)
+        }
+
+
         botonBorrar.textContent = "Borrar"
+
+
+        botonBorrar.type = "submit";
+        botonBorrar.setAttribute("idReceta", receta.idReceta)
+
+        formBorrar.onsubmit = (event) => {
+
+            EliminarReceta(event);
+        }
+
+
         contador++;
     })
 
@@ -179,11 +200,11 @@ function CrearTarjetas(respuesta) {
 
 
 
-function EliminarIngrediente(event) {
+function EliminarReceta(event) {
     event.preventDefault();
     const boton = event.submitter;
 
-    const idIngrediente = boton.getAttribute("idIngrediente");
+    const idReceta = boton.getAttribute("idReceta");
     const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
 
 
@@ -191,7 +212,7 @@ function EliminarIngrediente(event) {
 
 
 
-    fetch("/Ingrediente/EliminarIngrediente/" + idIngrediente, {
+    fetch("/Receta/EliminarReceta/" + idReceta, {
         method: "DELETE",
         headers: {
             "X-Requested-With": "XMLHttpRequest",
@@ -203,8 +224,8 @@ function EliminarIngrediente(event) {
         swal({
             text: respuesta.mensaje
         })
-        const filaEliminar = document.getElementById(idIngrediente)
-        filaEliminar.remove()
+        const cardAEliminar = document.getElementById(idReceta)
+        cardAEliminar.remove()
     }).catch(error => {
         console.error("Error", error);
     })
@@ -212,11 +233,11 @@ function EliminarIngrediente(event) {
 }
 
 function VerPaginaEditar(event) {
-    const idIngrediente = event.currentTarget.getAttribute("idIngrediente");
+    const idReceta = event.currentTarget.getAttribute("idReceta");
 
 
 
-    var urlEditar = "/Ingrediente/EditarIngrediente?idIngrediente=" + idIngrediente;
+    var urlEditar = "/Receta/EditarReceta?idReceta=" + idReceta;
 
 
     window.location.replace(urlEditar);

@@ -41,7 +41,18 @@ public class RecetaServiceImpl : RecetaService
     }
 
 
+    public async Task<RecetaDTO> ObtenerRecetaPorIdDTO(int idReceta)
+    {
+        RecetaDTO recetaBuscada = await recetaDAO.ObtenerRecetaPorIdDTO(idReceta);
+        return recetaBuscada;
+    }
 
+    public async Task<IEnumerable<Receta>> ObtenerTodasLasRecetas()
+    {
+        IEnumerable<Receta> todasLasRecetas = await recetaDAO.ObtenerTodasLasRecetas();
+
+        return todasLasRecetas;
+    }
 
     public bool VerificarDatosVaciosONulos(Receta receta)
     {

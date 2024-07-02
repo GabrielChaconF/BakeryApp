@@ -45,18 +45,17 @@ create table IngredientesRecetas(
     constraint fk_id_receta_rec foreign key(IdReceta) references Recetas(IdReceta) on delete cascade
 );
 
-
 create table Productos(
 	IdProducto int not null auto_increment,
 	NombreProducto varchar(40) not null,
     DescripcionProducto varchar(255) not null,
-    PrecioProducto varchar(80) not null,
+    PrecioProducto decimal(10,2) not null,
     IdCategoria int not null, 
     IdReceta int not null,
     ImagenProducto varchar(80) not null,
     constraint pk_id_Producto primary key (IdProducto),
-    constraint fk_id_Categoria foreign key (IdCategoria) references Categorias(IdCategoria),
-    constraint fk_id_receta foreign key (IdReceta) references Recetas(IdReceta),
+    constraint fk_id_Categoria foreign key (IdCategoria) references Categorias(IdCategoria) on delete cascade,
+    constraint fk_id_receta foreign key (IdReceta) references Recetas(IdReceta) on delete cascade,
     constraint uq_nombre_Producto unique (NombreProducto)
 );
 
@@ -96,11 +95,14 @@ select * from Roles;
 
 select * from Personas;
  
-select * from Ingredientes;
+ select * from Ingredientes;
  
-select * from Recetas;
+ select * from Recetas;
 
 select * from ingredientesRecetas;
+
+select * from Productos;
+
 /* Consulta para ver el tamaño de la base de datos en MB */
 
 SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Database Size (MB)"

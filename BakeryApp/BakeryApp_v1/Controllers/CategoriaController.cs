@@ -31,12 +31,7 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-        //[HttpGet("/Categoria/Pagina/{pagina}")]
-        //public IActionResult Pagina(int pagina)
-        //{
-        //    return RedirectToAction("Index");
-        //}
-
+       
         public async Task<IActionResult> EditarCategoria([FromQuery] int idCategoria)
         {
             Categoria categoriaEditar = await categoriaService.ObtenerCategoriaPorId(idCategoria);
@@ -138,29 +133,35 @@ namespace BakeryApp_v1.Controllers
         public async Task<JsonResult> GuardarEditada([FromForm] Categoria categoria)
         {
 
-
-            if (categoriaService.VerificarDatosVaciosONulos(categoria))
+            try
             {
-                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
+                if (categoriaService.VerificarDatosVaciosONulos(categoria))
+                {
+                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
+                }
+
+
+                bool resultadoRepetida = await categoriaService.VerificarNombreRepetido(categoria);
+
+                if (resultadoRepetida)
+                {
+                    return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado", correcto = false });
+                }
+
+                Categoria categoriaConImagen = await funcionesUtiles.GuardarImagenEnSistemaCategoria(categoria);
+
+                if (categoriaConImagen == null)
+                {
+                    return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false });
+                }
+
+                await categoriaService.Editar(categoriaConImagen);
+                return new JsonResult(new { mensaje = "Categoria modificada con éxito", correcto = true });
             }
-
-
-            bool resultadoRepetida = await categoriaService.VerificarNombreRepetido(categoria);
-
-            if (resultadoRepetida)
+            catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado", correcto = false });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al modificar la categoria", correcto = false});
             }
-
-            Categoria categoriaConImagen = await funcionesUtiles.GuardarImagenEnSistemaCategoria(categoria);
-
-            if (categoriaConImagen == null)
-            {
-                return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false });
-            }
-
-            await categoriaService.Editar(categoriaConImagen);
-            return new JsonResult(new { mensaje = "Categoria modificada con éxito", correcto = true });
         }
 
 
