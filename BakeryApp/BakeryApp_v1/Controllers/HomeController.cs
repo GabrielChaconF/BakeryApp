@@ -1,6 +1,11 @@
 using BakeryApp_v1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using BakeryApp_v1.Recursos;
+using BakeryApp_v1.Services.Contrato;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace BakeryApp_v1.Controllers
 {
