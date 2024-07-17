@@ -19,6 +19,8 @@ public partial class BakeryAppContext : DbContext
 
     public virtual DbSet<Ingrediente> Ingredientes { get; set; }
 
+    public virtual DbSet<Marketing> Marketings { get; set; }
+
     public virtual DbSet<Persona> Personas { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
@@ -73,6 +75,16 @@ public partial class BakeryAppContext : DbContext
                         j.ToTable("ingredientesrecetas");
                         j.HasIndex(new[] { "IdReceta" }, "fk_id_receta_rec");
                     });
+        });
+
+        modelBuilder.Entity<Marketing>(entity =>
+        {
+            entity.HasKey(e => e.IdMarketing).HasName("PRIMARY");
+
+            entity.ToTable("marketing");
+
+            entity.Property(e => e.Correo).HasMaxLength(80);
+            entity.Property(e => e.Nombre).HasMaxLength(25);
         });
 
         modelBuilder.Entity<Persona>(entity =>
