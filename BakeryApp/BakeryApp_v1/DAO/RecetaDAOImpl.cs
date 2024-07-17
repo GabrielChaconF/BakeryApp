@@ -54,7 +54,7 @@ public class RecetaDAOImpl : RecetaDAO
     {
         IEnumerable<Receta> todasLasRecetas = await dbContext.Recetas.ToListAsync();
 
-        return todasLasRecetas; 
+        return todasLasRecetas;
     }
 
 
@@ -88,7 +88,7 @@ public class RecetaDAOImpl : RecetaDAO
         return RecetaEncontrada;
     }
 
- 
+
 
     public async Task<int> ContarTotalRecetas()
     {
@@ -97,4 +97,22 @@ public class RecetaDAOImpl : RecetaDAO
     }
 
 
+
+    public async Task LimpiarReceta(Receta receta)
+    {
+        // Se busca la receta actual y se incluyen los ingredientes
+        Receta recetaExistenteConIngredientes = await dbContext.Recetas
+               .Include(r => r.IdIngredientes)
+               .FirstOrDefaultAsync(r => r.IdReceta == receta.IdReceta);
+
+        // Se limpia el arreglo de los ingredientes
+        recetaExistenteConIngredientes.IdIngredientes.Clear();
+
+        // Se guardan los cambios
+        await dbContext.SaveChangesAsync();
+
+        // Se pone la entidad como detached del contexto, para que se le deje de dar siguimiento 
+        dbContext.Entry(recetaExistenteConIngredientes).State = EntityState.Detached;
+    }
 }
+ 

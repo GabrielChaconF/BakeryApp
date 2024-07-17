@@ -49,7 +49,7 @@ public class ProductoServiceImpl : ProductoService
     public bool VerificarDatosVaciosONulos(Producto producto)
     {
         if (string.IsNullOrEmpty(producto.NombreProducto) || (string.IsNullOrEmpty(producto.DescripcionProducto)) || producto.PrecioProducto == 0
-            || producto.ArchivoProducto == null)
+            || producto.ArchivoProducto == null || producto.IdReceta == 0 || producto.IdCategoria == 0)
         {
             return true;
         }

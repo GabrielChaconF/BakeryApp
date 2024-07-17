@@ -57,7 +57,7 @@ public class IngredienteServiceImpl : IngredienteService
     public bool VerificarDatosVaciosONulos(Ingrediente ingrediente)
     {
         if (string.IsNullOrEmpty(ingrediente.NombreIngrediente) || (string.IsNullOrEmpty(ingrediente.DescripcionIngrediente))
-            || string.IsNullOrEmpty(ingrediente.UnidadMedidaIngrediente))
+            || ingrediente.UnidadMedidaIngrediente == 0)
 
         {
             return true;

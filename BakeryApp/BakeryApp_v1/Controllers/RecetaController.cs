@@ -100,19 +100,15 @@ public class RecetaController : Controller
 
 
 
+            await recetaService.LimpiarReceta(receta);
+
+
             // Se buscan los ingredientes relacionados a la receta
             List<Ingrediente> ingredientesBuscados = new List<Ingrediente>();
             foreach (Ingrediente ingrediente in receta.IdIngredientes)
             {
                 Ingrediente ingredienteEncontrado = await ingredienteService.ObtenerIngredientePorId(ingrediente.IdIngrediente);
-
-
-
-              
-
-               
-
-
+                ingredientesBuscados.Add(ingredienteEncontrado);
             }
 
 
@@ -131,8 +127,6 @@ public class RecetaController : Controller
             ingredienteService.AttachIngredientes(ingredientesBuscados);
 
             await recetaService.Editar(recetaConIngredientes);
-
-
 
 
             return new JsonResult(new { mensaje = "Receta modificada con éxito" });

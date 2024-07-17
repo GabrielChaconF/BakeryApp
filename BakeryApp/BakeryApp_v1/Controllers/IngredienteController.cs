@@ -8,12 +8,13 @@ namespace BakeryApp_v1.Controllers
     public class IngredienteController : Controller
     {
         private readonly IngredienteService ingredienteService;
-
-        public IngredienteController(IngredienteService ingredienteService)
+        private readonly UnidadMedidaService unidadMedidaService;
+        public IngredienteController(IngredienteService ingredienteService, UnidadMedidaService unidadMedidaService)
         {
             this.ingredienteService = ingredienteService;
-
+            this.unidadMedidaService = unidadMedidaService;
         }
+
 
         public async Task<IActionResult> Index([FromQuery] int pagina)
         {
@@ -31,7 +32,12 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
+        [HttpGet("/Ingrediente/ObtenerTodasLasUnidadesDeMedida")]
 
+        public async Task<JsonResult> ObtenerTodasLasUnidadesDeMedida()
+        {
+            return new JsonResult(new { arregloUnidadesMedida = await  unidadMedidaService.ObtenerTodasLasUnidadesDeMedida()});
+        }
 
         public async Task<IActionResult> EditarIngrediente([FromQuery] int idIngrediente)
         {

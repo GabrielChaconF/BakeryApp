@@ -21,4 +21,6 @@ public interface RecetaService
     public Task<bool> VerificarNombreRepetido(Receta receta);
 
     public Task<int> CalcularTotalPaginas();
+
+    public Task LimpiarReceta(Receta receta);
 }

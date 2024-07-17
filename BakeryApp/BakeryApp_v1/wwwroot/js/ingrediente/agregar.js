@@ -1,5 +1,37 @@
 ﻿
 
+document.addEventListener("DOMContentLoaded", function () {
+    ObtenerTodasLasUnidadesDeMedida();
+});
+
+
+function ObtenerTodasLasUnidadesDeMedida() {
+    fetch("/Ingrediente/ObtenerTodasLasUnidadesDeMedida", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+    }).then(respuesta => {
+        LlenarSelect(respuesta)
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
+
+
+function LlenarSelect(respuesta) {
+    const select = document.getElementById("unidadMedida");
+
+    respuesta.arregloUnidadesMedida.forEach(unidadMedida => {
+        const option = document.createElement("option");
+        option.value = unidadMedida.idUnidad;
+        option.textContent = unidadMedida.nombreUnidad;
+        select.appendChild(option);
+    });
+}
 
 
 function GuardarIngrediente(event) {
@@ -11,7 +43,11 @@ function GuardarIngrediente(event) {
 
     const detalle = document.getElementById("detalleIngrediente").value;
 
-    const unidadMedida = document.getElementById("unidadMedida").value;
+    const selectUnidadMedida = document.getElementById("unidadMedida");
+
+    const unidadMedida = selectUnidadMedida.value;
+
+
 
     const cantidad = document.getElementById("cantidadIngrediente").value;
 

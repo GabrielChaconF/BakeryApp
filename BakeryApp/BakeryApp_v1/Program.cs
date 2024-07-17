@@ -40,8 +40,10 @@ builder.Services.AddScoped<ProductoDAO, ProductoDAOImpl>();
 builder.Services.AddScoped<ProductoService, ProductoServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<UnidadMedidaDAO, UnidadMedidaDAOImpl>();
+builder.Services.AddScoped<UnidadMedidaService, UnidadMedidaServiceImpl>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options => { options.LoginPath = "/Inicio/IniciarSesion"; options.ExpireTimeSpan = TimeSpan.FromMinutes(20); });
+    .AddCookie(options => { options.LoginPath = "/Home/IniciarSesion"; options.ExpireTimeSpan = TimeSpan.FromMinutes(20); });
 
 
 

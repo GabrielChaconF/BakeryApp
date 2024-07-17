@@ -92,4 +92,10 @@ public class RecetaServiceImpl : RecetaService
     }
 
 
+
+    public async Task LimpiarReceta(Receta receta)
+    {
+        await recetaDAO.LimpiarReceta(receta);
+    }
+
 }

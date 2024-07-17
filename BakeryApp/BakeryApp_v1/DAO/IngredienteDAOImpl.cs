@@ -54,7 +54,7 @@ public class IngredienteDAOImpl : IngredienteDAO
     {
         int numeroDeElementosPorPagina = 10;
 
-        IPagedList<IngredienteDTO> todasLasIngredientes = dbContext.Ingredientes.OrderBy(Ingrediente => Ingrediente.IdIngrediente)
+        IPagedList<IngredienteDTO> todasLasIngredientes = dbContext.Ingredientes.OrderBy(Ingrediente => Ingrediente.IdIngrediente).Include(Ingrediente => Ingrediente.UnidadMedidaIngredienteNavigation)
             .Select(Ingrediente => new IngredienteDTO
             {
                 IdIngrediente = Ingrediente.IdIngrediente,
@@ -62,8 +62,13 @@ public class IngredienteDAOImpl : IngredienteDAO
                 DescripcionIngrediente = Ingrediente.DescripcionIngrediente,
                 CantidadIngrediente = Ingrediente.CantidadIngrediente,
                 PrecioUnidadIngrediente = Ingrediente.PrecioUnidadIngrediente,
+                FechaCaducidadIngrediente = Ingrediente.FechaCaducidadIngrediente.ToString("dd/MM/yyyy"),
                 UnidadMedidaIngrediente = Ingrediente.UnidadMedidaIngrediente,
-                FechaCaducidadIngrediente = Ingrediente.FechaCaducidadIngrediente.ToString("dd/MM/yyyy")
+                UnidadMedidaDTO = new UnidadMedidaDTO
+                {
+                    IdUnidad = Ingrediente.UnidadMedidaIngredienteNavigation.IdUnidad,
+                    NombreUnidad = Ingrediente.UnidadMedidaIngredienteNavigation.NombreUnidad
+                }
             })
             .ToPagedList(pageNumber: pagina, pageSize: numeroDeElementosPorPagina);
         return todasLasIngredientes;

@@ -29,6 +29,8 @@ public partial class BakeryAppContext : DbContext
 
     public virtual DbSet<Role> Roles { get; set; }
 
+    public virtual DbSet<Unidadesmedidum> Unidadesmedida { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseMySQL("server=127.0.0.1;port=3306;database=BakeryApp;user=Bakery;password=BakeryApp.*");
@@ -54,11 +56,19 @@ public partial class BakeryAppContext : DbContext
 
             entity.ToTable("ingredientes");
 
+            entity.HasIndex(e => e.UnidadMedidaIngrediente, "fk_unidad_ingrediente");
+
+            entity.HasIndex(e => e.NombreIngrediente, "uk_nombre_ingrediente").IsUnique();
+
             entity.Property(e => e.DescripcionIngrediente).HasMaxLength(100);
             entity.Property(e => e.FechaCaducidadIngrediente).HasColumnType("date");
             entity.Property(e => e.NombreIngrediente).HasMaxLength(50);
             entity.Property(e => e.PrecioUnidadIngrediente).HasPrecision(10);
-            entity.Property(e => e.UnidadMedidaIngrediente).HasMaxLength(50);
+
+            entity.HasOne(d => d.UnidadMedidaIngredienteNavigation).WithMany(p => p.Ingredientes)
+                .HasForeignKey(d => d.UnidadMedidaIngrediente)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_unidad_ingrediente");
 
             entity.HasMany(d => d.IdReceta).WithMany(p => p.IdIngredientes)
                 .UsingEntity<Dictionary<string, object>>(
@@ -145,6 +155,8 @@ public partial class BakeryAppContext : DbContext
 
             entity.ToTable("recetas");
 
+            entity.HasIndex(e => e.NombreReceta, "uk_nombre_receta").IsUnique();
+
             entity.Property(e => e.NombreReceta).HasMaxLength(50);
         });
 
@@ -155,6 +167,15 @@ public partial class BakeryAppContext : DbContext
             entity.ToTable("roles");
 
             entity.Property(e => e.NombreRol).HasMaxLength(20);
+        });
+
+        modelBuilder.Entity<Unidadesmedidum>(entity =>
+        {
+            entity.HasKey(e => e.IdUnidad).HasName("PRIMARY");
+
+            entity.ToTable("unidadesmedida");
+
+            entity.Property(e => e.NombreUnidad).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);

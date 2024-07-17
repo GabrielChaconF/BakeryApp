@@ -91,7 +91,7 @@ function CrearFilasTabla(respuesta) {
         tdDescripcion.textContent = ingrediente.descripcionIngrediente;
         tdPrecioUnitario.textContent = ingrediente.precioUnidadIngrediente;
         tdCantidad.textContent = ingrediente.cantidadIngrediente;
-        tdUnidadMedida.textContent = ingrediente.unidadMedidaIngrediente;
+        tdUnidadMedida.textContent = ingrediente.unidadMedidaDTO.nombreUnidad;
         tdFechaVencimiento.textContent = ingrediente.fechaCaducidadIngrediente;
         aEditar.innerText = "Editar";
 

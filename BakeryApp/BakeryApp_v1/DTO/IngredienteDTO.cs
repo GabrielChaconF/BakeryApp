@@ -14,13 +14,13 @@ public class IngredienteDTO
 
     public int CantidadIngrediente { get; set; }
 
-    public string UnidadMedidaIngrediente { get; set; } = null!;
+    public int UnidadMedidaIngrediente { get; set; }
 
     public decimal PrecioUnidadIngrediente { get; set; }
 
     public string FechaCaducidadIngrediente { get; set; }
 
-
+    public UnidadMedidaDTO UnidadMedidaDTO { get; set; } = null!;
 
     public static IngredienteDTO ConvertirIngredienteAIngredienteDTO(Ingrediente ingrediente)
     {
