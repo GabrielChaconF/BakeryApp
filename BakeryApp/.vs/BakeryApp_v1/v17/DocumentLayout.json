@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\views\\home\\iniciarsesion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\views\\home\\iniciarsesion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\models\\marketing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\models\\marketing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\views\\home\\registrarse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\views\\home\\registrarse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -83,12 +87,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "IniciarSesion.cshtml",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\Home\\IniciarSesion.cshtml",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Views\\Home\\IniciarSesion.cshtml",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\Home\\IniciarSesion.cshtml",
+              "RelativeToolTip": "BakeryApp_v1\\Views\\Home\\IniciarSesion.cshtml",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAAAK0AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-17T02:53:40.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Registrarse.cshtml",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\Home\\Registrarse.cshtml",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Views\\Home\\Registrarse.cshtml",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\Home\\Registrarse.cshtml",
+              "RelativeToolTip": "BakeryApp_v1\\Views\\Home\\Registrarse.cshtml",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-17T02:51:15.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Program.cs",
               "RelativeDocumentMoniker": "BakeryApp_v1\\Program.cs",
               "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Program.cs",
               "RelativeToolTip": "BakeryApp_v1\\Program.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEAAAAAYAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEAAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-17T02:04:48.673Z",
               "EditorCaption": ""
@@ -101,22 +131,9 @@
               "RelativeDocumentMoniker": "BakeryApp_v1\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Controllers\\HomeController.cs",
               "RelativeToolTip": "BakeryApp_v1\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAyAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAQwFcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-17T02:00:39.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Marketing.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\Marketing.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Models\\Marketing.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\Marketing.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Models\\Marketing.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T01:53:39.668Z",
               "EditorCaption": ""
             }
           ]
