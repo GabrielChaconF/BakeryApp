@@ -3,6 +3,11 @@ using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
 using Microsoft.EntityFrameworkCore;
+using BakeryApp_v1.Services.Contrato;
+using BakeryApp_v1.Services.Implementacion;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +39,9 @@ builder.Services.AddScoped<RecetaService, RecetaServiceImpl>();
 builder.Services.AddScoped<ProductoDAO, ProductoDAOImpl>();
 builder.Services.AddScoped<ProductoService, ProductoServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
-
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options => { options.LoginPath = "/Inicio/IniciarSesion"; options.ExpireTimeSpan = TimeSpan.FromMinutes(20); });
 
 
 
@@ -55,7 +62,7 @@ app.UseStaticFiles();
 
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 

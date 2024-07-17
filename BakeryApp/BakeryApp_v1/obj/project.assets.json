@@ -8438,19 +8438,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dma28\\.nuget\\packages\\": {}
+    "C:\\Users\\chris\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dma28\\Documents\\GitHub\\BakeryApp\\BakeryApp\\BakeryApp_v1\\BakeryApp_v1.csproj",
+      "projectUniqueName": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\BakeryApp_v1.csproj",
       "projectName": "BakeryApp_v1",
-      "projectPath": "C:\\Users\\dma28\\Documents\\GitHub\\BakeryApp\\BakeryApp\\BakeryApp_v1\\BakeryApp_v1.csproj",
-      "packagesPath": "C:\\Users\\dma28\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dma28\\Documents\\GitHub\\BakeryApp\\BakeryApp\\BakeryApp_v1\\obj\\",
+      "projectPath": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\BakeryApp_v1.csproj",
+      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+      "outputPath": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\dma28\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8458,6 +8458,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8470,6 +8471,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8536,7 +8542,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -8545,7 +8551,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"PagedList 1.17.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'PagedList 1.17.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "PagedList",
       "targetGraphs": [
         "net8.0"
