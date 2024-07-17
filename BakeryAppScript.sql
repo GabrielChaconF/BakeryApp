@@ -81,6 +81,13 @@ create table Personas(
     constraint uk_telefono_per unique(telefono)
 );
 
+create table Marketing(
+	IdMarketing int not null auto_increment,
+	Nombre varchar(25) not null,
+    	Correo varchar(80) not null,
+        constraint pk_id_marketing primary key(IdMarketing)
+   );
+
 /* Creacion de Roles */
 insert into Roles(IdRol, NombreRol)
 values (1, 'ADMINISTRADOR'),
@@ -102,6 +109,8 @@ select * from Personas;
 select * from ingredientesRecetas;
 
 select * from Productos;
+
+select * from Marketing;
 
 /* Consulta para ver el tamaño de la base de datos en MB */
 
