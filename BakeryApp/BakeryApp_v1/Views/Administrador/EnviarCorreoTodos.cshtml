@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "_LayoutAdministrador";
+}
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div>
+        
+        <div>
+           
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Enviar Correo</h1>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+           
+            <section class="content">
+
+               
+                <div class="card card-solid col align-self-center">
+
+                    <div class="card-body pb-0">
+                        <div class="row d-flex align-items-stretch">
+
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card bg-light">
+
+                                    <br />
+                                    <div class="card-body pt-0">
+                                        <div class="form-group">
+
+
+                                            <label> Remitente:</label>
+                                            <input type="text" class="form-control" value="Dulce Espiga" disabled>
+
+
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+
+                                            <label>Asunto:</label>
+                                            <input type="text" class="form-control" placeholder="Asunto">
+
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label>Destinatario:</label>
+                                            <input type="text" class="form-control" value="Todos" disabled>
+
+
+                                        </div>
+
+
+                                        <br />
+
+                                        <div class="form-group">
+                                            <label for="c_order_notes" class="text-black">Mensaje del correo</label>
+                                            <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Escriba el contenido del correo aca..."></textarea>
+
+                                        </div>
+
+                                        <br />
+
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="@Url.Action("Marketing", "Administrador")" class="btn btn-sm btn-primary">
+                                                Enviar
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                
+
+                </div>
+              
+
+            </section>
+          
+        </div>
+       
+    </div>
+ 
+    
+</body>
+</html>
+
+
+

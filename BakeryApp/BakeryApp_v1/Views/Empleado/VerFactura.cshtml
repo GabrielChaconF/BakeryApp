@@ -1,0 +1,319 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bakery App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- DataTables -->
+    <link href="~/plugins/datatables-bs4/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="~/dist/css/adminlte.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+
+    <link href="~/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/tiny-slider.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+
+
+    <link rel="shortcut icon" href="favicon.png">
+
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index", "Administrador")">Dulce Espiga<span>.</span></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsFurni">
+                    <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("PerfilEmpleado", "Empleado")">Mi Perfil</a>
+                        </li>
+                        <li><a class="nav-link" href="@Url.Action("Inventario", "Empleado")">Inventario</a></li>
+                        <li><a class="nav-link active" href="@Url.Action("Productos", "Empleado")">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Categorias", "Empleado")">Categorias </a></li>
+                        <li><a class="nav-link active" href="@Url.Action("Recetas", "Empleado")">Recetas</a></li>
+                        <li><a class="nav-link" href="@Url.Action("Facturas", "Empleado")">Facturas</a></li>
+                        <li><a class="nav-link" href="@Url.Action("Pedidos", "Empleado")">Pedidos</a></li>
+                    </ul>
+
+                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                        <li><a class="btn btn-white-outline" href="@Url.Action("Index", "Home")">Cerrar Sesion</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+        <!-- Main content -->
+        <!-- Content Wrapper. Contains page content -->
+        <div>
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Informacion de la factura.</h1>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            @* <div class="callout callout-info">
+                            <h5><i class="fas fa-info"></i> Nota:</h5>
+                            Esta factura ya se envio al cliente.
+                            </div> *@
+                            <div class="col-md-12">
+                                <!-- Main content -->
+                                <div class="invoice p-3 mb-3">
+                                    <!-- title row -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h4>
+                                                Dulce Espiga Bakery.
+
+
+                                                <small class="float-right">Fecha: 2/22/2014, Hora: 20:51</small>
+
+                                            </h4>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- info row -->
+                                    <div class="row invoice-info">
+                                        <div class="col-sm-4 invoice-col">
+                                            De
+                                            <address>
+                                                <strong>Dulce Espiga Bakery.</strong><br>
+                                                Heredia, Costa Rica<br>
+                                                Telefono: +506 8622-8993<br>
+                                                Correo: dulceespiga@gmail.com
+                                            </address>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-4 invoice-col">
+                                            Para
+                                            <address>
+                                                <strong>Prueba, Prueba</strong><br>
+                                                Alajuela, Costa Rica<br>
+                                                Telefono: +506 5239-1037<br>
+                                                Correo: prueba@gmail.com
+                                            </address>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-4 invoice-col">
+                                            <b>Factura #1</b><br>
+                                            <br>
+                                            <b>Orden relacionada:</b> 3<br>
+                                            <b>Usuario:</b> Prueba, Prueba
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                    <!-- Table row -->
+                                    <div class="row">
+                                        <div class="col-12 table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Cantidad Comprada</th>
+                                                        <th>Producto</th>
+                                                        <th>ID Producto</th>
+                                                        <th>Subtotal Pagado</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Cupcake</td>
+                                                        <td>1</td>
+                                                        <td>₡5000.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Queque</td>
+                                                        <td>2</td>
+
+                                                        <td>₡5000.00</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+
+                                    <div class="row">
+                                        <!-- accepted payments column -->
+                                        <div class="col-6">
+                                            <p class="lead">Pago realizado mediante:</p>
+                                            @*   <img src="../../dist/img/credit/visa.png" alt="Visa">
+                                            <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
+                                            <img src="../../dist/img/credit/american-express.png" alt="American Express">
+                                            <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+                                            *@
+                                            <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+                                                Efectivo
+                                            </p>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-6">
+                                            <p class="lead">Total a pagar</p>
+
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <tr>
+                                                        <th style="width:50%">Subtotal a pagar:</th>
+                                                        <td>₡10000.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>IVA</th>
+                                                        <td>₡1400.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Envio:</th>
+                                                        <td>₡0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Total:</th>
+                                                        <td>₡11400.00</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                    <!-- this row will not appear when printing -->
+                                    <div class="row no-print">
+                                        <div class="col-12">
+                                            <a href="#" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Imprimir </a>
+
+                                            <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                                                <i class="fas fa-download"></i> Generar en PDF
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.invoice -->
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+    </div>
+    <!--/.col (right) -->
+    <!--------------------------------------------- /.Dashboard ---------------------------------------------------------------------->
+    <!-- Start Footer Section -->
+    <footer class="footer-section">
+        <div class="container relative">
+
+
+
+
+
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <div class="mb-4 footer-logo-wrap"><a href="@Url.Action("Index", "Home")" class="footer-logo">Dulce Espiga<span>.</span></a></div>
+                    <p class="mb-4">
+                        Dulce Espiga es un emprendimiento familiar, centrado en la elaboración de productos relacionados a la pastaleria
+                        artesanal, actualmente estamos ubicamos en Heredia.
+                    </p>
+
+                    <ul class="list-unstyled custom-social">
+                        <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+                        <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fa fa-brands fa-whatsapp"></span></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row links-wrap">
+                        <div class="col-6 col-sm-6 col-md-3">
+                            <ul class="list-unstyled">
+                                <li><a href="@Url.Action("Tienda", "Home")">Tienda</a></li>
+                                <li><a href="@Url.Action("Servicios", "Home")">Servicios</a></li>
+                                <li><a href="@Url.Action("SobreNosotros", "Home")">Sobre Nosotros</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-6 col-sm-6 col-md-3">
+                            <ul class="list-unstyled">
+                                <li><a href="@Url.Action("Contacto", "Home")">Contacto</a></li>
+                                <li><a href="@Url.Action("RegistrarUsuario", "Home")">Registrarse</a></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-top copyright">
+                <div class="row pt-4">
+                    <div class="col-lg-6">
+                        <p class="mb-2 text-center text-lg-start">
+                            BakeryApp &copy;<script>document.write(new Date().getFullYear());</script>
+                        </p>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+
+    <script src="~\plugins\chart.js\chart.min.js"></script>
+</body>
+</html>

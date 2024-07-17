@@ -1,0 +1,172 @@
+﻿@{
+    Layout = "_LayoutAdministrador";
+}
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div>
+
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Informacion de la factura.</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        @* <div class="callout callout-info">
+                        <h5><i class="fas fa-info"></i> Nota:</h5>
+                        Esta factura ya se envio al cliente.
+                        </div> *@
+                        <div class="col-md-12">
+
+                            <div class="invoice p-3 mb-3">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>
+                                            Dulce Espiga Bakery.
+
+
+                                            <small class="float-right">Fecha: 2/22/2014, Hora: 20:51</small>
+
+                                        </h4>
+                                    </div>
+
+                                </div>
+
+                                <div class="row invoice-info">
+                                    <div class="col-sm-4 invoice-col">
+                                        De
+                                        <address>
+                                            <strong>Dulce Espiga Bakery.</strong><br>
+                                            Heredia, Costa Rica<br>
+                                            Telefono: +506 8622-8993<br>
+                                            Correo: dulceespiga@gmail.com
+                                        </address>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4 invoice-col">
+                                        Para
+                                        <address>
+                                            <strong>Prueba, Prueba</strong><br>
+                                            Alajuela, Costa Rica<br>
+                                            Telefono: +506 5239-1037<br>
+                                            Correo: prueba@gmail.com
+                                        </address>
+                                    </div>
+
+                                    <div class="col-sm-4 invoice-col">
+                                        <b>Factura #1</b><br>
+                                        <br>
+                                        <b>Orden relacionada:</b> 3<br>
+                                        <b>Usuario:</b> Prueba, Prueba
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-12 table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Cantidad Comprada</th>
+                                                    <th>Producto</th>
+                                                    <th>ID Producto</th>
+                                                    <th>Subtotal Pagado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Cupcake</td>
+                                                    <td>1</td>
+                                                    <td>₡5000.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Queque</td>
+                                                    <td>2</td>
+
+                                                    <td>₡5000.00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <p class="lead">Pago realizado mediante:</p>
+                                        @*   <img src="../../dist/img/credit/visa.png" alt="Visa">
+                                        <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
+                                        <img src="../../dist/img/credit/american-express.png" alt="American Express">
+                                        <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+                                        *@
+                                        <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+                                            Efectivo
+                                        </p>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <p class="lead">Total a pagar</p>
+
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <tr>
+                                                    <th style="width:50%">Subtotal a pagar:</th>
+                                                    <td>₡10000.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>IVA</th>
+                                                    <td>₡1400.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Envio:</th>
+                                                    <td>₡0</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Total:</th>
+                                                    <td>₡11400.00</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row no-print">
+                                    <div class="col-12">
+                                        <a href="#" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Imprimir </a>
+
+                                        <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                                            <i class="fas fa-download"></i> Generar en PDF
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+</body>
+</html>
