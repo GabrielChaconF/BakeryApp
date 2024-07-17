@@ -11,11 +11,10 @@ namespace BakeryApp_v1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IUsuarioService _usuarioService;
+        public HomeController(IUsuarioService usuarioService)
         {
-            _logger = logger;
+            _usuarioService = usuarioService;
         }
         /*Layout*/
         public IActionResult Index()
@@ -58,9 +57,51 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-        public IActionResult RegistrarUsuario()
+
+        [HttpPost]
+        public async Task<IActionResult> IniciarSesion(string correo, string clave)
+        {
+
+            Persona persona_Encontrada = await _usuarioService.GetPersona(correo, Recursos.Utilidades.EncriptarClave(clave));
+            if (persona_Encontrada == null)
+            {
+                ViewData["Mensaje"] = "No se encontraron usuarios";
+                return View();
+            }
+            List<Claim> claims = new List<Claim>() {
+                    new Claim(ClaimTypes.Name,persona_Encontrada.Nombre)
+                };
+
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            AuthenticationProperties properties = new AuthenticationProperties()
+            {
+                AllowRefresh = true
+            };
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Registrarse()
         {
             return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Registrarse(Persona modelo)
+        {
+            modelo.Contra = Recursos.Utilidades.EncriptarClave(modelo.Contra);
+            Persona persona_Creada = await _usuarioService.SavePersona(modelo);
+
+            if (persona_Creada.IdPersona > 0)
+
+                return RedirectToAction("IniciarSesion", "Inicio");
+
+            ViewData["Mensaje"] = "Nose pudo crear el usuario";
+            return View();
+
+
         }
 
         public IActionResult RecuperarContrasena()
