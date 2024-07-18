@@ -1,248 +1,99 @@
-﻿
-@{
-	Layout = null;
+﻿@{
+    Layout = "_Layout";
 }
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Untree.co">
-	<link rel="shortcut icon" href="favicon.png">
-
-	<meta name="description" content="" />
-	<meta name="keywords" content="bootstrap, bootstrap4" />
-
-	<!-- Bootstrap CSS -->
-	<link href="~/css/bootstrap.min.css" rel="stylesheet">
-	<link href="~/css/tiny-slider.css" rel="stylesheet">
-	<link href="~/css/style.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-	<link rel="shortcut icon" href="favicon.png">
-</head>
-
-<body>
-
-	<!-- Start Header/Navigation -->
-	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-
-		<div class="container">
-			<a class="navbar-brand" href="@Url.Action("Index", "Home")">Dulce Espiga<span>.</span></a>
-
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarsFurni">
-				<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-					<li class="nav-item active">
-						<a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
-					</li>
-					<li><a class="nav-link" href="@Url.Action("Tienda", "Home")">Tienda</a></li>
-					<li><a class="nav-link" href="@Url.Action("Servicios", "Home")">Nuestros Servicios</a></li>
-					<li><a class="nav-link" href="@Url.Action("SobreNosotros", "Home")">Sobre Nosotros</a></li>
-					<li><a class="nav-link" href="@Url.Action("Contacto", "Home")">Contacto</a></li>
-				</ul>
-
-				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-					<li><a class="btn btn-white-outline" href="@Url.Action("IniciarSesion", "Home")">Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</nav>
-	<!-- End Header/Navigation -->
-	<!-- Start Contact Form -->
-	<div class="untree_co-section">
-		<div class="container">
-
-			<div class="block">
-				<div class="row justify-content-center">
 
 
-					<div class="col-md-8 col-lg-8 pb-4">
 
-						<div class="row mb-5">
-							<div class="col-lg-4">
-								<h1>Registrarse</h1>
-							</div>
+<div class="untree_co-section">
+    <div class="container">
 
-							<div class="col-lg-4">
-								<div class="service no-shadow align-items-center link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
-									@* <div class="service-icon color-1 mb-4">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-											<path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-										</svg>
-									</div> <!-- /.icon --> *@
-									<div class="service-contents">
-										<p>Para realizar pedidos en nuestra pagina web</p>
-									</div> <!-- /.service-contents-->
-								</div> <!-- /.service -->
-							</div>
-						</div>
-
-						<form>
-							<div class="row">
-								<div class="col-6">
-									<div class="form-group">
-										<label class="text-black" for="fname">Nombre</label>
-										<input type="text" class="form-control" id="fname" placeholder="Nombre">
-									</div>
-								</div>
-								<div class="col-6">
-									<div class="form-group">
-										<label class="text-black" for="lname">Apellidos</label>
-										<input type="text" class="form-control" id="lname" placeholder="apellidos">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="text-black" for="email">Correo electronico</label>
-								<input type="email" class="form-control" id="email" placeholder="Correoelectronico@ejemplo.com">
-							</div>
-
-							<div class="form-group">
-								<label class="text-black" for="clave">Contraseña</label>
-								<input type="password" class="form-control" id="clave" placeholder="******">
-							</div>
-
-							<div class="form-group">
-								<label class="text-black" for="confirmarclave">Confirmar Contraseña</label>
-								<input type="password" class="form-control" id="confirmarclave" placeholder="******">
-							</div>
+        <div class="block">
+            <div class="row justify-content-center">
 
 
-							<div class="col-6">
-								<div class="form-group">
-									<label class="text-black" for="lname">Número Telefónico</label>
-									<input type="text" class="form-control" id="lname" placeholder="Ejemplo: 8451-2687">
-								</div>
-							</div>
+                <div class="col-md-8 col-lg-8 pb-4">
 
-							@* <br /> *@
-							<div class="form-group">
-								<label class="text-black" for="email">Residencia</label>
-								<select class="form-select">
-									<option selected>Seleccione una de las provincias disponibles para nuestros envios (GAM).</option>
-									<option value="1">San Jose</option>
-									<option value="2">Alajuela</option>
-									<option value="3">Heredia</option>
-									<option value="4">Cartago</option>
-								</select>
-							</div>
+                    <div class="row mb-5">
+                        <div class="col-lg-4">
+                            <h1>Registrarse</h1>
+                        </div>
 
-							@* <div class="form-group mb-5">
-								<label class="text-black" for="message">Message</label>
-								<textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
-							</div> *@
-							<br />
+                        <div class="col-lg-4">
+                            <div class="service no-shadow align-items-center link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
 
-							<button type="submit" class="btn btn-primary-hover-outline">Registrarse</button>
-						</form>
+                                <div class="service-contents">
+                                    <p>Para realizar pedidos en nuestra pagina web</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-					</div>
+                    <form>
+                        <div class="form-group">
+                            <label class="text-black" for="fname">Nombre</label>
+                            <input type="text" class="form-control" id="fname" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black" for="fname">Primer Apellido</label>
+                            <input type="text" class="form-control" id="fname" placeholder="Primer Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black" for="fname">Segundo Apellido</label>
+                            <input type="text" class="form-control" id="fname" placeholder="Segundo Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black" for="email">Correo electronico</label>
+                            <input type="email" class="form-control" id="email" placeholder="Correoelectronico@ejemplo.com">
+                        </div>
 
-				</div>
+                        <div class="form-group">
+                            <label class="text-black" for="clave">Contraseña</label>
+                            <input type="password" class="form-control" id="clave" placeholder="******">
+                        </div>
 
-			</div>
-
-		</div>
-
-
-	</div>
-	
-
-	<!-- End Contact Form -->
-	<!-- Start Footer Section -->
-	<footer class="footer-section">
-		<div class="container relative">
-
-			<div class="sofa-img">
-				<img src="~/img/Logo_Transparente.png" alt="Image" class="img-fluid">
-			</div>
-
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="subscription-form">
-						<h3 class="d-flex align-items-center"><span class="me-1"><img src="~/img/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribirse a nuestro boletin informativo.</span></h3>
-
-						<form action="#" class="row g-3">
-							<div class="col-auto">
-								<input type="text" class="form-control" placeholder="Ingresa tu nombre">
-							</div>
-							<div class="col-auto">
-								<input type="email" class="form-control" placeholder="Ingresa tu correo electronico">
-							</div>
-							<div class="col-auto">
-								<button class="btn btn-primary">
-									<span class="fa fa-paper-plane"></span>
-								</button>
-							</div>
-						</form>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="row g-5 mb-5">
-				<div class="col-lg-4">
-					<div class="mb-4 footer-logo-wrap"><a href="@Url.Action("Index", "Home")" class="footer-logo">Dulce Espiga<span>.</span></a></div>
-					<p class="mb-4">
-						Dulce Espiga es un emprendimiento familiar, centrado en la elaboración de productos relacionados a la pastaleria
-						artesanal, actualmente estamos ubicamos en Heredia.
-					</p>
-
-					<ul class="list-unstyled custom-social">
-						<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-						<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-						<li><a href="#"><span class="fa fa-brands fa-whatsapp"></span></a></li>
-					</ul>
-				</div>
-
-				<div class="col-lg-8">
-					<div class="row links-wrap">
-						<div class="col-6 col-sm-6 col-md-3">
-							<ul class="list-unstyled">
-								<li><a href="@Url.Action("Tienda", "Home")">Tienda</a></li>
-								<li><a href="@Url.Action("Servicios", "Home")">Servicios</a></li>
-								<li><a href="@Url.Action("SobreNosotros", "Home")">Sobre Nosotros</a></li>
-							</ul>
-						</div>
-
-						<div class="col-6 col-sm-6 col-md-3">
-							<ul class="list-unstyled">
-								<li><a href="@Url.Action("Contacto", "Home")">Contacto</a></li>
-								<li><a href="@Url.Action("RegistrarUsuario", "Home")">Registrarse</a></li>
-							</ul>
-						</div>
+                        <div class="form-group">
+                            <label class="text-black" for="confirmarclave">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="confirmarclave" placeholder="******">
+                        </div>
 
 
-					</div>
-				</div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="text-black" for="lname">Número Telefónico</label>
+                                <input type="text" class="form-control" id="lname" placeholder="Ejemplo: 8451-2687">
+                            </div>
+                        </div>
 
-			</div>
+                        @* <br /> *@
+                        <div class="form-group">
+                            <label class="text-black" for="email">Residencia</label>
+                            <select class="form-select">
+                                <option selected>Seleccione una de las provincias disponibles para nuestros envios (GAM).</option>
+                                <option value="1">San Jose</option>
+                                <option value="2">Alajuela</option>
+                                <option value="3">Heredia</option>
+                                <option value="4">Cartago</option>
+                            </select>
+                        </div>
 
-			<div class="border-top copyright">
-				<div class="row pt-4">
-					<div class="col-lg-6">
-						<p class="mb-2 text-center text-lg-start">
-							BakeryApp &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
-						</p>
-					</div>
+                        @* <div class="form-group mb-5">
+                        <label class="text-black" for="message">Message</label>
+                        <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                        </div> *@
+                        <br />
 
-					
+                        <button type="submit" class="btn btn-primary-hover-outline">Registrarse</button>
+                    </form>
 
-				</div>
-			</div>
+                </div>
 
-		</div>
-	</footer>
-	<!-- End Footer Section -->
+            </div>
+
+        </div>
+
+    </div>
 
 
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/tiny-slider.js"></script>
-	<script src="js/custom.js"></script>
-</body>
+</div>
 
-</html>
+
