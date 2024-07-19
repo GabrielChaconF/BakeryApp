@@ -54,8 +54,10 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="btn btn-white-outline" href="@Url.Action("Index", "Home")">Cerrar Sesion</a></li>
-
+						
+                        <form method="post" action="@Url.Action("CerrarSesion", "Home")">
+                        <li><button class="btn btn-white-outline" type="submit">Cerrar Sesion</button></li>
+                        </form>
 					</ul>
 				</div>
 			</div>

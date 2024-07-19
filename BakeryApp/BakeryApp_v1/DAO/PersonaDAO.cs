@@ -16,6 +16,8 @@ public interface PersonaDAO
 
     public Task<Persona> ObtenerPersonaPorId(int idPersona);
 
+    public Task<PersonaDTO> ObtenerPersonaConRoles(Persona persona);
+
     public Task<IEnumerable<PersonaDTO>> ObtenerTodasLasPersonas(int pagina);
 
     public Task<Persona> ObtenerPersonaPorCorreo(Persona persona);

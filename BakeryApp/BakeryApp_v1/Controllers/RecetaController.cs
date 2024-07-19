@@ -2,12 +2,14 @@
 using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace BakeryApp_v1.Controllers;
-
+[Authorize(Policy = "SoloAdministradores")]
+[ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
 public class RecetaController : Controller
 {
     private readonly IngredienteService ingredienteService;

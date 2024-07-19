@@ -1,4 +1,6 @@
-﻿namespace BakeryApp_v1.DTO;
+﻿using BakeryApp_v1.Models;
+
+namespace BakeryApp_v1.DTO;
 
 public class PersonaDTO
 {
@@ -21,4 +23,20 @@ public class PersonaDTO
     public int IdRol { get; set; }
 
     public RoleDTO Rol { get; set; } = null!;
+
+
+    public static PersonaDTO ConvertirPersonaAPersonaDTO(Persona persona)
+    {
+        return new PersonaDTO
+        {
+            IdPersona = persona.IdPersona,
+            Correo = persona.Correo,    
+            Rol = new RoleDTO
+            {
+                IdRol = persona.IdRolNavigation.IdRol,
+                NombreRol = persona.IdRolNavigation.NombreRol
+            }
+        };
+    }
+
 }

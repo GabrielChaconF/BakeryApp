@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BakeryApp_v1.Controllers
 {
+    [Authorize(Policy = "SoloEmpleados")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class EmpleadoController : Controller
     {
         public IActionResult Index()

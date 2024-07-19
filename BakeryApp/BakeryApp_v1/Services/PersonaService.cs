@@ -16,11 +16,13 @@ public interface PersonaService
 
     public Task<Persona> ObtenerPersonaPorId(int idPersona);
 
+    public Task<Persona> ObtenerPersonaPorCorreo(Persona persona);
     public bool VerificarDatosVaciosONulos(Persona persona);
 
     public bool ValidarLongitudContraseña(Persona persona);
 
     public Task<IEnumerable<PersonaDTO>> ObtenerTodasLasPersonas(int pagina);
+
 
     public Task<bool> VerificarCorreoRepetido(Persona persona);
 
@@ -32,4 +34,14 @@ public interface PersonaService
     public bool ValidarNumeroTelefono(Persona persona);
 
     public bool VerificarCorreoElectronico(Persona persona);
+
+    public bool VerificarRolPersona(Persona persona);
+
+
+    public bool VerificarCorreoOContraVacia(Persona persona);
+
+    public bool VerificarContraConContraUsuario(Persona persona, Persona personaEncontrada);
+
+    public bool VerificarCorreoVacio(Persona persona);
+    public Task<PersonaDTO> ObtenerPersonaConRoles(Persona persona);
 }

@@ -35,7 +35,7 @@ public class PersonaDAOImpl : PersonaDAO
 
     public async Task<Persona> ObtenerPersonaEspecifica(Persona persona)
     {
-        Persona personaEncontrada = await dbContext.Personas.FirstOrDefaultAsync(Persona => Persona.IdPersona == Persona.IdPersona);
+        Persona personaEncontrada = await dbContext.Personas.FirstOrDefaultAsync(Persona => Persona.IdPersona == persona.IdPersona);
         return personaEncontrada;
     }
 
@@ -91,6 +91,15 @@ public class PersonaDAOImpl : PersonaDAO
     {
         int totalPersonas = await dbContext.Personas.CountAsync();
         return totalPersonas;
+    }
+
+
+    public async Task<PersonaDTO> ObtenerPersonaConRoles(Persona persona)
+    {
+        Persona personaConRoles = await dbContext.Personas.Include(Rol => Rol.IdRolNavigation).FirstOrDefaultAsync(Persona => Persona.Correo == persona.Correo);
+
+
+        return PersonaDTO.ConvertirPersonaAPersonaDTO(personaConRoles);
     }
 
 }

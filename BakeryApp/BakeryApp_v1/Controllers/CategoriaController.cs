@@ -1,10 +1,13 @@
 ﻿using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BakeryApp_v1.Controllers
 {
+
+    [Authorize(Policy = "SoloAdministradores")]
     public class CategoriaController : Controller
     {
         private readonly CategoriaService categoriaService;

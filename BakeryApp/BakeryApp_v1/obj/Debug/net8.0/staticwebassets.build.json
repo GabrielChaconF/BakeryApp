@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fH66FCeEs7DX3WVJz1LahBlKe+hwVelRYWllD6DluWQ=",
+  "Hash": "YDJNKH5irHALZbwWh+AR+Gdf1EdziDEsqOPG7wyljLA=",
   "Source": "BakeryApp_v1",
   "BasePath": "_content/BakeryApp_v1",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.7\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.7\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.7\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.7\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.7\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -52,7 +52,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.7\\staticwebassets\\QuickGrid.razor.js"
     },
     {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BakeryApp_v1.styles.css",
@@ -1271,12 +1271,12 @@
       "OriginalItemSpec": "wwwroot\\img\\categorias\\384339fc-d4c2-4eae-b8bd-c1e6d4ebdfce.png"
     },
     {
-      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\3f46e253-30a9-4e97-ad2c-d41329c3f11c.png",
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\790c3270-0008-477e-bbd6-69e2803ea397.png",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
       "BasePath": "_content/BakeryApp_v1",
-      "RelativePath": "img/categorias/3f46e253-30a9-4e97-ad2c-d41329c3f11c.png",
+      "RelativePath": "img/categorias/790c3270-0008-477e-bbd6-69e2803ea397.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1287,7 +1287,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\categorias\\3f46e253-30a9-4e97-ad2c-d41329c3f11c.png"
+      "OriginalItemSpec": "wwwroot\\img\\categorias\\790c3270-0008-477e-bbd6-69e2803ea397.png"
     },
     {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\chat.png",
@@ -1689,6 +1689,25 @@
       "OriginalItemSpec": "wwwroot\\img\\productos\\c940304c-d354-4281-b220-2da29b4aaf30.png"
     },
     {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\cbc42596-93df-4a71-a310-bbde8c4e7850.png",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "img/productos/cbc42596-93df-4a71-a310-bbde8c4e7850.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\productos\\cbc42596-93df-4a71-a310-bbde8c4e7850.png"
+    },
+    {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\ff6c2654-9cce-41a2-9a3b-a3d7f6410877.png",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
@@ -1917,6 +1936,44 @@
       "OriginalItemSpec": "wwwroot\\js\\ingrediente\\index.js"
     },
     {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\login\\login.js",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "js/login/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login\\login.js"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\login\\registro.js",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "js/login/registro.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login\\registro.js"
+    },
+    {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\perfil\\agregar.js",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
@@ -2086,6 +2143,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\receta\\index.js"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\recuperarContra\\recuperar.js",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "js/recuperarContra/recuperar.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\recuperarContra\\recuperar.js"
     },
     {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\site.js",

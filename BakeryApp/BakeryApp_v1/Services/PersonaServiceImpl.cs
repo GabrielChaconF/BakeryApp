@@ -144,6 +144,56 @@ public class PersonaServiceImpl : PersonaService
         return true;
     }
 
+    public bool VerificarRolPersona(Persona persona)
+    {
+        if (persona.IdRol != 3)
+        {
+            return false;
+        }
+        return true;
 
+    }
+
+    public async Task<Persona> ObtenerPersonaPorCorreo(Persona persona)
+    {
+        Persona personaConCorreo = await personaDAO.ObtenerPersonaPorCorreo(persona);
+
+        return personaConCorreo;    
+    }
+
+    public bool VerificarCorreoOContraVacia(Persona persona)
+    {
+        if (persona.Correo == "" || persona.Contra == "")
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public bool VerificarContraConContraUsuario(Persona persona, Persona personaEncontrada)
+    {
+        bool contraCorrecta = BCrypt.Net.BCrypt.Verify(persona.Contra, personaEncontrada.Contra);
+
+        if (!contraCorrecta)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public async Task<PersonaDTO> ObtenerPersonaConRoles(Persona persona)
+    {
+        PersonaDTO personaConRoles = await personaDAO.ObtenerPersonaConRoles(persona);
+        return personaConRoles;
+    }
+
+    public bool VerificarCorreoVacio(Persona persona)
+    {
+        if (string.IsNullOrEmpty(persona.Correo))
+        {
+            return true;
+        }
+        return false;
+    }
 
 }

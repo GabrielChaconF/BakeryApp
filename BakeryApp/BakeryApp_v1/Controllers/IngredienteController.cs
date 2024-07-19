@@ -1,10 +1,13 @@
 ﻿using BakeryApp_v1.DTO;
 using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BakeryApp_v1.Controllers
 {
+    [Authorize(Policy = "SoloAdministradores")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class IngredienteController : Controller
     {
         private readonly IngredienteService ingredienteService;

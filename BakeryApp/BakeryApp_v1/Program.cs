@@ -9,9 +9,10 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();
 
 
@@ -42,9 +43,32 @@ builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<UnidadMedidaDAO, UnidadMedidaDAOImpl>();
 builder.Services.AddScoped<UnidadMedidaService, UnidadMedidaServiceImpl>();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options => { options.LoginPath = "/Home/IniciarSesion"; options.ExpireTimeSpan = TimeSpan.FromMinutes(20); });
 
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "UserDetails";
+        options.LoginPath = "/Home/IniciarSesion";
+        options.LogoutPath = "/Home/CerrarSesion";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+  
+    options.AddPolicy("SoloAdministradores", policy =>
+            policy.RequireRole("ADMINISTRADOR")
+            );
+
+    options.AddPolicy("SoloClientes", policy =>
+         policy.RequireRole("CLIENTE")
+         );
+
+    options.AddPolicy("SoloEmpleados", policy =>
+     policy.RequireRole("EMPLEADO")
+     );
+});
 
 
 

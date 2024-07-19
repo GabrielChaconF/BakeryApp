@@ -28,61 +28,41 @@
                         </div>
                     </div>
 
-                    <form>
+                    <form onsubmit="GuardarPersona(event)">
+                        @Html.AntiForgeryToken()
                         <div class="form-group">
-                            <label class="text-black" for="fname">Nombre</label>
-                            <input type="text" class="form-control" id="fname" placeholder="Nombre">
+                            <label class="text-black" for="nombrePersona">Nombre</label>
+                            <input type="text" class="form-control" id="nombrePersona" placeholder="Nombre">
                         </div>
                         <div class="form-group">
-                            <label class="text-black" for="fname">Primer Apellido</label>
-                            <input type="text" class="form-control" id="fname" placeholder="Primer Apellido">
+                            <label class="text-black" for="primerApellidoPersona">Primer Apellido</label>
+                            <input type="text" class="form-control" id="primerApellidoPersona" placeholder="Primer Apellido">
                         </div>
                         <div class="form-group">
-                            <label class="text-black" for="fname">Segundo Apellido</label>
-                            <input type="text" class="form-control" id="fname" placeholder="Segundo Apellido">
+                            <label class="text-black" for="segundoApellidoPersona">Segundo Apellido</label>
+                            <input type="text" class="form-control" id="segundoApellidoPersona" placeholder="Segundo Apellido">
                         </div>
                         <div class="form-group">
-                            <label class="text-black" for="email">Correo electronico</label>
-                            <input type="email" class="form-control" id="email" placeholder="Correoelectronico@ejemplo.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="text-black" for="clave">Contraseña</label>
-                            <input type="password" class="form-control" id="clave" placeholder="******">
+                            <label class="text-black" for="correo">Correo electronico</label>
+                            <input type="email" class="form-control" id="correo" placeholder="Correoelectronico@ejemplo.com">
                         </div>
 
                         <div class="form-group">
-                            <label class="text-black" for="confirmarclave">Confirmar Contraseña</label>
-                            <input type="password" class="form-control" id="confirmarclave" placeholder="******">
+                            <label class="text-black" for="contra">Contraseña</label>
+                            <input type="text" class="form-control" id="contra" placeholder="******">
                         </div>
+
+             
 
 
                         <div class="col-6">
                             <div class="form-group">
-                                <label class="text-black" for="lname">Número Telefónico</label>
-                                <input type="text" class="form-control" id="lname" placeholder="Ejemplo: 8451-2687">
+                                <label class="text-black" for="telefono">Número Telefónico</label>
+                                <input type="text" class="form-control" id="telefono" placeholder="XXXX-XXXX" oninput="formatoTelefono(this)">
                             </div>
                         </div>
 
-                        @* <br /> *@
-                        <div class="form-group">
-                            <label class="text-black" for="email">Residencia</label>
-                            <select class="form-select">
-                                <option selected>Seleccione una de las provincias disponibles para nuestros envios (GAM).</option>
-                                <option value="1">San Jose</option>
-                                <option value="2">Alajuela</option>
-                                <option value="3">Heredia</option>
-                                <option value="4">Cartago</option>
-                            </select>
-                        </div>
-
-                        @* <div class="form-group mb-5">
-                        <label class="text-black" for="message">Message</label>
-                        <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
-                        </div> *@
-                        <br />
-
-                        <button type="submit" class="btn btn-primary-hover-outline">Registrarse</button>
+                        <button type="submit" class="btn btn-primary-hover-outline mt-3">Registrarse</button>
                     </form>
 
                 </div>
@@ -97,3 +77,8 @@
 </div>
 
 
+@section Scripts {
+    <script type="text/javascript" src="~/js/login/registro.js" asp-append-version=true>
+
+    </script>
+}

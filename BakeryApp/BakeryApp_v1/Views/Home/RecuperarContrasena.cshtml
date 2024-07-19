@@ -23,12 +23,13 @@
 
                         <br />
 
-                        <form>
+                        <form onsubmit="EnviarCorreo(event)">
+                            @Html.AntiForgeryToken()
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label class="text-black" for="fname">Correo electronico</label>
-                                        <input type="text" class="form-control" id="fname" placeholder="Correoelectronico@ejemplo.com">
+                                        <label class="text-black" for="correo">Correo electronico</label>
+                                        <input type="text" class="form-control" id="correo" placeholder="Correoelectronico@ejemplo.com">
                                     </div>
                                 </div>
 
@@ -37,7 +38,7 @@
                             <br />
 
                             <div>
-                                <a class="btn btn-secondary me-2" href="@Url.Action("CambiarContrasena", "Home")">Enviar</a>
+                                <button class="btn btn-secondary me-2" type="submit">Enviar</button>
                             </div>
                         </form>
 
@@ -54,3 +55,6 @@
 </div>
 
 
+@section Scripts {
+    <script type="text/javascript" src="~/js/recuperarContra/recuperar.js" asp-append-version="true"></script>
+}

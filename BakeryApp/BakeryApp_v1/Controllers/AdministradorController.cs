@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BakeryApp_v1.Controllers
 {
+    [Authorize(Policy = "SoloAdministradores")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class AdministradorController : Controller
     {
         public IActionResult Index()
@@ -13,52 +17,8 @@ namespace BakeryApp_v1.Controllers
         {
             return View();
         }
-        //----------------Inventario------------------
-        public IActionResult Inventario()
-        {
-            return View();
-        }
-
-        public IActionResult EditarInventario()
-        {
-            return View();
-        }
-
-        public IActionResult AgregarInventario()
-        {
-            return View();
-        }
-        //----------------Recetas------------------
-        public IActionResult Recetas()
-        {
-            return View();
-        }
-
-        public IActionResult EditarReceta()
-        {
-            return View();
-        }
-
-        public IActionResult AgregarReceta()
-        {
-            return View();
-        }
-
-        //----------------Productos------------------
-        public IActionResult Productos()
-        {
-            return View();
-        }
-
-        public IActionResult EditarProducto()
-        {
-            return View();
-        }
-
-        public IActionResult AgregarProducto()
-        {
-            return View();
-        }
+       
+        
 
         //----------------Facturas------------------
         public IActionResult Facturacion()
