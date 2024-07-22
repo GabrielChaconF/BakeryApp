@@ -15,4 +15,6 @@ public interface IFuncionesUtiles
 
 
     public Persona EncriptarContraseña(Persona persona);
+
+    public string GenerarGUID();
 }

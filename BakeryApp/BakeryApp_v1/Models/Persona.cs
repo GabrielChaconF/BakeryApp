@@ -19,9 +19,9 @@ public partial class Persona
 
     public string Telefono { get; set; } = null!;
 
-    public string? CodigoRecuperacion { get; set; }
-
     public int IdRol { get; set; }
 
     public virtual Role IdRolNavigation { get; set; } = null!;
+
+    public virtual ICollection<Recuperarcontra> Recuperarcontras { get; set; } = new List<Recuperarcontra>();
 }

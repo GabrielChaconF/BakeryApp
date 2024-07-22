@@ -145,4 +145,10 @@ public class FuncionesUtiles : IFuncionesUtiles
 
 
     }
+
+    public string GenerarGUID()
+    {
+
+        return Guid.NewGuid().ToString("N");
+    }
 }

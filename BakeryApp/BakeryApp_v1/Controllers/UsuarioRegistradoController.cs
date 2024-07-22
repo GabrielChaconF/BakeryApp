@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BakeryApp_v1.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "SoloClientes")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class UsuarioRegistradoController : Controller
     {

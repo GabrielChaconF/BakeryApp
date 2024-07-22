@@ -27,6 +27,8 @@ public partial class BakeryAppContext : DbContext
 
     public virtual DbSet<Receta> Recetas { get; set; }
 
+    public virtual DbSet<Recuperarcontra> Recuperarcontras { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Unidadesmedidum> Unidadesmedida { get; set; }
@@ -109,7 +111,6 @@ public partial class BakeryAppContext : DbContext
 
             entity.HasIndex(e => e.Telefono, "uk_telefono_per").IsUnique();
 
-            entity.Property(e => e.CodigoRecuperacion).HasMaxLength(20);
             entity.Property(e => e.Contra).HasMaxLength(100);
             entity.Property(e => e.Correo).HasMaxLength(80);
             entity.Property(e => e.Nombre).HasMaxLength(25);
@@ -158,6 +159,23 @@ public partial class BakeryAppContext : DbContext
             entity.HasIndex(e => e.NombreReceta, "uk_nombre_receta").IsUnique();
 
             entity.Property(e => e.NombreReceta).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Recuperarcontra>(entity =>
+        {
+            entity.HasKey(e => e.IdRecuperacion).HasName("PRIMARY");
+
+            entity.ToTable("recuperarcontra");
+
+            entity.HasIndex(e => e.IdPersona, "fk_id_usuario_contra");
+
+            entity.Property(e => e.CodigoRecuperacion).HasMaxLength(80);
+            entity.Property(e => e.FechaExpiracion).HasColumnType("datetime");
+
+            entity.HasOne(d => d.IdPersonaNavigation).WithMany(p => p.Recuperarcontras)
+                .HasForeignKey(d => d.IdPersona)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_id_usuario_contra");
         });
 
         modelBuilder.Entity<Role>(entity =>

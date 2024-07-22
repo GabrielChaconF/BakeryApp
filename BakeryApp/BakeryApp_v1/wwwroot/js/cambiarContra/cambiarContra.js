@@ -4,23 +4,26 @@
 
 
 
-function EnviarCorreo(event) {
+function CambiarContra(event) {
     event.preventDefault();
 
     const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
 
     const correo = document.getElementById("correo").value;
 
-    const botonSubmit = document.getElementById("botonSubmit");
+    const codigo = document.getElementById("codigo").value;
 
-    botonSubmit.disabled = true;
+    const contra = document.getElementById("contra").value;
 
     const persona = {
-        Correo: correo
+        Correo: correo,
+        CodigoRecuperacion: codigo,
+        Contra: contra
     }
 
-    fetch("/Home/EnviarCorreoContra", {
-        method: "POST",
+
+    fetch("/Home/CambiarContra", {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
@@ -30,18 +33,13 @@ function EnviarCorreo(event) {
     }).then(respuesta => {
         return respuesta.json()
             .then(respuesta => {
-                if (respuesta.correcto) {
-                    window.location.href = respuesta.mensaje
-                }
                 swal({
                     text: respuesta.mensaje
                 });
             })
     }).catch(error => {
         console.error("Error", error);
-    }).finally(() => {
-        botonSubmit.disabled = false;
-    });
+    })
 }
 
 function formatoTelefono(input) {

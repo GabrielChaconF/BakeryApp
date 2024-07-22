@@ -43,5 +43,6 @@ public interface PersonaService
     public bool VerificarContraConContraUsuario(Persona persona, Persona personaEncontrada);
 
     public bool VerificarCorreoVacio(Persona persona);
+
     public Task<PersonaDTO> ObtenerPersonaConRoles(Persona persona);
 }

@@ -7,6 +7,7 @@ using BakeryApp_v1.Services.Contrato;
 using BakeryApp_v1.Services.Implementacion;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 
 
@@ -43,7 +44,9 @@ builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<UnidadMedidaDAO, UnidadMedidaDAOImpl>();
 builder.Services.AddScoped<UnidadMedidaService, UnidadMedidaServiceImpl>();
-
+builder.Services.AddScoped<ReestablecerContraDAO, ReestablecerContraDAOImpl>();
+builder.Services.AddScoped<ReestablecerContraService, ReestablecerContraServiceImpl>();
+builder.Services.AddScoped<IMailEnviar, MailEnviar>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

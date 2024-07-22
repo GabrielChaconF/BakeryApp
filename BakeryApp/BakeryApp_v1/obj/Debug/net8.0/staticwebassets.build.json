@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YDJNKH5irHALZbwWh+AR+Gdf1EdziDEsqOPG7wyljLA=",
+  "Hash": "btCTFXiB0EkcXRPdscqPhLkF+/4MgCAcGtOlu7UAJQM=",
   "Source": "BakeryApp_v1",
   "BasePath": "_content/BakeryApp_v1",
   "Mode": "Default",
@@ -1613,6 +1613,44 @@
       "OriginalItemSpec": "wwwroot\\img\\productos\\.gitkeep"
     },
     {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\09df179f-f3a0-4c6c-8215-df27d42a0307.png",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "img/productos/09df179f-f3a0-4c6c-8215-df27d42a0307.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\productos\\09df179f-f3a0-4c6c-8215-df27d42a0307.png"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\60e1c9b4-cfdc-4bb0-a41c-aecd344388d4.png",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "img/productos/60e1c9b4-cfdc-4bb0-a41c-aecd344388d4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\productos\\60e1c9b4-cfdc-4bb0-a41c-aecd344388d4.png"
+    },
+    {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\676d5b57-a013-499d-80dd-d8fe996d49ac.png",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
@@ -1689,12 +1727,12 @@
       "OriginalItemSpec": "wwwroot\\img\\productos\\c940304c-d354-4281-b220-2da29b4aaf30.png"
     },
     {
-      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\cbc42596-93df-4a71-a310-bbde8c4e7850.png",
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\d4cf9696-bdf2-4486-8da4-c76ee3492a3d.png",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
       "BasePath": "_content/BakeryApp_v1",
-      "RelativePath": "img/productos/cbc42596-93df-4a71-a310-bbde8c4e7850.png",
+      "RelativePath": "img/productos/d4cf9696-bdf2-4486-8da4-c76ee3492a3d.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1705,7 +1743,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\productos\\cbc42596-93df-4a71-a310-bbde8c4e7850.png"
+      "OriginalItemSpec": "wwwroot\\img\\productos\\d4cf9696-bdf2-4486-8da4-c76ee3492a3d.png"
     },
     {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\ff6c2654-9cce-41a2-9a3b-a3d7f6410877.png",
@@ -1801,6 +1839,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\cambiarContra\\cambiarContra.js",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "js/cambiarContra/cambiarContra.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cambiarContra\\cambiarContra.js"
     },
     {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\categoria\\agregar.js",

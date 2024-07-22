@@ -62,6 +62,7 @@ public class PersonaServiceImpl : PersonaService
     }
 
 
+  
     public bool ValidarLongitudContraseña(Persona persona)
     {
         if (persona.Contra.Length < 8)

@@ -3,6 +3,7 @@
 }
 
 
+
 <div class="untree_co-section">
     <div class="container">
 
@@ -10,8 +11,12 @@
             <div class="row justify-content-center">
 
 
-                <div class="col-md-8 col-lg-8 pb-4">
 
+                <div class="col-md-8 col-lg-8 pb-4">
+                    @if (TempData["exito"] != null)
+                    {
+                        <h2 class="text text-sucess"> Por favor, revise su correo electrónico asociado a la cuenta </h2>
+                    }
 
                     <div class="row mb-5">
                         <div class="col-lg-4">
@@ -20,12 +25,13 @@
 
                         <h7>Por favor sigue los siguientes pasos para cambiar tu contrasaña e ingresar a tu cuenta.</h7>
 
-                        <form>
+                        <form onsubmit="CambiarContra(event)">
+                            @Html.AntiForgeryToken()
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label class="text-black" for="fname">Correo electronico</label>
-                                        <input type="text" class="form-control" id="fname" placeholder="Correoelectronico@ejemplo.com">
+                                        <label class="text-black" for="correo">Correo electronico</label>
+                                        <input type="text" class="form-control" id="correo" placeholder="Correoelectronico@ejemplo.com">
                                     </div>
                                 </div>
 
@@ -44,17 +50,15 @@
                           
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label class="text-black" for="lname">Contraseña nueva</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Contraseña nueva">
-                                    <label class="text-black" for="lname">Repetir Contraseña</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Repetir contraseña">
+                                    <label class="text-black" for="contra">Contraseña nueva</label>
+                                    <input type="text" class="form-control" id="contra" placeholder="Contraseña nueva">
                                 </div>
                             </div>
 
                             <br />
 
                             <div>
-                                <a class="btn btn-secondary me-2" href="@Url.Action("IniciarSesion", "Home")">Cambiar contraseña</a>
+                                <button class="btn btn-secondary me-2" type="submit">Cambiar contraseña</button>
                             </div>
                         </form>
 
@@ -70,4 +74,7 @@
     </div>
 </div>
 
+@section Scripts {
+    <script type="text/javascript" src="~/js/cambiarContra/cambiarContra.js" asp-append-version="true"></script>
+}
 

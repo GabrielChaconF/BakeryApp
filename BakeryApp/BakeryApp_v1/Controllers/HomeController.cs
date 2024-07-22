@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authentication;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
 using BakeryApp_v1.DTO;
+using System.Threading;
+using BakeryApp_v1.ViewModels;
 
 namespace BakeryApp_v1.Controllers
 {
@@ -16,10 +18,15 @@ namespace BakeryApp_v1.Controllers
     {
         private readonly PersonaService personaService;
         private readonly IFuncionesUtiles funcionesUtiles;
-        public HomeController(PersonaService personaService, IFuncionesUtiles funcionesUtiles)
+        private readonly IMailEnviar mailEnviar;
+        private readonly ReestablecerContraService reestablecerContraService;
+
+        public HomeController(PersonaService personaService, IFuncionesUtiles funcionesUtiles, IMailEnviar mailEnviar, ReestablecerContraService reestablecerContraService)
         {
             this.personaService = personaService;
             this.funcionesUtiles = funcionesUtiles;
+            this.mailEnviar = mailEnviar;
+            this.reestablecerContraService = reestablecerContraService;
         }
         /*Layout*/
         public IActionResult Index()
@@ -30,7 +37,7 @@ namespace BakeryApp_v1.Controllers
         public IActionResult Tienda()
         {
             return View();
-    
+
         }
 
         public IActionResult Categorias()
@@ -94,7 +101,7 @@ namespace BakeryApp_v1.Controllers
                     new Claim(ClaimTypes.Email,personaConRoles.Correo),
                     new Claim(ClaimTypes.Role,personaConRoles.Rol.NombreRol)
                 };
-                
+
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 AuthenticationProperties properties = new AuthenticationProperties()
                 {
@@ -104,7 +111,7 @@ namespace BakeryApp_v1.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
 
-             
+
                 if (personaConRoles.Rol.NombreRol == "ADMINISTRADOR")
                 {
                     return new JsonResult(new { mensaje = Url.Action("Index", "Administrador"), correcto = true });
@@ -212,7 +219,7 @@ namespace BakeryApp_v1.Controllers
         public async Task<IActionResult> CerrarSesion()
         {
 
-            
+
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index");
         }
@@ -227,23 +234,135 @@ namespace BakeryApp_v1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> EnviarCorreoContra([FromBody]Persona persona)
+        public async Task<IActionResult> EnviarCorreoContra([FromBody] Persona persona)
         {
-            if (personaService.VerificarCorreoVacio(persona))
+            try
             {
-                return new JsonResult(new { mensaje = "El correo no puede estar vacio" });
+
+
+                if (personaService.VerificarCorreoVacio(persona))
+                {
+                    return new JsonResult(new { mensaje = "El correo no puede estar vacio", correcto = false });
+                }
+
+
+                Persona personaConContraOlvidada = await personaService.ObtenerPersonaPorCorreo(persona);
+
+                if (personaConContraOlvidada == null)
+                {
+                    return new JsonResult(new { mensaje = "Correo electronico no encontrado", correcto = false });
+                }
+
+                Recuperarcontra verificacionesPersona = reestablecerContraService.ConvertirPersonaARecuperarPersona(personaConContraOlvidada);
+
+
+
+                Recuperarcontra contraABorrar = await reestablecerContraService.ObtenerPorIdPersona(verificacionesPersona);
+
+                if (contraABorrar is not null)
+                {
+                    await reestablecerContraService.Eliminar(contraABorrar);
+                }
+
+
+                string codigoRecuperacion = funcionesUtiles.GenerarGUID();
+
+                bool envioCorrecto = await mailEnviar.EnviarCorreo(personaConContraOlvidada, "Código de recuperación para la contraseña olvidada", codigoRecuperacion);
+
+                if (!envioCorrecto)
+                {
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al enviar el correo", correcto = false });
+                }
+
+
+                Recuperarcontra personaContra = reestablecerContraService.ConvertirPersonaARecuperarPersona(personaConContraOlvidada, codigoRecuperacion);
+
+                await reestablecerContraService.Guardar(personaContra);
+
+                TempData["exito"] = "El correo fue enviado con exito";
+                return new JsonResult(new { mensaje = Url.Action("CambiarContrasena", "Home"), correcto = true });
             }
-
-
-            Persona personaConContraOlvidada = await personaService.ObtenerPersonaPorCorreo(persona);
-
-            if (personaConContraOlvidada == null)
+            catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Correo electronico no encontrado" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error inesperado", correcto = false });
             }
-
-            return new JsonResult(new { mensaje = "Correo electronico enviado con exito" }); ;
         }
+
+        [HttpPut]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CambiarContra([FromBody] ReestablecerPersonaViewModel persona)
+        {
+            try
+            {
+
+                Persona personaNormal = ReestablecerPersonaViewModel.ConvertirReestablecerPersonaViewModelAPersona(persona);
+
+                if (!personaService.VerificarCorreoOContraVacia(personaNormal))
+                {
+                    return new JsonResult(new { mensaje = "Correo o contraseña vacias" });
+                }
+
+                if (!personaService.ValidarLongitudContraseña(personaNormal))
+                {
+                    return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres" });
+                }
+
+
+                personaNormal = await personaService.ObtenerPersonaPorCorreo(personaNormal);
+
+                if (personaNormal == null)
+                {
+                    return new JsonResult(new { mensaje = "Correo electronico no encontrado" });
+                }
+                // Se crea y asigna el objeto verificacionesPersona, con el codigo de recuperacion enviado desde el frontend
+                Recuperarcontra verificacionesPersona = reestablecerContraService.ConvertirPersonaARecuperarPersona(personaNormal, persona.CodigoRecuperacion);
+
+                if (reestablecerContraService.EsVacioCodigo(verificacionesPersona))
+                {
+
+                    return new JsonResult(new { mensaje = "El codigo de recuperacion no puede estar vacio" });
+                }
+
+                bool estaExpirado = await reestablecerContraService.VerificarFechaCodigo(verificacionesPersona);
+
+
+                if (estaExpirado)
+                {
+                    Recuperarcontra contraABorrar = await reestablecerContraService.ObtenerPorIdPersona(verificacionesPersona);
+                    await reestablecerContraService.Eliminar(contraABorrar);
+                    return new JsonResult(new { mensaje = "El codigo de recuperacion esta expirado, por favor repita el proceso" });
+                }
+
+                Recuperarcontra personaCodigoActual = await reestablecerContraService.ObtenerPorIdPersona(verificacionesPersona);
+
+                // Se compara el codigo de la base de datos, con el codigo enviado desde el frontend
+                if (personaCodigoActual.CodigoRecuperacion != verificacionesPersona.CodigoRecuperacion)
+                {
+                    return new JsonResult(new { mensaje = "El codigo de recuperacion es incorrecto" });
+                }
+
+                // Se asigna la contraseña a la contraseña que viene de la vista
+                personaNormal.Contra = persona.Contra;
+
+
+                if (funcionesUtiles.EncriptarContraseña(personaNormal) == null)
+                {
+                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña" });
+                }
+
+                await personaService.Editar(personaNormal);
+
+
+                return new JsonResult(new { mensaje = "Contraseña reestablecida con exito" });
+            }
+            catch (Exception ex)
+            {
+
+                return new JsonResult(new { mensaje = "Ha ocurrido un error inesperado" });
+            }
+        }
+
+
 
         public IActionResult CambiarContrasena()
         {
