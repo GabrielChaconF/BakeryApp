@@ -11,62 +11,37 @@
 
 
     <div>
-
+        @if (TempData["correcto"] != null)
+        {
+            <div class="text-center mt-3 mb-3">
+                <h2 class="text text-sucess">
+                    @TempData["correcto"]
+                </h2>
+            </div>
+        }
 
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
-                    
-                  
+
+
                     <div class="card card-primary mt-5">
                         <div class="card-header custom-navbar">
                             <h3 class="card-title text-white">Mis datos personales</h3>
                         </div>
-                  
-                        <div class="card-body">
-                            <strong><i class="fas fa-user mr-1"></i> Nombre </strong>
 
-                            <p class="text-muted">
-                                Prueba
-                            </p>
-
-                            <hr>
-
-                            <strong><i class="fas fa-user mr-1"></i> Primer apellido </strong>
-
-                            <p class="text-muted">Prueba</p>
-
-                            <strong><i class="fas fa-user mr-1"></i> Segundo Apellido</strong>
-
-                            <p class="text-muted">Prueba</p>
-                            <hr>
-
-                            <strong><i class="fas fa-user mr-1"></i> Correo </strong>
-
-                            <p class="text-muted">
-                                prueba@gmail.com
-                            </p>
-
-                            <hr>
-
-                            <strong><i class="far fa-user mr-1"></i> Telefono </strong>
-
-                            <p class="text-muted">+506 0000-8888</p>
-
-                            <hr>
-
-                            <strong><i class="far fa-user mr-1"></i> Provincia de Residencia </strong>
-
-                            <p class="text-muted">Alajuela </p>
+                        <div class="card-body" id="divPrincipalUsuario">
                         </div>
 
                     </div>
 
                 </div>
+               
+
 
                 <div class="col-md-9">
                     <div class="card">
-                        <div class="card-header p-2">
+                        <div class="card-header p-2" id="contenerPaneles">
                             <ul class="nav nav-pills">
                                 <li class="nav-item"><a class="nav-link" href="#verpedidos" data-toggle="tab">Mis Pedidos</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#editarcuenta" data-toggle="tab">Editar Perfil</a></li>
@@ -76,18 +51,20 @@
                                 <li class="nav-item"><a class="nav-link" href="#eliminardireccion" data-toggle="tab">Eliminar Direccion</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#verdirecciones" data-toggle="tab">Ver mis Direcciones</a></li>
                             </ul>
-                        </div><!-- /.card-header -->
+                        </div>
+
+                       
                         <div class="card-body">
                             <div class="tab-content">
-                                <div class="tab-pane" id="verpedidos">
+                                <div class="tab-pane" id="verpedidos" onclick="obtener">
                                     <div class="col-md-6">
-                                        <!-- /.card -->
+
 
                                         <div class="card">
                                             <div class="card-header">
                                                 <h3 class="card-title">Pedido 1</h3>
                                             </div>
-                                            <!-- /.card-header -->
+
                                             <div class="card-body p-0">
                                                 <table class="table table-striped">
                                                     <thead>
@@ -111,38 +88,45 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!-- /.card-body -->
+
                                         </div>
-                                        <!-- /.card -->
+
                                     </div>
 
 
                                 </div>
-                                <!-- /.tab-pane -->
+
 
                                 <div class="tab-pane" id="editarcuenta">
-                                    <form class="form-horizontal">
-                                        <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+                                    <form class="form-horizontal" id="formEditarCuenta">
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-group row mb-3">
+                                            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName" placeholder="Nombre">
+                                                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="inputName2" class="col-sm-2 col-form-label">Apellidos</label>
+                                        <div class="form-group row mb-3">
+                                            <label for="primerApellido" class="col-sm-2 col-form-label">Primer Apellido</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputName2" placeholder="Apellidos">
+                                                <input type="text" class="form-control" id="primerApellido" placeholder="Primer Apellido">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="inputName2" class="col-sm-2 col-form-label">Telefono</label>
+                                        <div class="form-group row mb-3">
+                                            <label for="segundoApellido" class="col-sm-2 col-form-label">Segundo Apellido</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputName2" placeholder="Telefono">
+                                                <input type="text" class="form-control" id="segundoApellido" placeholder="Segundo apellido">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-3">
+                                            <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="telefono" placeholder="Telefono" oninput="formatoTelefono(this)">
                                             </div>
                                         </div>
 
 
-                                        <div class="form-group row">
+                                        <div class="form-group mb-3">
                                             <div class="offset-sm-2 col-sm-10">
                                                 <button type="submit" class="btn btn-danger">Realizar cambios</button>
                                             </div>
@@ -152,22 +136,17 @@
 
 
                                 <div class="tab-pane" id="eliminarcuenta">
-                                    <form class="form-horizontal">
-                                        <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Correo</label>
+                                    <form class="form-horizontal" id="formEliminarCuenta">
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-group row mb-3">
+                                            <label for="contraEliminar" class="col-sm-2 col-form-label"> Contraseña </label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName" placeholder="Correo">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputName2" class="col-sm-2 col-form-label">Contraseña</label>
-                                            <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="inputName2" placeholder="****">
+                                                <input type="text" class="form-control" id="contraEliminar" placeholder="****">
                                             </div>
                                         </div>
 
 
-                                        <div class="form-group row">
+                                        <div class="form-group row mb-3">
                                             <div class="offset-sm-2 col-sm-10">
                                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                                             </div>
@@ -175,144 +154,126 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="agregardireccion">
-                                    <div class="form-group">
-                                        <label for="c_country" class="text-black">Provincia <span class="text-danger"></span></label>
-                                        <select id="c_country" class="form-control">
-                                            <option value="1">Seleccione una provincia</option>
-                                            <option value="2">Heredia</option>
-                                            <option value="3">San José</option>
-                                            <option value="3">Alajuela</option>
-                                            <option value="3">Cartago </option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="c_country" class="text-black">Canton <span class="text-danger"></span></label>
-                                        <select id="c_country" class="form-control">
-                                            <option value="1">Seleccione un canton</option>
-                                            <option value="2">Canton 1</option>
-                                            <option value="3">Canton 2</option>
-                                            <option value="3">Canton 3</option>
-                                            <option value="3">Canton 4</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-12">
-                                            <label for="c_companyname" class="text-black">Distrito </label>
-                                            <input type="text" class="form-control" id="c_companyname" name="c_companyname" placeholder="distrito">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="c_order_notes" class="text-black">Dirección Exacta</label>
-                                        <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Escribe tu dirección aquí..."></textarea>
+                                    <form class="form-horizontal" id="formAgregarDireccion">
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-group">
+                                            <label for="nombreDireccionAgregar" class="text-black">Nombre Dirección</label>
+                                            <input type="text" id="nombreDireccionAgregar" class="form-control" placeholder="Nombre Dirección">
 
-                                    </div>
-                                    <div class="form-group row">
-                                        <div>
-                                            <button type="submit" class="btn btn-danger">Agregar Dirección</button>
                                         </div>
-                                    </div>
+
+                                        <div class="form-group">
+                                            <label for="provinciaAgregar" class="text-black">Provincia <span class="text-danger"></span></label>
+                                            <select id="provinciaAgregar" class="form-control">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cantonAgregar" class="text-black">Cantón <span class="text-danger"></span></label>
+                                            <select id="cantonAgregar" class="form-control">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="distritoAgregar" class="text-black">Distrito <span class="text-danger"></span></label>
+                                            <select id="distritoAgregar" class="form-control">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="direccionExactaAgregar" class="text-black">Dirección Exacta</label>
+                                            <textarea name="direccionExactaAgregar" id="direccionExactaAgregar" cols="30" rows="5" class="form-control" placeholder="Escribe tu dirección aquí..."></textarea>
+
+                                        </div>
+                                        <div class="form-group row mt-3">
+                                            <div>
+                                                <button type="submit" class="btn btn-danger">Agregar Dirección</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane" id="modificardireccion">
-                                    <div class="form-group">
-                                        <label for="c_country" class="text-black">Dirección a modificar<span class="text-danger"></span></label>
-                                        <select id="c_country" class="form-control">
-                                            <option value="1">Direccion </option>
-                                            <option value="2">Direccion 1 </option>
-                                            <option value="3">Direccion 2</option>
-                                            <option value="3">Direccion 3</option>
-                                            <option value="3">Direccion 4 </option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="c_country" class="text-black">Provincia <span class="text-danger"></span></label>
-                                        <select id="c_country" class="form-control">
-                                            <option value="1">Seleccione una provincia</option>
-                                            <option value="2">Heredia</option>
-                                            <option value="3">San José</option>
-                                            <option value="3">Alajuela</option>
-                                            <option value="3">Cartago </option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="c_country" class="text-black">Canton <span class="text-danger"></span></label>
-                                        <select id="c_country" class="form-control">
-                                            <option value="1">Seleccione un canton</option>
-                                            <option value="2">Canton 1</option>
-                                            <option value="3">Canton 2</option>
-                                            <option value="3">Canton 3</option>
-                                            <option value="3">Canton 4</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-12">
-                                            <label for="c_companyname" class="text-black">Distrito </label>
-                                            <input type="text" class="form-control" id="c_companyname" name="c_companyname" placeholder="Distrito">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="c_order_notes" class="text-black">Dirección Exacta</label>
-                                        <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Escribe tu dirección aquí..."></textarea>
+                                    <form class="form-horizontal" id="formModificarDireccion">
+                                        @Html.AntiForgeryToken()
 
-                                    </div>
-                                    <div class="form-group row">
-                                        <div>
-                                            <button type="submit" class="btn btn-danger">Modificar Dirección</button>
+                                        <div class="form-group">
+                                            <label for="direccionModificar" class="text-black">Dirección a modificar<span class="text-danger"></span></label>
+                                            <select id="direccionModificar" class="form-control">
+                                            </select>
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="nombreDireccionModificar" class="text-black">Nombre Dirección</label>
+                                            <input type="text" id="nombreDireccionModificar" class="form-control" placeholder="Nombre Dirección">
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="provinciaModificar" class="text-black">Provincia <span class="text-danger"></span></label>
+                                            <select id="provinciaModificar" class="form-control">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cantonModificar" class="text-black">Cantón <span class="text-danger"></span></label>
+                                            <select id="cantonModificar" class="form-control">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="distritoModificar" class="text-black">Distrito <span class="text-danger"></span></label>
+                                            <select id="distritoModificar" class="form-control">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="direccionModificarAgregar" class="text-black">Dirección Exacta</label>
+                                            <textarea name="direccionExactaModificar" id="direccionExactaModificar" cols="30" rows="5" class="form-control" placeholder="Escribe tu dirección aquí..."></textarea>
+
+                                        </div>
+                                        <div class="form-group row mt-3">
+                                            <div>
+                                                <button type="submit" class="btn btn-danger">Agregar Dirección</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane" id="eliminardireccion">
-                                    <div class="form-group">
-                                        <label for="c_country" class="text-black">Dirección a eliminar<span class="text-danger"></span></label>
-                                        <select id="c_country" class="form-control">
-                                            <option value="1">Direccion </option>
-                                            <option value="2">Direccion 1 </option>
-                                            <option value="3">Direccion 2</option>
-                                            <option value="3">Direccion 3</option>
-                                            <option value="3">Direccion 4 </option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div>
-                                            <button type="submit" class="btn btn-danger">Eliminar Dirección</button>
+                                    <form class="form-horizontal" id="formEliminarDireccion">
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-group">
+                                            <label for="direccionEliminar" class="text-black">Dirección a eliminar<span class="text-danger"></span></label>
+                                            <select id="direccionEliminar" class="form-control">
+                                            </select>
                                         </div>
-                                    </div>
+
+                                        <div class="form-group row mt-3">
+                                            <div>
+                                                <button type="submit" class="btn btn-danger">Eliminar Dirección</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane" id="verdirecciones">
                                     <div class="col-md-6">
-                                        <!-- /.card -->
 
-                                        <div class="card">
+
+                                        <div class="card" id="cardTabla">
                                             <div class="card-header">
-                                                <h3 class="card-title">Dirección 1</h3>
+                                                <h3 class="card-title">Direcciones del Usuario</h3>
                                             </div>
-                                            <!-- /.card-header -->
+
                                             <div class="card-body p-0">
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
+                                                            <th>Nombre</th>
                                                             <th>Provincia</th>
                                                             <th>Canton</th>
                                                             <th>Distrito</th>
                                                             <th>Dirección exacta</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                Heredia
-                                                            </td>
-                                                            <td> Heredia</td>
-                                                            <td> Heredia </td>
-                                                            <td> 200 metros sur</td>
-                                                        </tr>
-
+                                                    <tbody id="tablaDirecciones">
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!-- /.card-body -->
+
                                         </div>
-                                        <!-- /.card -->
+
                                     </div>
 
 
@@ -321,23 +282,27 @@
 
 
 
-                            <!-- /.tab-pane -->
-                        </div>
-                        <!-- /.tab-content -->
-                    </div><!-- /.card-body -->
-                </div>
-                <!-- /.nav-tabs-custom -->
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
 
-    
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 </div>
 
 
+@section Scripts {
+    <script type="text/javascript" src="~/js/perfilUsuario/ver.js" asp-append-version="true"></script>
 
+    <script type="text/javascript" src="~/js/usuario/acciones.js" asp-append-version="true"></script>
+}
 
 
 

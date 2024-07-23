@@ -21,6 +21,8 @@ public partial class Persona
 
     public int IdRol { get; set; }
 
+    public virtual ICollection<Direccionesusuario> Direccionesusuarios { get; set; } = new List<Direccionesusuario>();
+
     public virtual Role IdRolNavigation { get; set; } = null!;
 
     public virtual ICollection<Recuperarcontra> Recuperarcontras { get; set; } = new List<Recuperarcontra>();

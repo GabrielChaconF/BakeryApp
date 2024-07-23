@@ -62,7 +62,22 @@ public class PersonaServiceImpl : PersonaService
     }
 
 
-  
+
+    public bool VerificarNombreApellidosOTelefonoNulos(Persona persona)
+    {
+        if (string.IsNullOrEmpty(persona.Nombre) || string.IsNullOrEmpty(persona.PrimerApellido) || string.IsNullOrEmpty(persona.SegundoApellido) ||
+             string.IsNullOrEmpty(persona.Telefono))
+        {
+            return true;
+        }
+
+
+
+        return false;
+    }
+
+
+
     public bool ValidarLongitudContraseña(Persona persona)
     {
         if (persona.Contra.Length < 8)
@@ -159,7 +174,7 @@ public class PersonaServiceImpl : PersonaService
     {
         Persona personaConCorreo = await personaDAO.ObtenerPersonaPorCorreo(persona);
 
-        return personaConCorreo;    
+        return personaConCorreo;
     }
 
     public bool VerificarCorreoOContraVacia(Persona persona)
@@ -194,7 +209,20 @@ public class PersonaServiceImpl : PersonaService
         {
             return true;
         }
+
+        return false;
+    }
+
+    public bool VerificarContraVacia(Persona persona)
+    {
+        if (string.IsNullOrEmpty(persona.Contra))
+        {
+            return true;
+        }
+
         return false;
     }
 
 }
+
+

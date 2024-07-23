@@ -18,8 +18,6 @@ public class PersonaDTO
 
     public string Telefono { get; set; } = null!;
 
-    public string? CodigoRecuperacion { get; set; }
-
     public int IdRol { get; set; }
 
     public RoleDTO Rol { get; set; } = null!;
@@ -36,6 +34,19 @@ public class PersonaDTO
                 IdRol = persona.IdRolNavigation.IdRol,
                 NombreRol = persona.IdRolNavigation.NombreRol
             }
+        };
+    }
+
+    public static PersonaDTO ConvertirPersonaAPersonaDTOSinRoles(Persona persona)
+    {
+        return new PersonaDTO
+        {
+            IdPersona = persona.IdPersona,
+            Correo = persona.Correo,
+            Nombre = persona.Nombre,
+            PrimerApellido = persona.PrimerApellido,
+            SegundoApellido = persona.SegundoApellido,
+            Telefono = persona.Telefono
         };
     }
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "btCTFXiB0EkcXRPdscqPhLkF+/4MgCAcGtOlu7UAJQM=",
+  "Hash": "lhZwlpgzxqIYLU+YaVaruDzhwuNId25ibKwB0Zpm7FU=",
   "Source": "BakeryApp_v1",
   "BasePath": "_content/BakeryApp_v1",
   "Mode": "Default",
@@ -2088,6 +2088,25 @@
       "OriginalItemSpec": "wwwroot\\js\\perfil\\index.js"
     },
     {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\perfilUsuario\\ver.js",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "js/perfilUsuario/ver.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\perfilUsuario\\ver.js"
+    },
+    {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\producto\\agregar.js",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
@@ -2257,6 +2276,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\tiny-slider.js"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\usuario\\acciones.js",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "js/usuario/acciones.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\usuario\\acciones.js"
     },
     {
       "Identity": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

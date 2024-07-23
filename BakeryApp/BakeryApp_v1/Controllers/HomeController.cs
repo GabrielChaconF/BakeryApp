@@ -2,7 +2,7 @@ using BakeryApp_v1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-using BakeryApp_v1.Services.Contrato;
+
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
@@ -11,6 +11,7 @@ using BakeryApp_v1.Utilidades;
 using BakeryApp_v1.DTO;
 using System.Threading;
 using BakeryApp_v1.ViewModels;
+using System.Security.Principal;
 
 namespace BakeryApp_v1.Controllers
 {
@@ -70,6 +71,9 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
+      
+       
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -99,7 +103,8 @@ namespace BakeryApp_v1.Controllers
 
                 List<Claim> claims = new List<Claim>() {
                     new Claim(ClaimTypes.Email,personaConRoles.Correo),
-                    new Claim(ClaimTypes.Role,personaConRoles.Rol.NombreRol)
+                    new Claim(ClaimTypes.Role,personaConRoles.Rol.NombreRol),
+                    new Claim(ClaimTypes.Sid,personaConRoles.IdPersona.ToString())
                 };
 
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -107,7 +112,7 @@ namespace BakeryApp_v1.Controllers
                 {
                     AllowRefresh = true
                 };
-
+            
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
 
@@ -126,7 +131,7 @@ namespace BakeryApp_v1.Controllers
                 {
                     return new JsonResult(new { mensaje = Url.Action("Index", "UsuarioRegistrado"), correcto = true });
                 }
-
+               
                 return new JsonResult(new { mensaje = "Error: Rol incorrecto", correcto = false });
             }
             catch (Exception ex)
@@ -334,6 +339,14 @@ namespace BakeryApp_v1.Controllers
                 }
 
                 Recuperarcontra personaCodigoActual = await reestablecerContraService.ObtenerPorIdPersona(verificacionesPersona);
+
+           
+
+                // Si el codigo es null, se retorna un mensaje de error
+                if (personaCodigoActual == null)
+                {
+                    return new JsonResult(new { mensaje = "El codigo de recuperacion es incorrecto" });
+                }
 
                 // Se compara el codigo de la base de datos, con el codigo enviado desde el frontend
                 if (personaCodigoActual.CodigoRecuperacion != verificacionesPersona.CodigoRecuperacion)

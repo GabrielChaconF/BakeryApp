@@ -46,6 +46,14 @@ builder.Services.AddScoped<UnidadMedidaDAO, UnidadMedidaDAOImpl>();
 builder.Services.AddScoped<UnidadMedidaService, UnidadMedidaServiceImpl>();
 builder.Services.AddScoped<ReestablecerContraDAO, ReestablecerContraDAOImpl>();
 builder.Services.AddScoped<ReestablecerContraService, ReestablecerContraServiceImpl>();
+builder.Services.AddScoped<ProvinciaDAO, ProvinciaDAOImpl>();
+builder.Services.AddScoped<CantonDAO, CantonDAOImpl>();
+builder.Services.AddScoped<DistritoDAO, DistritoDAOImpl>();
+builder.Services.AddScoped<ProvinciaService, ProvinciaServiceImpl>();
+builder.Services.AddScoped<CantonService, CantonServiceImpl>();
+builder.Services.AddScoped<DistritoService, DistritoServiceImpl>();
+builder.Services.AddScoped<DireccionesDAO, DireccionesDAOImpl>();
+builder.Services.AddScoped<DireccionesService, DireccionesServiceImpl>();
 builder.Services.AddScoped<IMailEnviar, MailEnviar>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
