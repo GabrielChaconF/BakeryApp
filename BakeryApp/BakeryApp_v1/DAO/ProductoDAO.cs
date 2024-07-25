@@ -18,6 +18,8 @@ public interface ProductoDAO
 
     public Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductos(int pagina);
 
+    public Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductosPorCategoria(int idCategoria);
+
     public Task<Producto> ObtenerProductoPorNombre(Producto producto);
 
     public Task<int> ContarTotalProductos();

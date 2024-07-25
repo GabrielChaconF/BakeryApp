@@ -70,6 +70,12 @@ public class ProductoServiceImpl : ProductoService
         return false;
     }
 
+
+    public async Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductosPorCategoria(int idCategoria)
+    {
+        IEnumerable<ProductoDTO> productosPorCategoria = await productoDAO.ObtenerTodasLasProductosPorCategoria(idCategoria);
+        return productosPorCategoria;
+    }
     public async Task<bool> VerificarNombreRepetido(Producto producto)
     {
         Producto estaRepetida = await productoDAO.ObtenerProductoPorNombre(producto);
@@ -91,4 +97,6 @@ public class ProductoServiceImpl : ProductoService
 
         return (int)totalPaginas;
     }
+
+
 }

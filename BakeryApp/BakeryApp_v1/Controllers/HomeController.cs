@@ -41,6 +41,12 @@ namespace BakeryApp_v1.Controllers
 
         }
 
+        public IActionResult AccesoDenegado()
+        {
+            return View();
+
+        }
+
         public IActionResult Categorias()
         {
             return View();
@@ -364,7 +370,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
                 await personaService.Editar(personaNormal);
-
+                await reestablecerContraService.Eliminar(personaCodigoActual);
 
                 return new JsonResult(new { mensaje = "Contraseña reestablecida con exito" });
             }

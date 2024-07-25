@@ -146,6 +146,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cVmVyUGVkaWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Home/AccesoDenegado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc29EZW5lZ2Fkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Home/CambiarContrasena.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYW1iaWFyQ29udHJhc2VuYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -250,10 +254,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1JlZ2lzdHJhZG9cQ2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/UsuarioRegistrado/Categorias.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1JlZ2lzdHJhZG9cQ2F0ZWdvcmlhcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/UsuarioRegistrado/CheckOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1JlZ2lzdHJhZG9cQ2hlY2tPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -276,6 +276,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/UsuarioRegistrado/PersonalizarProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1JlZ2lzdHJhZG9cUGVyc29uYWxpemFyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/UsuarioRegistrado/ProductosPorCategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1JlZ2lzdHJhZG9cUHJvZHVjdG9zUG9yQ2F0ZWdvcmlhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/UsuarioRegistrado/ServiciosUsuario.cshtml]

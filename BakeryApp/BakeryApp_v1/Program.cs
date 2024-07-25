@@ -63,6 +63,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LoginPath = "/Home/IniciarSesion";
         options.LogoutPath = "/Home/CerrarSesion";
         options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.AccessDeniedPath = "/Home/AccesoDenegado"; 
     });
 
 builder.Services.AddAuthorization(options =>

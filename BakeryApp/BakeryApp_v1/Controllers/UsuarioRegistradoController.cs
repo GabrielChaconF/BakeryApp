@@ -18,15 +18,19 @@ namespace BakeryApp_v1.Controllers
         private readonly ProvinciaService provinciaService;
         private readonly CantonService cantonService;
         private readonly DistritoService distritoService;
-        private readonly DireccionesService direccionesService;
+        private readonly DireccionesService direccionesService; 
+        private readonly CategoriaService categoriaService;
+        private readonly ProductoService productoService;
 
-        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService)
+        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService)
         {
             this.personaService = personaService;
             this.provinciaService = provinciaService;
             this.cantonService = cantonService;
             this.distritoService = distritoService;
             this.direccionesService = direccionesService;
+            this.categoriaService = categoriaService;   
+            this.productoService = productoService;
         }
 
 
@@ -35,13 +39,29 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
       
-        public IActionResult TiendaUsuario()
+        public async Task<IActionResult> TiendaUsuario([FromQuery] int pagina)
         {
+            int totalPaginas = await categoriaService.CalcularTotalPaginas();
+            if (pagina > totalPaginas)
+            {
+                return NotFound();
+            }
+
+
             return View();
         }
 
-        public IActionResult Categorias()
+       
+        public async Task<IActionResult> ProductosPorCategoria([FromQuery]int categoria)
         {
+            Categoria categoriaBuscada = await categoriaService.ObtenerCategoriaPorId(categoria);
+
+            if (categoriaBuscada == null)
+            {
+                return NotFound();
+            }
+
+
             return View();
         }
 
@@ -72,6 +92,47 @@ namespace BakeryApp_v1.Controllers
         
             return View();
         }
+
+
+        [HttpGet("/UsuarioRegistrado/ObtenerProductosPorCategoria/{idCategoria}")]
+
+        public async Task<IActionResult> ObtenerProductosPorCategoria(int idCategoria)
+        {
+            return new JsonResult(new { arregloProductos = await productoService.ObtenerTodasLasProductosPorCategoria(idCategoria) });
+        }
+
+
+        [HttpGet("/UsuarioRegistrado/ObtenerCategoriaPorId/{idCategoria}")]
+
+        public async Task<IActionResult> ObtenerCategoriaPorId(int idCategoria)
+        {
+            return new JsonResult(new { categoria = await categoriaService.ObtenerCategoriaPorId(idCategoria) });
+        }
+
+        [HttpGet]
+
+        public async Task<IActionResult> ObtenerTotalPaginas(int pagina)
+        {
+          
+
+            return new JsonResult(new { paginas = await categoriaService.CalcularTotalPaginas() });
+        }
+
+
+
+
+        [HttpGet("/UsuarioRegistrado/ObtenerCategorias/{pagina}")]
+
+        public async Task<IActionResult> ObtenerCategorias(int pagina)
+        {
+            if (pagina <= 0)
+            {
+                return NotFound();
+            }
+
+            return new JsonResult(new { arregloCategorias = await categoriaService.ObtenerTodasLasCategorias(pagina) });
+        }
+
 
 
         [HttpGet]

@@ -64,49 +64,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
 function FiltrarContenidoPorPanel(idPanel) {
+    const formEditarCuenta = document.getElementById("formEditarCuenta");
+    const formEliminarCuenta = document.getElementById("formEliminarCuenta");
+    const formAgregarDireccion = document.getElementById("formAgregarDireccion");
+    const formModificarDireccion = document.getElementById("formModificarDireccion");
+    const formEliminarDireccion = document.getElementById("formEliminarDireccion");
+
     switch (idPanel) {
         case 'verpedidos':
-
-
             break;
         case 'editarcuenta':
-            const formEditarCuenta = document.getElementById("formEditarCuenta")
-
-            formEditarCuenta.addEventListener("submit", (event) => {
-                EditarPersona(event)
-            })
-
+            if (formEditarCuenta) {
+                formEditarCuenta.removeEventListener("submit", EditarPersona);
+                formEditarCuenta.addEventListener("submit", EditarPersona);
+            }
             break;
         case 'eliminarcuenta':
-            const formEliminarCuenta = document.getElementById("formEliminarCuenta")
-
-            formEliminarCuenta.addEventListener("submit", (event) => {
-                EliminarPersona(event)
-            })
+            if (formEliminarCuenta) {
+                formEliminarCuenta.removeEventListener("submit", EliminarPersona);
+                formEliminarCuenta.addEventListener("submit", EliminarPersona);
+            }
             break;
         case 'agregardireccion':
-            const formAgregarDireccion = document.getElementById("formAgregarDireccion")
-
-            formAgregarDireccion.addEventListener("submit", (event) => {
-                AgregarDireccion(event);
-            })
-
+            if (formAgregarDireccion) {
+                formAgregarDireccion.removeEventListener("submit", AgregarDireccion);
+                formAgregarDireccion.addEventListener("submit", AgregarDireccion);
+            }
             break;
         case 'modificardireccion':
-            const formModificarDireccion = document.getElementById("formModificarDireccion")
-
-            formModificarDireccion.addEventListener("submit", (event) => {
-                ModificarDireccion(event);
-            })
-            
+            if (formModificarDireccion) {
+                formModificarDireccion.removeEventListener("submit", ModificarDireccion);
+                formModificarDireccion.addEventListener("submit", ModificarDireccion);
+            }
             break;
         case 'eliminardireccion':
-            const formEliminarDireccion = document.getElementById("formEliminarDireccion")
-            formEliminarDireccion.addEventListener("submit", (event) => {
-                EliminarDireccionUsuario(event)
-            })
-
+            if (formEliminarDireccion) {
+                formEliminarDireccion.removeEventListener("submit", EliminarDireccionUsuario);
+                formEliminarDireccion.addEventListener("submit", EliminarDireccionUsuario);
+            }
             break;
         case 'verdirecciones':
             break;
@@ -114,8 +112,6 @@ function FiltrarContenidoPorPanel(idPanel) {
             console.log("ID de tab-pane no reconocido.");
     }
 }
-
-
 
 
 
