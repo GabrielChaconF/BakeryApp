@@ -1,34 +1,20 @@
 ﻿
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     ObtenerDireccionesUsuario()
-    const selectProvincia = document.getElementById("provinciaAgregar");
-    const selectCanton = document.getElementById("cantonAgregar");
-    const selectProvinciaModificar = document.getElementById("provinciaModificar");
-    const selectCantonModificar = document.getElementById("cantonModificar")
+   
 
-    selectProvinciaModificar.addEventListener("change", () => {
-        ObtenerCantonesModificar();
-        ObtenerDistritosModificar();
-    });
+    IniciarEventListeners()
 
-    selectCantonModificar.addEventListener("change", () => {
-        ObtenerDistritosModificar();
-    });
-
-
-    selectProvincia.addEventListener("change", () => {
-        ObtenerCantones();
-        ObtenerDistritos();
-    });
-
-    selectCanton.addEventListener("change", () => {
-        ObtenerDistritos();
-    });
-
-
-
+    IniciarTabPane()
 
     ObtenerTodasLasProvincias();
+
+});
+
+function IniciarTabPane() {
 
     const contenedorPaneles = document.getElementById("contenerPaneles")
     const links = contenedorPaneles.querySelectorAll('.nav-link');
@@ -60,10 +46,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tabPaneActivo) {
         FiltrarContenidoPorTabPane(tabPaneActivo.id);
     }
-});
+}
+
+function IniciarEventListeners() {
+    const selectProvincia = document.getElementById("provinciaAgregar");
+    const selectCanton = document.getElementById("cantonAgregar");
+    const selectProvinciaModificar = document.getElementById("provinciaModificar");
+    const selectCantonModificar = document.getElementById("cantonModificar")
 
 
+    selectProvinciaModificar.addEventListener("change", () => {
+        ObtenerCantonesModificar();
+        ObtenerDistritosModificar();
+    });
 
+    selectCantonModificar.addEventListener("change", () => {
+        ObtenerDistritosModificar();
+    });
+
+
+    selectProvincia.addEventListener("change", () => {
+        ObtenerCantones();
+        ObtenerDistritos();
+    });
+
+    selectCanton.addEventListener("change", () => {
+        ObtenerDistritos();
+    });
+
+}
 
 
 function FiltrarContenidoPorPanel(idPanel) {
@@ -72,44 +83,54 @@ function FiltrarContenidoPorPanel(idPanel) {
     const formAgregarDireccion = document.getElementById("formAgregarDireccion");
     const formModificarDireccion = document.getElementById("formModificarDireccion");
     const formEliminarDireccion = document.getElementById("formEliminarDireccion");
+ 
+
+
+
 
     switch (idPanel) {
-        case 'verpedidos':
+        case "verpedidos":
             break;
-        case 'editarcuenta':
+        case "editarcuenta":
             if (formEditarCuenta) {
                 formEditarCuenta.removeEventListener("submit", EditarPersona);
                 formEditarCuenta.addEventListener("submit", EditarPersona);
             }
             break;
-        case 'eliminarcuenta':
+        case "eliminarcuenta":
             if (formEliminarCuenta) {
                 formEliminarCuenta.removeEventListener("submit", EliminarPersona);
                 formEliminarCuenta.addEventListener("submit", EliminarPersona);
             }
             break;
-        case 'agregardireccion':
+        case "agregardireccion":
             if (formAgregarDireccion) {
                 formAgregarDireccion.removeEventListener("submit", AgregarDireccion);
                 formAgregarDireccion.addEventListener("submit", AgregarDireccion);
             }
+         
             break;
-        case 'modificardireccion':
+        case "modificardireccion":
             if (formModificarDireccion) {
                 formModificarDireccion.removeEventListener("submit", ModificarDireccion);
                 formModificarDireccion.addEventListener("submit", ModificarDireccion);
             }
+           
             break;
-        case 'eliminardireccion':
+        case "eliminardireccion":
             if (formEliminarDireccion) {
                 formEliminarDireccion.removeEventListener("submit", EliminarDireccionUsuario);
                 formEliminarDireccion.addEventListener("submit", EliminarDireccionUsuario);
             }
             break;
-        case 'verdirecciones':
+        case "verdirecciones":
+            // Aqui no se ocupa llamar a  ObtenerDireccionesUsuario(), ya que se llama apenas se carga el DOM
             break;
         default:
-            console.log("ID de tab-pane no reconocido.");
+            swal({
+                text: "Opción Invalida",
+                icon: "error"
+            });
     }
 }
 
@@ -117,7 +138,6 @@ function FiltrarContenidoPorPanel(idPanel) {
 
 
 function ObtenerDireccionesUsuario() {
-
     fetch("/UsuarioRegistrado/ObtenerDireccionUsuario", {
         method: "GET",
         headers: {
@@ -135,40 +155,6 @@ function ObtenerDireccionesUsuario() {
     });
 }
 
-function EliminarDireccionUsuario(event) {
-    event.preventDefault()
-
-    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-    const selectEliminarDireccion = document.getElementById("direccionEliminar");
-
-    const idDireccion = selectEliminarDireccion.value;
-
-
-    if (idDireccion == "") {
-        swal({
-            text: "No puede eliminar una direccion, ya que no hay direcciones registradas"
-        })
-    }
-
-    fetch("/UsuarioRegistrado/EliminarDireccion/" + idDireccion, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest",
-            "RequestVerificationToken": token
-        }
-    }).then(respuesta => respuesta.json())
-        .then(respuesta => {
-            if (respuesta.correcto) {
-                window.location.href = respuesta.mensaje;
-            }
-            swal({
-                text: respuesta.mensaje
-            });
-        }).catch(error => {
-            console.error("Error", error);
-        });
-}
 
 
 
@@ -506,6 +492,68 @@ function EliminarPersona(event) {
 }
 
 
+function EliminarDireccionUsuario(event) {
+    event.preventDefault()
+
+    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+    const selectEliminarDireccion = document.getElementById("direccionEliminar");
+
+    const idDireccion = selectEliminarDireccion.value;
+
+
+    if (idDireccion == "") {
+        swal({
+            text: "No puede eliminar una direccion, ya que no hay direcciones registradas",
+            icon: "error"
+        })
+    }
+
+    fetch("/UsuarioRegistrado/EliminarDireccion/" + idDireccion, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "RequestVerificationToken": token
+        }
+    }).then(respuesta => respuesta.json())
+        .then(respuesta => {
+            if (respuesta.correcto) {
+                swal({
+                    text: respuesta.mensaje,
+                    icon: "success"
+                });
+                ActualizarInterfazDireccionEliminada(idDireccion)
+
+            } else {
+                swal({
+                    text: respuesta.mensaje,
+                    icon: "error"
+                });
+            }
+
+        }).catch(error => {
+            console.error("Error", error);
+        });
+}
+
+
+function ActualizarInterfazDireccionEliminada(idDireccion) {
+    const selectEliminarDireccion = document.getElementById("direccionEliminar");
+
+
+
+    for (let i = 0; i < selectEliminarDireccion.options.length; i++) {
+        if (selectEliminarDireccion.options[i].value == idDireccion) {
+            selectEliminarDireccion.remove(i);
+            break;
+        }
+    }
+    ActualizarInterfazDireccionEliminadaTabla()
+}
+
+
+
+
 
 function ModificarDireccion(event) {
     event.preventDefault();
@@ -549,17 +597,55 @@ function ModificarDireccion(event) {
         return respuesta.json()
             .then(respuesta => {
                 if (respuesta.correcto) {
-                    window.location.href = respuesta.mensaje;
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "success"
+                    });
+                    ActualizarInterfazDireccionModificada(idDireccion, nombreDireccion)
+                   
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
                 }
-                swal({
-                    text: respuesta.mensaje
-                });
+               
             })
     }).catch(error => {
         console.error("Error", error);
     });
 
 }
+
+
+function ActualizarInterfazDireccionModificada(idDireccion, nombreDireccion) {
+    const selectModificarDireccion = document.getElementById("direccionModificar");
+
+
+
+    for (let i = 0; i < selectModificarDireccion.options.length; i++) {
+        if (selectModificarDireccion.options[i].value == idDireccion) {
+            selectModificarDireccion.options[i].textContent = nombreDireccion;
+            break;
+        }
+    }
+
+    const selectEliminarDireccion = document.getElementById("direccionEliminar");
+
+
+
+    for (let i = 0; i < selectEliminarDireccion.options.length; i++) {
+        if (selectEliminarDireccion.options[i].value == idDireccion) {
+            selectEliminarDireccion.options[i].textContent = nombreDireccion
+            break;
+        }
+    }
+
+
+    ActualizarInterfazDireccionModificadaTabla()
+}
+
+
 
 
 function AgregarDireccion(event) {
@@ -601,11 +687,18 @@ function AgregarDireccion(event) {
         return respuesta.json()
             .then(respuesta => {
                 if (respuesta.correcto) {
-                    window.location.href = respuesta.mensaje;
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "success"
+                    });
+                    ActualizarInterfazDireccionAgregada();
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
                 }
-                swal({
-                    text: respuesta.mensaje
-                });
+               
             })
     }).catch(error => {
         console.error("Error", error);
@@ -647,16 +740,154 @@ function EditarPersona(event) {
         return respuesta.json()
             .then(respuesta => {
                 if (respuesta.correcto) {
-                    window.location.href = respuesta.mensaje
+                  
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "success"
+                    });
+                    ActualizarInterfazUsuarioModificado()
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
                 }
-                swal({
-                    text: respuesta.mensaje
-                });
             })
     }).catch(error => {
         console.error("Error", error);
     });
 }
+
+
+function ActualizarInterfazUsuarioModificado() {
+    fetch("/UsuarioRegistrado/ObtenerDatosUsuarioLogueado", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+    }).then(respuesta => {
+        
+        ActualizarDatosUsuariosModificados(respuesta.mensaje)
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
+
+function ActualizarDatosUsuariosModificados(mensaje) {
+    const nombre = document.getElementById("idNombre")
+
+    const primerApellido = document.getElementById("idPrimerApellido")
+
+    const segundoApellido = document.getElementById("idSegundoApellido")
+
+    const correo = document.getElementById("idCorreo")
+
+    const telefono = document.getElementById("idTelefono")
+
+    nombre.innerText = mensaje.nombre
+
+    primerApellido.innerText = mensaje.primerApellido
+
+    segundoApellido.innerText = mensaje.segundoApellido
+
+    correo.innerText = mensaje.correo;
+
+    telefono.innerText = mensaje.telefono
+
+}
+
+function ActualizarInterfazDireccionAgregada() {
+    fetch("/UsuarioRegistrado/ObtenerDireccionUsuario", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+    }).then(respuesta => {
+        LlenarTablaDireccionesInterfaz(respuesta.arregloDirecciones)
+        LlenarSelectEliminarDireccion(respuesta.arregloDirecciones)
+        LlenarSelectModificarDireccion(respuesta.arregloDirecciones)
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
+
+
+
+
+function ActualizarInterfazDireccionEliminadaTabla() {
+    fetch("/UsuarioRegistrado/ObtenerDireccionUsuario", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+    }).then(respuesta => {
+        LlenarTablaDireccionesInterfaz(respuesta.arregloDirecciones)
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
+
+
+function ActualizarInterfazDireccionModificadaTabla() {
+    fetch("/UsuarioRegistrado/ObtenerDireccionUsuario", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+    }).then(respuesta => {
+        LlenarTablaDireccionesInterfaz(respuesta.arregloDirecciones)
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
+
+
+
+
+function LlenarTablaDireccionesInterfaz(arregloDirecciones) {
+    const bodyTabla = document.getElementById("tablaDirecciones")
+
+    //Se limpia la tabla
+    bodyTabla.innerHTML = "";
+
+    arregloDirecciones.forEach(direccion => {
+        const filaTabla = document.createElement("tr")
+        const tdNombre = document.createElement("td")
+        const tdProvincia = document.createElement("td")
+        const tdCanton = document.createElement("td")
+        const tdDistrito = document.createElement("td")
+        const tdDireccion = document.createElement("td")
+
+        bodyTabla.appendChild(filaTabla)
+        filaTabla.appendChild(tdNombre)
+        filaTabla.appendChild(tdProvincia)
+        filaTabla.appendChild(tdCanton)
+        filaTabla.appendChild(tdDistrito)
+        filaTabla.appendChild(tdDireccion)
+
+        tdNombre.innerText = direccion.nombreDireccion
+        tdProvincia.innerText = direccion.provinciaDTO.nombreProvincia
+        tdCanton.innerText = direccion.cantonDTO.nombreCanton
+        tdDistrito.innerText = direccion.distritoDTO.nombreDistrito
+        tdDireccion.innerText = direccion.direccionExacta
+
+    })
+
+}
+
+
 
 function formatoTelefono(input) {
 
@@ -672,3 +903,4 @@ function formatoTelefono(input) {
 
     input.value = telefono;
 }
+

@@ -26,4 +26,6 @@ public partial class Direccionesusuario
     public virtual Persona IdPersonaNavigation { get; set; } = null!;
 
     public virtual Provincia IdProvinciaNavigation { get; set; } = null!;
+
+    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
 }

@@ -20,10 +20,19 @@ public partial class Producto
 
     public string ImagenProducto { get; set; } = null!;
 
+    public string? Imagen3Dproducto { get; set; }
+
+    public virtual ICollection<Carritocompra> Carritocompras { get; set; } = new List<Carritocompra>();
+
     public virtual Categoria IdCategoriaNavigation { get; set; } = null!;
 
     public virtual Receta IdRecetaNavigation { get; set; } = null!;
 
+    public virtual ICollection<Productosmodificado> Productosmodificados { get; set; } = new List<Productosmodificado>();
+
     [NotMapped]
     public IFormFile ArchivoProducto { get; set; }
+
+    [NotMapped]
+    public IFormFile Archivo3DProducto { get; set; }
 }

@@ -8,6 +8,7 @@ namespace BakeryApp_v1.Controllers
 {
 
     [Authorize(Policy = "SoloAdministradores")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class CategoriaController : Controller
     {
         private readonly CategoriaService categoriaService;

@@ -289,16 +289,12 @@
       "PackagePath": "staticwebassets\\img\\categorias\\.gitkeep"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\1b9cf927-af05-4145-9020-26204b818680.png",
-      "PackagePath": "staticwebassets\\img\\categorias\\1b9cf927-af05-4145-9020-26204b818680.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\0e976d64-8f57-489d-9462-685f29390fde.png",
+      "PackagePath": "staticwebassets\\img\\categorias\\0e976d64-8f57-489d-9462-685f29390fde.png"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\2f70a838-5873-4180-8b77-84ee3feac730.png",
       "PackagePath": "staticwebassets\\img\\categorias\\2f70a838-5873-4180-8b77-84ee3feac730.png"
-    },
-    {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\367e2ba7-7349-4302-8d65-073a2ef4549e.png",
-      "PackagePath": "staticwebassets\\img\\categorias\\367e2ba7-7349-4302-8d65-073a2ef4549e.png"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\73aea4c8-9bf0-4faa-b857-62be0bbb1335.png",
@@ -313,16 +309,12 @@
       "PackagePath": "staticwebassets\\img\\categorias\\7ac2c963-a59e-4572-a95f-29fd83d3c43b.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\7c0d00ae-70c6-4c55-a089-08f68be5edcd.png",
-      "PackagePath": "staticwebassets\\img\\categorias\\7c0d00ae-70c6-4c55-a089-08f68be5edcd.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\8115884a-fdcb-47e5-872d-283acb0e6ca9.png",
+      "PackagePath": "staticwebassets\\img\\categorias\\8115884a-fdcb-47e5-872d-283acb0e6ca9.png"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\e4b89c29-194d-4d8b-988c-6b295c4eed7f.png",
       "PackagePath": "staticwebassets\\img\\categorias\\e4b89c29-194d-4d8b-988c-6b295c4eed7f.png"
-    },
-    {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\f3b8e3b8-9a1a-45f4-9137-fea5275d39a0.png",
-      "PackagePath": "staticwebassets\\img\\categorias\\f3b8e3b8-9a1a-45f4-9137-fea5275d39a0.png"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\categorias\\faed4e29-a162-49c5-88d8-83b3416cc15a.png",
@@ -361,6 +353,22 @@
       "PackagePath": "staticwebassets\\img\\envelope-outline.svg"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\imagenes3DProductos\\.gitkeep",
+      "PackagePath": "staticwebassets\\img\\imagenes3DProductos\\.gitkeep"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\imagenes3DProductos\\6866e0d9-276c-475e-9b80-8fccebcae161.fbx",
+      "PackagePath": "staticwebassets\\img\\imagenes3DProductos\\6866e0d9-276c-475e-9b80-8fccebcae161.fbx"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\imagenes3DProductos\\b2bfeb00-efd6-448a-b782-7ef1ed41988b.fbx",
+      "PackagePath": "staticwebassets\\img\\imagenes3DProductos\\b2bfeb00-efd6-448a-b782-7ef1ed41988b.fbx"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\imagenes3DProductos\\dba7d0f4-bc59-4fd2-b1f4-585fa2f00c0b.fbx",
+      "PackagePath": "staticwebassets\\img\\imagenes3DProductos\\dba7d0f4-bc59-4fd2-b1f4-585fa2f00c0b.fbx"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\microempresa.png",
       "PackagePath": "staticwebassets\\img\\microempresa.png"
     },
@@ -373,48 +381,36 @@
       "PackagePath": "staticwebassets\\img\\productos\\.gitkeep"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\09df179f-f3a0-4c6c-8215-df27d42a0307.png",
-      "PackagePath": "staticwebassets\\img\\productos\\09df179f-f3a0-4c6c-8215-df27d42a0307.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\8712c83a-b266-4408-b8f9-dcbd3fecce46.png",
+      "PackagePath": "staticwebassets\\img\\productos\\8712c83a-b266-4408-b8f9-dcbd3fecce46.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\1393a54f-7d0a-40d7-9f4d-686b16632270.png",
-      "PackagePath": "staticwebassets\\img\\productos\\1393a54f-7d0a-40d7-9f4d-686b16632270.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\8d49d85e-ca43-437f-b7f1-3fdc52c685da.png",
+      "PackagePath": "staticwebassets\\img\\productos\\8d49d85e-ca43-437f-b7f1-3fdc52c685da.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\5304d7fd-8f04-476f-8486-b37a332d3a4c.png",
-      "PackagePath": "staticwebassets\\img\\productos\\5304d7fd-8f04-476f-8486-b37a332d3a4c.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\9bf42070-e9c8-4653-b7c4-6a0a40369578.png",
+      "PackagePath": "staticwebassets\\img\\productos\\9bf42070-e9c8-4653-b7c4-6a0a40369578.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\60e1c9b4-cfdc-4bb0-a41c-aecd344388d4.png",
-      "PackagePath": "staticwebassets\\img\\productos\\60e1c9b4-cfdc-4bb0-a41c-aecd344388d4.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\a9f31f7b-326c-45b2-9c85-dc82e87260ed.png",
+      "PackagePath": "staticwebassets\\img\\productos\\a9f31f7b-326c-45b2-9c85-dc82e87260ed.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\676d5b57-a013-499d-80dd-d8fe996d49ac.png",
-      "PackagePath": "staticwebassets\\img\\productos\\676d5b57-a013-499d-80dd-d8fe996d49ac.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\b050ef99-ea13-485d-bfb7-63166316168e.png",
+      "PackagePath": "staticwebassets\\img\\productos\\b050ef99-ea13-485d-bfb7-63166316168e.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\92315c8b-1982-44a7-819e-627cfe3575ec.png",
-      "PackagePath": "staticwebassets\\img\\productos\\92315c8b-1982-44a7-819e-627cfe3575ec.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\b9894a85-6f30-4932-916a-c55a403e21ad.png",
+      "PackagePath": "staticwebassets\\img\\productos\\b9894a85-6f30-4932-916a-c55a403e21ad.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\9aaaaf1f-65c6-49be-a52b-4adfb2623096.png",
-      "PackagePath": "staticwebassets\\img\\productos\\9aaaaf1f-65c6-49be-a52b-4adfb2623096.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\ddffbc65-1e65-457d-9649-99e6ebceda72.png",
+      "PackagePath": "staticwebassets\\img\\productos\\ddffbc65-1e65-457d-9649-99e6ebceda72.png"
     },
     {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\c940304c-d354-4281-b220-2da29b4aaf30.png",
-      "PackagePath": "staticwebassets\\img\\productos\\c940304c-d354-4281-b220-2da29b4aaf30.png"
-    },
-    {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\d4cf9696-bdf2-4486-8da4-c76ee3492a3d.png",
-      "PackagePath": "staticwebassets\\img\\productos\\d4cf9696-bdf2-4486-8da4-c76ee3492a3d.png"
-    },
-    {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\ec2c51e1-ef29-4412-b492-dbb72844ca5a.png",
-      "PackagePath": "staticwebassets\\img\\productos\\ec2c51e1-ef29-4412-b492-dbb72844ca5a.png"
-    },
-    {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\ff6c2654-9cce-41a2-9a3b-a3d7f6410877.png",
-      "PackagePath": "staticwebassets\\img\\productos\\ff6c2654-9cce-41a2-9a3b-a3d7f6410877.png"
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\img\\productos\\e945b013-04a0-43f9-8bec-446a83c7d8fe.png",
+      "PackagePath": "staticwebassets\\img\\productos\\e945b013-04a0-43f9-8bec-446a83c7d8fe.png"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\bootstrap.bundle.min.js",
@@ -423,6 +419,22 @@
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\cambiarContra\\cambiarContra.js",
       "PackagePath": "staticwebassets\\js\\cambiarContra\\cambiarContra.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\carrito\\index.js",
+      "PackagePath": "staticwebassets\\js\\carrito\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\categoriaEmpleado\\agregar.js",
+      "PackagePath": "staticwebassets\\js\\categoriaEmpleado\\agregar.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\categoriaEmpleado\\editar.js",
+      "PackagePath": "staticwebassets\\js\\categoriaEmpleado\\editar.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\categoriaEmpleado\\index.js",
+      "PackagePath": "staticwebassets\\js\\categoriaEmpleado\\index.js"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\categoria\\agregar.js",
@@ -437,12 +449,32 @@
       "PackagePath": "staticwebassets\\js\\categoria\\index.js"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\categoriasHome\\funciones.js",
+      "PackagePath": "staticwebassets\\js\\categoriasHome\\funciones.js"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\categoriasUsuario\\funciones.js",
       "PackagePath": "staticwebassets\\js\\categoriasUsuario\\funciones.js"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\controles\\OrbitControls.js",
+      "PackagePath": "staticwebassets\\js\\controles\\OrbitControls.js"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\custom.js",
       "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\ingredienteEmpleado\\agregar.js",
+      "PackagePath": "staticwebassets\\js\\ingredienteEmpleado\\agregar.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\ingredienteEmpleado\\editar.js",
+      "PackagePath": "staticwebassets\\js\\ingredienteEmpleado\\editar.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\ingredienteEmpleado\\index.js",
+      "PackagePath": "staticwebassets\\js\\ingredienteEmpleado\\index.js"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\ingrediente\\agregar.js",
@@ -457,6 +489,22 @@
       "PackagePath": "staticwebassets\\js\\ingrediente\\index.js"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\loaders\\FBXLoader.js",
+      "PackagePath": "staticwebassets\\js\\loaders\\FBXLoader.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\loaders\\NURBSCurve.js",
+      "PackagePath": "staticwebassets\\js\\loaders\\NURBSCurve.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\loaders\\NURBSUtils.js",
+      "PackagePath": "staticwebassets\\js\\loaders\\NURBSUtils.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\loaders\\fflate.module.js",
+      "PackagePath": "staticwebassets\\js\\loaders\\fflate.module.js"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\login\\login.js",
       "PackagePath": "staticwebassets\\js\\login\\login.js"
     },
@@ -465,8 +513,16 @@
       "PackagePath": "staticwebassets\\js\\login\\registro.js"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\perfilAdmin\\ver.js",
       "PackagePath": "staticwebassets\\js\\perfilAdmin\\ver.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\perfilEmpleado\\ver.js",
+      "PackagePath": "staticwebassets\\js\\perfilEmpleado\\ver.js"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\perfilUsuario\\ver.js",
@@ -485,6 +541,26 @@
       "PackagePath": "staticwebassets\\js\\perfil\\index.js"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productoEmpleado\\agregar.js",
+      "PackagePath": "staticwebassets\\js\\productoEmpleado\\agregar.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productoEmpleado\\editar.js",
+      "PackagePath": "staticwebassets\\js\\productoEmpleado\\editar.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productoEmpleado\\index.js",
+      "PackagePath": "staticwebassets\\js\\productoEmpleado\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productoEmpleado\\verImagen3D.js",
+      "PackagePath": "staticwebassets\\js\\productoEmpleado\\verImagen3D.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productoUsuario\\funciones.js",
+      "PackagePath": "staticwebassets\\js\\productoUsuario\\funciones.js"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\producto\\agregar.js",
       "PackagePath": "staticwebassets\\js\\producto\\agregar.js"
     },
@@ -497,8 +573,16 @@
       "PackagePath": "staticwebassets\\js\\producto\\index.js"
     },
     {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\producto\\verImagen3D.js",
+      "PackagePath": "staticwebassets\\js\\producto\\verImagen3D.js"
+    },
+    {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productosPorCategoria\\funciones.js",
       "PackagePath": "staticwebassets\\js\\productosPorCategoria\\funciones.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\recetaEmpleado\\index.js",
+      "PackagePath": "staticwebassets\\js\\recetaEmpleado\\index.js"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\receta\\agregar.js",
@@ -519,6 +603,14 @@
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\three.module.min.js",
+      "PackagePath": "staticwebassets\\js\\three.module.min.js"
+    },
+    {
+      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\three.webgpu.min.js",
+      "PackagePath": "staticwebassets\\js\\three.webgpu.min.js"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\tiny-slider.js",

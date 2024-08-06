@@ -65,10 +65,21 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-        public IActionResult PersonalizarProducto()
+
+
+        public async Task<IActionResult> Producto([FromQuery] int producto)
         {
+            Producto productoBuscado = await productoService.ObtenerProductoPorId(producto);
+
+            if (productoBuscado == null)
+            {
+                return NotFound();
+            }
+
+
             return View();
         }
+      
 
         public IActionResult ServiciosUsuario()
         {
@@ -99,6 +110,14 @@ namespace BakeryApp_v1.Controllers
         public async Task<IActionResult> ObtenerProductosPorCategoria(int idCategoria)
         {
             return new JsonResult(new { arregloProductos = await productoService.ObtenerTodasLasProductosPorCategoria(idCategoria) });
+        }
+
+
+        [HttpGet("/UsuarioRegistrado/ObtenerProductoPorId/{idProducto}")]
+
+        public async Task<IActionResult> ObtenerProductoPorId(int idProducto)
+        {
+            return new JsonResult(new { producto = await productoService.ObtenerProductoPorId(idProducto) });
         }
 
 
@@ -153,6 +172,9 @@ namespace BakeryApp_v1.Controllers
                 IdPersona = personaABuscar.IdPersona
             };
 
+           
+
+
             return new JsonResult(new { arregloDirecciones = await direccionesService.ObtenerTodasLasDireccionesPorUsuario(direccion) });
         }
 
@@ -189,10 +211,10 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "Esta direccion no le pertenece, por lo que no la puede eliminar", correcto = false });
                 }
 
-                TempData["correcto"] = "Direccion eliminada correctamente";
+              
                 await direccionesService.Eliminar(direccionAEliminar);
 
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Direccion eliminada con exito", correcto = true });
             }
             catch (Exception ex)
             {
@@ -235,9 +257,9 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "El nombre de la direccion ya se encuentra registrado", correcto = false });
                 }
 
-                TempData["correcto"] = "Direccion guardada correctamente";
+             
                 await direccionesService.Guardar(direccion);
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Direccion agregada correctamente", correcto = true });
             }
             catch (Exception ex)
             {
@@ -285,9 +307,9 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "El nombre de la direccion ya se encuentra registrado", correcto = false });
                 }
 
-                TempData["correcto"] = "Direccion modificada correctamente";
+          
                 await direccionesService.Editar(direccion);
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Direccion modificada correctamente", correcto = true });
             }
             catch (Exception ex)
             {
@@ -403,10 +425,10 @@ namespace BakeryApp_v1.Controllers
                 personaAModificar.SegundoApellido = persona.SegundoApellido;
                 personaAModificar.Telefono = persona.Telefono;
 
-                TempData["correcto"] = "Perfil editado correctamente";
+            
                 await personaService.Editar(personaAModificar);
 
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Perfil modificado con exito", correcto = true });
             }
             catch (Exception ex)
             {
@@ -439,20 +461,7 @@ namespace BakeryApp_v1.Controllers
             }
         }
 
-        public IActionResult Cart()
-        {
-            return View();
-        }
-
-        public IActionResult CheckOut()
-        {
-            return View();
-        }
-
-        public IActionResult Gracias()
-        {
-            return View();
-        }
+    
 
     }
 }

@@ -60,7 +60,7 @@ public class RecetaDAOImpl : RecetaDAO
 
     public async Task<IEnumerable<RecetaDTO>> ObtenerTodasLasRecetas(int pagina)
     {
-        int numeroDeElementosPorPagina = 10;
+        int numeroDeElementosPorPagina = 9;
 
 
         IPagedList<RecetaDTO> todasLasRecetas = dbContext.Recetas

@@ -8,6 +8,7 @@ using BakeryApp_v1.Services.Implementacion;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.StaticFiles;
 
 
 
@@ -27,6 +28,14 @@ builder.Services.AddAntiforgery(options =>
     options.HeaderName = "RequestVerificationToken";
 });
 
+// Para servir archivos FBX
+builder.Services.Configure<StaticFileOptions>(options =>
+{
+    options.ContentTypeProvider = new FileExtensionContentTypeProvider
+    {
+        Mappings = { [".fbx"] = "application/octet-stream" }
+    };
+});
 
 builder.Services.AddScoped<CategoriaDAO, CategoriaDAOImpl>();
 builder.Services.AddScoped<CategoriaService, CategoriaServiceImpl>();
@@ -55,6 +64,9 @@ builder.Services.AddScoped<DistritoService, DistritoServiceImpl>();
 builder.Services.AddScoped<DireccionesDAO, DireccionesDAOImpl>();
 builder.Services.AddScoped<DireccionesService, DireccionesServiceImpl>();
 builder.Services.AddScoped<IMailEnviar, MailEnviar>();
+builder.Services.AddScoped<CarritoDAO, CarritoDAOImpl>();   
+builder.Services.AddScoped<CarritoService, CarritoServiceImpl>();
+
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

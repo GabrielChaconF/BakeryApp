@@ -60,6 +60,7 @@ public class ProductoDAOImpl : ProductoDAO
                 DescripcionProducto = Producto.DescripcionProducto,
                 PrecioProducto = Producto.PrecioProducto,
                 ImagenProducto = Producto.ImagenProducto,
+                Imagen3Dproducto = Producto.Imagen3Dproducto,
                 Receta = new RecetaDTO
                 {
                     NombreReceta = Producto.IdRecetaNavigation.NombreReceta  

@@ -20,10 +20,20 @@ public class RecetaController : Controller
         this.recetaService = recetaService;
     }
 
-    public IActionResult Index()
+
+
+    public async Task<IActionResult> Index([FromQuery] int pagina)
     {
+        int totalPaginas = await recetaService.CalcularTotalPaginas();
+        if (pagina > totalPaginas)
+        {
+            return NotFound();
+        }
+
+
         return View();
     }
+
 
     public IActionResult AgregarReceta()
     {

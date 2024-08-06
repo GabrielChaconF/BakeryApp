@@ -92,7 +92,7 @@ function CrearTarjetas(respuesta) {
 
         const precioProducto = document.createTextNode(producto.precioProducto + "₡");
 
-        aLink.href = "/UsuarioRegistrado/ProductosPorCategoria?categoria=" + producto.idProducto;
+        aLink.href = "/UsuarioRegistrado/Producto?producto=" + producto.idProducto;
         strongPrecioProducto.appendChild(precioProducto)
         imgProducto.src = "/" + producto.imagenProducto
         imgSpan.src = "/img/cross.svg"

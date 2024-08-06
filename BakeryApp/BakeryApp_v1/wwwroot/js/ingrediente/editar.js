@@ -2,9 +2,38 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    ObtenerIngredienteEspecifico();
+    ObtenerTodasLasUnidadesDeMedida();
 });
 
+
+function ObtenerTodasLasUnidadesDeMedida() {
+    fetch("/Ingrediente/ObtenerTodasLasUnidadesDeMedida", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+    }).then(respuesta => {
+        LlenarSelect(respuesta)
+        ObtenerIngredienteEspecifico();
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
+
+
+function LlenarSelect(respuesta) {
+    const select = document.getElementById("unidadMedida");
+
+    respuesta.arregloUnidadesMedida.forEach(unidadMedida => {
+        const option = document.createElement("option");
+        option.value = unidadMedida.idUnidad;
+        option.textContent = unidadMedida.nombreUnidad;
+        select.appendChild(option);
+    });
+}
 
 
 function ObtenerIngredienteEspecifico() {
@@ -122,7 +151,7 @@ function RellenarDatosFormulario(ingrediente) {
 
     const cantidad = document.getElementById("cantidadIngrediente");
 
-    const unidadMedida = document.getElementById("unidadMedida");
+    const selectUnidadMedida = document.getElementById("unidadMedida");
 
     const precio = document.getElementById("precioIngrediente")
 
@@ -134,13 +163,13 @@ function RellenarDatosFormulario(ingrediente) {
 
     cantidad.value = ingrediente.cantidadIngrediente;
 
-    unidadMedida.value = ingrediente.unidadMedidaIngrediente;
+
 
     precio.value = ingrediente.precioUnidadIngrediente;
 
     fechaVencimiento.value = ingrediente.fechaCaducidadIngrediente;
 
-
+    selectUnidadMedida.value = ingrediente.unidadMedidaIngrediente
 }
 
 

@@ -86,25 +86,35 @@ function crearPerfil(mensaje) {
 
     const textNombre = document.createTextNode("Nombre");
     strongNombre.appendChild(textNombre);
+   
 
     const textPrimerApellido = document.createTextNode("Primer Apellido");
     strongPrimerApellido.appendChild(textPrimerApellido);
 
+
     const textSegundoApellido = document.createTextNode("Segundo Apellido");
     strongSegundoApellido.appendChild(textSegundoApellido);
+ 
 
     const textCorreo = document.createTextNode("Correo");
     strongCorreo.appendChild(textCorreo);
+ 
 
     const textTelefono = document.createTextNode("Teléfono");
     strongTelefono.appendChild(textTelefono);
-
+   
 
     pNombre.innerText = mensaje.nombre
     pPrimerApellido.innerText = mensaje.primerApellido;
     pSegundoApellido.innerText = mensaje.segundoApellido
     pCorreo.innerText = mensaje.correo;
     pTelefono.innerText = mensaje.telefono;
+
+    pNombre.setAttribute("id", "idNombre");
+    pPrimerApellido.setAttribute("id", "idPrimerApellido");
+    pSegundoApellido.setAttribute("id", "idSegundoApellido");
+    pCorreo.setAttribute("id", "idCorreo");
+    pTelefono.setAttribute("id", "idTelefono");
 }
 
 
