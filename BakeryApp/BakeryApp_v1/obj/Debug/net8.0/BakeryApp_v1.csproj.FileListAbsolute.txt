@@ -589,7 +589,6 @@ C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\n
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MySql.Data.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MySql.EntityFrameworkCore.dll
@@ -612,7 +611,6 @@ C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\n
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Data.SqlClient.dll
-C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Security.Permissions.dll
@@ -757,7 +755,6 @@ C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\n
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
@@ -768,9 +765,6 @@ C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\n
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\obj\Debug\net8.0\BakeryApp_v1.csproj.AssemblyReference.cache
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\obj\Debug\net8.0\BakeryApp_v1.GeneratedMSBuildEditorConfig.editorconfig
 C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\obj\Debug\net8.0\BakeryApp_v1.AssemblyInfoInputs.cache
@@ -1065,3 +1059,6 @@ C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\Baker
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MailKit.dll
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MimeKit.dll
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MailKit.dll
+C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MimeKit.dll
+C:\RepositorioDeProyectos\BakeryApp\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
