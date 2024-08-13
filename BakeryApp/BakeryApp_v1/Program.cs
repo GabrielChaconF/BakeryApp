@@ -66,6 +66,7 @@ builder.Services.AddScoped<DireccionesService, DireccionesServiceImpl>();
 builder.Services.AddScoped<IMailEnviar, MailEnviar>();
 builder.Services.AddScoped<CarritoDAO, CarritoDAOImpl>();   
 builder.Services.AddScoped<CarritoService, CarritoServiceImpl>();
+builder.Services.AddScoped<EmailService, EmailServiceImpl>();
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

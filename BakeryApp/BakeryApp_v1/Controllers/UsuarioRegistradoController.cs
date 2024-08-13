@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using System.Data.Entity;
 
 namespace BakeryApp_v1.Controllers
 {
@@ -14,6 +15,8 @@ namespace BakeryApp_v1.Controllers
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class UsuarioRegistradoController : Controller
     {
+        private readonly EmailService _emailService;
+        private readonly BakeryAppContext _context;
         private readonly PersonaService personaService;
         private readonly ProvinciaService provinciaService;
         private readonly CantonService cantonService;
@@ -22,8 +25,10 @@ namespace BakeryApp_v1.Controllers
         private readonly CategoriaService categoriaService;
         private readonly ProductoService productoService;
 
-        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService)
+        public UsuarioRegistradoController(BakeryAppContext context ,EmailService emailService,PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService)
         {
+            this._emailService = emailService;  
+            this._context = context; 
             this.personaService = personaService;
             this.provinciaService = provinciaService;
             this.cantonService = cantonService;
@@ -460,8 +465,34 @@ namespace BakeryApp_v1.Controllers
                 return new JsonResult(new { mensaje = "Ha ocurrido un error al obtener el usuario actual"});
             }
         }
+        
+        [HttpPost]
+        public async Task<IActionResult> Subscripcion(string nombre, string correo)
+        {
+            if (ModelState.IsValid)
+            {
+                var subscripcion = new Marketing
+                {
+                    Nombre = nombre,
+                    Correo = correo
+                };
 
-    
+                _context.Subscripciones.Add(subscripcion);
+                await _context.SaveChangesAsync();
+
+                // Lógica para enviar el correo
+                var emailService = new EmailService();
+                await emailService.SendEmailAsync(subscripcion.Correo, "Bienvenido a nuestro boletín!", "Gracias por subscribirse, " + nombre + "!");
+
+                return RedirectToAction("Gracias");
+            }
+
+            return View("Index"); 
+        }
+
+
 
     }
+
+    
 }

@@ -14,7 +14,7 @@ public partial class BakeryAppContext : DbContext
         : base(options)
     {
     }
-
+    public virtual DbSet<Marketing>Subscripciones { get; set; }
     public virtual DbSet<Cantone> Cantones { get; set; }
 
     public virtual DbSet<Carritocompra> Carritocompras { get; set; }

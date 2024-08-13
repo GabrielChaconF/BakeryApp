@@ -3,44 +3,32 @@
   "WorkspaceRootPath": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\views\\administrador\\facturas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\views\\administrador\\facturas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\controllers\\usuarioregistradocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\controllers\\usuarioregistradocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\dao\\carritodaoimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\dao\\carritodaoimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\services\\emailserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\services\\emailserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\dao\\carritodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\dao\\carritodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\services\\personaserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\services\\personaserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\dto\\carritodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\dto\\carritodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\services\\carritoserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\services\\carritoserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\services\\personaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\services\\personaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\services\\carritoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\services\\carritoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\models\\bakeryappcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\models\\bakeryappcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\controllers\\carritocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\controllers\\carritocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\models\\estadospedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\models\\estadospedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\repositoriodeproyectos\\bakeryapp\\bakeryapp\\bakeryapp\\bakeryapp_v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,138 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 20,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Facturas.cshtml",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\Administrador\\Facturas.cshtml",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Views\\Administrador\\Facturas.cshtml",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\Administrador\\Facturas.cshtml",
-              "RelativeToolTip": "BakeryApp_v1\\Views\\Administrador\\Facturas.cshtml",
-              "ViewState": "AQIAADUAAAAAAAAAAAAAAEUAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-07T02:29:16.803Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CarritoDTO.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\DTO\\CarritoDTO.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\DTO\\CarritoDTO.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\DTO\\CarritoDTO.cs",
-              "RelativeToolTip": "BakeryApp_v1\\DTO\\CarritoDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T02:01:36.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CarritoDAOImpl.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\DAO\\CarritoDAOImpl.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\DAO\\CarritoDAOImpl.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\DAO\\CarritoDAOImpl.cs",
-              "RelativeToolTip": "BakeryApp_v1\\DAO\\CarritoDAOImpl.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T02:00:46.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CarritoDAO.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\DAO\\CarritoDAO.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\DAO\\CarritoDAO.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\DAO\\CarritoDAO.cs",
-              "RelativeToolTip": "BakeryApp_v1\\DAO\\CarritoDAO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T02:00:43.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CarritoServiceImpl.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\CarritoServiceImpl.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Services\\CarritoServiceImpl.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\CarritoServiceImpl.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Services\\CarritoServiceImpl.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:58:53.596Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CarritoService.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\CarritoService.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Services\\CarritoService.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\CarritoService.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Services\\CarritoService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:58:51.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CarritoController.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Controllers\\CarritoController.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Controllers\\CarritoController.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Controllers\\CarritoController.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Controllers\\CarritoController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:57:33.895Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProductoController.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Controllers\\ProductoController.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Controllers\\ProductoController.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Controllers\\ProductoController.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Controllers\\ProductoController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:49:36.721Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Pedido.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\Pedido.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Models\\Pedido.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\Pedido.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Models\\Pedido.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:48:06.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Estadospedido.cs",
-              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\Estadospedido.cs",
-              "RelativeDocumentMoniker": "BakeryApp_v1\\Models\\Estadospedido.cs",
-              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\Estadospedido.cs",
-              "RelativeToolTip": "BakeryApp_v1\\Models\\Estadospedido.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:47:31.718Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -237,6 +95,91 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PersonaServiceImpl.cs",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\PersonaServiceImpl.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Services\\PersonaServiceImpl.cs",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\PersonaServiceImpl.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Services\\PersonaServiceImpl.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T16:37:16.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PersonaService.cs",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\PersonaService.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Services\\PersonaService.cs",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\PersonaService.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Services\\PersonaService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T16:37:15.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Program.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Program.cs",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Program.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Program.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAD4AAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T16:29:43.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Services\\EmailService.cs",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\EmailService.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Services\\EmailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T16:25:40.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmailServiceImpl.cs",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\EmailServiceImpl.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Services\\EmailServiceImpl.cs",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Services\\EmailServiceImpl.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Services\\EmailServiceImpl.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T16:19:24.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BakeryAppContext.cs",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\BakeryAppContext.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Models\\BakeryAppContext.cs",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Models\\BakeryAppContext.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Models\\BakeryAppContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T16:05:12.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioRegistradoController.cs",
+              "DocumentMoniker": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Controllers\\UsuarioRegistradoController.cs",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Controllers\\UsuarioRegistradoController.cs",
+              "ToolTip": "C:\\RepositorioDeProyectos\\BakeryApp\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Controllers\\UsuarioRegistradoController.cs",
+              "RelativeToolTip": "BakeryApp_v1\\Controllers\\UsuarioRegistradoController.cs",
+              "ViewState": "AQIAALwBAAAAAAAAAAAqwOMBAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T15:57:34.73Z",
+              "EditorCaption": ""
             }
           ]
         }
