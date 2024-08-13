@@ -21,21 +21,65 @@ namespace BakeryApp_v1.Controllers
         private readonly IFuncionesUtiles funcionesUtiles;
         private readonly IMailEnviar mailEnviar;
         private readonly ReestablecerContraService reestablecerContraService;
+        private readonly CategoriaService categoriaService; 
+        private readonly ProductoService productoService;
 
-        public HomeController(PersonaService personaService, IFuncionesUtiles funcionesUtiles, IMailEnviar mailEnviar, ReestablecerContraService reestablecerContraService)
+        public HomeController(PersonaService personaService, IFuncionesUtiles funcionesUtiles, IMailEnviar mailEnviar, ReestablecerContraService reestablecerContraService, CategoriaService categoriaService, ProductoService productoService)
         {
             this.personaService = personaService;
             this.funcionesUtiles = funcionesUtiles;
             this.mailEnviar = mailEnviar;
             this.reestablecerContraService = reestablecerContraService;
+            this.categoriaService = categoriaService;
+            this.productoService = productoService;
         }
-        /*Layout*/
+
+
+
+        public async Task<IActionResult> Tienda([FromQuery] int pagina)
+        {
+            int totalPaginas = await categoriaService.CalcularTotalPaginas();
+            if (pagina > totalPaginas)
+            {
+                return NotFound();
+            }
+
+
+            return View();
+        }
+
+
+
+
+
+        [HttpGet]
+
+        public async Task<IActionResult> ObtenerTotalPaginas(int pagina)
+        {
+
+
+            return new JsonResult(new { paginas = await categoriaService.CalcularTotalPaginas() });
+        }
+
+        [HttpGet("/Home/ObtenerCategorias/{pagina}")]
+
+        public async Task<IActionResult> ObtenerCategorias(int pagina)
+        {
+            if (pagina <= 0)
+            {
+                return NotFound();
+            }
+
+            return new JsonResult(new { arregloCategorias = await categoriaService.ObtenerTodasLasCategorias(pagina) });
+        }
+
         public IActionResult Index()
         {
             return View();
         }
-        //---------------TIENDA-------------------
-        public IActionResult Tienda()
+
+     
+        public IActionResult AccesoDenegado()
         {
             return View();
 
@@ -364,7 +408,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
                 await personaService.Editar(personaNormal);
-
+                await reestablecerContraService.Eliminar(personaCodigoActual);
 
                 return new JsonResult(new { mensaje = "Contraseña reestablecida con exito" });
             }

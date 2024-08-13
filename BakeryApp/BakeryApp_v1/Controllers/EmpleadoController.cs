@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BakeryApp_v1.DTO;
+using BakeryApp_v1.Models;
+using BakeryApp_v1.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BakeryApp_v1.Controllers
 {
@@ -7,6 +11,40 @@ namespace BakeryApp_v1.Controllers
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class EmpleadoController : Controller
     {
+
+        private readonly PersonaService personaService;
+
+        public EmpleadoController(PersonaService personaService)
+        {
+            this.personaService = personaService;
+        }
+
+
+
+        [HttpGet]
+
+        public async Task<IActionResult> ObtenerDatosEmpleadoLogueado()
+        {
+            try
+            {
+                string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+
+                Persona personaABuscar = new Persona
+                {
+                    Correo = correoUsuario
+                };
+
+                Persona personaLogueada = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
+
+                return new JsonResult(new { mensaje = PersonaDTO.ConvertirPersonaAPersonaDTOSinRoles(personaLogueada) });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al obtener el usuario actual" });
+            }
+        }
+
+
         public IActionResult Index()
         {
             return View();
@@ -17,42 +55,8 @@ namespace BakeryApp_v1.Controllers
         {
             return View();
         }
-        //----------------Inventario------------------
-        public IActionResult Inventario()
-        {
-            return View();
-        }
-
-        public IActionResult EditarInventario()
-        {
-            return View();
-        }
-
-        public IActionResult AgregarInventario()
-        {
-            return View();
-        }
-        //----------------Recetas------------------
-        public IActionResult Recetas()
-        {
-            return View();
-        }
-
-        //----------------Productos------------------
-        public IActionResult Productos()
-        {
-            return View();
-        }
-
-        public IActionResult EditarProducto()
-        {
-            return View();
-        }
-
-        public IActionResult AgregarProducto()
-        {
-            return View();
-        }
+    
+      
 
         //----------------Facturas------------------
         public IActionResult Facturacion()
@@ -80,20 +84,5 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-        //----------------Categorias------------------
-        public IActionResult Categorias()
-        {
-            return View();
-        }
-
-        public IActionResult EditarCategoria()
-        {
-            return View();
-        }
-
-        public IActionResult AgregarCategoria()
-        {
-            return View();
-        }
     }
 }

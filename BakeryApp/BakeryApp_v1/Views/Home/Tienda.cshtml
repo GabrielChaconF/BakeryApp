@@ -2,15 +2,13 @@
     Layout = "_Layout";
 }
 
-
 <div class="hero">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
                     <h1>Tienda</h1>
-                    <p>Registrate para realizar un pedido de nuestro catalogo.</p>
-                    <p><a href="@Url.Action("RegistrarUsuario", "Home")" class="btn btn-secondary me-2">Registrarme</a></p>
+                    <p>A continuación se presentan las categorías y productos disponibles.</p>
                 </div>
             </div>
             <div class="col-lg-3">
@@ -32,160 +30,32 @@
             </div>
         </div>
         <br />
-        <div class="row justify-content-center">
-
-
-
-
-            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <a class="product-item" href="@Url.Action("Categorias", "Home")">
-                    <img src="~/img/QuequeChocolate.jpg" class="img-fluid product-thumbnail">
-                    <strong class="product-price">Pasteles</strong>
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-
-                </a>
-
-            </div>
-
-            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <a class="product-item" href="@Url.Action("Categorias", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <strong class="product-price">Cupcakes</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-           
-
+        <div class="row justify-content-center" id="divPrincipal">
         </div>
     </div>
 </div>
 
-
+<!-- Categorias -->
 
 <div class="hero">
     <div class="container justify-content-center">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-8" id="paginacionCategoria">
                 <div class="intro-excerpt">
-                    <h1>Todos nuestros productos</h1>
-                    <p>Registrate para realizar un pedido de nuestro catalogo.</p>
                 </div>
             </div>
             <div class="col-lg-7">
             </div>
         </div>
+
     </div>
 </div>
 
-<div class="untree_co-section product-section before-footer-section">
-    <div class="container">
-        <div class="row">
 
 
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Queque de Chocolate</h3>
-                    <strong class="product-price">₡2500.00</strong>
 
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
 
-                    </span>
-                </a>
-            </div>
-           
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Cupcake de Fresa</h3>
-                    <strong class="product-price">₡2500.00</strong>
 
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-           
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Queque de Vainilla</h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-           
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title"> Cupcake de Chocolate </h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-          
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title"> Buñuelo </h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-           
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Empanadas de Chiverre</h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-           
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Empanadas de Piña</h3>
-                    <strong class="product-price">₡3500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-          
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="@Url.Action("PersonalizarProducto", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Queque de Maní</h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-          
-
-        </div>
-    </div>
-</div>
-
+@section Scripts {
+    <script type="text/javascript" src="~/js/categoriasHome/funciones.js" asp-append-version="true"></script>
+}

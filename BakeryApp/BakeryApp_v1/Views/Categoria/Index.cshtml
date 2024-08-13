@@ -1,59 +1,55 @@
 ﻿@{
     Layout = "_LayoutAdministrador";
 }
-<!DOCTYPE html>
-<html>
 
-<body>
-    <div>
+<div>
 
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Categorias</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-        <div class="card card-solid">
-            <div class="card-body pb-0">
-                <div class="row d-flex align-items-stretch" id="agregar">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Categorias</h1>
                 </div>
             </div>
         </div>
-        @Html.AntiForgeryToken()
-        <div class="card-footer">
-            <nav aria-label="Contacts Page Navigation" id="navFooter">
-                <ul class="pagination justify-content-center m-2">
+    </section>
 
-                    <li>
-                        <a href="@Url.Action("AgregarCategoria", "Categoria")" class="btn btn-sm btn-primary">
-                            Agregar Categoria
-                        </a>
-                    </li>
-                </ul>
-             
 
-            </nav>
 
+
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <div class="row d-flex align-items-stretch" id="agregar">
+            </div>
         </div>
-       
+    </div>
+    @Html.AntiForgeryToken()
+    <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation" id="navFooter">
+            <ul class="pagination justify-content-center m-2">
+
+                <li>
+                    <a href="@Url.Action("AgregarCategoria", "Categoria")" class="btn btn-sm btn-primary">
+                        Agregar Categoria
+                    </a>
+                </li>
+            </ul>
+
+
+        </nav>
+
     </div>
 
+</div>
 
 
 
-</body>
-</html>
+
+
 
 @section Scripts {
-    <script src="~/js/categoria/index.js" asp-append-version=true>
+    <script src="~/js/categoria/index.js" asp-append-version="true">
 
 
     </script>

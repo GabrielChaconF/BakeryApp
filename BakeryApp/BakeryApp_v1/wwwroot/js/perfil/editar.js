@@ -3,7 +3,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     ObtenerTodosLosRoles();
-    ObtenerPerfilEspecifico();
 });
 
 
@@ -47,6 +46,7 @@ function ObtenerTodosLosRoles() {
         return respuesta.json()
     }).then(respuesta => {
         LlenarSelect(respuesta)
+        ObtenerPerfilEspecifico()
     }).catch(error => {
         console.error("Error", error);
     });

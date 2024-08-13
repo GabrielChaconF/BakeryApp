@@ -70,7 +70,7 @@ public class FuncionesUtiles : IFuncionesUtiles
 
 
 
-    public async Task<Producto> GuardarImagenEnSistemaProducto(Producto producto)
+    public async Task<bool> GuardarImagenEnSistemaProducto(Producto producto)
     {
         string carpetaImagenes = ambiente.WebRootPath;
         carpetaImagenes = Path.Combine(carpetaImagenes, "img", "productos");
@@ -96,13 +96,56 @@ public class FuncionesUtiles : IFuncionesUtiles
         }
         catch (Exception ex)
         {
-            return null;
+            return false;
         }
 
 
 
-        return producto;
+        return true;
     }
+
+
+
+    public async Task<bool> GuardarImagen3DEnSistemaProducto(Producto producto)
+    {
+        string carpetaImagenes = ambiente.WebRootPath;
+        carpetaImagenes = Path.Combine(carpetaImagenes, "img", "imagenes3DProductos");
+
+
+
+        try
+        {
+
+            if (producto.Archivo3DProducto is not null)
+            {
+                if (producto.Archivo3DProducto.Length > 0)
+                {
+
+                    string identificadorImagen = Guid.NewGuid().ToString() + Path.GetExtension(producto.Archivo3DProducto.FileName);
+                    string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
+                    string rutaBaseDatos = "";
+                    rutaBaseDatos = Path.Combine(rutaBaseDatos, "img", "imagenes3DProductos", identificadorImagen);
+
+                    using (Stream stream = File.Create(rutaImagenSistema))
+                    {
+                        await producto.Archivo3DProducto.CopyToAsync(stream);
+                    }
+
+                    producto.Imagen3Dproducto = rutaBaseDatos;
+                }
+                return true;
+            }
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+
+
+        return true;
+    }
+
 
 
     public bool BorrarImagenGuardadaEnSistemaProducto(Producto producto)
@@ -126,6 +169,31 @@ public class FuncionesUtiles : IFuncionesUtiles
         return true;
     }
 
+
+
+    public bool BorrarImagenGuardadaEnSistema3DProducto(Producto producto)
+    {
+        string carpetaImagenes = ambiente.WebRootPath;
+
+        try
+        {
+            if (!string.IsNullOrEmpty(producto.Imagen3Dproducto))
+            {
+                string identificadorImagen = "";
+                string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
+                rutaImagenSistema = Path.Combine(rutaImagenSistema, producto.Imagen3Dproducto);
+                File.Delete(rutaImagenSistema);
+                return true;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+        return true;
+    }
 
 
 

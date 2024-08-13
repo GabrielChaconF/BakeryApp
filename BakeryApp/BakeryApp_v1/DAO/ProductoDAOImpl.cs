@@ -60,6 +60,7 @@ public class ProductoDAOImpl : ProductoDAO
                 DescripcionProducto = Producto.DescripcionProducto,
                 PrecioProducto = Producto.PrecioProducto,
                 ImagenProducto = Producto.ImagenProducto,
+                Imagen3Dproducto = Producto.Imagen3Dproducto,
                 Receta = new RecetaDTO
                 {
                     NombreReceta = Producto.IdRecetaNavigation.NombreReceta  
@@ -83,6 +84,22 @@ public class ProductoDAOImpl : ProductoDAO
     {
         int totalProductos = await dbContext.Productos.CountAsync();
         return totalProductos;
+    }
+
+    public async Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductosPorCategoria(int idCategoria)
+    {
+        IEnumerable<ProductoDTO> todosLosProductosPorCategoria = await dbContext.Productos.Include(Producto => Producto.IdCategoriaNavigation).Where(Producto => Producto.IdCategoria == idCategoria)
+            .Select(Producto => new ProductoDTO
+            {
+                IdProducto = Producto.IdProducto,
+                NombreProducto = Producto.NombreProducto,
+                DescripcionProducto = Producto.DescripcionProducto,
+                PrecioProducto = Producto.PrecioProducto,
+                ImagenProducto = Producto.ImagenProducto,
+                IdCategoria = Producto.IdCategoria
+            }).ToListAsync();
+
+        return todosLosProductosPorCategoria;
     }
 
 }

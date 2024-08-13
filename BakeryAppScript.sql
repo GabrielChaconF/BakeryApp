@@ -62,10 +62,20 @@ create table Productos(
     IdCategoria int not null, 
     IdReceta int not null,
     ImagenProducto varchar(80) not null,
+    Imagen3DProducto varchar(80) null,
     constraint pk_id_Producto primary key (IdProducto),
     constraint fk_id_Categoria foreign key (IdCategoria) references Categorias(IdCategoria) on delete cascade,
     constraint fk_id_receta foreign key (IdReceta) references Recetas(IdReceta) on delete cascade,
     constraint uq_nombre_Producto unique (NombreProducto)
+);
+
+create table ProductosModificados(
+	IdProductoModificado int not null auto_increment,
+    IdProductoOriginal int not null,
+    Imagen3DProductoModificado varchar(80) not null,
+    constraint pk_id_producto_modificado primary key(IdProductoModificado),
+    constraint fk_id_producto_origina foreign key(IdProductoOriginal) references
+    Productos(IdProducto) on delete cascade
 );
 
 create table Roles(	
@@ -102,7 +112,7 @@ create table RecuperarContra(
     CodigoRecuperacion varchar(80) not null,
     FechaExpiracion datetime not null,
     constraint pk_id_recuperar_contra primary key (IdRecuperacion),
-    constraint fk_id_usuario_contra foreign key(IdPersona) references Personas(IdPersona)
+    constraint fk_id_usuario_contra foreign key(IdPersona) references Personas(IdPersona) on delete cascade 
 );
 
 create table Provincias(
@@ -126,6 +136,67 @@ create table Distritos(
     constraint pk_distrito primary key (IdDistrito),
     constraint fk_distrito_canton foreign key(IdCanton) references Cantones(IdCanton)
 );
+
+create table DireccionesUsuario(
+	IdDireccion int not null auto_increment,
+    NombreDireccion varchar(50) not null,
+    IdPersona int not null,
+    IdProvincia int not null,
+    IdCanton int not null,
+    IdDistrito int not null,
+    DireccionExacta varchar(1000) not null,
+    constraint pk_direcciones_usuario primary key(IdDireccion),
+    constraint fk_id_usuario_direccion foreign key(IdPersona) references Personas(IdPersona) on delete cascade ,
+    constraint fk_id_provincia_direccion foreign key(IdProvincia) references Provincias(IdProvincia) on delete cascade,
+    constraint fk_id_canton_direccion foreign key(IdCanton) references Cantones(IdCanton) on delete cascade,
+    constraint fk_id_distrito_direccion foreign key(IdDistrito) references Distritos(IdDistrito) on delete cascade
+);
+
+create table CarritoCompras(
+	IdCarrito int not null auto_increment,
+	IdPersona int not null,
+    IdProducto int null,
+	CantidadProducto int not null,
+    IdProductoModificado int null,
+    Estado bit not null,
+    constraint pk_id_carrito primary key(IdCarrito),
+    constraint fk_id_persona_carrito foreign key(IdPersona) references Personas(IdPersona) on delete cascade,
+    constraint fk_id_producto foreign key(IdProducto) references Productos(IdProducto) on delete cascade,
+    constraint fk_id_producto_modificado foreign key(IdProductoModificado) references ProductosModificados(IdProductoModificado) on delete cascade
+);
+
+create table TiposEnvio(
+	IdTipoEnvio int not null auto_increment,
+    NombreTipo varchar(40) not null,
+    constraint pk_id_tipo_envio primary key(IdTipoEnvio)
+);
+
+create table EstadosPedido(
+	IdEstadoPedido int not null auto_increment,
+    NombreEstado varchar(40) not null,
+    constraint pk_id_estado_pedido primary key(IdEstadoPedido)
+);
+
+create table Pedidos(
+	IdPedido int not null auto_increment,
+    IdEstadoPedido int not null,
+    IdCarrito int not null,
+    IdTipoEnvio int not null,
+    IdDireccion int null,
+    FechaPedido datetime not null,
+    constraint pk_id_pedido primary key(IdPedido),
+    constraint fk_id_estado_pedido foreign key(IdEstadoPedido) references EstadosPedido(IdEstadoPedido) on delete cascade,
+    constraint fk_id_pedido_carrito foreign key(IdCarrito) references CarritoCompras(IdCarrito) on delete cascade,
+    constraint fk_id_tipo_envio foreign key(IdTipoEnvio) references TiposEnvio(IdTipoEnvio) on delete cascade,
+    constraint fk_id_direccion_pedido foreign key(IdDireccion) references DireccionesUsuario(IdDireccion) on delete cascade
+);
+
+create table TiposPago(
+	IdTipoPago int not null auto_increment,
+    NombreTipo varchar(30) not null,
+    constraint pk_id_tipos_pago primary key (IdTipoPago)
+);
+
 
 /* Creacion de Roles */
 insert into Roles(IdRol, NombreRol)
@@ -401,6 +472,25 @@ insert into Distritos (IdCanton, NombreDistrito) values
 (24, 'Mercedes'),
 (24, 'San Rafael');
 
+/* Creacion Tipos de Envio */
+
+insert into TiposEnvio(NombreTipo)
+values('Entrega a domicilio'),
+('Retirar en la sucursal');
+
+/* Creacion Tipos de Pago */
+
+insert into TiposPago(NombreTipo)
+values ('Efectivo'),
+('Sinpe Móvil');
+
+/*Creacion Estados Pedido */
+
+insert into EstadosPedido(NombreEstado)
+values ("Recibido"),
+('Procesando'),
+('Completo');
+
 /* Selects */
 
 select * from UnidadesMedida;
@@ -429,6 +519,8 @@ select * from Cantones;
 select * from Distritos;
 
 select * from RecuperarContra;
+
+select * from DireccionesUsuario;
 
 
 /* Consulta para ver el tamaño de la base de datos en MB */

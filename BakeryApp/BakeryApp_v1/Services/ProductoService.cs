@@ -23,4 +23,11 @@ public interface ProductoService
     public Task<bool> VerificarNombreRepetido(Producto producto);
 
     public Task<int> CalcularTotalPaginas();
+
+    public Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductosPorCategoria(int idCategoria);
+
+    public bool VerificarTipo3DArchivo(Producto producto);
+
+
+
 }

@@ -21,6 +21,8 @@ function GuardarProducto(event) {
 
     const imagenProducto = document.getElementById("imagenProducto").files[0];
 
+    const imagen3DProducto = document.getElementById("imagen3DProducto").files[0];
+
     const selectCategoria = document.getElementById("categorias");
 
     const categoria = selectCategoria.value;
@@ -38,6 +40,7 @@ function GuardarProducto(event) {
     producto.append("PrecioProducto", precio);
     producto.append("IdCategoria", categoria);
     producto.append("IdReceta", receta);
+    producto.append("Archivo3DProducto", imagen3DProducto)
 
     fetch("/Producto/GuardarProducto", {
         method: "POST",

@@ -1,6 +1,7 @@
 ﻿using BakeryApp_v1.DAO;
 using BakeryApp_v1.DTO;
 using BakeryApp_v1.Models;
+using System.Runtime.CompilerServices;
 
 namespace BakeryApp_v1.Services;
 
@@ -70,6 +71,12 @@ public class ProductoServiceImpl : ProductoService
         return false;
     }
 
+
+    public async Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductosPorCategoria(int idCategoria)
+    {
+        IEnumerable<ProductoDTO> productosPorCategoria = await productoDAO.ObtenerTodasLasProductosPorCategoria(idCategoria);
+        return productosPorCategoria;
+    }
     public async Task<bool> VerificarNombreRepetido(Producto producto)
     {
         Producto estaRepetida = await productoDAO.ObtenerProductoPorNombre(producto);
@@ -91,4 +98,27 @@ public class ProductoServiceImpl : ProductoService
 
         return (int)totalPaginas;
     }
+
+    public bool VerificarTipo3DArchivo(Producto producto)
+    {
+
+        if (producto.Archivo3DProducto is not null)
+        {
+            string extension = Path.GetExtension(producto.Archivo3DProducto.FileName).ToLowerInvariant();
+            if (extension == ".fbx")
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
+    
+
+
 }

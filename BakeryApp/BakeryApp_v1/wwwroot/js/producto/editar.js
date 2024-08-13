@@ -60,9 +60,11 @@ function RellenarDatosFormulario(producto) {
 
     imagen.src = "\\" + producto.imagenProducto;
 
-
     const imagenBorrar = document.getElementById("imagenBorrar")
+
+    const imagen3DBorrar = document.getElementById("imagen3DBorrar")
     imagenBorrar.value = producto.imagenProducto;
+    imagen3DBorrar.value = producto.imagen3Dproducto
 }
 
 
@@ -95,6 +97,9 @@ function EditarProducto(event) {
 
     const producto = new FormData();
 
+    const imagen3DProducto = document.getElementById("imagen3DProducto").files[0];
+
+  
     producto.append("IdProducto", parametrosUrl.get("idProducto"))
     producto.append("NombreProducto", nombre);
     producto.append("DescripcionProducto", detalles);
@@ -102,6 +107,7 @@ function EditarProducto(event) {
     producto.append("PrecioProducto", precio);
     producto.append("IdCategoria", categoria);
     producto.append("IdReceta", receta);
+    producto.append("Archivo3DProducto", imagen3DProducto)
 
 
 
@@ -218,8 +224,11 @@ function EliminarImagenEditar() {
 
     const rutaBorrar = document.getElementById("imagenBorrar").value;
 
+    const ruta3DBorrar = document.getElementById("imagen3DBorrar").value;
+
     const producto = {
-        ImagenProducto: rutaBorrar
+        ImagenProducto: rutaBorrar,
+        Imagen3DProducto: ruta3DBorrar
     }
 
     fetch("/Producto/BorrarImagenEditar", {

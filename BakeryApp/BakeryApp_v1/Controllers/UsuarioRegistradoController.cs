@@ -18,15 +18,19 @@ namespace BakeryApp_v1.Controllers
         private readonly ProvinciaService provinciaService;
         private readonly CantonService cantonService;
         private readonly DistritoService distritoService;
-        private readonly DireccionesService direccionesService;
+        private readonly DireccionesService direccionesService; 
+        private readonly CategoriaService categoriaService;
+        private readonly ProductoService productoService;
 
-        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService)
+        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService)
         {
             this.personaService = personaService;
             this.provinciaService = provinciaService;
             this.cantonService = cantonService;
             this.distritoService = distritoService;
             this.direccionesService = direccionesService;
+            this.categoriaService = categoriaService;   
+            this.productoService = productoService;
         }
 
 
@@ -35,20 +39,47 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
       
-        public IActionResult TiendaUsuario()
+        public async Task<IActionResult> TiendaUsuario([FromQuery] int pagina)
         {
+            int totalPaginas = await categoriaService.CalcularTotalPaginas();
+            if (pagina > totalPaginas)
+            {
+                return NotFound();
+            }
+
+
             return View();
         }
 
-        public IActionResult Categorias()
+       
+        public async Task<IActionResult> ProductosPorCategoria([FromQuery]int categoria)
         {
+            Categoria categoriaBuscada = await categoriaService.ObtenerCategoriaPorId(categoria);
+
+            if (categoriaBuscada == null)
+            {
+                return NotFound();
+            }
+
+
             return View();
         }
 
-        public IActionResult PersonalizarProducto()
+
+
+        public async Task<IActionResult> Producto([FromQuery] int producto)
         {
+            Producto productoBuscado = await productoService.ObtenerProductoPorId(producto);
+
+            if (productoBuscado == null)
+            {
+                return NotFound();
+            }
+
+
             return View();
         }
+      
 
         public IActionResult ServiciosUsuario()
         {
@@ -74,6 +105,55 @@ namespace BakeryApp_v1.Controllers
         }
 
 
+        [HttpGet("/UsuarioRegistrado/ObtenerProductosPorCategoria/{idCategoria}")]
+
+        public async Task<IActionResult> ObtenerProductosPorCategoria(int idCategoria)
+        {
+            return new JsonResult(new { arregloProductos = await productoService.ObtenerTodasLasProductosPorCategoria(idCategoria) });
+        }
+
+
+        [HttpGet("/UsuarioRegistrado/ObtenerProductoPorId/{idProducto}")]
+
+        public async Task<IActionResult> ObtenerProductoPorId(int idProducto)
+        {
+            return new JsonResult(new { producto = await productoService.ObtenerProductoPorId(idProducto) });
+        }
+
+
+        [HttpGet("/UsuarioRegistrado/ObtenerCategoriaPorId/{idCategoria}")]
+
+        public async Task<IActionResult> ObtenerCategoriaPorId(int idCategoria)
+        {
+            return new JsonResult(new { categoria = await categoriaService.ObtenerCategoriaPorId(idCategoria) });
+        }
+
+        [HttpGet]
+
+        public async Task<IActionResult> ObtenerTotalPaginas(int pagina)
+        {
+          
+
+            return new JsonResult(new { paginas = await categoriaService.CalcularTotalPaginas() });
+        }
+
+
+
+
+        [HttpGet("/UsuarioRegistrado/ObtenerCategorias/{pagina}")]
+
+        public async Task<IActionResult> ObtenerCategorias(int pagina)
+        {
+            if (pagina <= 0)
+            {
+                return NotFound();
+            }
+
+            return new JsonResult(new { arregloCategorias = await categoriaService.ObtenerTodasLasCategorias(pagina) });
+        }
+
+
+
         [HttpGet]
 
         public async Task<IActionResult> ObtenerDireccionUsuario()
@@ -91,6 +171,9 @@ namespace BakeryApp_v1.Controllers
             {
                 IdPersona = personaABuscar.IdPersona
             };
+
+           
+
 
             return new JsonResult(new { arregloDirecciones = await direccionesService.ObtenerTodasLasDireccionesPorUsuario(direccion) });
         }
@@ -128,10 +211,10 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "Esta direccion no le pertenece, por lo que no la puede eliminar", correcto = false });
                 }
 
-                TempData["correcto"] = "Direccion eliminada correctamente";
+              
                 await direccionesService.Eliminar(direccionAEliminar);
 
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Direccion eliminada con exito", correcto = true });
             }
             catch (Exception ex)
             {
@@ -174,9 +257,9 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "El nombre de la direccion ya se encuentra registrado", correcto = false });
                 }
 
-                TempData["correcto"] = "Direccion guardada correctamente";
+             
                 await direccionesService.Guardar(direccion);
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Direccion agregada correctamente", correcto = true });
             }
             catch (Exception ex)
             {
@@ -224,9 +307,9 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "El nombre de la direccion ya se encuentra registrado", correcto = false });
                 }
 
-                TempData["correcto"] = "Direccion modificada correctamente";
+          
                 await direccionesService.Editar(direccion);
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Direccion modificada correctamente", correcto = true });
             }
             catch (Exception ex)
             {
@@ -342,10 +425,10 @@ namespace BakeryApp_v1.Controllers
                 personaAModificar.SegundoApellido = persona.SegundoApellido;
                 personaAModificar.Telefono = persona.Telefono;
 
-                TempData["correcto"] = "Perfil editado correctamente";
+            
                 await personaService.Editar(personaAModificar);
 
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = "Perfil modificado con exito", correcto = true });
             }
             catch (Exception ex)
             {
@@ -378,20 +461,7 @@ namespace BakeryApp_v1.Controllers
             }
         }
 
-        public IActionResult Cart()
-        {
-            return View();
-        }
-
-        public IActionResult CheckOut()
-        {
-            return View();
-        }
-
-        public IActionResult Gracias()
-        {
-            return View();
-        }
+    
 
     }
 }

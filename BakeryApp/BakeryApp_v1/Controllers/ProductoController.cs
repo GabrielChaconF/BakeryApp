@@ -38,7 +38,23 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
-       
+        public async Task<IActionResult>VerImagen3D([FromQuery] int idProducto)
+        {
+            Producto productoBuscado = await productoService.ObtenerProductoPorId(idProducto);
+
+            if (productoBuscado == null)
+            {
+                return NotFound();
+            }
+
+         
+            if (productoBuscado.Imagen3Dproducto == null)
+            {
+                return NotFound();
+            }
+
+            return View();
+        }
         public async Task<IActionResult> EditarProducto([FromQuery] int idProducto)
         {
             Producto productoEditar = await productoService.ObtenerProductoPorId(idProducto);
@@ -112,14 +128,31 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "El precio del producto no puede ser 0 o negativo" });
                 }
 
-                Producto productoConImagen = await funcionesUtiles.GuardarImagenEnSistemaProducto(producto);
+                if (!productoService.VerificarTipo3DArchivo(producto))
+                {
+                    return new JsonResult(new { mensaje = "El tipo de archivo 3D no es FBX" });
+                }
 
-                if (productoConImagen == null)
+                bool resultadoGuardarImagen = await funcionesUtiles.GuardarImagenEnSistemaProducto(producto);
+
+                if (!resultadoGuardarImagen)
                 {
                     return new JsonResult(new { mensaje = "Error al guardar la imagen" });
                 }
 
-                await productoService.Guardar(productoConImagen);
+               
+
+
+                bool resultadoGuardarImagen3D = await funcionesUtiles.GuardarImagen3DEnSistemaProducto(producto);
+
+                if (!resultadoGuardarImagen3D)
+                {
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar el archivo 3D" });
+                }
+
+                await productoService.Guardar(producto);
+
+
                 return new JsonResult(new { mensaje = "Producto guardado con éxito" });
             }
             catch (Exception ex)
@@ -141,6 +174,12 @@ namespace BakeryApp_v1.Controllers
                 if (!funcionesUtiles.BorrarImagenGuardadaEnSistemaProducto(productoBorrarImagen))
                 {
                     return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen" });
+                }
+
+
+                if (!funcionesUtiles.BorrarImagenGuardadaEnSistema3DProducto(productoBorrarImagen))
+                {
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen", correcto = false });
                 }
                 await productoService.Eliminar(productoBorrarImagen);
                 return new JsonResult(new { mensaje = "Producto eliminado con éxito" });
@@ -186,16 +225,31 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "El precio del producto no puede ser 0 o negativo" });
                 }
 
-
-
-                Producto productoConImagen = await funcionesUtiles.GuardarImagenEnSistemaProducto(producto);
-
-                if (productoConImagen == null)
+                if (!productoService.VerificarTipo3DArchivo(producto))
                 {
-                    return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false });
+                    return new JsonResult(new { mensaje = "El tipo de archivo 3D no es FBX" });
                 }
 
-                await productoService.Editar(productoConImagen);
+
+
+
+                bool resultadoGuardarImagen = await funcionesUtiles.GuardarImagenEnSistemaProducto(producto);
+
+                if (!resultadoGuardarImagen)
+                {
+                    return new JsonResult(new { mensaje = "Error al guardar la imagen" });
+                }
+
+                bool resultadoGuardarImagen3D = await funcionesUtiles.GuardarImagen3DEnSistemaProducto(producto);
+
+                if (!resultadoGuardarImagen3D)
+                {
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar el archivo 3D" });
+                }
+
+                await productoService.Editar(producto);
+
+
                 return new JsonResult(new { mensaje = "Producto modificado con éxito", correcto = true });
             }
             catch (Exception ex)
@@ -220,6 +274,12 @@ namespace BakeryApp_v1.Controllers
 
 
                 if (!funcionesUtiles.BorrarImagenGuardadaEnSistemaProducto(Producto))
+                {
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen", correcto = false });
+                }
+
+
+                if (!funcionesUtiles.BorrarImagenGuardadaEnSistema3DProducto(Producto))
                 {
                     return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen", correcto = false });
                 }
