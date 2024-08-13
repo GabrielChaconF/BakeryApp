@@ -45,7 +45,7 @@ public class PedidoDAOImpl : PedidoDAO
                 IdPersona = Pedido.IdPersona,
                 IdTipoPago = Pedido.IdTipoPago,
                 IdDireccion = Pedido.IdDireccion,
-                FechaPedido = Pedido.FechaPedido.ToString("yyyy/MM/dd hh:mm:ss"),
+                FechaPedido = Pedido.FechaPedido.ToString("yyyy/MM/dd HH:mm:ss"),
                 EstadoPedido = new EstadoPedidoDTO
                 {
                     IdEstadoPedido = Pedido.IdEstadoPedidoNavigation.IdEstadoPedido,
@@ -77,7 +77,7 @@ public class PedidoDAOImpl : PedidoDAO
                 IdPersona = Pedido.IdPersona,
                 IdTipoPago = Pedido.IdTipoPago,
                 IdDireccion = Pedido.IdDireccion,
-                FechaPedido = Pedido.FechaPedido.ToString("yyyy/MM/dd hh:mm:ss"),
+                FechaPedido = Pedido.FechaPedido.ToString("yyyy/MM/dd HH:mm:ss"),
                 EstadoPedido = new EstadoPedidoDTO
                 {
                     IdEstadoPedido = Pedido.IdEstadoPedidoNavigation.IdEstadoPedido,

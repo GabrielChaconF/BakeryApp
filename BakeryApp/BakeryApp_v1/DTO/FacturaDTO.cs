@@ -24,7 +24,7 @@ namespace BakeryApp_v1.DTO
             {
                 IdFactura = factura.IdFactura,
                 IdPedido = factura.IdPedido,
-                FechaFactura = factura.FechaFactura.ToString("yyyy/MM/dd hh:mm:ss"),
+                FechaFactura = factura.FechaFactura.ToString("yyyy/MM/dd HH:mm:ss"),
                 TotalPagar = factura.TotalPagar,
                 Pedido = new PedidoDTO
                 {

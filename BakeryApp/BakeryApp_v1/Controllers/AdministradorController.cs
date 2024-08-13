@@ -59,21 +59,7 @@ namespace BakeryApp_v1.Controllers
         
 
 
-        //----------------Marketing------------------
-        public IActionResult Marketing()
-        {
-            return View();
-        }
-
-        public IActionResult EnviarCorreo()
-        {
-            return View();
-        }
-
-        public IActionResult EnviarCorreoTodos()
-        {
-            return View();
-        }
+     
 
 
         

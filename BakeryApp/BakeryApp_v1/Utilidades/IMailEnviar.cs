@@ -12,4 +12,8 @@ public interface IMailEnviar
 
     public Task<bool> EnviarCorreoPedidoConfirmado(Persona persona, string asunto, IEnumerable<CarritoDTO> todosLosElementosDelCarrito, PedidoViewModel pedido);
 
+    public Task<bool> EnviarCorreoMarketingPersona(Boletin boletin, Mensajesboletin mensajeBoletin);
+
+
+    public Task<bool> EnviarCorreoMarketingTodos(IEnumerable<Boletin> todosLosBoletinesUsuario, Mensajesboletin mensajeBoletin);
 }

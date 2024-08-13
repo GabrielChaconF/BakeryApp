@@ -21,8 +21,9 @@ namespace BakeryApp_v1.Controllers
         private readonly DireccionesService direccionesService; 
         private readonly CategoriaService categoriaService;
         private readonly ProductoService productoService;
+        private readonly BoletinService boletinService;
 
-        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService)
+        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService, BoletinService boletinService)
         {
             this.personaService = personaService;
             this.provinciaService = provinciaService;
@@ -31,6 +32,7 @@ namespace BakeryApp_v1.Controllers
             this.direccionesService = direccionesService;
             this.categoriaService = categoriaService;   
             this.productoService = productoService;
+            this.boletinService = boletinService;
         }
 
 
@@ -461,7 +463,83 @@ namespace BakeryApp_v1.Controllers
             }
         }
 
-    
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SuscribirseBoletin()
+        {
+            try
+            {
+                string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+
+                Persona personaABuscar = new Persona
+                {
+                    Correo = correoUsuario
+                };
+
+                Persona personaLogueada = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
+
+
+                Boletin boletinUsuario = await boletinService.VerificarUsuarioEnBoletin(personaLogueada.IdPersona);
+
+                if (boletinUsuario is not null)
+                {
+                    return new JsonResult(new { mensaje = "El usuario ya se encuentra registrado en el boletin", correcto = false });
+                }
+
+
+                // Se estable el idBoletinNoticias como 1, ya que solo hay un boletin
+                Boletin boletinAGuardar = new Boletin
+                {
+                    IdBoletinNoticias = 1,
+                    IdUsuario = personaLogueada.IdPersona
+                };
+
+                await boletinService.Guardar(boletinAGuardar);
+
+                return new JsonResult(new { mensaje = "Usuario registrado con exito en el boletin de noticias", correcto = true });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al registrarse en el boletin", correcto = false });
+            }
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BorrarUsuarioBoletin()
+        {
+            try
+            {
+                string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+
+                Persona personaABuscar = new Persona
+                {
+                    Correo = correoUsuario
+                };
+
+                Persona personaLogueada = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
+
+
+                Boletin boletinUsuario = await boletinService.VerificarUsuarioEnBoletin(personaLogueada.IdPersona);
+
+                if (boletinUsuario == null)
+                {
+                    return new JsonResult(new { mensaje = "El usuario no se encuentra registrado en el boletin por lo que no se puede borrar", correcto = false });
+                }
+
+
+                
+                await boletinService.Eliminar(boletinUsuario);
+
+                return new JsonResult(new { mensaje = "Usuario eliminado con exito del boletin de noticias", correcto = true });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar el usuario del boletin", correcto = false });
+            }
+        }
+
 
     }
 }

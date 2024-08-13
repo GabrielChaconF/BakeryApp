@@ -45,7 +45,7 @@ function CrearFactura(factura) {
 
     const h4 = document.createElement("h4");
     h4.className = "font-weight-bold";
-    h4.textContent = "Dulce Espiga Bakery.";
+    h4.textContent = "Realizada por: Dulce Espiga Bakery. ";
 
     const small = document.createElement("small");
     small.className = "text-muted float-right";

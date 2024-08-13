@@ -26,24 +26,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Administrador/EnviarCorreo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFbnZpYXJDb3JyZW8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Administrador/EnviarCorreoTodos.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFbnZpYXJDb3JyZW9Ub2Rvcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Administrador/Facturacion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxGYWN0dXJhY2lvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Administrador/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Administrador/Marketing.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxNYXJrZXRpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Administrador/PerfilAdministrador.cshtml]
@@ -78,36 +62,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/Facturacion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRmFjdHVyYWNpb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/Facturas.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRmFjdHVyYXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/Inventario.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cSW52ZW50YXJpby5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/Pedidos.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cUGVkaWRvcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/PerfilEmpleado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cUGVyZmlsRW1wbGVhZG8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/VerFactura.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cVmVyRmFjdHVyYS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Empleado/VerPedido.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cVmVyUGVkaWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/FacturaAdmin/Facturas.cshtml]
@@ -116,6 +76,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/FacturaAdmin/VerFactura.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYUFkbWluXFZlckZhY3R1cmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/FacturaEmpleado/Facturas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYUVtcGxlYWRvXEZhY3R1cmFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/FacturaEmpleado/VerFactura.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYUVtcGxlYWRvXFZlckZhY3R1cmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Home/AccesoDenegado.cshtml]
@@ -190,12 +158,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ncmVkaWVudGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Marketing/EnviarCorreo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFya2V0aW5nXEVudmlhckNvcnJlby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Marketing/EnviarCorreoTodos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFya2V0aW5nXEVudmlhckNvcnJlb1RvZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Marketing/Marketing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFya2V0aW5nXE1hcmtldGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/PedidoAdmin/Pedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvQWRtaW5cUGVkaWRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/PedidoAdmin/VerPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvQWRtaW5cVmVyUGVkaWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/PedidoEmpleado/Pedidos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvRW1wbGVhZG9cUGVkaWRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/PedidoEmpleado/VerPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvRW1wbGVhZG9cVmVyUGVkaWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/OneDrive/Desktop/Pruebas y pruebas/GithubDesarrolloSistemas/BakeryApp/BakeryApp/BakeryApp_v1/Views/Pedido/CheckOut.cshtml]

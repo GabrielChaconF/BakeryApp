@@ -50,7 +50,7 @@ namespace BakeryApp_v1.DAO
             {
                 IdFactura = Factura.IdFactura,
                 IdPedido = Factura.IdPedido,
-                FechaFactura = Factura.FechaFactura.ToString("yyyy/MM/dd hh:mm:ss"),
+                FechaFactura = Factura.FechaFactura.ToString("yyyy/MM/dd HH:mm:ss"),
                 TotalPagar = Factura.TotalPagar,
                 Pedido = new PedidoDTO
                 {

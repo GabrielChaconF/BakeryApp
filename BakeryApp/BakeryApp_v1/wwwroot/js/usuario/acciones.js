@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     ObtenerDireccionesUsuario()
-   
+
 
     IniciarEventListeners()
 
@@ -70,7 +70,7 @@ function CrearFilasTabla(respuesta) {
         botonCancelar.classList.add("btn", "btn-danger", "btn-sm", "text-white");
         aModificarSinpe.classList.add("btn", "btn-danger", "btn-sm", "text-white");
         aVerFactura.classList.add("btn", "btn-danger", "btn-sm", "text-white");
-   
+
         botonCancelar.innerText = "Cancelar Pedido";
         tdId.innerText = "Pedido: " + contador;
         tdFecha.innerText = pedido.fechaPedido;
@@ -89,8 +89,8 @@ function CrearFilasTabla(respuesta) {
         fila.appendChild(tdVer);
         fila.appendChild(tdCancelarEstado);
         fila.appendChild(tdModificarSinpe);
-        fila.appendChild(tdVerFactura);  
- 
+        fila.appendChild(tdVerFactura);
+
         if (pedido.tipoPago.idTipoPago == 2) {
             aModificarSinpe.innerText = "Modificar Imagen del Sinpe";
             tdModificarSinpe.appendChild(aModificarSinpe);
@@ -132,7 +132,7 @@ function CancelarPedido(event) {
     const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
     const botonCancelar = event.currentTarget;
     const idPedido = botonCancelar.getAttribute("idPedido");
-  
+
 
 
     const pedido = {
@@ -156,7 +156,7 @@ function CancelarPedido(event) {
                         text: respuesta.mensaje,
                         icon: "success"
                     });
-                    ObtenerTodosLosPedidosPorCliente() 
+                    ObtenerTodosLosPedidosPorCliente()
                 } else {
                     swal({
                         text: respuesta.mensaje,
@@ -277,8 +277,8 @@ function FiltrarContenidoPorPanel(idPanel) {
     const formAgregarDireccion = document.getElementById("formAgregarDireccion");
     const formModificarDireccion = document.getElementById("formModificarDireccion");
     const formEliminarDireccion = document.getElementById("formEliminarDireccion");
- 
-
+    const formAgregarBoletin = document.getElementById("formSuscribirseBoletin")
+    const formBorrarBoletin = document.getElementById("formBorrarBoletin")
 
 
 
@@ -303,14 +303,14 @@ function FiltrarContenidoPorPanel(idPanel) {
                 formAgregarDireccion.removeEventListener("submit", AgregarDireccion);
                 formAgregarDireccion.addEventListener("submit", AgregarDireccion);
             }
-         
+
             break;
         case "modificardireccion":
             if (formModificarDireccion) {
                 formModificarDireccion.removeEventListener("submit", ModificarDireccion);
                 formModificarDireccion.addEventListener("submit", ModificarDireccion);
             }
-           
+
             break;
         case "eliminardireccion":
             if (formEliminarDireccion) {
@@ -321,6 +321,18 @@ function FiltrarContenidoPorPanel(idPanel) {
         case "verdirecciones":
             // Aqui no se ocupa llamar a  ObtenerDireccionesUsuario(), ya que se llama apenas se carga el DOM
             break;
+        case "boletin":
+            if (formAgregarBoletin) {
+                formAgregarBoletin.removeEventListener("submit", AgregarBoletin);
+                formAgregarBoletin.addEventListener("submit", AgregarBoletin);
+            }
+
+            if (formBorrarBoletin) {
+                formBorrarBoletin.removeEventListener("submit", EliminarBoletin);
+                formBorrarBoletin.addEventListener("submit", EliminarBoletin);
+            }
+
+            break;
         default:
             swal({
                 text: "Opción Invalida",
@@ -330,6 +342,77 @@ function FiltrarContenidoPorPanel(idPanel) {
 }
 
 
+function AgregarBoletin(event) {
+
+    event.preventDefault();
+
+    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+
+
+    fetch("/UsuarioRegistrado/SuscribirseBoletin", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "RequestVerificationToken": token
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+            .then(respuesta => {
+                if (respuesta.correcto) {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "success"
+                    });
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
+                }
+
+            })
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
+
+function EliminarBoletin(event) {
+
+    event.preventDefault();
+
+    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+
+
+    fetch("/UsuarioRegistrado/BorrarUsuarioBoletin", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "RequestVerificationToken": token
+        }
+    }).then(respuesta => {
+        return respuesta.json()
+            .then(respuesta => {
+                if (respuesta.correcto) {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "success"
+                    });
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
+                }
+
+            })
+    }).catch(error => {
+        console.error("Error", error);
+    });
+}
 
 
 function ObtenerDireccionesUsuario() {
@@ -676,10 +759,13 @@ function EliminarPersona(event) {
             .then(respuesta => {
                 if (respuesta.correcto) {
                     window.location.href = respuesta.mensaje
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
                 }
-                swal({
-                    text: respuesta.mensaje
-                });
+                
             })
     }).catch(error => {
         console.error("Error", error);
@@ -767,7 +853,7 @@ function ModificarDireccion(event) {
     const idCanton = selectCanton.value;
     const idDistrito = selectDistrito.value;
 
-    
+
 
 
 
@@ -797,14 +883,14 @@ function ModificarDireccion(event) {
                         icon: "success"
                     });
                     ActualizarInterfazDireccionModificada(idDireccion, nombreDireccion)
-                   
+
                 } else {
                     swal({
                         text: respuesta.mensaje,
                         icon: "error"
                     });
                 }
-               
+
             })
     }).catch(error => {
         console.error("Error", error);
@@ -893,7 +979,7 @@ function AgregarDireccion(event) {
                         icon: "error"
                     });
                 }
-               
+
             })
     }).catch(error => {
         console.error("Error", error);
@@ -935,7 +1021,7 @@ function EditarPersona(event) {
         return respuesta.json()
             .then(respuesta => {
                 if (respuesta.correcto) {
-                  
+
                     swal({
                         text: respuesta.mensaje,
                         icon: "success"
@@ -964,7 +1050,7 @@ function ActualizarInterfazUsuarioModificado() {
     }).then(respuesta => {
         return respuesta.json()
     }).then(respuesta => {
-        
+
         ActualizarDatosUsuariosModificados(respuesta.mensaje)
     }).catch(error => {
         console.error("Error", error);

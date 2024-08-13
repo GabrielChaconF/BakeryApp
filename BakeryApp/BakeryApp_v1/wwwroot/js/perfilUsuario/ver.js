@@ -118,6 +118,7 @@ function crearPerfil(mensaje) {
 }
 
 
+
  //<strong><i class="fas fa-user mr-1"></i> Nombre </strong>
 
  //                           <p class="text-muted">

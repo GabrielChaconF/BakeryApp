@@ -9,6 +9,7 @@ using BakeryApp_v1.Models;
 using BakeryApp_v1.DTO;
 using BakeryApp_v1.DAO;
 using BakeryApp_v1.ViewModels;
+using Stripe;
 
 namespace BakeryApp_v1.Utilidades;
 
@@ -197,5 +198,147 @@ public class MailEnviar : IMailEnviar
         }
     }
 
+
+    public async Task<bool> EnviarCorreoMarketingPersona(Boletin boletin, Mensajesboletin mensajeBoletin)
+    {
+        try
+        {
+            Configurar();
+            MailMessage mensaje = new MailMessage();
+            mensaje.From = new MailAddress("dulce.espiga2024@gmail.com");
+            mensaje.To.Add(boletin.IdUsuarioNavigation.Correo);
+            mensaje.Subject = mensajeBoletin.Asunto;
+            mensaje.IsBodyHtml = true;
+            StringBuilder mailBody = new StringBuilder();
+
+
+           
+       
+
+            mailBody.AppendFormat("<img src='cid:imagenLocal' alt='Imagen Local' style='display: block; margin-left: auto; margin-right: auto;' />");
+            mailBody.AppendFormat("<h1 style='text-align: center;'>Mensaje del Boletin de Noticias de BakeryApp</h1>");
+
+            string mensajeBoletinEnviar = mensajeBoletin.Mensaje;
+
+            string nombrePersona = boletin.IdUsuarioNavigation.Nombre;
+
+
+            mailBody.AppendFormat("<h2 style='text-align:center'>" + "Estimado señor: " + nombrePersona + "</h2>");
+
+            mailBody.AppendFormat("<h2 style='text-align:center'>" + "Mensaje: " + mensajeBoletinEnviar + "</h2>");
+
+
+
+            mailBody.AppendFormat("<h2 style='text-align:center'> Gracias por su atención y preferencia </h2>");
+
+            mensaje.Body = mailBody.ToString();
+
+            string htmlBody = mailBody.ToString();
+
+
+            AlternateView htmlAlternativa = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+
+            string imagen = ambiente.WebRootPath;
+            imagen = Path.Combine(imagen, "img");
+            imagen = Path.Combine(imagen, "Logo_Transparente.png");
+
+            LinkedResource imagenEnviar = new LinkedResource(imagen);
+
+            imagenEnviar.ContentId = "imagenLocal";
+            imagenEnviar.ContentType = new ContentType(MediaTypeNames.Image.Png);
+
+
+            htmlAlternativa.LinkedResources.Add(imagenEnviar);
+
+
+            mensaje.AlternateViews.Add(htmlAlternativa);
+
+
+
+
+
+            await client.SendMailAsync(mensaje);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+    }
+
+    public async Task<bool> EnviarCorreoMarketingTodos(IEnumerable<Boletin> todosLosBoletinesUsuario, Mensajesboletin mensajeBoletin)
+    {
+        try
+        {
+            Configurar();
+
+            foreach (Boletin boletin in todosLosBoletinesUsuario)
+            {
+
+                MailMessage mensaje = new MailMessage();
+                mensaje.From = new MailAddress("dulce.espiga2024@gmail.com");
+                mensaje.To.Add(boletin.IdUsuarioNavigation.Correo);
+                mensaje.Subject = mensajeBoletin.Asunto;
+                mensaje.IsBodyHtml = true;
+                StringBuilder mailBody = new StringBuilder();
+
+
+
+
+
+                mailBody.AppendFormat("<img src='cid:imagenLocal' alt='Imagen Local' style='display: block; margin-left: auto; margin-right: auto;' />");
+                mailBody.AppendFormat("<h1 style='text-align: center;'>Mensaje del Boletin de Noticias de BakeryApp</h1>");
+
+                string mensajeBoletinEnviar = mensajeBoletin.Mensaje;
+
+                string nombrePersona = boletin.IdUsuarioNavigation.Nombre;
+
+
+                mailBody.AppendFormat("<h2 style='text-align:center'>" + "Estimado señor: " + nombrePersona + "</h2>");
+
+                mailBody.AppendFormat("<h2 style='text-align:center'>" + "Mensaje: " + mensajeBoletinEnviar + "</h2>");
+
+
+
+                mailBody.AppendFormat("<h2 style='text-align:center'> Gracias por su atención y preferencia </h2>");
+
+                mensaje.Body = mailBody.ToString();
+
+                string htmlBody = mailBody.ToString();
+
+
+                AlternateView htmlAlternativa = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+
+                string imagen = ambiente.WebRootPath;
+                imagen = Path.Combine(imagen, "img");
+                imagen = Path.Combine(imagen, "Logo_Transparente.png");
+
+                LinkedResource imagenEnviar = new LinkedResource(imagen);
+
+                imagenEnviar.ContentId = "imagenLocal";
+                imagenEnviar.ContentType = new ContentType(MediaTypeNames.Image.Png);
+
+
+                htmlAlternativa.LinkedResources.Add(imagenEnviar);
+
+
+                mensaje.AlternateViews.Add(htmlAlternativa);
+
+
+
+
+
+                await client.SendMailAsync(mensaje);
+            }
+            return true;
+
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+    }
 
 }

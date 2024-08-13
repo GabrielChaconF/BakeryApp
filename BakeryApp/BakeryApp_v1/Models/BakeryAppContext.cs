@@ -15,6 +15,10 @@ public partial class BakeryAppContext : DbContext
     {
     }
 
+    public virtual DbSet<Boletin> Boletins { get; set; }
+
+    public virtual DbSet<Boletinnoticia> Boletinnoticias { get; set; }
+
     public virtual DbSet<Cantone> Cantones { get; set; }
 
     public virtual DbSet<Carritocompra> Carritocompras { get; set; }
@@ -34,6 +38,8 @@ public partial class BakeryAppContext : DbContext
     public virtual DbSet<Ingrediente> Ingredientes { get; set; }
 
     public virtual DbSet<Marketing> Marketings { get; set; }
+
+    public virtual DbSet<Mensajesboletin> Mensajesboletins { get; set; }
 
     public virtual DbSet<Pagossinpe> Pagossinpes { get; set; }
 
@@ -65,6 +71,36 @@ public partial class BakeryAppContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Boletin>(entity =>
+        {
+            entity.HasKey(e => e.IdBoletin).HasName("PRIMARY");
+
+            entity.ToTable("boletin");
+
+            entity.HasIndex(e => e.IdUsuario, "fk_id_usuario_boletin");
+
+            entity.HasIndex(e => e.IdBoletinNoticias, "pk_id_boletin_noticias");
+
+            entity.HasOne(d => d.IdBoletinNoticiasNavigation).WithMany(p => p.Boletins)
+                .HasForeignKey(d => d.IdBoletinNoticias)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("pk_id_boletin_noticias");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Boletins)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_id_usuario_boletin");
+        });
+
+        modelBuilder.Entity<Boletinnoticia>(entity =>
+        {
+            entity.HasKey(e => e.IdBoletinNoticias).HasName("PRIMARY");
+
+            entity.ToTable("boletinnoticias");
+
+            entity.Property(e => e.NombreBoletin).HasMaxLength(20);
+        });
+
         modelBuilder.Entity<Cantone>(entity =>
         {
             entity.HasKey(e => e.IdCanton).HasName("PRIMARY");
@@ -255,6 +291,22 @@ public partial class BakeryAppContext : DbContext
 
             entity.Property(e => e.Correo).HasMaxLength(80);
             entity.Property(e => e.Nombre).HasMaxLength(25);
+        });
+
+        modelBuilder.Entity<Mensajesboletin>(entity =>
+        {
+            entity.HasKey(e => e.IdMensajeBoletin).HasName("PRIMARY");
+
+            entity.ToTable("mensajesboletin");
+
+            entity.HasIndex(e => e.IdBoletin, "fk_id_boletin_mensaje");
+
+            entity.Property(e => e.Asunto).HasMaxLength(80);
+            entity.Property(e => e.Mensaje).HasMaxLength(2500);
+
+            entity.HasOne(d => d.IdBoletinNavigation).WithMany(p => p.Mensajesboletins)
+                .HasForeignKey(d => d.IdBoletin)
+                .HasConstraintName("fk_id_boletin_mensaje");
         });
 
         modelBuilder.Entity<Pagossinpe>(entity =>

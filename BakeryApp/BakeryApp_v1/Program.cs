@@ -72,6 +72,13 @@ builder.Services.AddScoped<FacturaDAO, FacturaDAOImpl>();
 builder.Services.AddScoped<FacturaService, FacturaServiceImpl>();
 builder.Services.AddScoped<LineaFacturaDAO, LineaFacturaDAOImpl>();
 builder.Services.AddScoped<LineaFacturaService, LineaFacturaServiceImpl>(); 
+builder.Services.AddScoped<BoletinDAO, BoletinDAOImpl>();
+builder.Services.AddScoped<BoletinService, BoletinServiceImpl>();
+builder.Services.AddScoped<BoletinDAO, BoletinDAOImpl>();
+builder.Services.AddScoped<BoletinNoticiasDAO, BoletinNoticiasDAOImpl>();
+builder.Services.AddScoped<BoletinNoticiasService, BoletinNoticiasServiceImpl>();
+builder.Services.AddScoped<MensajesBoletinDAO, MensajeBoletinDAOImpl>();
+builder.Services.AddScoped<MensajeBoletinService, MensajeBoletinServiceImpl>();
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

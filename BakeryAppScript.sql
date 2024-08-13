@@ -227,6 +227,30 @@ create table DetalleFactura(
     constraint fk_producto_pedido_factura foreign key (IdPedidoProducto) references PedidoProducto(IdPedidoProducto) on delete cascade
 );
 
+create table BoletinNoticias(
+	IdBoletinNoticias int not null,
+    NombreBoletin varchar(20) not null,
+    constraint pk_id_boletin_noticias primary key(IdBoletinNoticias)
+);
+
+create table Boletin(
+	IdBoletin int not null auto_increment,
+    IdBoletinNoticias int not null,
+    IdUsuario int not null,
+    constraint pk_id_boletin primary key (IdBoletin),
+    constraint fk_id_usuario_boletin foreign key (IdUsuario) references Personas(IdPersona),
+    constraint pk_id_boletin_noticias foreign key (IdBoletinNoticias) references BoletinNoticias(IdBoletinNoticias)
+);
+
+create table MensajesBoletin(
+	IdMensajeBoletin int not null auto_increment,
+    IdBoletin int not null,
+    Mensaje varchar(2500) not null,
+    Asunto varchar(80) not null,
+    constraint pk_id_mensaje_boletin primary key (IdMensajeBoletin),
+    CONSTRAINT fk_id_boletin_mensaje FOREIGN KEY (IdBoletin) REFERENCES Boletin(IdBoletin) ON DELETE CASCADE
+);
+
 /* Creacion de Roles */
 insert into Roles(IdRol, NombreRol)
 values (1, 'ADMINISTRADOR'),
@@ -523,6 +547,11 @@ values ('Recibido'),
 ('Pagado'),
 ('Cancelado');
 
+/* Creacion Boletin Noticias */
+
+insert into BoletinNoticias(IdBoletinNoticias, NombreBoletin)
+values (1, "Bakery App Noticias");
+
 /* Selects */
 
 select * from UnidadesMedida;
@@ -571,6 +600,12 @@ select * from Facturas;
 
 
 select * from DetalleFactura;
+
+select * from BoletinNoticias;
+
+select * from Boletin;
+
+select * from MensajesBoletin;
 /* Consulta para ver el tamaño de la base de datos en MB */
 
 SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Database Size (MB)"

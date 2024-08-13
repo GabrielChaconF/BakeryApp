@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
 using System.Security.Claims;
+using static Mysqlx.Crud.Order.Types;
 
 namespace BakeryApp_v1.Controllers
 {
@@ -201,8 +202,9 @@ namespace BakeryApp_v1.Controllers
                 if (!pedidoService.VerificarDatosVaciosOIncorrectos(pedidoObjeto))
                 {
                     return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar el pedido", correcto = false });
-
                 }
+
+
 
                 string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
 
@@ -213,6 +215,18 @@ namespace BakeryApp_v1.Controllers
 
                 personaABuscar = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
 
+
+                Direccionesusuario direccion = new Direccionesusuario
+                {
+                    IdPersona = personaABuscar.IdPersona
+                };
+
+                IEnumerable<DireccionDTO> todasLasDireccionesUsuario = await direccionesService.ObtenerTodasLasDireccionesPorUsuario(direccion);
+
+                if (todasLasDireccionesUsuario.Count() == 0)
+                {
+                    return new JsonResult(new { mensaje = "No puede realizar un pedido con entrega a domicilio por que no tiene direcciones registradas", correcto = false });
+                }
 
                 // Se asigna el id de la persona logueada al id del pedido
                 pedidoObjeto.IdPersona = personaABuscar.IdPersona;
