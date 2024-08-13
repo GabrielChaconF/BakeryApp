@@ -80,4 +80,10 @@ public class DireccionesServiceImpl : DireccionesService
         }
         return false;
     }
+
+    public async Task<DireccionDTO> ObtenerDireccionPorIdDTO(int idDireccion)
+    {
+        DireccionDTO direccionBuscada = await direccionesDAO.ObtenerDireccionPorIdDTO(idDireccion);
+        return direccionBuscada;
+    }
 }

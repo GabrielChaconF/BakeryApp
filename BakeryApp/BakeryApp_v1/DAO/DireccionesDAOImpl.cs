@@ -43,7 +43,7 @@ public class DireccionesDAOImpl : DireccionesDAO
     public async Task<IEnumerable<DireccionDTO>> ObtenerTodasLasDireccionesPorUsuario(Direccionesusuario direccion)
     {
         IEnumerable<DireccionDTO> direccionesDelUsuario = await dbContext.Direccionesusuarios.Include(Direccion => Direccion.IdProvinciaNavigation).Include(Direccion => Direccion.IdCantonNavigation)
-            .Include(Direccion => Direccion.IdCantonNavigation).Where(Direccion => Direccion.IdPersona == direccion.IdPersona).Select(
+            .Include(Direccion => Direccion.IdDistritoNavigation).Where(Direccion => Direccion.IdPersona == direccion.IdPersona).Select(
             direccion => new DireccionDTO
             {
                 IdDireccion = direccion.IdDireccion,
@@ -75,5 +75,12 @@ public class DireccionesDAOImpl : DireccionesDAO
         return nombreDireccionRepetido;
     }
 
+    public async Task<DireccionDTO> ObtenerDireccionPorIdDTO(int idDireccion)
+    {
+        Direccionesusuario direccionBuscada = await dbContext.Direccionesusuarios.Include(Direccion => Direccion.IdProvinciaNavigation).Include(Direccion => Direccion.IdCantonNavigation)
+            .Include(Direccion => Direccion.IdDistritoNavigation).FirstOrDefaultAsync(Direccion => Direccion.IdDireccion == idDireccion);
 
+        DireccionDTO direccionBuscadaDTO = DireccionDTO.ConvertirDireccionADireccionDTO(direccionBuscada);
+        return direccionBuscadaDTO;
+    }
 }

@@ -49,7 +49,7 @@ public class CarritoController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AgregarCarrito([FromBody]Carritocompra carrito)
+    public async Task<IActionResult> AgregarCarrito([FromBody] Carritocompra carrito)
     {
         try
         {
@@ -57,52 +57,50 @@ public class CarritoController : Controller
             {
                 return new JsonResult(new { mensaje = "Producto Invalido", correcto = false });
             }
-            
-            // Si el carrito tiene un producto normal (Sin editar)
-            if (carrito.IdProducto.HasValue)
+
+
+
+            Producto productoBuscado = await productoService.ObtenerProductoPorId(carrito.IdProducto);
+
+            if (productoBuscado == null)
             {
-                Producto productoBuscado = await productoService.ObtenerProductoPorId(carrito.IdProducto.Value);
-
-                if (productoBuscado == null)
-                {
-                    return new JsonResult(new { mensaje = "Producto no encontrado", correcto = false });
-                }
-                // Se asigna el id del producto en el carrito al idProducto buscado
-                carrito.IdProducto = productoBuscado.IdProducto;
-
-                string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
-
-                Persona personaABuscar = new Persona
-                {
-                    Correo = correoUsuario
-                };
-
-                personaABuscar = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
-
-                // Se asigna el id de la persona buscada al id de la persona en el carrito
-                carrito.IdPersona = personaABuscar.IdPersona;
-
-
-                Carritocompra carritoYaExiste = await carritoService.ObtenerCarritoPorIdProductoYIdUsuario(carrito.IdPersona, carrito.IdProducto.Value);
-
-                if (carritoYaExiste is not null)
-                {
-                    // Se suma 1 a la cantidad en el carrito
-                    carritoYaExiste.CantidadProducto += 1;
-                    await carritoService.Editar(carritoYaExiste);
-                } else
-                {
-                    // Se suma 1 a la cantidad en el carrito
-                    carrito.CantidadProducto += 1;
-
-                    // Se establece el estado como false (sin procesar)
-                    carrito.Estado = false;
-
-                    await carritoService.Guardar(carrito);
-                    return new JsonResult(new { mensaje = Url.Action("Index", "Carrito"), correcto = true });
-                }
-              
+                return new JsonResult(new { mensaje = "Producto no encontrado", correcto = false });
             }
+            // Se asigna el id del producto en el carrito al idProducto buscado
+            carrito.IdProducto = productoBuscado.IdProducto;
+
+            string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+
+            Persona personaABuscar = new Persona
+            {
+                Correo = correoUsuario
+            };
+
+            personaABuscar = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
+
+            // Se asigna el id de la persona buscada al id de la persona en el carrito
+            carrito.IdPersona = personaABuscar.IdPersona;
+
+
+            Carritocompra carritoYaExiste = await carritoService.ObtenerCarritoPorIdProductoYIdUsuario(carrito.IdPersona, carrito.IdProducto);
+
+            if (carritoYaExiste is not null)
+            {
+                // Se suma 1 a la cantidad en el carrito
+                carritoYaExiste.CantidadProducto += 1;
+                await carritoService.Editar(carritoYaExiste);
+            }
+            else
+            {
+                // Se suma 1 a la cantidad en el carrito
+                carrito.CantidadProducto += 1;
+
+
+
+                await carritoService.Guardar(carrito);
+                return new JsonResult(new { mensaje = Url.Action("Index", "Carrito"), correcto = true });
+            }
+
 
             return new JsonResult(new { mensaje = Url.Action("Index", "Carrito"), correcto = true });
 
@@ -174,7 +172,7 @@ public class CarritoController : Controller
     [HttpPut]
     [ValidateAntiForgeryToken]
 
-    public async Task<IActionResult> ModificarCarrito([FromBody]CarritoViewModel carrito)
+    public async Task<IActionResult> ModificarCarrito([FromBody] CarritoViewModel carrito)
     {
         try
         {
@@ -210,7 +208,7 @@ public class CarritoController : Controller
             }
 
 
-           
+
             switch (carrito.Accion)
             {
                 case "Agregar":

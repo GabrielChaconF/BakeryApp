@@ -56,31 +56,7 @@ namespace BakeryApp_v1.Controllers
         }
 
 
-        //----------------Facturas------------------
-        public IActionResult Facturacion()
-        {
-            return View();
-        }
-
-        public IActionResult Facturas()
-        {
-            return View();
-        }
-
-        public IActionResult VerFactura()
-        {
-            return View();
-        }
-        //----------------Pedidos------------------
-        public IActionResult Pedidos()
-        {
-            return View();
-        }
-
-        public IActionResult VerPedido()
-        {
-            return View();
-        }
+        
 
 
         //----------------Marketing------------------
@@ -100,22 +76,7 @@ namespace BakeryApp_v1.Controllers
         }
 
 
-        //----------------Categorias------------------
-        public IActionResult Categorias()
-        {
-            return View();
-        }
-
-        public IActionResult EditarCategoria()
-        {
-            return View();
-        }
-
-        public IActionResult AgregarCategoria()
-        {
-            return View();
-        }
-
+        
 
     }
 }

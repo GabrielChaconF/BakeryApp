@@ -21,23 +21,29 @@ public partial class BakeryAppContext : DbContext
 
     public virtual DbSet<Categoria> Categorias { get; set; }
 
+    public virtual DbSet<Detallefactura> Detallefacturas { get; set; }
+
     public virtual DbSet<Direccionesusuario> Direccionesusuarios { get; set; }
 
     public virtual DbSet<Distrito> Distritos { get; set; }
 
     public virtual DbSet<Estadospedido> Estadospedidos { get; set; }
 
+    public virtual DbSet<Factura> Facturas { get; set; }
+
     public virtual DbSet<Ingrediente> Ingredientes { get; set; }
 
     public virtual DbSet<Marketing> Marketings { get; set; }
 
+    public virtual DbSet<Pagossinpe> Pagossinpes { get; set; }
+
     public virtual DbSet<Pedido> Pedidos { get; set; }
+
+    public virtual DbSet<Pedidoproducto> Pedidoproductos { get; set; }
 
     public virtual DbSet<Persona> Personas { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
-
-    public virtual DbSet<Productosmodificado> Productosmodificados { get; set; }
 
     public virtual DbSet<Provincia> Provincias { get; set; }
 
@@ -85,23 +91,13 @@ public partial class BakeryAppContext : DbContext
 
             entity.HasIndex(e => e.IdProducto, "fk_id_producto");
 
-            entity.HasIndex(e => e.IdProductoModificado, "fk_id_producto_modificado");
-
-            entity.Property(e => e.Estado).HasColumnType("bit(1)");
-
             entity.HasOne(d => d.IdPersonaNavigation).WithMany(p => p.Carritocompras)
                 .HasForeignKey(d => d.IdPersona)
                 .HasConstraintName("fk_id_persona_carrito");
 
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.Carritocompras)
                 .HasForeignKey(d => d.IdProducto)
-                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_id_producto");
-
-            entity.HasOne(d => d.IdProductoModificadoNavigation).WithMany(p => p.Carritocompras)
-                .HasForeignKey(d => d.IdProductoModificado)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("fk_id_producto_modificado");
         });
 
         modelBuilder.Entity<Categoria>(entity =>
@@ -115,6 +111,27 @@ public partial class BakeryAppContext : DbContext
             entity.Property(e => e.DescripcionCategoria).HasMaxLength(255);
             entity.Property(e => e.ImagenCategoria).HasMaxLength(80);
             entity.Property(e => e.NombreCategoria).HasMaxLength(40);
+        });
+
+        modelBuilder.Entity<Detallefactura>(entity =>
+        {
+            entity.HasKey(e => new { e.Linea, e.IdFactura }).HasName("PRIMARY");
+
+            entity.ToTable("detallefactura");
+
+            entity.HasIndex(e => e.IdFactura, "fk_id_factura");
+
+            entity.HasIndex(e => e.IdPedidoProducto, "fk_producto_pedido_factura");
+
+            entity.Property(e => e.TotalLinea).HasPrecision(10);
+
+            entity.HasOne(d => d.IdFacturaNavigation).WithMany(p => p.Detallefacturas)
+                .HasForeignKey(d => d.IdFactura)
+                .HasConstraintName("fk_id_factura");
+
+            entity.HasOne(d => d.IdPedidoProductoNavigation).WithMany(p => p.Detallefacturas)
+                .HasForeignKey(d => d.IdPedidoProducto)
+                .HasConstraintName("fk_producto_pedido_factura");
         });
 
         modelBuilder.Entity<Direccionesusuario>(entity =>
@@ -176,6 +193,23 @@ public partial class BakeryAppContext : DbContext
             entity.Property(e => e.NombreEstado).HasMaxLength(40);
         });
 
+        modelBuilder.Entity<Factura>(entity =>
+        {
+            entity.HasKey(e => e.IdFactura).HasName("PRIMARY");
+
+            entity.ToTable("facturas");
+
+            entity.HasIndex(e => e.IdPedido, "fk_id_pedido_factura");
+
+            entity.Property(e => e.FechaFactura).HasColumnType("datetime");
+            entity.Property(e => e.TotalPagar).HasPrecision(10);
+
+            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Facturas)
+                .HasForeignKey(d => d.IdPedido)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_id_pedido_factura");
+        });
+
         modelBuilder.Entity<Ingrediente>(entity =>
         {
             entity.HasKey(e => e.IdIngrediente).HasName("PRIMARY");
@@ -223,25 +257,40 @@ public partial class BakeryAppContext : DbContext
             entity.Property(e => e.Nombre).HasMaxLength(25);
         });
 
+        modelBuilder.Entity<Pagossinpe>(entity =>
+        {
+            entity.HasKey(e => e.IdPagoSinpe).HasName("PRIMARY");
+
+            entity.ToTable("pagossinpe");
+
+            entity.HasIndex(e => e.IdPedido, "fk_id_pedido_sinpe");
+
+            entity.Property(e => e.RutaImagenSinpe)
+                .HasMaxLength(80)
+                .HasColumnName("rutaImagenSinpe");
+
+            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Pagossinpes)
+                .HasForeignKey(d => d.IdPedido)
+                .HasConstraintName("fk_id_pedido_sinpe");
+        });
+
         modelBuilder.Entity<Pedido>(entity =>
         {
             entity.HasKey(e => e.IdPedido).HasName("PRIMARY");
 
             entity.ToTable("pedidos");
 
+            entity.HasIndex(e => e.IdPersona, "fk_id_cliente_pedido");
+
             entity.HasIndex(e => e.IdDireccion, "fk_id_direccion_pedido");
 
             entity.HasIndex(e => e.IdEstadoPedido, "fk_id_estado_pedido");
 
-            entity.HasIndex(e => e.IdCarrito, "fk_id_pedido_carrito");
-
             entity.HasIndex(e => e.IdTipoEnvio, "fk_id_tipo_envio");
 
-            entity.Property(e => e.FechaPedido).HasColumnType("datetime");
+            entity.HasIndex(e => e.IdTipoPago, "fk_id_tipo_pago_pedido");
 
-            entity.HasOne(d => d.IdCarritoNavigation).WithMany(p => p.Pedidos)
-                .HasForeignKey(d => d.IdCarrito)
-                .HasConstraintName("fk_id_pedido_carrito");
+            entity.Property(e => e.FechaPedido).HasColumnType("datetime");
 
             entity.HasOne(d => d.IdDireccionNavigation).WithMany(p => p.Pedidos)
                 .HasForeignKey(d => d.IdDireccion)
@@ -252,9 +301,36 @@ public partial class BakeryAppContext : DbContext
                 .HasForeignKey(d => d.IdEstadoPedido)
                 .HasConstraintName("fk_id_estado_pedido");
 
+            entity.HasOne(d => d.IdPersonaNavigation).WithMany(p => p.Pedidos)
+                .HasForeignKey(d => d.IdPersona)
+                .HasConstraintName("fk_id_cliente_pedido");
+
             entity.HasOne(d => d.IdTipoEnvioNavigation).WithMany(p => p.Pedidos)
                 .HasForeignKey(d => d.IdTipoEnvio)
                 .HasConstraintName("fk_id_tipo_envio");
+
+            entity.HasOne(d => d.IdTipoPagoNavigation).WithMany(p => p.Pedidos)
+                .HasForeignKey(d => d.IdTipoPago)
+                .HasConstraintName("fk_id_tipo_pago_pedido");
+        });
+
+        modelBuilder.Entity<Pedidoproducto>(entity =>
+        {
+            entity.HasKey(e => e.IdPedidoProducto).HasName("PRIMARY");
+
+            entity.ToTable("pedidoproducto");
+
+            entity.HasIndex(e => e.IdPedido, "fk_pedido_producto");
+
+            entity.HasIndex(e => e.IdProducto, "fk_producto_pedido");
+
+            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Pedidoproductos)
+                .HasForeignKey(d => d.IdPedido)
+                .HasConstraintName("fk_pedido_producto");
+
+            entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.Pedidoproductos)
+                .HasForeignKey(d => d.IdProducto)
+                .HasConstraintName("fk_producto_pedido");
         });
 
         modelBuilder.Entity<Persona>(entity =>
@@ -295,9 +371,6 @@ public partial class BakeryAppContext : DbContext
             entity.HasIndex(e => e.NombreProducto, "uq_nombre_Producto").IsUnique();
 
             entity.Property(e => e.DescripcionProducto).HasMaxLength(255);
-            entity.Property(e => e.Imagen3Dproducto)
-                .HasMaxLength(80)
-                .HasColumnName("Imagen3DProducto");
             entity.Property(e => e.ImagenProducto).HasMaxLength(80);
             entity.Property(e => e.NombreProducto).HasMaxLength(40);
             entity.Property(e => e.PrecioProducto).HasPrecision(10);
@@ -309,23 +382,6 @@ public partial class BakeryAppContext : DbContext
             entity.HasOne(d => d.IdRecetaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdReceta)
                 .HasConstraintName("fk_id_receta");
-        });
-
-        modelBuilder.Entity<Productosmodificado>(entity =>
-        {
-            entity.HasKey(e => e.IdProductoModificado).HasName("PRIMARY");
-
-            entity.ToTable("productosmodificados");
-
-            entity.HasIndex(e => e.IdProductoOriginal, "fk_id_producto_origina");
-
-            entity.Property(e => e.Imagen3DproductoModificado)
-                .HasMaxLength(80)
-                .HasColumnName("Imagen3DProductoModificado");
-
-            entity.HasOne(d => d.IdProductoOriginalNavigation).WithMany(p => p.Productosmodificados)
-                .HasForeignKey(d => d.IdProductoOriginal)
-                .HasConstraintName("fk_id_producto_origina");
         });
 
         modelBuilder.Entity<Provincia>(entity =>

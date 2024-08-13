@@ -106,46 +106,7 @@ public class FuncionesUtiles : IFuncionesUtiles
 
 
 
-    public async Task<bool> GuardarImagen3DEnSistemaProducto(Producto producto)
-    {
-        string carpetaImagenes = ambiente.WebRootPath;
-        carpetaImagenes = Path.Combine(carpetaImagenes, "img", "imagenes3DProductos");
-
-
-
-        try
-        {
-
-            if (producto.Archivo3DProducto is not null)
-            {
-                if (producto.Archivo3DProducto.Length > 0)
-                {
-
-                    string identificadorImagen = Guid.NewGuid().ToString() + Path.GetExtension(producto.Archivo3DProducto.FileName);
-                    string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
-                    string rutaBaseDatos = "";
-                    rutaBaseDatos = Path.Combine(rutaBaseDatos, "img", "imagenes3DProductos", identificadorImagen);
-
-                    using (Stream stream = File.Create(rutaImagenSistema))
-                    {
-                        await producto.Archivo3DProducto.CopyToAsync(stream);
-                    }
-
-                    producto.Imagen3Dproducto = rutaBaseDatos;
-                }
-                return true;
-            }
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }
-
-
-
-        return true;
-    }
-
+ 
 
 
     public bool BorrarImagenGuardadaEnSistemaProducto(Producto producto)
@@ -170,30 +131,61 @@ public class FuncionesUtiles : IFuncionesUtiles
     }
 
 
-
-    public bool BorrarImagenGuardadaEnSistema3DProducto(Producto producto)
+    public async Task<bool> GuardarImagenEnSistemaSinpe(Pagossinpe pago)
     {
         string carpetaImagenes = ambiente.WebRootPath;
+        carpetaImagenes = Path.Combine(carpetaImagenes, "img", "sinpes");
+
 
         try
         {
-            if (!string.IsNullOrEmpty(producto.Imagen3Dproducto))
+            if (pago.ArchivoSinpe.Length > 0)
             {
-                string identificadorImagen = "";
-                string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
-                rutaImagenSistema = Path.Combine(rutaImagenSistema, producto.Imagen3Dproducto);
-                File.Delete(rutaImagenSistema);
-                return true;
-            }
 
+                string identificadorImagen = Guid.NewGuid().ToString() + Path.GetExtension(pago.ArchivoSinpe.FileName);
+                string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
+                string rutaBaseDatos = "";
+                rutaBaseDatos = Path.Combine(rutaBaseDatos, "img", "sinpes", identificadorImagen);
+
+                using (Stream stream = File.Create(rutaImagenSistema))
+                {
+                    await pago.ArchivoSinpe.CopyToAsync(stream);
+                }
+
+                pago.RutaImagenSinpe = rutaBaseDatos;
+            }
         }
         catch (Exception ex)
         {
             return false;
         }
 
+
+
         return true;
     }
+
+    public bool BorrarImagenGuardadaEnSistemaPagoSinpe(Pagossinpe pago)
+    {
+        string carpetaImagenes = ambiente.WebRootPath;
+
+        try
+        {
+            string identificadorImagen = "";
+            string rutaImagenSistema = Path.Combine(carpetaImagenes, identificadorImagen);
+            rutaImagenSistema = Path.Combine(rutaImagenSistema, pago.RutaImagenSinpe);
+            File.Delete(rutaImagenSistema);
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+
+
+        return true;
+    }
+
 
 
 

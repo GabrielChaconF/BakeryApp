@@ -23,11 +23,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.3" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.5" />
     <PackageReference Include="PagedList" Version="1.17.0" />
+    <PackageReference Include="Stripe.net" Version="45.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\img\categorias\" />
-    <Folder Include="wwwroot\img\imagenes3DProductos\" />
+    <Folder Include="wwwroot\img\sinpes\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,10 +45,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Update="Views\IngredienteEmpleado\Index.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Producto\VerImagen3D.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

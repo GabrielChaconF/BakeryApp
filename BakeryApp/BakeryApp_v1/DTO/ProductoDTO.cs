@@ -22,5 +22,4 @@ public class ProductoDTO
 
     public virtual RecetaDTO Receta { get; set; } = null!;
 
-    public string? Imagen3Dproducto { get; set; }
 }

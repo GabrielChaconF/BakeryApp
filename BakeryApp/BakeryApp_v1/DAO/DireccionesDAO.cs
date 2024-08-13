@@ -18,6 +18,6 @@ public interface DireccionesDAO
 
     public Task<Direccionesusuario> ObtenerDireccionPorNombre(Direccionesusuario direccion);
 
-
+    public Task<DireccionDTO> ObtenerDireccionPorIdDTO(int idDireccion);
 
 }

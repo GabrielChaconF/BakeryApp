@@ -62,20 +62,10 @@ create table Productos(
     IdCategoria int not null, 
     IdReceta int not null,
     ImagenProducto varchar(80) not null,
-    Imagen3DProducto varchar(80) null,
     constraint pk_id_Producto primary key (IdProducto),
     constraint fk_id_Categoria foreign key (IdCategoria) references Categorias(IdCategoria) on delete cascade,
     constraint fk_id_receta foreign key (IdReceta) references Recetas(IdReceta) on delete cascade,
     constraint uq_nombre_Producto unique (NombreProducto)
-);
-
-create table ProductosModificados(
-	IdProductoModificado int not null auto_increment,
-    IdProductoOriginal int not null,
-    Imagen3DProductoModificado varchar(80) not null,
-    constraint pk_id_producto_modificado primary key(IdProductoModificado),
-    constraint fk_id_producto_origina foreign key(IdProductoOriginal) references
-    Productos(IdProducto) on delete cascade
 );
 
 create table Roles(	
@@ -155,14 +145,11 @@ create table DireccionesUsuario(
 create table CarritoCompras(
 	IdCarrito int not null auto_increment,
 	IdPersona int not null,
-    IdProducto int null,
+    IdProducto int not null,
 	CantidadProducto int not null,
-    IdProductoModificado int null,
-    Estado bit not null,
     constraint pk_id_carrito primary key(IdCarrito),
     constraint fk_id_persona_carrito foreign key(IdPersona) references Personas(IdPersona) on delete cascade,
-    constraint fk_id_producto foreign key(IdProducto) references Productos(IdProducto) on delete cascade,
-    constraint fk_id_producto_modificado foreign key(IdProductoModificado) references ProductosModificados(IdProductoModificado) on delete cascade
+    constraint fk_id_producto foreign key(IdProducto) references Productos(IdProducto) on delete cascade
 );
 
 create table TiposEnvio(
@@ -177,19 +164,6 @@ create table EstadosPedido(
     constraint pk_id_estado_pedido primary key(IdEstadoPedido)
 );
 
-create table Pedidos(
-	IdPedido int not null auto_increment,
-    IdEstadoPedido int not null,
-    IdCarrito int not null,
-    IdTipoEnvio int not null,
-    IdDireccion int null,
-    FechaPedido datetime not null,
-    constraint pk_id_pedido primary key(IdPedido),
-    constraint fk_id_estado_pedido foreign key(IdEstadoPedido) references EstadosPedido(IdEstadoPedido) on delete cascade,
-    constraint fk_id_pedido_carrito foreign key(IdCarrito) references CarritoCompras(IdCarrito) on delete cascade,
-    constraint fk_id_tipo_envio foreign key(IdTipoEnvio) references TiposEnvio(IdTipoEnvio) on delete cascade,
-    constraint fk_id_direccion_pedido foreign key(IdDireccion) references DireccionesUsuario(IdDireccion) on delete cascade
-);
 
 create table TiposPago(
 	IdTipoPago int not null auto_increment,
@@ -197,6 +171,61 @@ create table TiposPago(
     constraint pk_id_tipos_pago primary key (IdTipoPago)
 );
 
+create table Pedidos(
+	IdPedido int not null auto_increment,
+    IdEstadoPedido int not null,
+    IdPersona int not null,
+    IdTipoEnvio int not null,
+    IdTipoPago int not null,
+    IdDireccion int null,
+    FechaPedido datetime not null,
+    constraint pk_id_pedido primary key(IdPedido),
+    constraint fk_id_estado_pedido foreign key(IdEstadoPedido) references EstadosPedido(IdEstadoPedido) on delete cascade,
+    constraint fk_id_cliente_pedido foreign key(IdPersona) references Personas(IdPersona) on delete cascade,
+    constraint fk_id_tipo_envio foreign key(IdTipoEnvio) references TiposEnvio(IdTipoEnvio) on delete cascade,
+    constraint fk_id_direccion_pedido foreign key(IdDireccion) references DireccionesUsuario(IdDireccion) on delete cascade,
+    constraint fk_id_tipo_pago_pedido foreign key(IdTipoPago) references TiposPago(IdTipoPago) on delete cascade
+);
+
+
+create table PedidoProducto(
+	IdPedidoProducto int not null auto_increment,
+    IdProducto int not null,
+	IdPedido int not null,
+    CantidadProducto int not null,
+    constraint pk_pedidos_producto primary key(IdPedidoProducto),
+    constraint fk_producto_pedido foreign key(IdProducto) references Productos(IdProducto) on delete cascade,
+    constraint fk_pedido_producto foreign key(IdPedido) references Pedidos(IdPedido) on delete cascade
+);
+
+
+create table PagosSinpe(
+	IdPagoSinpe int not null auto_increment,
+    IdPedido int not null,
+    rutaImagenSinpe varchar(80) not null,
+    constraint pk_pago_sinpe primary key(IdPagoSinpe),
+    constraint fk_id_pedido_sinpe foreign key (IdPedido) references Pedidos(IdPedido) on delete cascade
+);
+
+create table Facturas(
+	IdFactura int not null auto_increment,
+    IdPedido int not null,
+    TotalPagar decimal(10,2) null,
+    FechaFactura datetime not null,
+    constraint pk_id_factura primary key(IdFactura),
+    constraint fk_id_pedido_factura foreign key(IdPedido) references Pedidos(IdPedido)
+);
+
+
+create table DetalleFactura(
+	Linea int not null,
+    IdFactura int not null,
+    IdPedidoProducto int not null,
+    TotalLinea decimal(10,2) not null,
+    constraint pk_id_detalle_factura primary key (Linea, IdFactura),
+    constraint fk_id_factura foreign key (IdFactura) references Facturas(IdFactura) on delete cascade,
+    constraint fk_producto_pedido_factura foreign key (IdPedidoProducto) references PedidoProducto(IdPedidoProducto) on delete cascade
+);
 
 /* Creacion de Roles */
 insert into Roles(IdRol, NombreRol)
@@ -482,14 +511,17 @@ values('Entrega a domicilio'),
 
 insert into TiposPago(NombreTipo)
 values ('Efectivo'),
-('Sinpe Móvil');
+('Sinpe Móvil'),
+('Tarjeta');
 
 /*Creacion Estados Pedido */
 
 insert into EstadosPedido(NombreEstado)
-values ("Recibido"),
+values ('Recibido'),
 ('Procesando'),
-('Completo');
+('Completo'),
+('Pagado'),
+('Cancelado');
 
 /* Selects */
 
@@ -522,7 +554,23 @@ select * from RecuperarContra;
 
 select * from DireccionesUsuario;
 
+select * from CarritoCompras;
 
+select * from TiposPago;
+
+select * from Pedidos;
+
+select * from EstadosPedido;
+
+select * from PedidoProducto;
+
+select * from PagosSinpe;
+
+
+select * from Facturas;
+
+
+select * from DetalleFactura;
 /* Consulta para ver el tamaño de la base de datos en MB */
 
 SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Database Size (MB)"

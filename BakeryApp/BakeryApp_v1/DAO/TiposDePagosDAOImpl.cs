@@ -1,6 +1,5 @@
 ﻿using BakeryApp_v1.Models;
-using System.Data.Entity;
-
+using Microsoft.EntityFrameworkCore;
 namespace BakeryApp_v1.DAO
 {
     public class TiposDePagoDAOImpl : TiposPagoDAO

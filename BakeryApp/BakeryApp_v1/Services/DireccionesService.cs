@@ -23,5 +23,8 @@ public interface DireccionesService
     public bool VerificarIdValidoDireccion(int idDireccion);
 
     public bool VerificarDireccionPerteneceUsuario(Direccionesusuario direccionAEliminar, Persona personaLogueada);
-    
+
+    public Task<DireccionDTO> ObtenerDireccionPorIdDTO(int idDireccion);
+
+
 }

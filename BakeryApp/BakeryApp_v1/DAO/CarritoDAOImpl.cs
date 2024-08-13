@@ -32,14 +32,12 @@ public class CarritoDAOImpl : CarritoDAO
 
     public async Task<IEnumerable<CarritoDTO>> ObtenerCarritoUsuario(int idUsuario)
     {
-        IEnumerable<CarritoDTO> carritoUsuario = await context.Carritocompras.Include(Carrito => Carrito.IdProductoNavigation).Where(Carrito => Carrito.IdPersona == idUsuario && Carrito.Estado == false).Select(Carrito => new CarritoDTO
+        IEnumerable<CarritoDTO> carritoUsuario = await context.Carritocompras.Include(Carrito => Carrito.IdProductoNavigation).Where(Carrito => Carrito.IdPersona == idUsuario).Select(Carrito => new CarritoDTO
         {
             IdCarrito = Carrito.IdCarrito,
             IdPersona = Carrito.IdPersona,
             IdProducto = Carrito.IdProducto,
             CantidadProducto = Carrito.CantidadProducto,
-            IdProductoModificado = Carrito.IdProductoModificado,
-            Estado = Carrito.Estado,
             ProductoDTO = new ProductoDTO
             {
                 NombreProducto = Carrito.IdProductoNavigation.NombreProducto,

@@ -68,7 +68,7 @@ function CrearTarjetas(respuesta) {
         const formBorrar = document.createElement("form");
         const aFooter1 = document.createElement("a");
         const bFooter2 = document.createElement("button");
-        const aFooter2 = document.createElement("a");
+      
 
         divAgregar.appendChild(divPrincipal);
         divPrincipal.appendChild(hijoDivPrincipal);
@@ -110,7 +110,7 @@ function CrearTarjetas(respuesta) {
         divFooterRight.classList.add("text-right", "d-flex", "justify-content-end");
         aFooter1.classList.add("btn", "btn-sm", "btn-primary", "text-white");
         bFooter2.classList.add("btn", "btn-sm", "text-white", "mr-2");
-        aFooter2.classList.add("btn", "btn-sm", "btn-primary", "text-white", "ml-2");
+       
 
 
         divPrincipal.id = producto.idProducto;
@@ -149,15 +149,7 @@ function CrearTarjetas(respuesta) {
             VerPaginaEditar(event)
         }
 
-        if (producto.imagen3Dproducto != null) {
-            divFooterRight.appendChild(aFooter2);
-            aFooter2.innerText = "Ver Imagen 3D";
-            aFooter2.setAttribute("idProducto", producto.idProducto)
-            aFooter2.onclick = (event) => {
-                VerPaginaProducto3D(event)
-            }
-        }
-
+      
       
         bFooter2.innerText = "Eliminar";
         bFooter2.type = "submit";
@@ -207,17 +199,6 @@ function CrearTarjetas(respuesta) {
 //</div>
 //                        </div >
 
-
-function VerPaginaProducto3D(event) {
-    const idProducto = event.currentTarget.getAttribute("idProducto");
-
-
-
-    var urlEditar = "/Producto/VerImagen3D?idProducto=" + idProducto;
-
-
-    window.location.replace(urlEditar);
-}
 
 
 

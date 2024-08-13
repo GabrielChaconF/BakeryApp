@@ -99,26 +99,10 @@ public class ProductoServiceImpl : ProductoService
         return (int)totalPaginas;
     }
 
-    public bool VerificarTipo3DArchivo(Producto producto)
-    {
+   
 
-        if (producto.Archivo3DProducto is not null)
-        {
-            string extension = Path.GetExtension(producto.Archivo3DProducto.FileName).ToLowerInvariant();
-            if (extension == ".fbx")
-            {
-                return true;
-            } else
-            {
-                return false;
-            }
-        }
 
-        return true;
 
-    }
-
-    
 
 
 }

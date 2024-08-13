@@ -3,12 +3,11 @@ using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using BakeryApp_v1.Utilidades;
 using Microsoft.EntityFrameworkCore;
-using BakeryApp_v1.Services.Contrato;
-using BakeryApp_v1.Services.Implementacion;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.StaticFiles;
+using Stripe;
 
 
 
@@ -28,14 +27,6 @@ builder.Services.AddAntiforgery(options =>
     options.HeaderName = "RequestVerificationToken";
 });
 
-// Para servir archivos FBX
-builder.Services.Configure<StaticFileOptions>(options =>
-{
-    options.ContentTypeProvider = new FileExtensionContentTypeProvider
-    {
-        Mappings = { [".fbx"] = "application/octet-stream" }
-    };
-});
 
 builder.Services.AddScoped<CategoriaDAO, CategoriaDAOImpl>();
 builder.Services.AddScoped<CategoriaService, CategoriaServiceImpl>();
@@ -50,7 +41,6 @@ builder.Services.AddScoped<RecetaService, RecetaServiceImpl>();
 builder.Services.AddScoped<ProductoDAO, ProductoDAOImpl>();
 builder.Services.AddScoped<ProductoService, ProductoServiceImpl>();
 builder.Services.AddScoped<IFuncionesUtiles, FuncionesUtiles>();
-builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<UnidadMedidaDAO, UnidadMedidaDAOImpl>();
 builder.Services.AddScoped<UnidadMedidaService, UnidadMedidaServiceImpl>();
 builder.Services.AddScoped<ReestablecerContraDAO, ReestablecerContraDAOImpl>();
@@ -66,6 +56,22 @@ builder.Services.AddScoped<DireccionesService, DireccionesServiceImpl>();
 builder.Services.AddScoped<IMailEnviar, MailEnviar>();
 builder.Services.AddScoped<CarritoDAO, CarritoDAOImpl>();   
 builder.Services.AddScoped<CarritoService, CarritoServiceImpl>();
+builder.Services.AddScoped<TiposPagoDAO, TiposDePagoDAOImpl>();
+builder.Services.AddScoped<TiposEnvioDAO, TiposDeEnvioDAOImpl>(); 
+builder.Services.AddScoped<EstadosPedidoDAO, EstadosPedidoDAOImpl>();
+builder.Services.AddScoped<PedidoDAO, PedidoDAOImpl>();
+builder.Services.AddScoped<PedidoService, PedidoServiceImpl>();
+builder.Services.AddScoped<TiposDePagoService, TiposDePagoServiceImpl>();   
+builder.Services.AddScoped<TiposDeEnvioService, TiposDeEnvioServiceImpl>();
+builder.Services.AddScoped<EstadosPedidoService, EstadosPedidoServiceImpl>();
+builder.Services.AddScoped<PagoSinpeDAO, PagoSinpeDAOImpl>();
+builder.Services.AddScoped<PagoSinpeService, PagoSinpeServiceImpl>();
+builder.Services.AddScoped<ProductoPedidoDAO, ProductoPedidoDAOImpl>();
+builder.Services.AddScoped<ProductoPedidoService, ProductoPedidoServiceImpl>(); 
+builder.Services.AddScoped<FacturaDAO, FacturaDAOImpl>();
+builder.Services.AddScoped<FacturaService, FacturaServiceImpl>();
+builder.Services.AddScoped<LineaFacturaDAO, LineaFacturaDAOImpl>();
+builder.Services.AddScoped<LineaFacturaService, LineaFacturaServiceImpl>(); 
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

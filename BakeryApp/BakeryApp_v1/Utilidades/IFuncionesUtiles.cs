@@ -12,9 +12,10 @@ public interface IFuncionesUtiles
 
     public bool BorrarImagenGuardadaEnSistemaProducto(Producto producto);
 
-    public Task<bool> GuardarImagen3DEnSistemaProducto(Producto producto);
+    public Task<bool> GuardarImagenEnSistemaSinpe(Pagossinpe pagossinpe);
 
-    public bool BorrarImagenGuardadaEnSistema3DProducto(Producto producto);
+
+    public bool BorrarImagenGuardadaEnSistemaPagoSinpe(Pagossinpe pago);
     public Persona EncriptarContraseña(Persona persona);
 
     public string GenerarGUID();

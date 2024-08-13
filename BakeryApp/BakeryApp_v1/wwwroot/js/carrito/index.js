@@ -3,6 +3,26 @@ document.addEventListener("DOMContentLoaded", function () {
     ObtenerCarritoUsuario()
 });
 
+function DesactivarBotonCheckout(arregloCarrito) {
+    const divCheckout = document.getElementById("divCheckout")
+
+    const anchorCheckout = document.createElement("a")
+    divCheckout.innerText = "";
+
+    divCheckout.appendChild(anchorCheckout)
+    anchorCheckout.className = "btn btn-black btn-lg py-2 btn block"
+    anchorCheckout.innerText = "Proceder a pagar"
+    if (arregloCarrito.length == 0) {
+
+        anchorCheckout.href = "/UsuarioRegistrado/TiendaUsuario"
+
+    } else {
+        anchorCheckout.href = "/Pedido/Checkout"
+    }
+
+
+}
+
 
 
 
@@ -147,6 +167,8 @@ function CrearCards(respuesta) {
     let totalConIva = total + iva;
 
     strongTotalIva.innerText = totalConIva.toFixed(2) + "₡";
+
+    DesactivarBotonCheckout(respuesta.arregloCarrito)
 }
 
 

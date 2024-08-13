@@ -26,8 +26,8 @@ public interface ProductoService
 
     public Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductosPorCategoria(int idCategoria);
 
-    public bool VerificarTipo3DArchivo(Producto producto);
 
+  
 
 
 }

@@ -1063,3 +1063,4 @@ C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\Baker
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MailKit.dll
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\MimeKit.dll
+C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\Stripe.net.dll
