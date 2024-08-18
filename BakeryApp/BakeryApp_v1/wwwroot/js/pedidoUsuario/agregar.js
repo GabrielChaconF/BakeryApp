@@ -84,6 +84,7 @@ function BloquearSelectDireccion() {
 
 function AgregarEventListenerSelectTipoEnvio() {
     const select = document.getElementById("tipoEnvio");
+ 
 
     select.addEventListener("change", () => {
         BloquearSelectDireccion()
@@ -144,7 +145,7 @@ function LlenarTablaCarrito(respuesta) {
     })
 
 
-
+    tdTotalFinal.setAttribute("total", sumadorTotal)
     //Envio a domicilio costo 2500
     sumadorTotal += 2500;
 
@@ -153,6 +154,7 @@ function LlenarTablaCarrito(respuesta) {
     let totalConIva = sumadorTotal + iva;
 
     tdTotalFinal.innerText = totalConIva.toFixed(2) + "₡";
+    
 }
 
 
@@ -161,11 +163,11 @@ function ActualizarTotalTipoEnvio() {
 
     let iva = 0;
 
-    let totalConIva = 0;
-
     const selectEnvio = document.getElementById("tipoEnvio");
 
-    let totalAhora = parseFloat(totalFinal.innerText.replace("₡", ""));
+    let totalConIva = 0;
+
+    let totalAhora = parseFloat(totalFinal.getAttribute("total"));
 
 
     if (selectEnvio.selectedIndex === 1) {
@@ -175,11 +177,13 @@ function ActualizarTotalTipoEnvio() {
         totalConIva = totalAhora + iva;
       
     } else {
+       
         totalAhora += 2500;
         iva = totalAhora * 0.14
 
         totalConIva = totalAhora + iva;
     }
+
 
     totalFinal.innerText = totalConIva.toFixed(2) + "₡"
 }

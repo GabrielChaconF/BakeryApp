@@ -17,15 +17,15 @@ namespace BakeryApp_v1.Services
 
         private readonly IConfiguration configuracion;
 
+        private readonly PersonaService personaService;
 
 
-
-        public PedidoServiceImpl(PedidoDAO pedidoDAO, IConfiguration configuracion)
+        public PedidoServiceImpl(PedidoDAO pedidoDAO, IConfiguration configuracion, PersonaService personaService)
         {
             this.pedidoDAO = pedidoDAO;
 
             this.configuracion = configuracion;
-
+            this.personaService = personaService;
         }
         public async Task Editar(Pedido pedido)
         {
@@ -90,9 +90,10 @@ namespace BakeryApp_v1.Services
             return iva;
         }
 
-        public async Task<string> CrearSesionCheckoutStripe(PedidoViewModel pedido, IEnumerable<CarritoDTO> elementosCarrito, Pedido pedio)
+        public async Task<string> CrearSesionCheckoutStripe(PedidoViewModel pedido, IEnumerable<CarritoDTO> elementosCarrito, Pedido pedidoNormal)
         {
 
+           
             StripeConfiguration.ApiKey = configuracion.GetValue<string>("StripeConfiguracion:SecretKey");
 
             decimal total = CalcularTotalPedido(elementosCarrito);
@@ -107,7 +108,7 @@ namespace BakeryApp_v1.Services
            
             
 
-
+          
 
             // Se agregan los productos del carrito
             List<SessionLineItemOptions> itemsAPagar = elementosCarrito.Select(productoCarrito => new SessionLineItemOptions
@@ -161,28 +162,31 @@ namespace BakeryApp_v1.Services
                     UnitAmount = (long)(iva * 100),
                 },
                 Quantity = 1
+             
             });
 
 
-
+            Persona personaPedido = await personaService.ObtenerPersonaPorId(pedidoNormal.IdPersona);
 
             SessionCreateOptions opcionesSesion = new SessionCreateOptions
             {
+                CustomerEmail = personaPedido.Correo,
                 PaymentMethodTypes = new List<string> { "card" },
                 LineItems = itemsAPagar,
                 Mode = "payment",
                 SuccessUrl = $"https://localhost:7214/Pedido/Gracias?checkout={{CHECKOUT_SESSION_ID}}",
-                CancelUrl = "https://localhost:7214/Pedido/Checkout",
+                CancelUrl = "https://localhost:7214/Pedido/ErrorPago",
                 PaymentIntentData = new SessionPaymentIntentDataOptions
                 {
                     StatementDescriptor = "Dulce Espiga",
+                    Description = "Compra en Dulce Espiga"
                 },
                 // Metadatos extras para guardarlos con el pedido cuando se complete el pago
                 Metadata = new Dictionary<string, string>
                 {
                     { "IdDireccion", pedido.IdDireccion.ToString()}, 
                     { "IdTipoEnvio", pedido.IdTipoEnvio.ToString()}
-                 }
+                },
             };
 
 

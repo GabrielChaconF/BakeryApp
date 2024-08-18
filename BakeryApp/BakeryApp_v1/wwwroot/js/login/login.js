@@ -33,7 +33,8 @@ function IniciarSesion(event) {
                     window.location.href = respuesta.mensaje;
                 } else {
                     swal({
-                        text: respuesta.mensaje
+                        text: respuesta.mensaje,
+                        icon: "error"
                     });
                 }
             })

@@ -13,7 +13,6 @@ public partial class Pagossinpe
     public string RutaImagenSinpe { get; set; } = null!;
 
     public virtual Pedido IdPedidoNavigation { get; set; } = null!;
-    [NotMapped]
-    public IFormFile ArchivoSinpe { get; set; }
+ 
 
 }

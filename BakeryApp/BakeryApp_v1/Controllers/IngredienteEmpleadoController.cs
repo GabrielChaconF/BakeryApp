@@ -77,12 +77,12 @@ namespace BakeryApp_v1.Controllers
             {
                 if (ingrediente == null)
                 {
-                    return new JsonResult(new { mensaje = "Algunos datos tienen formato incorrecto" });
+                    return new JsonResult(new { mensaje = "Algunos datos tienen formato incorrecto", correcto = false});
                 }
 
                 if (ingredienteService.VerificarDatosVaciosONulos(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
                 }
 
 
@@ -91,30 +91,30 @@ namespace BakeryApp_v1.Controllers
 
                 if (resultadoRepetida)
                 {
-                    return new JsonResult(new { mensaje = "El nombre del ingrediente ya se encuentra registrado" });
+                    return new JsonResult(new { mensaje = "El nombre del ingrediente ya se encuentra registrado", correcto = false });
                 }
 
                 if (ingredienteService.VerificarFechaVencimiento(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "La fecha de vencimiento del producto no puede negativa fecha actual" });
+                    return new JsonResult(new { mensaje = "La fecha de vencimiento del producto no puede ser menor a la fecha actual", correcto = false });
                 }
 
                 if (ingredienteService.VerificarCantidadPositiva(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "La cantidad del ingrediente no puede ser negativa" });
+                    return new JsonResult(new { mensaje = "La cantidad del ingrediente no puede ser 0 o negativa", correcto = false });
                 }
 
 
                 if (ingredienteService.VerificarPrecioPositivo(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "El precio del ingrediente no puede ser 0 o negativo" });
+                    return new JsonResult(new { mensaje = "El precio del ingrediente no puede ser 0 o negativo", correcto = false });
                 }
                 await ingredienteService.Guardar(ingrediente);
-                return new JsonResult(new { mensaje = "Ingrediente guardado con éxito" });
+                return new JsonResult(new { mensaje = Url.Action("Index", "IngredienteEmpleado"), correcto = true, mensajeInfo = "Ingrediente guardado con exito" });
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar el ingrediente" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar el ingrediente", correcto = false });
             }
         }
 
@@ -134,11 +134,11 @@ namespace BakeryApp_v1.Controllers
 
                 await ingredienteService.Eliminar(ingredienteABorrar);
 
-                return new JsonResult(new { mensaje = "Ingrediente eliminado con éxito" });
+                return new JsonResult(new { mensaje = "Ingrediente eliminado con éxito", correcto = true });
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar el ingrediente" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar el ingrediente", correcto  = false});
             }
         }
 
@@ -159,12 +159,12 @@ namespace BakeryApp_v1.Controllers
             {
                 if (ingrediente == null)
                 {
-                    return new JsonResult(new { mensaje = "Algunos datos tienen formato incorrecto" });
+                    return new JsonResult(new { mensaje = "Algunos datos tienen formato incorrecto", correcto = false });
                 }
 
                 if (ingredienteService.VerificarDatosVaciosONulos(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
                 }
 
 
@@ -173,30 +173,30 @@ namespace BakeryApp_v1.Controllers
 
                 if (resultadoRepetida)
                 {
-                    return new JsonResult(new { mensaje = "El nombre del ingrediente ya se encuentra registrado" });
+                    return new JsonResult(new { mensaje = "El nombre del ingrediente ya se encuentra registrado", correcto = false });
                 }
 
                 if (ingredienteService.VerificarFechaVencimiento(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "La fecha de vencimiento del producto no puede negativa fecha actual" });
+                    return new JsonResult(new { mensaje = "La fecha de vencimiento del producto no puede ser menor a la fecha actual", correcto = false });
                 }
 
                 if (ingredienteService.VerificarCantidadPositiva(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "La cantidad del ingrediente no puede ser negativa" });
+                    return new JsonResult(new { mensaje = "La cantidad del ingrediente no puede ser 0 o negativa", correcto = false });
                 }
 
 
                 if (ingredienteService.VerificarPrecioPositivo(ingrediente))
                 {
-                    return new JsonResult(new { mensaje = "El precio del ingrediente no puede ser 0 o negativo" });
+                    return new JsonResult(new { mensaje = "El precio del ingrediente no puede ser 0 o negativo", correcto = false });
                 }
                 await ingredienteService.Editar(ingrediente);
-                return new JsonResult(new { mensaje = "Ingrediente modificado con éxito" });
+                return new JsonResult(new { mensaje = Url.Action("Index", "IngredienteEmpleado"), correcto = true, mensajeInfo = "Ingrediente modificado con exito" });
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al modificiar el ingrediente" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al modificiar el ingrediente", correcto = false});
             }
         }
 

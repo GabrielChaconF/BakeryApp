@@ -95,7 +95,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (productoService.VerificarDatosVaciosONulos(producto))
                 {
-                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
                 }
 
 
@@ -104,13 +104,13 @@ namespace BakeryApp_v1.Controllers
 
                 if (resultadoRepetida)
                 {
-                    return new JsonResult(new { mensaje = "El nombre del producto ya se encuentra registrado" });
+                    return new JsonResult(new { mensaje = "El nombre del producto ya se encuentra registrado", correcto = false });
                 }
 
 
                 if (productoService.VerificarPrecioPositivo(producto))
                 {
-                    return new JsonResult(new { mensaje = "El precio del producto no puede ser 0 o negativo" });
+                    return new JsonResult(new { mensaje = "El precio del producto no puede ser 0 o negativo", correcto = false });
                 }
 
 
@@ -118,7 +118,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (!resultadoGuardarImagen)
                 {
-                    return new JsonResult(new { mensaje = "Error al guardar la imagen" });
+                    return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false });
                 }
 
 
@@ -128,11 +128,11 @@ namespace BakeryApp_v1.Controllers
                 await productoService.Guardar(producto);
 
 
-                return new JsonResult(new { mensaje = "Producto guardado con éxito" });
+                return new JsonResult(new { mensaje = Url.Action("Index", "ProductoEmpleado"), correcto = true, mensajeInfo = "Producto agregado con exito" });
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar el producto" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar el producto", correcto = false });
             }
         }
 
@@ -194,7 +194,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (productoService.VerificarPrecioPositivo(producto))
                 {
-                    return new JsonResult(new { mensaje = "El precio del producto no puede ser 0 o negativo" });
+                    return new JsonResult(new { mensaje = "El precio del producto no puede ser 0 o negativo", correcto = false});
                 }
 
 
@@ -204,14 +204,16 @@ namespace BakeryApp_v1.Controllers
 
                 if (!resultadoGuardarImagen)
                 {
-                    return new JsonResult(new { mensaje = "Error al guardar la imagen" });
+                    return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false });
                 }
 
                
 
                 await productoService.Editar(producto);
 
-                return new JsonResult(new { mensaje = "Producto modificado con éxito", correcto = true });
+
+                return new JsonResult(new { mensaje = Url.Action("Index", "ProductoEmpleado"), correcto = true, mensajeInfo = "Producto modificado con exito" });
+
             }
             catch (Exception ex)
             {

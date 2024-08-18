@@ -159,11 +159,21 @@ function EliminarIngrediente(event) {
     }).then(respuesta => {
         return respuesta.json()
     }).then(respuesta => {
-        swal({
-            text: respuesta.mensaje
-        })
-        const filaEliminar = document.getElementById(idIngrediente)
-        filaEliminar.remove()
+        if (respuesta.correcto) {
+
+            swal({
+                text: respuesta.mensaje,
+                icon: "success"
+            })
+            const filaEliminar = document.getElementById(idIngrediente)
+            filaEliminar.remove()
+        } else {
+            swal({
+                text: respuesta.mensaje,
+                icon: "error"
+            });
+        }
+       
     }).catch(error => {
         console.error("Error", error);
     })

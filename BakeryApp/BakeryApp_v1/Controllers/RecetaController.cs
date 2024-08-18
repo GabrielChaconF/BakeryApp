@@ -98,7 +98,7 @@ public class RecetaController : Controller
 
             if (recetaService.VerificarDatosVaciosONulos(receta))
             {
-                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false});
             }
 
 
@@ -107,7 +107,7 @@ public class RecetaController : Controller
 
             if (resultadoRepetida)
             {
-                return new JsonResult(new { mensaje = "El nombre de la receta ya se encuentra registrado" });
+                return new JsonResult(new { mensaje = "El nombre de la receta ya se encuentra registrado", correcto = false});
             }
 
 
@@ -141,12 +141,12 @@ public class RecetaController : Controller
             await recetaService.Editar(recetaConIngredientes);
 
 
-            return new JsonResult(new { mensaje = "Receta modificada con éxito" });
+            return new JsonResult(new { mensaje = Url.Action("Index", "Receta"), correcto = true, mensajeInfo = "Receta modificada con exito" });
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex);
-            return new JsonResult(new { mensaje = "Ha ocurrido un error al modificar la receta" });
+            return new JsonResult(new { mensaje = "Ha ocurrido un error al modificar la receta", correcto = false });
         }
 
     }
@@ -166,7 +166,7 @@ public class RecetaController : Controller
 
             if (recetaService.VerificarDatosVaciosONulos(receta))
             {
-                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
             }
 
 
@@ -175,7 +175,7 @@ public class RecetaController : Controller
 
             if (resultadoRepetida)
             {
-                return new JsonResult(new { mensaje = "El nombre de la receta ya se encuentra registrado" });
+                return new JsonResult(new { mensaje = "El nombre de la receta ya se encuentra registrado", correcto = false });
             }
 
 
@@ -207,13 +207,13 @@ public class RecetaController : Controller
 
 
 
+            return new JsonResult(new { mensaje = Url.Action("Index", "Receta"), correcto = true, mensajeInfo = "Receta agregada con exito" });
 
-            return new JsonResult(new { mensaje = "Receta guardada con éxito" });
         }
         catch (Exception ex)
         {
 
-            return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar la receta" });
+            return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar la receta", correcto = false });
         }
 
     }

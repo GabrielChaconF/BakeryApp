@@ -48,7 +48,7 @@ function GuardarReceta(event) {
 
     const selectIngredientes = document.getElementById("ingredientes")
 
-    const ingredientes = obtenerValoresSelect(selectIngredientes)
+    const ingredientes = ObtenerValoresSelect(selectIngredientes)
 
     const receta = {
         NombreReceta: nombre,
@@ -67,16 +67,27 @@ function GuardarReceta(event) {
     }).then(respuesta => {
         return respuesta.json()
             .then(respuesta => {
-                swal({
-                    text: respuesta.mensaje
-                });
+                if (respuesta.correcto) {
+
+                    swal({
+                        text: respuesta.mensajeInfo,
+                        icon: "success"
+                    }).then(() => {
+                        window.location.href = respuesta.mensaje;
+                    });;
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
+                }
             })
     }).catch(error => {
         console.error("Error", error);
     });
 }
 
-function obtenerValoresSelect(select) {
+function ObtenerValoresSelect(select) {
     var valores = [];
     var opciones = select && select.options;
     var opt;

@@ -72,7 +72,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (categoriaService.VerificarDatosVaciosONulos(categoria))
                 {
-                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false });
                 }
 
 
@@ -81,18 +81,18 @@ namespace BakeryApp_v1.Controllers
 
                 if (resultadoRepetida)
                 {
-                    return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado" });
+                    return new JsonResult(new { mensaje = "El nombre de la categoria ya se encuentra registrado", correcto = false });
                 }
 
                 Categoria categoriaConImagen = await funcionesUtiles.GuardarImagenEnSistemaCategoria(categoria);
 
                 if (categoriaConImagen == null)
                 {
-                    return new JsonResult(new { mensaje = "Error al guardar la imagen" });
+                    return new JsonResult(new { mensaje = "Error al guardar la imagen", correcto = false });
                 }
 
                 await categoriaService.Guardar(categoriaConImagen);
-                return new JsonResult(new { mensaje = "Categoria guardada con éxito" });
+                return new JsonResult(new { mensaje = Url.Action("Index", "CategoriaEmpleado"), correcto = true, mensajeInfo = "Categoria guardada con exito" });
             }
             catch (Exception ex)
             {
@@ -160,7 +160,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
                 await categoriaService.Editar(categoriaConImagen);
-                return new JsonResult(new { mensaje = "Categoria modificada con éxito", correcto = true });
+                return new JsonResult(new { mensaje = Url.Action("Index", "CategoriaEmpleado"), correcto = true, mensajeInfo = "Categoria modificado con exito" });
             }
             catch (Exception ex)
             {

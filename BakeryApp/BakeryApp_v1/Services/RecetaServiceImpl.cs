@@ -84,7 +84,7 @@ public class RecetaServiceImpl : RecetaService
     public async Task<int> CalcularTotalPaginas()
     {
         int totalRecetas = await recetaDAO.ContarTotalRecetas();
-        int elementosPorPagina = 10;
+        int elementosPorPagina = 9;
         double totalPaginas = (double)totalRecetas / elementosPorPagina;
         totalPaginas = Math.Ceiling(totalPaginas);
 

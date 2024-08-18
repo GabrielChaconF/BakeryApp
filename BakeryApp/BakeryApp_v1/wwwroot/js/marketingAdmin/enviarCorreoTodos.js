@@ -31,9 +31,12 @@ function GuardarMensajeBoletin(event) {
             .then(respuesta => {
                 if (respuesta.correcto) {
                     swal({
-                        text: respuesta.mensaje,
+                        text: respuesta.mensajeInfo,
                         icon: "success"
-                    });
+                    }).then(() => {
+
+                        window.location.href = respuesta.mensaje;
+                    });;
                 } else {
                     swal({
                         text: respuesta.mensaje,

@@ -47,6 +47,10 @@ namespace BakeryApp_v1.Controllers
             this.facturaService = facturaService;
         }
 
+        public IActionResult ErrorPago()
+        {
+            return View();
+        }
         public IActionResult Checkout()
         {
             return View();
@@ -370,7 +374,7 @@ namespace BakeryApp_v1.Controllers
 
 
 
-             
+              
 
 
 

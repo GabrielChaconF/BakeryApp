@@ -50,10 +50,10 @@ public class MailEnviar : IMailEnviar
 
 
 
-            mailBody.AppendFormat("<img src='cid:imagenLocal' alt='Imagen Local' />");
-            mailBody.AppendFormat("<h1>Código de Recuperación  </h1>");
+            mailBody.AppendFormat("<img src='cid:imagenLocal' alt='Imagen Local' style='display: block; margin-left: auto; margin-right: auto;' />");
+            mailBody.AppendFormat("<h1 style='text-align: center;'>Código de Recuperación  </h1>");
             mailBody.AppendFormat("<br />");
-            mailBody.AppendFormat($"<h2>{codigoRecuperacion} </h2>");
+            mailBody.AppendFormat($"<h2 style='text-align: center;'>{codigoRecuperacion} </h2>");
 
             mensaje.Body = mailBody.ToString();
 

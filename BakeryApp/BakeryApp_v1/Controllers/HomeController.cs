@@ -199,7 +199,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (personaService.VerificarDatosVaciosONulos(persona))
                 {
-                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise" });
+                    return new JsonResult(new { mensaje = "Hay datos vacios, por favor revise", correcto = false});
                 }
 
 
@@ -208,7 +208,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (resultadoRepetidaCorreo)
                 {
-                    return new JsonResult(new { mensaje = "El correo de la persona ya se encuentra registrado" });
+                    return new JsonResult(new { mensaje = "El correo de la persona ya se encuentra registrado", correcto = false });
                 }
 
 
@@ -216,51 +216,51 @@ namespace BakeryApp_v1.Controllers
 
                 if (resultadoRepetidaTelefono)
                 {
-                    return new JsonResult(new { mensaje = "El telefono de la persona ya se encuentra registrado" });
+                    return new JsonResult(new { mensaje = "El telefono de la persona ya se encuentra registrado", correcto = false });
                 }
 
 
                 if (!personaService.ValidarLongitudContraseña(persona))
                 {
-                    return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres" });
+                    return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres", correcto = false });
                 }
 
 
                 if (!personaService.ValidarLongitudTelefono(persona))
                 {
-                    return new JsonResult(new { mensaje = "La longitud del telefono debe ser igual a 8 caracteres, con un guion" });
+                    return new JsonResult(new { mensaje = "La longitud del telefono debe ser igual a 8 caracteres, con un guion", correcto = false });
                 }
 
                 if (!personaService.ValidarNumeroTelefono(persona))
                 {
-                    return new JsonResult(new { mensaje = "El numero de telefono no es valido" });
+                    return new JsonResult(new { mensaje = "El numero de telefono no es valido", correcto = false });
                 }
 
                 if (!personaService.VerificarCorreoElectronico(persona))
                 {
-                    return new JsonResult(new { mensaje = "El correo electronico no es valido" });
+                    return new JsonResult(new { mensaje = "El correo electronico no es valido", correcto = false });
                 }
 
 
                 if (funcionesUtiles.EncriptarContraseña(persona) == null)
                 {
-                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña" });
+                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña", correcto = false });
                 }
 
                 persona.IdRol = 3;
 
                 if (!personaService.VerificarRolPersona(persona))
                 {
-                    return new JsonResult(new { mensaje = "Ha ocurrido un error" });
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error", correcto = false });
                 }
 
 
                 await personaService.Guardar(persona);
-                return new JsonResult(new { mensaje = "Persona guardada con éxito" });
+                return new JsonResult(new { mensaje = Url.Action("IniciarSesion", "Home"), correcto = true, mensajeInfo = "Persona registrada con exito"});
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar la persona" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al guardar la persona", correcto = false });
             }
         }
 

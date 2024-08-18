@@ -110,7 +110,7 @@ namespace BakeryApp_v1.Controllers
                     await mensajeBoletinService.Guardar(nuevoMensaje);
                 }
 
-                return new JsonResult(new { mensaje = "Mensaje enviado con exito", correcto = true });
+                return new JsonResult(new { mensaje = Url.Action("Marketing", "Marketing"), correcto = true, mensajeInfo = "Mensaje enviado con exito a todos" });
             }
             catch (Exception ex)
             {
@@ -144,7 +144,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
                 await mensajeBoletinService.Guardar(mensaje);
-                return new JsonResult(new { mensaje = "Mensaje enviado con exito", correcto = true });
+                return new JsonResult(new { mensaje = Url.Action("Marketing", "Marketing"), correcto = true, mensajeInfo = "Mensaje enviado con exito" });
             }
             catch (Exception ex)
             {

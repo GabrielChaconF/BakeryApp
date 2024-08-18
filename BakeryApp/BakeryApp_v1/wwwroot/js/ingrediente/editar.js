@@ -3,6 +3,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     ObtenerTodasLasUnidadesDeMedida();
+   
 });
 
 
@@ -85,8 +86,30 @@ function EditarIngrediente(event) {
 
     const fechaVencimiento = document.getElementById("fechaVencimiento").value
 
+    if (VerificarCantidadVacia(cantidad)) {
+        swal({
+            text: "El campo de cantidad no puede estar vacio",
+            icon: "error"
+        });
+        return;
+    }
+
+    if (VerificarPrecioVacio(precioUnitario)) {
+        swal({
+            text: "El campo de precio unitario no puede estar vacio",
+            icon: "error"
+        });
+        return;
+    }
 
 
+    if (VerificarFechaVacia(fechaVencimiento)) {
+        swal({
+            text: "La fecha no puede estar vacia",
+            icon: "error"
+        });
+        return;
+    }
 
 
     const ingrediente = {
@@ -99,27 +122,7 @@ function EditarIngrediente(event) {
         FechaCaducidadIngrediente: fechaVencimiento
     }
 
-    if (VerificarCantidadVacia(cantidad)) {
-        swal({
-            text: "El campo de cantidad no puede estar vacio"
-        });
-        return;
-    }
-
-    if (VerificarPrecioVacio(precioUnitario)) {
-        swal({
-            text: "El campo de precio unitario no puede estar vacio"
-        });
-        return;
-    }
-
-
-    if (VerificarFechaVacia()) {
-        swal({
-            text: "La fecha no puede estar vacia"
-        });
-        return;
-    }
+   
 
 
     fetch("/Ingrediente/GuardarEditado", {
@@ -133,9 +136,21 @@ function EditarIngrediente(event) {
     }).then(respuesta => {
         return respuesta.json()
             .then(respuesta => {
-                swal({
-                    text: respuesta.mensaje
-                });
+                if (respuesta.correcto) {
+
+                    swal({
+                        text: respuesta.mensajeInfo,
+                        icon: "success"
+                    }).then(() => {
+                      
+                        window.location.href = respuesta.mensaje;
+                    });;
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
+                }
             })
     }).catch(error => {
         console.error("Error", error);
@@ -173,12 +188,11 @@ function RellenarDatosFormulario(ingrediente) {
 }
 
 
-function VerificarFechaVacia() {
-
-    const fechaVencimiento = document.getElementById("fechaVencimiento").value
+function VerificarFechaVacia(fechaVencimiento) {
 
 
-    if (!fechaVencimiento) {
+
+    if (fechaVencimiento == "") {
         return true;
     }
 

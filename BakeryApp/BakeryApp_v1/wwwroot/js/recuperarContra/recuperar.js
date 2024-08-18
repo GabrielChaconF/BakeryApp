@@ -34,7 +34,8 @@ function EnviarCorreo(event) {
                     window.location.href = respuesta.mensaje
                 }
                 swal({
-                    text: respuesta.mensaje
+                    text: respuesta.mensaje,
+                    icon: "error"
                 });
             })
     }).catch(error => {

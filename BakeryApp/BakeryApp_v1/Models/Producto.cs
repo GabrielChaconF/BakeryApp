@@ -28,6 +28,4 @@ public partial class Producto
 
     public virtual ICollection<Pedidoproducto> Pedidoproductos { get; set; } = new List<Pedidoproducto>();
 
-    [NotMapped]
-    public IFormFile ArchivoProducto { get; set; }
 }
