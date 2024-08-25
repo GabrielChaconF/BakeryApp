@@ -100,7 +100,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
 
-                if (!personaService.ValidarLongitudContraseña(persona))
+                if (!personaService.ValidarLongitudContra(persona))
                 {
                     return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres", correcto = false });
                 }
@@ -122,7 +122,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
 
-                if (funcionesUtiles.EncriptarContraseña(persona) == null)
+                if (funcionesUtiles.EncriptarContra(persona) == null)
                 {
                     return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña", correcto = false });
                 }
@@ -167,7 +167,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
 
-                if (!personaService.ValidarLongitudContraseña(persona))
+                if (!personaService.ValidarLongitudContra(persona))
                 {
                     return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres", correcto = false });
                 }
@@ -189,7 +189,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
 
-                if (funcionesUtiles.EncriptarContraseña(persona) == null)
+                if (funcionesUtiles.EncriptarContra(persona) == null)
                 {
                     return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña", correcto = false });
                 }

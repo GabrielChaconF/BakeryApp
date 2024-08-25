@@ -16,7 +16,7 @@ public interface IFuncionesUtiles
 
 
     public bool BorrarImagenGuardadaEnSistemaPagoSinpe(Pagossinpe pago);
-    public Persona EncriptarContraseña(Persona persona);
+    public Persona EncriptarContra(Persona persona);
 
     public string GenerarGUID();
 }

@@ -134,12 +134,12 @@ namespace BakeryApp_v1.Controllers
                 Persona personaEncontrada = await personaService.ObtenerPersonaPorCorreo(persona);
                 if (personaEncontrada == null)
                 {
-                    return new JsonResult(new { mensaje = "Correo o contraseña incorrectos", correcto = false });
+                    return new JsonResult(new { mensaje = "Correo o contraseï¿½a incorrectos", correcto = false });
                 }
 
                 if (!personaService.VerificarContraConContraUsuario(persona, personaEncontrada))
                 {
-                    return new JsonResult(new { mensaje = "Correo o contraseña incorrectos", correcto = false });
+                    return new JsonResult(new { mensaje = "Correo o contraseï¿½a incorrectos", correcto = false });
                 }
 
 
@@ -220,9 +220,9 @@ namespace BakeryApp_v1.Controllers
                 }
 
 
-                if (!personaService.ValidarLongitudContraseña(persona))
+                if (!personaService.ValidarLongitudContra(persona))
                 {
-                    return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres", correcto = false });
+                    return new JsonResult(new { mensaje = "La contraseï¿½a debe ser mayor a 8 caracteres", correcto = false });
                 }
 
 
@@ -242,9 +242,9 @@ namespace BakeryApp_v1.Controllers
                 }
 
 
-                if (funcionesUtiles.EncriptarContraseña(persona) == null)
+                if (funcionesUtiles.EncriptarContra(persona) == null)
                 {
-                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña", correcto = false });
+                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseï¿½a", correcto = false });
                 }
 
                 persona.IdRol = 3;
@@ -316,7 +316,7 @@ namespace BakeryApp_v1.Controllers
 
                 string codigoRecuperacion = funcionesUtiles.GenerarGUID();
 
-                bool envioCorrecto = await mailEnviar.EnviarCorreo(personaConContraOlvidada, "Código de recuperación para la contraseña olvidada", codigoRecuperacion);
+                bool envioCorrecto = await mailEnviar.EnviarCorreo(personaConContraOlvidada, "Cï¿½digo de recuperaciï¿½n para la contraseï¿½a olvidada", codigoRecuperacion);
 
                 if (!envioCorrecto)
                 {
@@ -348,12 +348,12 @@ namespace BakeryApp_v1.Controllers
 
                 if (!personaService.VerificarCorreoOContraVacia(personaNormal))
                 {
-                    return new JsonResult(new { mensaje = "Correo o contraseña vacias" });
+                    return new JsonResult(new { mensaje = "Correo o contraseï¿½a vacias" });
                 }
 
-                if (!personaService.ValidarLongitudContraseña(personaNormal))
+                if (!personaService.ValidarLongitudContra(personaNormal))
                 {
-                    return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres" });
+                    return new JsonResult(new { mensaje = "La contraseï¿½a debe ser mayor a 8 caracteres" });
                 }
 
 
@@ -398,19 +398,19 @@ namespace BakeryApp_v1.Controllers
                     return new JsonResult(new { mensaje = "El codigo de recuperacion es incorrecto" });
                 }
 
-                // Se asigna la contraseña a la contraseña que viene de la vista
+                // Se asigna la contraseï¿½a a la contraseï¿½a que viene de la vista
                 personaNormal.Contra = persona.Contra;
 
 
-                if (funcionesUtiles.EncriptarContraseña(personaNormal) == null)
+                if (funcionesUtiles.EncriptarContra(personaNormal) == null)
                 {
-                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña" });
+                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseï¿½a" });
                 }
 
                 await personaService.Editar(personaNormal);
                 await reestablecerContraService.Eliminar(personaCodigoActual);
 
-                return new JsonResult(new { mensaje = "Contraseña reestablecida con exito" });
+                return new JsonResult(new { mensaje = "Contraseï¿½a reestablecida con exito" });
             }
             catch (Exception ex)
             {

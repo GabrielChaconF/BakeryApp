@@ -190,7 +190,7 @@ public class FuncionesUtiles : IFuncionesUtiles
 
 
 
-    public Persona EncriptarContraseña(Persona persona)
+    public Persona EncriptarContra(Persona persona)
     {
         try
         {

@@ -20,7 +20,7 @@ public interface PersonaService
     public bool VerificarDatosVaciosONulos(Persona persona);
 
     public bool VerificarNombreApellidosOTelefonoNulos(Persona persona);
-    public bool ValidarLongitudContraseña(Persona persona);
+    public bool ValidarLongitudContra(Persona persona);
 
     public Task<IEnumerable<PersonaDTO>> ObtenerTodasLasPersonas(int pagina);
 

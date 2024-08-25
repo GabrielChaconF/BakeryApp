@@ -614,7 +614,32 @@ FROM information_schema.tables
 
 WHERE table_schema = 'BakeryApp';
  
+/* Nombre de las tablas para Linux */
 
-
-
+RENAME TABLE UnidadesMedida TO unidadesmedida;
+RENAME TABLE Categorias TO categorias;
+RENAME TABLE Roles TO roles;
+RENAME TABLE Personas TO personas;
+RENAME TABLE Ingredientes TO ingredientes;
+RENAME TABLE Recetas TO recetas;
+RENAME TABLE IngredientesRecetas TO ingredientesrecetas;
+RENAME TABLE Productos TO productos;
+RENAME TABLE Marketing TO marketing;
+RENAME TABLE Provincias TO provincias;
+RENAME TABLE Cantones TO cantones;
+RENAME TABLE Distritos TO distritos;
+RENAME TABLE RecuperarContra TO recuperarcontra;
+RENAME TABLE DireccionesUsuario TO direccionesusuario;
+RENAME TABLE CarritoCompras TO carritocompras;
+RENAME TABLE TiposPago TO tipospago;
+RENAME TABLE Pedidos TO pedidos;
+RENAME TABLE EstadosPedido TO estadospedido;
+RENAME TABLE TiposEnvio to tiposenvio;
+RENAME TABLE PedidoProducto TO pedidoproducto;
+RENAME TABLE PagosSinpe TO pagossinpe;
+RENAME TABLE Facturas TO facturas;
+RENAME TABLE DetalleFactura TO detallefactura;
+RENAME TABLE BoletinNoticias TO boletinnoticias;
+RENAME TABLE Boletin TO boletin;
+RENAME TABLE MensajesBoletin TO mensajesboletin;
 

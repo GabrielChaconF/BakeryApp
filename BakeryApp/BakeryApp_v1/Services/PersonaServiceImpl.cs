@@ -78,7 +78,7 @@ public class PersonaServiceImpl : PersonaService
 
 
 
-    public bool ValidarLongitudContraseña(Persona persona)
+    public bool ValidarLongitudContra(Persona persona)
     {
         if (persona.Contra.Length < 8)
         {
