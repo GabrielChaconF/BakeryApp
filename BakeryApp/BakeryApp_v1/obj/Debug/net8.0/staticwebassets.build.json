@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uLjzyIxxrhTSdrc8lc3+AovhwXwg/0o+hlzgLwZBIiU=",
+  "Hash": "cFZyr3y/FI/QSnpWtyWivJyUA+wEh44xRkKsu2Kq7ak=",
   "Source": "BakeryApp_v1",
   "BasePath": "_content/BakeryApp_v1",
   "Mode": "Default",
@@ -1271,6 +1271,25 @@
       "OriginalItemSpec": "wwwroot/img/categorias/.gitkeep"
     },
     {
+      "Identity": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/categorias/0fd31d00-3f54-4857-9820-985550038d20.jpg",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "img/categorias/0fd31d00-3f54-4857-9820-985550038d20.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/categorias/0fd31d00-3f54-4857-9820-985550038d20.jpg"
+    },
+    {
       "Identity": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/chat.png",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
@@ -1594,6 +1613,25 @@
       "OriginalItemSpec": "wwwroot/img/productos/.gitkeep"
     },
     {
+      "Identity": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/productos/9a8e5ce4-03ad-4e20-8dbe-f97847cf4e9a.jpg",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "img/productos/9a8e5ce4-03ad-4e20-8dbe-f97847cf4e9a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/productos/9a8e5ce4-03ad-4e20-8dbe-f97847cf4e9a.jpg"
+    },
+    {
       "Identity": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/PRUEBA.png",
       "SourceId": "BakeryApp_v1",
       "SourceType": "Discovered",
@@ -1877,6 +1915,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/sinpes/f8c9c6b1-3d1f-4447-9259-f103185b9953.png"
+    },
+    {
+      "Identity": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/sinpes/f9a145a0-ea9b-4769-bc27-60e2df131177.jpg",
+      "SourceId": "BakeryApp_v1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/",
+      "BasePath": "_content/BakeryApp_v1",
+      "RelativePath": "img/sinpes/f9a145a0-ea9b-4769-bc27-60e2df131177.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/sinpes/f9a145a0-ea9b-4769-bc27-60e2df131177.jpg"
     },
     {
       "Identity": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/Variedad.jpg",

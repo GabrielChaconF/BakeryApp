@@ -289,6 +289,10 @@
       "PackagePath": "staticwebassets/img/categorias/.gitkeep"
     },
     {
+      "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/categorias/0fd31d00-3f54-4857-9820-985550038d20.jpg",
+      "PackagePath": "staticwebassets/img/categorias/0fd31d00-3f54-4857-9820-985550038d20.jpg"
+    },
+    {
       "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/chat.png",
       "PackagePath": "staticwebassets/img/chat.png"
     },
@@ -331,6 +335,10 @@
     {
       "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/productos/.gitkeep",
       "PackagePath": "staticwebassets/img/productos/.gitkeep"
+    },
+    {
+      "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/productos/9a8e5ce4-03ad-4e20-8dbe-f97847cf4e9a.jpg",
+      "PackagePath": "staticwebassets/img/productos/9a8e5ce4-03ad-4e20-8dbe-f97847cf4e9a.jpg"
     },
     {
       "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/sinpes/.gitkeep",
@@ -383,6 +391,10 @@
     {
       "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/sinpes/f8c9c6b1-3d1f-4447-9259-f103185b9953.png",
       "PackagePath": "staticwebassets/img/sinpes/f8c9c6b1-3d1f-4447-9259-f103185b9953.png"
+    },
+    {
+      "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/img/sinpes/f9a145a0-ea9b-4769-bc27-60e2df131177.jpg",
+      "PackagePath": "staticwebassets/img/sinpes/f9a145a0-ea9b-4769-bc27-60e2df131177.jpg"
     },
     {
       "Id": "/workspaces/BakeryApp/BakeryApp/BakeryApp_v1/wwwroot/js/bootstrap.bundle.min.js",
