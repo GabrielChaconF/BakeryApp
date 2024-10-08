@@ -23,6 +23,16 @@
 
 <div class="product-section">
     <div class="container justify-content-center">
+        <div class="col-lg-4 form-group mb-3">
+
+            <form onsubmit="BuscarProducto(event)">
+                <input type="text" id="nombreProducto" class="form-control" placeholder="Ingrese el nombre del producto a buscar" />
+
+                <input type="submit" value="Buscar" class="btn form-control mt-3"/>
+            </form>
+
+
+        </div>
         <div class="col-lg-8">
             <div class="intro-excerpt">
                 <h1>Busca tu producto en nuestras categorias.</h1>
@@ -60,5 +70,7 @@
 
 
 @section Scripts {
+
+    <script type="text/javascript" src="~/js/buscarProducto/buscar.js" asp-append-version="true"> </script>
     <script type="text/javascript" src="~/js/categoriasUsuario/funciones.js" asp-append-version="true"></script>
 }

@@ -68,6 +68,9 @@ namespace BakeryApp_v1.Services
                 Factura facturaAGuardar = new Factura();
                 facturaAGuardar.IdPedido = pedido.IdPedido;
                 facturaAGuardar.FechaFactura = DateTime.Now;
+
+
+
                 await facturaDAO.Guardar(facturaAGuardar);
 
                 IEnumerable<Pedidoproducto> productosPedidoPorPedido = await productoPedidoService.ObtenerTodosLosProductosPorPedido(pedido.IdPedido);
@@ -91,11 +94,12 @@ namespace BakeryApp_v1.Services
                     contadorLineas++;
                 }
 
-                Console.WriteLine(sumadorPrecio);
+    
 
                 // Si el envio es a domicilio
                 if (pedido.IdTipoEnvio == 1)
                 {
+                    facturaAGuardar.Envio = 2500;
                     sumadorPrecio += 2500;
                 }
 
@@ -109,6 +113,7 @@ namespace BakeryApp_v1.Services
 
 
                 facturaAGuardar.TotalPagar = totalFinal;
+                facturaAGuardar.Iva = iva;
                 foreach (Detallefactura detallefactura in detalleFactura)
                 {
                     await lineaFacturaService.Guardar(detallefactura);  

@@ -127,19 +127,19 @@ namespace BakeryApp_v1.Controllers
             {
                 if (!personaService.VerificarCorreoOContraVacia(persona))
                 {
-                    return new JsonResult(new { mensaje = "Hay datos vacios por favor revise", correcto = false });
+                    return new JsonResult(new { mensaje = "Hay datos vacios por favor revise", correcto = false});
                 }
 
 
                 Persona personaEncontrada = await personaService.ObtenerPersonaPorCorreo(persona);
                 if (personaEncontrada == null)
                 {
-                    return new JsonResult(new { mensaje = "Correo o contrase�a incorrectos", correcto = false });
+                    return new JsonResult(new { mensaje = "Correo o contraseña incorrectos", correcto = false });
                 }
 
                 if (!personaService.VerificarContraConContraUsuario(persona, personaEncontrada))
                 {
-                    return new JsonResult(new { mensaje = "Correo o contrase�a incorrectos", correcto = false });
+                    return new JsonResult(new { mensaje = "Correo o contraseña incorrectos", correcto = false });
                 }
 
 
@@ -222,7 +222,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (!personaService.ValidarLongitudContra(persona))
                 {
-                    return new JsonResult(new { mensaje = "La contrase�a debe ser mayor a 8 caracteres", correcto = false });
+                    return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres", correcto = false });
                 }
 
 
@@ -316,7 +316,7 @@ namespace BakeryApp_v1.Controllers
 
                 string codigoRecuperacion = funcionesUtiles.GenerarGUID();
 
-                bool envioCorrecto = await mailEnviar.EnviarCorreo(personaConContraOlvidada, "C�digo de recuperaci�n para la contrase�a olvidada", codigoRecuperacion);
+                bool envioCorrecto = await mailEnviar.EnviarCorreo(personaConContraOlvidada, "Código de recuperación para la contraseña olvidada", codigoRecuperacion);
 
                 if (!envioCorrecto)
                 {
@@ -328,8 +328,7 @@ namespace BakeryApp_v1.Controllers
 
                 await reestablecerContraService.Guardar(personaContra);
 
-                TempData["exito"] = "El correo fue enviado con exito";
-                return new JsonResult(new { mensaje = Url.Action("CambiarContrasena", "Home"), correcto = true });
+                return new JsonResult(new { mensaje = Url.Action("CambiarContrasena", "Home"), mensajeInfo = "Por favor revise la bandeja de entrada de su correo electronico", correcto = true });
             }
             catch (Exception ex)
             {
@@ -348,12 +347,12 @@ namespace BakeryApp_v1.Controllers
 
                 if (!personaService.VerificarCorreoOContraVacia(personaNormal))
                 {
-                    return new JsonResult(new { mensaje = "Correo o contrase�a vacias" });
+                    return new JsonResult(new { mensaje = "Correo o contraseña vacias", correcto = false });
                 }
 
                 if (!personaService.ValidarLongitudContra(personaNormal))
                 {
-                    return new JsonResult(new { mensaje = "La contrase�a debe ser mayor a 8 caracteres" });
+                    return new JsonResult(new { mensaje = "La contraseña debe ser mayor a 8 caracteres", correcto = false });
                 }
 
 
@@ -361,7 +360,7 @@ namespace BakeryApp_v1.Controllers
 
                 if (personaNormal == null)
                 {
-                    return new JsonResult(new { mensaje = "Correo electronico no encontrado" });
+                    return new JsonResult(new { mensaje = "Correo electronico no encontrado", correcto = false });
                 }
                 // Se crea y asigna el objeto verificacionesPersona, con el codigo de recuperacion enviado desde el frontend
                 Recuperarcontra verificacionesPersona = reestablecerContraService.ConvertirPersonaARecuperarPersona(personaNormal, persona.CodigoRecuperacion);
@@ -369,7 +368,7 @@ namespace BakeryApp_v1.Controllers
                 if (reestablecerContraService.EsVacioCodigo(verificacionesPersona))
                 {
 
-                    return new JsonResult(new { mensaje = "El codigo de recuperacion no puede estar vacio" });
+                    return new JsonResult(new { mensaje = "El codigo de recuperación no puede estar vacio", correcto = false });
                 }
 
                 bool estaExpirado = await reestablecerContraService.VerificarFechaCodigo(verificacionesPersona);
@@ -379,7 +378,7 @@ namespace BakeryApp_v1.Controllers
                 {
                     Recuperarcontra contraABorrar = await reestablecerContraService.ObtenerPorIdPersona(verificacionesPersona);
                     await reestablecerContraService.Eliminar(contraABorrar);
-                    return new JsonResult(new { mensaje = "El codigo de recuperacion esta expirado, por favor repita el proceso" });
+                    return new JsonResult(new { mensaje = "El codigo de recuperación esta expirado, por favor repita el proceso", correcto = false });
                 }
 
                 Recuperarcontra personaCodigoActual = await reestablecerContraService.ObtenerPorIdPersona(verificacionesPersona);
@@ -389,13 +388,13 @@ namespace BakeryApp_v1.Controllers
                 // Si el codigo es null, se retorna un mensaje de error
                 if (personaCodigoActual == null)
                 {
-                    return new JsonResult(new { mensaje = "El codigo de recuperacion es incorrecto" });
+                    return new JsonResult(new { mensaje = "El codigo de recuperacion es incorrecto", correcto = false });
                 }
 
                 // Se compara el codigo de la base de datos, con el codigo enviado desde el frontend
                 if (personaCodigoActual.CodigoRecuperacion != verificacionesPersona.CodigoRecuperacion)
                 {
-                    return new JsonResult(new { mensaje = "El codigo de recuperacion es incorrecto" });
+                    return new JsonResult(new { mensaje = "El codigo de recuperacion es incorrecto", correcto = false });
                 }
 
                 // Se asigna la contrase�a a la contrase�a que viene de la vista
@@ -404,13 +403,13 @@ namespace BakeryApp_v1.Controllers
 
                 if (funcionesUtiles.EncriptarContra(personaNormal) == null)
                 {
-                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contrase�a" });
+                    return new JsonResult(new { mensaje = "Ha sucedido un error al encriptar la contraseña", correcto = false });
                 }
 
                 await personaService.Editar(personaNormal);
                 await reestablecerContraService.Eliminar(personaCodigoActual);
 
-                return new JsonResult(new { mensaje = "Contrase�a reestablecida con exito" });
+                return new JsonResult(new {mensajeInfo = "Contraseña reestablecida con exito", mensaje = Url.Action("IniciarSesion", "Home"), correcto = true});
             }
             catch (Exception ex)
             {

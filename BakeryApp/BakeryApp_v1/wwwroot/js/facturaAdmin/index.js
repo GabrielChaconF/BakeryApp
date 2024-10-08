@@ -66,7 +66,7 @@ function CrearFilasTabla(respuesta) {
         botonVer.addEventListener("click", (event) => {
             VerPaginaFactura(event);
         });
-
+    
         nuevaFila.id = factura.idFactura;
 
         botonVer.className = "btn btn-sm btn-primary text-white";
@@ -88,6 +88,45 @@ function CrearFilasTabla(respuesta) {
         divCentro.appendChild(formBorrar);
         celda6.appendChild(divCentro);
 
+
+
+        const celda7 = document.createElement("td");
+        const divCentro2 = document.createElement("div");
+        divCentro2.className = "d-flex justify-content-center gap-2";
+
+
+
+        const botonVerNota = document.createElement("a");
+        botonVerNota.setAttribute("idFactura", factura.idFactura);
+        botonVerNota.addEventListener("click", (event) => {
+            VerNotaCredito(event)
+        });
+
+
+        botonVerNota.className = "btn btn-sm btn-primary text-white";
+        botonVerNota.textContent = "Ver";
+
+
+        const formCrearNota = document.createElement("form");
+        formCrearNota.addEventListener("submit", (event) => {
+            CrearNotaCredito(event)
+        });
+
+        const botonCrearNota = document.createElement("button");
+        botonCrearNota.type = "submit";
+        botonCrearNota.setAttribute("idFactura", factura.idFactura);
+        botonCrearNota.className = "btn btn-sm btn-danger";
+        botonCrearNota.textContent = "Crear";
+       
+
+        formCrearNota.appendChild(botonCrearNota);
+        divCentro2.appendChild(botonVerNota);
+        divCentro2.appendChild(formCrearNota);
+        celda7.appendChild(divCentro2);
+
+
+
+
         celda1.className = "text-center";
         celda2.className = "text-center";
         celda3.className = "text-center";
@@ -95,7 +134,7 @@ function CrearFilasTabla(respuesta) {
         celda5.className = "text-center";
         celdaEstado.className = "text-center";
         celda6.className = "text-center";
-
+        celda7.className = "text-center";
         nuevaFila.appendChild(celda1);
         nuevaFila.appendChild(celda2);
         nuevaFila.appendChild(celda3);
@@ -103,7 +142,7 @@ function CrearFilasTabla(respuesta) {
         nuevaFila.appendChild(celda5);
         nuevaFila.appendChild(celdaEstado);
         nuevaFila.appendChild(celda6);
-
+        nuevaFila.appendChild(celda7);
         bodyTabla.appendChild(nuevaFila);
         contador++;
     });
@@ -114,6 +153,54 @@ function VerPaginaFactura(event) {
     var urlVer = "/FacturaAdmin/VerFactura?idFactura=" + idFactura;
     window.location.replace(urlVer);
 }
+
+
+function VerNotaCredito(event) {
+    const idFactura = event.currentTarget.getAttribute("idFactura");
+    var urlVer = "/FacturaAdmin/VerNotaCredito?idFactura=" + idFactura;
+    window.location.replace(urlVer);
+}
+
+function CrearNotaCredito(event) {
+    event.preventDefault();
+
+    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+    const formCrear = event.currentTarget;
+    const botonCrear = formCrear.querySelector('button[type="submit"]');
+    const idFactura = botonCrear.getAttribute("idFactura");
+
+    fetch("/FacturaAdmin/CrearNotaCredito/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "RequestVerificationToken": token
+        },
+        body: JSON.stringify(idFactura)
+    }).then(respuesta => {
+        return respuesta.json()
+            .then(respuesta => {
+                if (respuesta.correcto) {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "success"
+                    })
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
+                }
+            });
+    }).catch(error => {
+        console.error("Error", error);
+
+    });
+}
+
+
+
+
 
 function EliminarFactura(event) {
     event.preventDefault();

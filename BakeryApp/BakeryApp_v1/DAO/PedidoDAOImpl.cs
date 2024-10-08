@@ -33,7 +33,12 @@ public class PedidoDAOImpl : PedidoDAO
         await dbContext.SaveChangesAsync();
     }
 
-
+    public async Task<int> ObtenerCantidadPedidosNuevos()
+    {
+        // Pedido recibido, preparando o pagado
+        int cantidadPedidos = await dbContext.Pedidos.Where(Pedido => Pedido.IdEstadoPedido == 1 || Pedido.IdEstadoPedido == 2 || Pedido.IdEstadoPedido == 4).CountAsync();
+        return cantidadPedidos;
+    }
 
     public async Task<IEnumerable<PedidoDTO>> ObtenerPedidoPorCliente(int idCliente)
     {

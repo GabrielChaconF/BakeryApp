@@ -36,11 +36,76 @@ namespace BakeryApp_v1.Controllers
         }
 
 
+        [HttpGet("/UsuarioRegistrado/BuscarProducto/{nombreProducto}")]
+        public async Task<IActionResult> BuscarProducto(string nombreProducto)
+        {
+            if (productoService.VerificarNombreVacio(nombreProducto))
+            {
+                return new JsonResult(new { mensaje = "El nombre del producto no puede estar vacio", correcto = false });
+            }
+
+            Producto productoBuscado = await productoService.BuscarProductoPorNombre(nombreProducto);
+
+            if (productoBuscado == null)
+            {
+                return new JsonResult(new { mensaje = "El producto no se ha encontrado", correcto = false });
+            }
+
+
+
+            return new JsonResult(new { mensaje =  Url.Action("ProductoBuscado", "UsuarioRegistrado", new {producto = productoBuscado.NombreProducto}), correcto = true });
+        }
+
+
+    
+
+        public async Task<IActionResult> ProductoBuscado([FromQuery]string producto)
+        {
+            Producto productoBuscado = await productoService.BuscarProductoPorNombre(producto);
+
+
+
+            if (productoBuscado == null)
+            {
+                return NotFound();
+            }
+
+
+            return View();
+        }
+
+
+
+        [HttpGet("/UsuarioRegistrado/VerDetallesProductoBuscado/{producto}")]
+        public async Task<IActionResult> VerDetallesProductoBuscado(string producto)
+        {
+
+            if (productoService.VerificarNombreVacio(producto))
+            {
+                return new JsonResult(new { mensaje = "El nombre del producto no puede estar vacio", correcto = false });
+            }
+
+            Producto productoBuscado = await productoService.BuscarProductoPorNombre(producto);
+
+            if (productoBuscado == null)
+            {
+                return new JsonResult(new { mensaje = "El producto no se ha encontrado", correcto = false });
+            }
+           
+
+
+            return new JsonResult(new { mensaje = productoBuscado, correcto = true });
+        }
+
+
         public IActionResult Index()
         {
             return View();
         }
-      
+
+
+
+
         public async Task<IActionResult> TiendaUsuario([FromQuery] int pagina)
         {
             int totalPaginas = await categoriaService.CalcularTotalPaginas();

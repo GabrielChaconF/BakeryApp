@@ -1,4 +1,5 @@
-﻿using BakeryApp_v1.DTO;
+﻿using BakeryApp_v1.DAO;
+using BakeryApp_v1.DTO;
 using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -13,9 +14,11 @@ namespace BakeryApp_v1.Controllers
     {
 
         private readonly PersonaService personaService;
+        private readonly PedidoService  pedidoService;
 
-        public EmpleadoController(PersonaService personaService)
+        public EmpleadoController(PersonaService personaService, PedidoService pedidoService)
         {
+            this.pedidoService = pedidoService;
             this.personaService = personaService;
         }
 
@@ -44,13 +47,18 @@ namespace BakeryApp_v1.Controllers
             }
         }
 
+        public async Task<IActionResult> ObtenerPedidosNuevos()
+        {
+            return new JsonResult(new { cantidadPedidosNuevos = await pedidoService.ObtenerCantidadPedidosNuevos() });
+        }
+
 
         public IActionResult Index()
         {
             return View();
         }
 
-        //----------------Perfil------------------
+   
         public IActionResult PerfilEmpleado()
         {
             return View();

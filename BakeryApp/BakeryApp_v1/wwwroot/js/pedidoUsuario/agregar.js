@@ -211,7 +211,17 @@ function ObtenerMetodosDePago() {
 function LlenarFormMetodoDePago(respuesta) {
     const divPago = document.getElementById("divMetodosDePago");
 
+    const h5TituloMetodos = document.createElement("h5")
+
+    h5TituloMetodos.textContent = "Métodos de pago disponibles"
+    divPago.appendChild(h5TituloMetodos)
+
     respuesta.arregloTiposDePago.forEach(metodo => {
+    
+
+        
+
+       
         const divRadio = document.createElement("div");
         divRadio.className = "border p-3 mb-3";
 
@@ -247,7 +257,7 @@ function LlenarFormMetodoDePago(respuesta) {
     const archivoLabel = document.createElement("label");
     archivoLabel.className = "form-label";
     archivoLabel.htmlFor = "archivoSinpe";
-    archivoLabel.textContent = "Cargar Archivo";
+    archivoLabel.textContent = "Comprobante del SINPE Móvil";
 
     const archivoInput = document.createElement("input");
     archivoInput.type = "file";

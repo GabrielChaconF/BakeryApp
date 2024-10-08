@@ -79,7 +79,8 @@ builder.Services.AddScoped<BoletinNoticiasDAO, BoletinNoticiasDAOImpl>();
 builder.Services.AddScoped<BoletinNoticiasService, BoletinNoticiasServiceImpl>();
 builder.Services.AddScoped<MensajesBoletinDAO, MensajeBoletinDAOImpl>();
 builder.Services.AddScoped<MensajeBoletinService, MensajeBoletinServiceImpl>();
-
+builder.Services.AddScoped<NotaCreditoDAO, NotaCreditoDAOImpl>();
+builder.Services.AddScoped<NotaCreditoService, NotaCreditoServiceImpl>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

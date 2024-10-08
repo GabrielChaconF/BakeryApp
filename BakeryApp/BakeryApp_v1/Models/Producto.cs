@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BakeryApp_v1.Models;
 
@@ -27,5 +26,4 @@ public partial class Producto
     public virtual Receta IdRecetaNavigation { get; set; } = null!;
 
     public virtual ICollection<Pedidoproducto> Pedidoproductos { get; set; } = new List<Pedidoproducto>();
-
 }

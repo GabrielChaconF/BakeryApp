@@ -31,31 +31,24 @@ function EnviarCorreo(event) {
         return respuesta.json()
             .then(respuesta => {
                 if (respuesta.correcto) {
-                    window.location.href = respuesta.mensaje
+                    swal({
+                        text: respuesta.mensajeInfo,
+                        icon: "success"
+                    }).then(() => {
+                        window.location.href = respuesta.mensaje
+                    })
+
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
                 }
-                swal({
-                    text: respuesta.mensaje,
-                    icon: "error"
-                });
+               
             })
     }).catch(error => {
         console.error("Error", error);
     }).finally(() => {
         botonSubmit.disabled = false;
     });
-}
-
-function formatoTelefono(input) {
-
-    var telefono = input.value.replace(/\-/g, '');
-
-    if (telefono.length > 4) {
-        telefono = telefono.substring(0, 4) + '-' + telefono.substring(4);
-    }
-
-    if (telefono.length > 9) {
-        telefono = telefono.substring(0,8);
-    }
-
-    input.value = telefono;
 }

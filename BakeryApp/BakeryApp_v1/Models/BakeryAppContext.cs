@@ -41,6 +41,8 @@ public partial class BakeryAppContext : DbContext
 
     public virtual DbSet<Mensajesboletin> Mensajesboletins { get; set; }
 
+    public virtual DbSet<Notascredito> Notascreditos { get; set; }
+
     public virtual DbSet<Pagossinpe> Pagossinpes { get; set; }
 
     public virtual DbSet<Pedido> Pedidos { get; set; }
@@ -237,7 +239,11 @@ public partial class BakeryAppContext : DbContext
 
             entity.HasIndex(e => e.IdPedido, "fk_id_pedido_factura");
 
+            entity.Property(e => e.Envio).HasPrecision(10);
             entity.Property(e => e.FechaFactura).HasColumnType("datetime");
+            entity.Property(e => e.Iva)
+                .HasPrecision(10)
+                .HasColumnName("IVA");
             entity.Property(e => e.TotalPagar).HasPrecision(10);
 
             entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Facturas)
@@ -307,6 +313,20 @@ public partial class BakeryAppContext : DbContext
             entity.HasOne(d => d.IdBoletinNavigation).WithMany(p => p.Mensajesboletins)
                 .HasForeignKey(d => d.IdBoletin)
                 .HasConstraintName("fk_id_boletin_mensaje");
+        });
+
+        modelBuilder.Entity<Notascredito>(entity =>
+        {
+            entity.HasKey(e => e.IdNotaCredito).HasName("PRIMARY");
+
+            entity.ToTable("notascredito");
+
+            entity.HasIndex(e => e.IdFactura, "fk_id_factura_nota");
+
+            entity.HasOne(d => d.IdFacturaNavigation).WithMany(p => p.Notascreditos)
+                .HasForeignKey(d => d.IdFactura)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_id_factura_nota");
         });
 
         modelBuilder.Entity<Pagossinpe>(entity =>

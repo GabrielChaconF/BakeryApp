@@ -25,5 +25,4 @@ public interface PersonaDAO
     public Task<Persona> ObtenerPersonaPorTelefono(Persona persona);
 
     public Task<int> ContarTotalPersonas();
-
 }

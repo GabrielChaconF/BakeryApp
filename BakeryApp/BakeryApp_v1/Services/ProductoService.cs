@@ -27,7 +27,8 @@ public interface ProductoService
     public Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductosPorCategoria(int idCategoria);
 
 
+    public bool VerificarNombreVacio(string nombreProducto);
   
-
+    public Task<Producto> BuscarProductoPorNombre(string nombreProducto);   
 
 }

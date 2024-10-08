@@ -99,10 +99,24 @@ public class ProductoServiceImpl : ProductoService
         return (int)totalPaginas;
     }
 
-   
 
 
 
 
+    public bool VerificarNombreVacio(string nombreProducto)
+    {
+        if (string.IsNullOrEmpty(nombreProducto))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+    public async Task<Producto> BuscarProductoPorNombre(string nombreProducto)
+    {
+        Producto productoBuscado = await productoDAO.ObtenerProductoPorNombre(nombreProducto);
+        return productoBuscado;
+    }
 
 }

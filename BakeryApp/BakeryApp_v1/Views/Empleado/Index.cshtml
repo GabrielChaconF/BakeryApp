@@ -1,7 +1,5 @@
-﻿
-
-@{
-	Layout = "_LayoutEmpleado";
+﻿@{
+    Layout = "_LayoutEmpleado";
 }
 
 <div>
@@ -15,47 +13,38 @@
             </div>
         </div>
     </div>
-   
+
     <section class="content">
         <div class="container-fluid">
-   
+
             <div class="row">
                 <div class="col-lg-3 col-6">
-                  
+
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>2</h3>
+                            <h3 id="ordenesNuevas"></h3>
 
                             <p>Ordenes Nuevas</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Ver Ordenes <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="@Url.Action("Pedidos", "PedidoEmpleado")" class="small-box-footer">Ver Ordenes <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-           
-                <div class="col-lg-3 col-6">
-                  
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3>2<sup style="font-size: 20px"></sup></h3>
 
-                            <p>Ordenes pendientes</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Ver Ordenes <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-              
+
+
             </div>
-           
-       
-           
-          
+
+
+
+
         </div>
-  
+    </section>
 
 </div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/dashboardEmpleado/acciones.js" asp-append-version="true"> </script>
+}

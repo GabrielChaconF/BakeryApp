@@ -33,9 +33,20 @@ function CambiarContra(event) {
     }).then(respuesta => {
         return respuesta.json()
             .then(respuesta => {
-                swal({
-                    text: respuesta.mensaje
-                });
+                if (respuesta.correcto) {
+                    swal({
+                        text: respuesta.mensajeInfo,
+                        icon: "success"
+                    }).then(() => {
+                        window.location.href = respuesta.mensaje
+                    })
+
+                } else {
+                    swal({
+                        text: respuesta.mensaje,
+                        icon: "error"
+                    });
+                }
             })
     }).catch(error => {
         console.error("Error", error);

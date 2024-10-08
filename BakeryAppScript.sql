@@ -211,11 +211,12 @@ create table Facturas(
 	IdFactura int not null auto_increment,
     IdPedido int not null,
     TotalPagar decimal(10,2) null,
+    IVA decimal(10,2) null,
+    Envio decimal(10,2) null,
     FechaFactura datetime not null,
     constraint pk_id_factura primary key(IdFactura),
     constraint fk_id_pedido_factura foreign key(IdPedido) references Pedidos(IdPedido)
 );
-
 
 create table DetalleFactura(
 	Linea int not null,
@@ -225,6 +226,13 @@ create table DetalleFactura(
     constraint pk_id_detalle_factura primary key (Linea, IdFactura),
     constraint fk_id_factura foreign key (IdFactura) references Facturas(IdFactura) on delete cascade,
     constraint fk_producto_pedido_factura foreign key (IdPedidoProducto) references PedidoProducto(IdPedidoProducto) on delete cascade
+);
+
+create table NotasCredito(
+	IdNotaCredito int not null auto_increment,
+    IdFactura int not null,
+    constraint pk_id_nota_credito primary key (IdNotaCredito),
+    constraint fk_id_factura_nota foreign key (IdFactura) references Facturas(IdFactura)
 );
 
 create table BoletinNoticias(
@@ -601,11 +609,16 @@ select * from Facturas;
 
 select * from DetalleFactura;
 
+select * from NotasCredito;
+
+
 select * from BoletinNoticias;
 
 select * from Boletin;
 
 select * from MensajesBoletin;
+
+
 /* Consulta para ver el tamaño de la base de datos en MB */
 
 SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Database Size (MB)"
@@ -642,4 +655,4 @@ RENAME TABLE DetalleFactura TO detallefactura;
 RENAME TABLE BoletinNoticias TO boletinnoticias;
 RENAME TABLE Boletin TO boletin;
 RENAME TABLE MensajesBoletin TO mensajesboletin;
-
+RENAME TABLE NotasCredito to notascredito;

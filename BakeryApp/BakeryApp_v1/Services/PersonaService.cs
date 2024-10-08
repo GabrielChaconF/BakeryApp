@@ -49,4 +49,5 @@ public interface PersonaService
 
     public Task<PersonaDTO> ObtenerPersonaConRoles(Persona persona);
 
+    public Task<int> ContarTotalPersonas();
 }

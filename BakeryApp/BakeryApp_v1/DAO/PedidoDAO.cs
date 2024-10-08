@@ -20,4 +20,6 @@ public interface PedidoDAO
     public Task<int> ContarTotalPedidos();
 
     public Task<PedidoDTO> ObtenerPedidoPorIdDTO(int idPedido);
+
+    public Task<int> ObtenerCantidadPedidosNuevos();
 }

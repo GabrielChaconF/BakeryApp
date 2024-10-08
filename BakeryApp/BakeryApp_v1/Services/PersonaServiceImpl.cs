@@ -124,8 +124,11 @@ public class PersonaServiceImpl : PersonaService
         return true;
     }
 
-
-
+    public async Task<int> ContarTotalPersonas()
+    {
+        int cantidadPersonas = await personaDAO.ContarTotalPersonas();
+        return cantidadPersonas;
+    }
     public async Task<int> CalcularTotalPaginas()
     {
         int totalPersonas = await personaDAO.ContarTotalPersonas();

@@ -14,10 +14,11 @@ namespace BakeryApp_v1.Controllers
     public class FacturaEmpleadoController : Controller
     {
         private readonly FacturaService facturaService;
-
-        public FacturaEmpleadoController(FacturaService facturaService)
+        private readonly NotaCreditoService notaCreditoService;
+        public FacturaEmpleadoController(FacturaService facturaService, NotaCreditoService notaCreditoService)
         {
             this.facturaService = facturaService;
+            this.notaCreditoService = notaCreditoService;
         }
 
         public async Task<IActionResult> VerFactura([FromQuery] int idFactura)
@@ -55,6 +56,27 @@ namespace BakeryApp_v1.Controllers
 
             return new JsonResult(new { arregloFacturas = await facturaService.ObtenerFacturasPorPagina(pagina) });
         }
+
+        public async Task<IActionResult> VerNotaCredito([FromQuery] int idFactura)
+        {
+            Notascredito notaCreditoBuscada = await notaCreditoService.ObtenerNotaCreditoPorIdFactura(idFactura);
+
+            if (notaCreditoBuscada == null)
+            {
+                return NotFound();
+            }
+            return View();
+        }
+
+
+
+        [HttpGet("/FacturaEmpleado/ObtenerNotaCreditoPorIdFactura/{idFactura}")]
+        public async Task<IActionResult> ObtenerNotaCreditoPorIdFactura(int idFactura)
+        {
+            return new JsonResult(new { notaCredito = await notaCreditoService.ObtenerNotaCreditoDTOPorIdFactura(idFactura) });
+        }
+
+
 
         [HttpGet]
         public async Task<JsonResult> ObtenerTotalPaginas()
@@ -101,6 +123,34 @@ namespace BakeryApp_v1.Controllers
                 return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar la factura", correcto = false });
             }
         }
+
+        [HttpPost]
+
+        public async Task<IActionResult> CrearNotaCredito([FromBody] int idFactura)
+        {
+            try
+            {
+
+                Notascredito notaCreditoBuscada = await notaCreditoService.ObtenerNotaCreditoPorIdFactura(idFactura);
+
+                if (notaCreditoBuscada == null)
+                {
+                    Notascredito notaCreditoGuardar = new Notascredito
+                    {
+                        IdFactura = idFactura
+                    };
+                    await notaCreditoService.Guardar(notaCreditoGuardar);
+                    return new JsonResult(new { mensaje = "Nota credito guardada con exito", correcto = true });
+                }
+
+                return new JsonResult(new { mensaje = "La nota de credito para esta factura ya ha sido creada con anterioridad", correcto = false });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al crear la nota de credito", correcto = false });
+            }
+        }
+
 
 
     }

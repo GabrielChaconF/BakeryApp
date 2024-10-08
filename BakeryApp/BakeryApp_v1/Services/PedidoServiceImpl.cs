@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System.Security.Policy;
 using Microsoft.Extensions.Configuration;
 using PagedList;
+using static System.Net.WebRequestMethods;
 namespace BakeryApp_v1.Services
 {
     public class PedidoServiceImpl : PedidoService
@@ -54,7 +55,11 @@ namespace BakeryApp_v1.Services
             return pedidoBuscado;
         }
 
-
+        public async Task<int> ObtenerCantidadPedidosNuevos()
+        {
+            int cantidadPedidos = await pedidoDAO.ObtenerCantidadPedidosNuevos();
+            return cantidadPedidos;
+        }
 
         public bool VerificarDatosVaciosOIncorrectos(Pedido pedido)
         {
@@ -174,8 +179,9 @@ namespace BakeryApp_v1.Services
                 PaymentMethodTypes = new List<string> { "card" },
                 LineItems = itemsAPagar,
                 Mode = "payment",
-                SuccessUrl = $"https://fluffy-spoon-jjrpq4vjqxgwfp7qq-5259.app.github.dev/Pedido/Gracias?checkout={{CHECKOUT_SESSION_ID}}",
-                CancelUrl = "https://fluffy-spoon-jjrpq4vjqxgwfp7qq-5259.app.github.dev/Pedido/ErrorPago",
+                SuccessUrl = $"https://localhost:7214/Pedido/Gracias?checkout={{CHECKOUT_SESSION_ID}}",
+   
+                CancelUrl = "https://localhost:7214/Pedido/Checkout",
                 PaymentIntentData = new SessionPaymentIntentDataOptions
                 {
                     StatementDescriptor = "Dulce Espiga",

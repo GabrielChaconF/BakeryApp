@@ -11,7 +11,7 @@
 
 
     <div>
-      
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
@@ -28,7 +28,7 @@
                     </div>
 
                 </div>
-               
+
 
 
                 <div class="col-md-9">
@@ -46,7 +46,7 @@
                             </ul>
                         </div>
 
-                       
+
                         <div class="card-body">
                             <div class="tab-content">
                                 <div class="tab-pane" id="verpedidos">
@@ -66,11 +66,11 @@
                                                             <th class="text-center">
                                                                 Pedido
                                                             </th>
-                                                            <th  class="text-center">
+                                                            <th class="text-center">
                                                                 Fecha realizado
                                                             </th>
 
-                                                            <th  class="text-center">
+                                                            <th class="text-center">
                                                                 Estado
                                                             </th>
                                                             <th class="text-center">
@@ -231,7 +231,7 @@
                                         </div>
                                         <div class="form-group row mt-3">
                                             <div>
-                                                <button type="submit" class="btn btn-danger">Agregar Dirección</button>
+                                                <button type="submit" class="btn btn-danger">Modificar Dirección</button>
                                             </div>
                                         </div>
                                     </form>
@@ -294,7 +294,7 @@
                                     </form>
                                 </div>
                             </div>
-                          
+
 
 
 
@@ -316,7 +316,26 @@
 @section Scripts {
     <script type="text/javascript" src="~/js/perfilUsuario/ver.js" asp-append-version="true"></script>
 
-    <script type="text/javascript" src="~/js/usuario/acciones.js" asp-append-version="true"></script>
+    <script type="module" src="~/js/usuario/acciones.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        function formatoTelefono(input) {
+
+            var telefono = input.value.replace(/\-/g, '');
+
+            if (telefono.length > 4) {
+                telefono = telefono.substring(0, 4) + '-' + telefono.substring(4);
+            }
+
+            if (telefono.length > 9) {
+                telefono = telefono.substring(0, 8);
+            }
+
+            input.value = telefono;
+        }
+
+
+    </script>
 }
 
 

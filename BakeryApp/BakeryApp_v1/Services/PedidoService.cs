@@ -42,6 +42,6 @@ public interface PedidoService
     public Task<PedidoDTO> ObtenerPedidoPorIdDTO(int idPedido);
 
     public bool VerificarPedidoPerteneceUsuario(Pedido pedido, int idUsuario);
-   
 
+    public Task<int> ObtenerCantidadPedidosNuevos();
 }

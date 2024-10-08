@@ -1,4 +1,5 @@
 ﻿
+using BakeryApp_v1.DAO;
 using BakeryApp_v1.DTO;
 using BakeryApp_v1.Models;
 using BakeryApp_v1.Services;
@@ -13,9 +14,10 @@ namespace BakeryApp_v1.Controllers
     public class AdministradorController : Controller
     {
         private readonly PersonaService personaService;
-
-        public AdministradorController(PersonaService personaService)
+        private readonly PedidoService pedidoService;
+        public AdministradorController(PersonaService personaService, PedidoService pedidoService)
         {
+            this.pedidoService = pedidoService;
             this.personaService = personaService;
         }
 
@@ -55,11 +57,17 @@ namespace BakeryApp_v1.Controllers
             }
         }
 
+        public async Task<IActionResult> ObtenerPedidosNuevos()
+        {
+            return new JsonResult(new{ cantidadPedidosNuevos = await pedidoService.ObtenerCantidadPedidosNuevos() });
+        }
 
-        
 
 
-     
+        public async Task<IActionResult> ObtenerTotalPersonas()
+        {
+            return new JsonResult(new { cantidadPersonas = await personaService.ContarTotalPersonas() });
+        }
 
 
         

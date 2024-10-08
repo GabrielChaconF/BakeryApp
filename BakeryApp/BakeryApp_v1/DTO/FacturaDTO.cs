@@ -11,6 +11,9 @@ namespace BakeryApp_v1.DTO
 
         public decimal? TotalPagar { get; set; }
 
+        public decimal? Iva { get; set; }
+
+        public decimal? Envio { get; set; }
         public string FechaFactura { get; set; }
 
         public PedidoDTO Pedido { get; set; }

@@ -48,6 +48,14 @@ public class ProductoDAOImpl : ProductoDAO
         return productoEncontrado;
     }
 
+
+    public async Task<Producto> ObtenerProductoPorNombre(string nombreProducto)
+    {
+        Producto productoBuscado = await dbContext.Productos.FirstOrDefaultAsync(Producto => Producto.NombreProducto == nombreProducto);
+
+        return productoBuscado;
+    }
+
     public async Task<IEnumerable<ProductoDTO>> ObtenerTodasLasProductos(int pagina)
     {
         int numeroDeElementosPorPagina = 9;

@@ -22,6 +22,7 @@ public interface ProductoDAO
 
     public Task<Producto> ObtenerProductoPorNombre(Producto producto);
 
+    public Task<Producto> ObtenerProductoPorNombre(string nombreProducto);
     public Task<int> ContarTotalProductos();
 
 }
