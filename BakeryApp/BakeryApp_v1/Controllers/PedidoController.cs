@@ -51,8 +51,30 @@ namespace BakeryApp_v1.Controllers
         {
             return View();
         }
-        public IActionResult Checkout()
+        public async  Task<IActionResult> Checkout()
         {
+            string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+
+            Persona personaABuscar = new Persona
+            {
+                Correo = correoUsuario
+            };
+
+            personaABuscar = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
+
+
+            IEnumerable<CarritoDTO> todosLosElementosDelCarrito = await carritoService.ObtenerCarritoUsuario(personaABuscar.IdPersona);
+
+
+            if (todosLosElementosDelCarrito.Count() == 0)
+            {
+                return BadRequest();
+            }
+
+
+
+
+
             return View();
         }
 
@@ -227,7 +249,8 @@ namespace BakeryApp_v1.Controllers
 
                 IEnumerable<DireccionDTO> todasLasDireccionesUsuario = await direccionesService.ObtenerTodasLasDireccionesPorUsuario(direccion);
 
-                if (todasLasDireccionesUsuario.Count() == 0)
+                // Si el usuario no tiene direcciones registradas y el tipo de envio es a domicilio
+                if (todasLasDireccionesUsuario.Count() == 0 && pedidoObjeto.IdTipoEnvio == 1)
                 {
                     return new JsonResult(new { mensaje = "No puede realizar un pedido con entrega a domicilio por que no tiene direcciones registradas", correcto = false });
                 }
@@ -247,10 +270,6 @@ namespace BakeryApp_v1.Controllers
                 IEnumerable<CarritoDTO> todosLosElementosDelCarrito = await carritoService.ObtenerCarritoUsuario(personaABuscar.IdPersona);
 
 
-                if (todosLosElementosDelCarrito.Count() == 0)
-                {
-                    return new JsonResult(new { mensaje = "No puede realizar un pedido por que no tiene productos en el carrito de compras", correcto = false });
-                }
 
 
                 // Tipo de pago efectivo

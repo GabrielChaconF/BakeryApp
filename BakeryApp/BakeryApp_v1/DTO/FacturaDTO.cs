@@ -20,6 +20,8 @@ namespace BakeryApp_v1.DTO
 
         public ICollection<DetalleFacturaDTO> DetalleFactura { get; set; } = new List<DetalleFacturaDTO>();
 
+        public virtual ICollection<NotaCreditoDTO> NotasCreditos { get; set; } = new List<NotaCreditoDTO>();
+
 
         public static FacturaDTO ConvertirFacturaAFacturaDTO(Factura factura)
         {

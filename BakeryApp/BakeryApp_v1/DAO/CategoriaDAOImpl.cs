@@ -62,7 +62,7 @@ public class CategoriaDAOImpl : CategoriaDAO
 
     public async Task<Categoria> ObtenerCategoriaPorNombre(Categoria categoria)
     {
-        Categoria categoriaEncontrada = await dbContext.Categorias.FirstOrDefaultAsync(Categoria => Categoria.NombreCategoria == categoria.NombreCategoria);
+        Categoria categoriaEncontrada = await dbContext.Categorias.FirstOrDefaultAsync(Categoria => Categoria.NombreCategoria == categoria.NombreCategoria && Categoria.IdCategoria != categoria.IdCategoria);
         return categoriaEncontrada;
     }
 

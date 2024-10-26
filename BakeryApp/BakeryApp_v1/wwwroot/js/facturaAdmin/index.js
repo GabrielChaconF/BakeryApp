@@ -96,15 +96,20 @@ function CrearFilasTabla(respuesta) {
 
 
 
-        const botonVerNota = document.createElement("a");
-        botonVerNota.setAttribute("idFactura", factura.idFactura);
-        botonVerNota.addEventListener("click", (event) => {
-            VerNotaCredito(event)
-        });
+        if (factura.notasCreditos.length > 0) {
+            const botonVerNota = document.createElement("a");
+            botonVerNota.setAttribute("idFactura", factura.idFactura);
+            botonVerNota.addEventListener("click", (event) => {
+                VerNotaCredito(event)
+            });
 
 
-        botonVerNota.className = "btn btn-sm btn-primary text-white";
-        botonVerNota.textContent = "Ver";
+            botonVerNota.className = "btn btn-sm btn-primary text-white";
+            botonVerNota.textContent = "Ver";
+            divCentro2.appendChild(botonVerNota)
+        }
+
+       
 
 
         const formCrearNota = document.createElement("form");
@@ -120,7 +125,7 @@ function CrearFilasTabla(respuesta) {
        
 
         formCrearNota.appendChild(botonCrearNota);
-        divCentro2.appendChild(botonVerNota);
+     ;
         divCentro2.appendChild(formCrearNota);
         celda7.appendChild(divCentro2);
 
@@ -184,6 +189,8 @@ function CrearNotaCredito(event) {
                     swal({
                         text: respuesta.mensaje,
                         icon: "success"
+                    }).then(() => {
+                        window.location.reload()
                     })
                 } else {
                     swal({

@@ -84,7 +84,7 @@ public class RecetaDAOImpl : RecetaDAO
 
     public async Task<Receta> ObtenerRecetaPorNombre(Receta receta)
     {
-        Receta RecetaEncontrada = await dbContext.Recetas.FirstOrDefaultAsync(Receta => Receta.NombreReceta == receta.NombreReceta);
+        Receta RecetaEncontrada = await dbContext.Recetas.FirstOrDefaultAsync(Receta => Receta.NombreReceta == receta.NombreReceta && Receta.IdReceta != receta.IdReceta);
         return RecetaEncontrada;
     }
 

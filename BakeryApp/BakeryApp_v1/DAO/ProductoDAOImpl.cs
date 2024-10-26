@@ -83,7 +83,7 @@ public class ProductoDAOImpl : ProductoDAO
 
     public async Task<Producto> ObtenerProductoPorNombre(Producto producto)
     {
-        Producto productoEncontrado = await dbContext.Productos.FirstOrDefaultAsync(Producto => Producto.NombreProducto == producto.NombreProducto);
+        Producto productoEncontrado = await dbContext.Productos.FirstOrDefaultAsync(Producto => Producto.NombreProducto == producto.NombreProducto && Producto.IdProducto != producto.IdProducto);
         return productoEncontrado;
     }
 

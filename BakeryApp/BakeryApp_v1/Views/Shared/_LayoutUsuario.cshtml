@@ -4,25 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Untree.co">
     <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap4" />
     <title>Bakery App</title>
 
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/css/tiny-slider.css" rel="stylesheet">
-    <link href="~/css/style.css" rel="stylesheet">
-    <link href="~/css/imagenes.css" rel="stylesheet">
-
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/tiny-slider.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/imagenes.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.png">
-
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -31,12 +22,12 @@
 
         <div class="container">
             <a class="navbar-brand" href="@Url.Action("Index", "Home")">Dulce Espiga<span>.</span></a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navUsuario" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Activar Navegación">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarUsuario">
+
+            <div class="collapse navbar-collapse" id="navbarsFurni">
                 <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "UsuarioRegistrado")">Home</a>
@@ -72,9 +63,6 @@
     <footer class="footer-section">
         <div class="container relative">
 
-            <div class="sofa-img">
-                <img src="~/img/Logo_Transparente.png" alt="Image" class="img-fluid">
-            </div>
 
 
 
@@ -136,13 +124,17 @@
 
 
 
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/tiny-slider.js"></script>
+    <script src="/js/custom.js"></script>
 
-
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../dist/js/demo.js"></script>
+ 
     <script src="https://js.stripe.com/v3/"></script>
+  
+
+
+   
+
 
     @await RenderSectionAsync("Scripts", required: false)
 

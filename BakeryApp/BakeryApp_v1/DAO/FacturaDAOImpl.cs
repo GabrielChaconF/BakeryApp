@@ -46,6 +46,7 @@ namespace BakeryApp_v1.DAO
             .Include(Factura => Factura.Detallefacturas)
             .ThenInclude(Factura => Factura.IdPedidoProductoNavigation)
             .ThenInclude(Factura => Factura.IdProductoNavigation)
+            .Include(Factura => Factura.Notascreditos)
             .Select(Factura => new FacturaDTO
             {
                 IdFactura = Factura.IdFactura,
@@ -86,6 +87,10 @@ namespace BakeryApp_v1.DAO
                             PrecioProducto = detalle.IdPedidoProductoNavigation.IdProductoNavigation.PrecioProducto,
                         }
                     }
+                }).ToList(),
+                NotasCreditos = Factura.Notascreditos.Select(nota => new NotaCreditoDTO
+                {
+                    IdFactura = nota.IdFactura
                 }).ToList()
             }).ToPagedList(pageNumber: pagina, pageSize: numeroDeElementosPorPagina);
 

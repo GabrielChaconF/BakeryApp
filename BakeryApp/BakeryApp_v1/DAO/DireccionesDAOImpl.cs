@@ -71,7 +71,7 @@ public class DireccionesDAOImpl : DireccionesDAO
 
     public async Task<Direccionesusuario> ObtenerDireccionPorNombre(Direccionesusuario direccion)
     {
-        Direccionesusuario nombreDireccionRepetido = await dbContext.Direccionesusuarios.FirstOrDefaultAsync(Direccion => Direccion.NombreDireccion == direccion.NombreDireccion && Direccion.IdPersona == direccion.IdPersona);
+        Direccionesusuario nombreDireccionRepetido = await dbContext.Direccionesusuarios.FirstOrDefaultAsync(Direccion => Direccion.NombreDireccion == direccion.NombreDireccion && Direccion.IdPersona == direccion.IdPersona && Direccion.IdDireccion != direccion.IdDireccion);
         return nombreDireccionRepetido;
     }
 

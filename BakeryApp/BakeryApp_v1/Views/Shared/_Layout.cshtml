@@ -3,15 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Untree.co">
     <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap4" />
     <title>Bakery App</title>
-    <!-- Bootstrap CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/css/tiny-slider.css" rel="stylesheet">
-    <link href="~/css/style.css" rel="stylesheet">
-    <link href="~/css/imagenes.css" rel="stylesheet">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/tiny-slider.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/imagenes.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -49,18 +47,14 @@
 
     </nav>
 
+
+
+
     <div>
         @RenderBody()
     </div>
-
     <footer class="footer-section">
         <div class="container relative">
-
-            <div class="sofa-img">
-                <img src="~/img/Logo_Transparente.png" alt="Image" class="img-fluid">
-            </div>
-
-          
 
             <div class="row g-5 mb-5">
                 <div class="col-lg-4">
@@ -95,6 +89,7 @@
                         </div>
 
 
+
                     </div>
                 </div>
 
@@ -115,12 +110,13 @@
 
         </div>
     </footer>
-   
 
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/custom.js"></script>
+
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/tiny-slider.js"></script>
+    <script src="/js/custom.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

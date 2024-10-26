@@ -5,7 +5,7 @@ BakeryApp/BakeryApp_v1/wwwroot/img/categorias/*
 BakeryApp/BakeryApp_v1/wwwroot/img/productos/*
 !BakeryApp/BakeryApp_v1/wwwroot/img/productos/.gitkeep
 
-BakeryApp/BakeryApp_v1/wwwroot/img/productos/*
+BakeryApp/BakeryApp_v1/wwwroot/img/sinpes/*
 !BakeryApp/BakeryApp_v1/wwwroot/img/sinpes/.gitkeep
 
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)

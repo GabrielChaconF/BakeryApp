@@ -42,7 +42,16 @@ function ObtenerCarritoUsuario() {
     });
 }
 
+
+
+
 function CrearCards(respuesta) {
+
+    let esMovil = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+
+
+  
+    
     const tablaBody = document.getElementById("tablaPrincipal");
     let total = 0;
 
@@ -126,7 +135,7 @@ function CrearCards(respuesta) {
             EliminarCarrito(event);
         }
 
-
+  
 
 
         tdImagenProducto.classList.add("product-thumbnail");

@@ -84,7 +84,7 @@ public class IngredienteDAOImpl : IngredienteDAO
 
     public async Task<Ingrediente> ObtenerIngredientePorNombre(Ingrediente ingrediente)
     {
-        Ingrediente ingredienteEncontrado = await dbContext.Ingredientes.FirstOrDefaultAsync(Ingrediente => Ingrediente.NombreIngrediente == ingrediente.NombreIngrediente);
+        Ingrediente ingredienteEncontrado = await dbContext.Ingredientes.FirstOrDefaultAsync(Ingrediente => Ingrediente.NombreIngrediente == ingrediente.NombreIngrediente && Ingrediente.IdIngrediente != ingrediente.IdIngrediente);
         return ingredienteEncontrado;
     }
 

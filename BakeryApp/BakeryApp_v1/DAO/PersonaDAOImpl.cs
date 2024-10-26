@@ -76,13 +76,13 @@ public class PersonaDAOImpl : PersonaDAO
 
     public async Task<Persona> ObtenerPersonaPorCorreo(Persona persona)
     {
-        Persona personaEncontrada = await dbContext.Personas.FirstOrDefaultAsync(Persona => Persona.Correo == persona.Correo);
+        Persona personaEncontrada = await dbContext.Personas.FirstOrDefaultAsync(Persona => Persona.Correo == persona.Correo && Persona.IdPersona != persona.IdPersona);
         return personaEncontrada;
     }
 
     public async Task<Persona> ObtenerPersonaPorTelefono(Persona persona)
     {
-        Persona personaEncontrada = await dbContext.Personas.FirstOrDefaultAsync(Persona => Persona.Telefono == persona.Telefono);
+        Persona personaEncontrada = await dbContext.Personas.FirstOrDefaultAsync(Persona => Persona.Telefono == persona.Telefono && Persona.IdPersona != persona.IdPersona);
         return personaEncontrada;
     }
 

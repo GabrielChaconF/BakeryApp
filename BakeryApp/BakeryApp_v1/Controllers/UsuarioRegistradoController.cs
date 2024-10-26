@@ -460,12 +460,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
 
-                bool resultadoRepetidaTelefono = await personaService.VerificarTelefonoRepetido(persona);
-
-                if (resultadoRepetidaTelefono)
-                {
-                    return new JsonResult(new { mensaje = "El telefono de la persona ya se encuentra registrado", correcto = false });
-                }
+               
 
 
                 if (!personaService.ValidarLongitudTelefono(persona))
@@ -487,12 +482,21 @@ namespace BakeryApp_v1.Controllers
 
                 Persona personaAModificar = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
 
+            
                 personaAModificar.Nombre = persona.Nombre;
                 personaAModificar.PrimerApellido = persona.PrimerApellido;
                 personaAModificar.SegundoApellido = persona.SegundoApellido;
                 personaAModificar.Telefono = persona.Telefono;
 
-            
+
+                bool resultadoRepetidaTelefono = await personaService.VerificarTelefonoRepetido(personaAModificar);
+
+                if (resultadoRepetidaTelefono)
+                {
+                    return new JsonResult(new { mensaje = "El telefono de la persona ya se encuentra registrado", correcto = false });
+                }
+
+
                 await personaService.Editar(personaAModificar);
 
                 return new JsonResult(new { mensaje = "Perfil modificado con exito", correcto = true });
