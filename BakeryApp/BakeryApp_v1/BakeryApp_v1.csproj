@@ -33,10 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	<None Include="wwwroot\**">
-		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
- </ItemGroup>
+    <Content Include="wwwroot\**" CopyToPublishDirectory="Always" />
+  </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\AccesoDenegado.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
