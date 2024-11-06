@@ -32,9 +32,7 @@
     <Folder Include="wwwroot\img\sinpes\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="wwwroot\**" CopyToPublishDirectory="Always" />
-  </ItemGroup>
+ 
   <ItemGroup>
     <Content Update="Views\Home\AccesoDenegado.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
