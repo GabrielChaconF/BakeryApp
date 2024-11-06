@@ -54,24 +54,24 @@ builder.Services.AddScoped<DistritoService, DistritoServiceImpl>();
 builder.Services.AddScoped<DireccionesDAO, DireccionesDAOImpl>();
 builder.Services.AddScoped<DireccionesService, DireccionesServiceImpl>();
 builder.Services.AddScoped<IMailEnviar, MailEnviar>();
-builder.Services.AddScoped<CarritoDAO, CarritoDAOImpl>();   
+builder.Services.AddScoped<CarritoDAO, CarritoDAOImpl>();
 builder.Services.AddScoped<CarritoService, CarritoServiceImpl>();
 builder.Services.AddScoped<TiposPagoDAO, TiposDePagoDAOImpl>();
-builder.Services.AddScoped<TiposEnvioDAO, TiposDeEnvioDAOImpl>(); 
+builder.Services.AddScoped<TiposEnvioDAO, TiposDeEnvioDAOImpl>();
 builder.Services.AddScoped<EstadosPedidoDAO, EstadosPedidoDAOImpl>();
 builder.Services.AddScoped<PedidoDAO, PedidoDAOImpl>();
 builder.Services.AddScoped<PedidoService, PedidoServiceImpl>();
-builder.Services.AddScoped<TiposDePagoService, TiposDePagoServiceImpl>();   
+builder.Services.AddScoped<TiposDePagoService, TiposDePagoServiceImpl>();
 builder.Services.AddScoped<TiposDeEnvioService, TiposDeEnvioServiceImpl>();
 builder.Services.AddScoped<EstadosPedidoService, EstadosPedidoServiceImpl>();
 builder.Services.AddScoped<PagoSinpeDAO, PagoSinpeDAOImpl>();
 builder.Services.AddScoped<PagoSinpeService, PagoSinpeServiceImpl>();
 builder.Services.AddScoped<ProductoPedidoDAO, ProductoPedidoDAOImpl>();
-builder.Services.AddScoped<ProductoPedidoService, ProductoPedidoServiceImpl>(); 
+builder.Services.AddScoped<ProductoPedidoService, ProductoPedidoServiceImpl>();
 builder.Services.AddScoped<FacturaDAO, FacturaDAOImpl>();
 builder.Services.AddScoped<FacturaService, FacturaServiceImpl>();
 builder.Services.AddScoped<LineaFacturaDAO, LineaFacturaDAOImpl>();
-builder.Services.AddScoped<LineaFacturaService, LineaFacturaServiceImpl>(); 
+builder.Services.AddScoped<LineaFacturaService, LineaFacturaServiceImpl>();
 builder.Services.AddScoped<BoletinDAO, BoletinDAOImpl>();
 builder.Services.AddScoped<BoletinService, BoletinServiceImpl>();
 builder.Services.AddScoped<BoletinDAO, BoletinDAOImpl>();
@@ -89,12 +89,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LoginPath = "/Home/IniciarSesion";
         options.LogoutPath = "/Home/CerrarSesion";
         options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
-        options.AccessDeniedPath = "/Home/AccesoDenegado"; 
+        options.AccessDeniedPath = "/Home/AccesoDenegado";
     });
 
 builder.Services.AddAuthorization(options =>
 {
-  
+
     options.AddPolicy("SoloAdministradores", policy =>
             policy.RequireRole("ADMINISTRADOR")
             );
@@ -108,6 +108,13 @@ builder.Services.AddAuthorization(options =>
      );
 });
 
+if (!builder.Environment.IsDevelopment())
+{
+    builder.WebHost.ConfigureKestrel(options =>
+    {
+        options.Listen(System.Net.IPAddress.Loopback, 5001);
+    });
+}
 
 
 var app = builder.Build();
@@ -115,13 +122,14 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+
 }
 
+
 app.UseHttpsRedirection();
+
+
 app.UseStaticFiles();
 
 
