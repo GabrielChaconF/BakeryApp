@@ -7,8 +7,9 @@ using BakeryApp_v1.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
+using Stripe.Checkout;
 using System.Security.Claims;
-using static Mysqlx.Crud.Order.Types;
+
 
 namespace BakeryApp_v1.Controllers
 {
@@ -81,6 +82,90 @@ namespace BakeryApp_v1.Controllers
         public IActionResult Gracias([FromQuery] string? checkout)
         {
             return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> PagoCompletado()
+        {
+
+            const string endpointSecret = "whsec_ad9ef5df2c597c92d4d3a67be0f12b9293c49906087e28d321739855de8f7d3e";
+
+            string json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+            try
+            {
+                Event eventoStripe = EventUtility.ConstructEvent(json,
+                    Request.Headers["Stripe-Signature"], endpointSecret);
+
+
+                if (eventoStripe.Type == Events.CheckoutSessionCompleted)
+                {
+
+
+                    Session intentoPago = eventoStripe.Data.Object as Session;
+
+
+
+                    string correoUsuario = intentoPago.CustomerEmail;
+                    Persona personaABuscar = new Persona
+                    {
+                        Correo = correoUsuario
+                    };
+
+                    personaABuscar = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
+
+                    IEnumerable<CarritoDTO> todosLosElementosDelCarrito = await carritoService.ObtenerCarritoUsuario(personaABuscar.IdPersona);
+
+        
+
+                    Pedido pedidoObjeto = new Pedido();
+                    
+                    pedidoObjeto.IdPersona = personaABuscar.IdPersona;
+                    pedidoObjeto.IdDireccion = int.Parse(intentoPago.Metadata["IdDireccion"]);
+                    pedidoObjeto.IdTipoEnvio = int.Parse(intentoPago.Metadata["IdTipoEnvio"]);
+
+                    //Tipo de pago en tarjeta
+                    pedidoObjeto.IdTipoPago = 3;
+
+
+                    // Se asigna el id de estado pedido como 4 (Pagado)
+                    pedidoObjeto.IdEstadoPedido = 4;
+
+                    //Se establece la fecha del pedido como la fecha actual
+                    pedidoObjeto.FechaPedido = DateTime.Now;
+
+                    await pedidoService.Guardar(pedidoObjeto);
+
+                    bool correoEnviado = await correoService.EnviarCorreoPedidoConfirmado(personaABuscar, "Pedido confirmado", todosLosElementosDelCarrito, PedidoViewModel.ConvertirPedidoAPedidoViewModel(pedidoObjeto));
+
+
+                    // Se insertan los elementos del carrito en los productos del pedido
+                    foreach (CarritoDTO elementoCarrito in todosLosElementosDelCarrito)
+                    {
+                        Pedidoproducto productoPedido = CarritoDTO.ConvertirCarritoAProductoPedido(elementoCarrito, pedidoObjeto.IdPedido);
+                        await productoPedidoService.Guardar(productoPedido);
+                    }
+
+                    // Se eliminan los elementos del carrito 
+                    foreach (CarritoDTO elementoCarrito in todosLosElementosDelCarrito)
+                    {
+                        Carritocompra carritoNormal = CarritoDTO.ConvertirCarritoDTOACarrito(elementoCarrito);
+                        await carritoService.Eliminar(carritoNormal);
+                    }
+
+
+                    // Se guarda la factura
+                    bool resultadoGuardarFactura = await facturaService.GuardarFactura(pedidoObjeto);
+                }
+              
+               
+
+                return Ok();
+            }
+            catch (StripeException e)
+            {
+                return BadRequest();
+            }
         }
 
         public async Task<IActionResult> VerFactura([FromQuery] int idPedido)
@@ -411,76 +496,7 @@ namespace BakeryApp_v1.Controllers
             }
         }
 
-        [HttpGet("/Pedido/VerificarEstadoPago/{idStripe}")]
-        public async Task VerificarEstadoPago(string idStripe)
-        {
-            bool resultadoPago = await pedidoService.VerificarEstadoPago(idStripe);
-
-            if (resultadoPago)
-            {
-
-
-
-
-
-
-
-                string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
-
-                Persona personaABuscar = new Persona
-                {
-                    Correo = correoUsuario
-                };
-
-                personaABuscar = await personaService.ObtenerPersonaPorCorreo(personaABuscar);
-
-                IEnumerable<CarritoDTO> todosLosElementosDelCarrito = await carritoService.ObtenerCarritoUsuario(personaABuscar.IdPersona);
-
-                int? idDireccion = await pedidoService.ObtenerDatosDireccionPagoTarjeta(idStripe);
-
-                int idTipoEnvio = await pedidoService.ObtenerDatosTipoEnvioPagoTarjeta(idStripe);
-
-                Pedido pedidoObjeto = new Pedido();
-
-                pedidoObjeto.IdPersona = personaABuscar.IdPersona;
-                pedidoObjeto.IdDireccion = idDireccion;
-                pedidoObjeto.IdTipoEnvio = idTipoEnvio;
-
-                //Tipo de pago en tarjeta
-                pedidoObjeto.IdTipoPago = 3;
-
-
-                // Se asigna el id de estado pedido como 4 (Pagado)
-                pedidoObjeto.IdEstadoPedido = 4;
-
-                //Se establece la fecha del pedido como la fecha actual
-                pedidoObjeto.FechaPedido = DateTime.Now;
-
-                await pedidoService.Guardar(pedidoObjeto);
-
-                bool correoEnviado = await correoService.EnviarCorreoPedidoConfirmado(personaABuscar, "Pedido confirmado", todosLosElementosDelCarrito, PedidoViewModel.ConvertirPedidoAPedidoViewModel(pedidoObjeto));
-
-
-                // Se insertan los elementos del carrito en los productos del pedido
-                foreach (CarritoDTO elementoCarrito in todosLosElementosDelCarrito)
-                {
-                    Pedidoproducto productoPedido = CarritoDTO.ConvertirCarritoAProductoPedido(elementoCarrito, pedidoObjeto.IdPedido);
-                    await productoPedidoService.Guardar(productoPedido);
-                }
-
-                // Se eliminan los elementos del carrito 
-                foreach (CarritoDTO elementoCarrito in todosLosElementosDelCarrito)
-                {
-                    Carritocompra carritoNormal = CarritoDTO.ConvertirCarritoDTOACarrito(elementoCarrito);
-                    await carritoService.Eliminar(carritoNormal);
-                }
-
-
-                // Se guarda la factura
-                bool resultadoGuardarFactura = await facturaService.GuardarFactura(pedidoObjeto);
-            }
-        }
-
+      
         public async Task<IActionResult> ObtenerPedidosUsuarioLogueado()
         {
             string correoUsuario = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;

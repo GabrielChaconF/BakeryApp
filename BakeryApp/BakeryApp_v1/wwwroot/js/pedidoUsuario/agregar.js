@@ -366,6 +366,7 @@ function ObtenerRadioButtonPago() {
 
 function GuardarPedido(event) {
     event.preventDefault();
+
     const stripe = Stripe("pk_test_51PgO5SRxHwpNRlo7XSH6j9oWbOmG61iQDS3shFUt5N0mgUCWXfqPuANS1Cumqa8PnGAobiSw2VXHvEBhdFerKs7400FLR2mFcp");
 
     const token = document.querySelector('input[name="__RequestVerificationToken"]').value;

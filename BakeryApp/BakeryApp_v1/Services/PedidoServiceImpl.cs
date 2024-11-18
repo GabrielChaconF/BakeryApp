@@ -179,7 +179,7 @@ namespace BakeryApp_v1.Services
                 PaymentMethodTypes = new List<string> { "card" },
                 LineItems = itemsAPagar,
                 Mode = "payment",
-                SuccessUrl = $"https://localhost:7214/Pedido/Gracias?checkout={{CHECKOUT_SESSION_ID}}",
+                SuccessUrl = "https://localhost:7214/Pedido/Gracias",
    
                 CancelUrl = "https://localhost:7214/Pedido/Checkout",
                 PaymentIntentData = new SessionPaymentIntentDataOptions
@@ -194,7 +194,7 @@ namespace BakeryApp_v1.Services
                     { "IdTipoEnvio", pedido.IdTipoEnvio.ToString()}
                 },
             };
-
+            
 
             SessionService servicioSesion = new SessionService();
             Session sesion = await servicioSesion.CreateAsync(opcionesSesion);
@@ -204,95 +204,9 @@ namespace BakeryApp_v1.Services
 
         }
 
-        public async Task<bool> VerificarEstadoPago(string stripeId)
-        {
-            StripeConfiguration.ApiKey = configuracion.GetValue<string>("StripeConfiguracion:SecretKey");
-
-            SessionService servicioSesion = new SessionService();
-
-            PaymentIntentService servicioIntentoDePago = new PaymentIntentService();
-
-            try
-            {
+      
 
 
-              
-
-                Session sesion = await servicioSesion.GetAsync(stripeId);
-
-
-                PaymentIntent intentoDePago = await servicioIntentoDePago.GetAsync(sesion.PaymentIntentId);
-
-
-
-
-                if (intentoDePago.Status == "succeeded")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-
-        }
-
-
-        public async Task<int?> ObtenerDatosDireccionPagoTarjeta(string stripeId)
-        {
-
-            StripeConfiguration.ApiKey = configuracion.GetValue<string>("StripeConfiguracion:SecretKey");
-            SessionService servicioSesion = new SessionService();
-
-            Session sesion = await servicioSesion.GetAsync(stripeId);
-
-            Dictionary<string, string> datosExtra = sesion.Metadata;
-
-            int? idDireccion = null;
-
-
-            if (string.IsNullOrEmpty(datosExtra["IdDireccion"]))
-            {
-                return idDireccion;
-            }
-
-            if (datosExtra.ContainsKey("IdDireccion"))
-            {
-                
-                idDireccion = int.Parse(datosExtra["IdDireccion"]);
-
-            }
-
-            return idDireccion;
-        }
-
-
-        public async Task<int> ObtenerDatosTipoEnvioPagoTarjeta(string stripeId)
-        {
-
-            StripeConfiguration.ApiKey = configuracion.GetValue<string>("StripeConfiguracion:SecretKey");
-            SessionService servicioSesion = new SessionService();
-
-            Session sesion = await servicioSesion.GetAsync(stripeId);
-
-            Dictionary<string, string> datosExtra = sesion.Metadata;
-
-            int idTipoEnvio = 0;
-
-
-            if (datosExtra.ContainsKey("IdTipoEnvio"))
-            {
-                idTipoEnvio = int.Parse(datosExtra["IdTipoEnvio"]);
-
-            }
-
-            return idTipoEnvio;
-        }
 
         public string ObtenerTipoPagoPedido(PedidoViewModel pedido)
         {

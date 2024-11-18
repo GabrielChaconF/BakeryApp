@@ -23,12 +23,6 @@ public interface PedidoService
 
     public Task<string> CrearSesionCheckoutStripe(PedidoViewModel pedido, IEnumerable<CarritoDTO> todosLosElementosDelCarrito, Pedido pedio);
 
-    public Task<bool> VerificarEstadoPago(string stripeId);
-
-    public Task<int?> ObtenerDatosDireccionPagoTarjeta(string stripeId);
-
-    public Task<int> ObtenerDatosTipoEnvioPagoTarjeta(string stripeId);
-
     public decimal CalcularTotalPedido(IEnumerable<CarritoDTO> elementosCarrito);
 
     public decimal CalcularIva(decimal total, PedidoViewModel pedido);

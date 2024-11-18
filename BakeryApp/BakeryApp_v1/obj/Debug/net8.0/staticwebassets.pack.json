@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BakeryApp_v1.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BakeryApp_v1.bundle.scp.css"
+      "PackagePath": "staticwebassets\\BakeryApp_v1.8e984i4xze.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\css\\bootstrap.min.css",
@@ -539,10 +539,6 @@
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\notaCreditoEmpleado\\ver.js",
       "PackagePath": "staticwebassets\\js\\notaCreditoEmpleado\\ver.js"
-    },
-    {
-      "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\pago\\verificarPago.js",
-      "PackagePath": "staticwebassets\\js\\pago\\verificarPago.js"
     },
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\pedidoAdmin\\index.js",
@@ -8079,6 +8075,10 @@
     {
       "Id": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\plugins\\toastr\\toastr.min.js",
       "PackagePath": "staticwebassets\\plugins\\toastr\\toastr.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BakeryApp_v1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BakeryApp_v1.Microsoft.AspNetCore.StaticWebAssets.props",

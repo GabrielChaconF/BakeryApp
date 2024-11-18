@@ -82,6 +82,11 @@ builder.Services.AddScoped<MensajeBoletinService, MensajeBoletinServiceImpl>();
 builder.Services.AddScoped<NotaCreditoDAO, NotaCreditoDAOImpl>();
 builder.Services.AddScoped<NotaCreditoService, NotaCreditoServiceImpl>();
 
+
+
+
+
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -123,11 +128,10 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-
 }
 
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); 
 
 
 app.UseStaticFiles();
