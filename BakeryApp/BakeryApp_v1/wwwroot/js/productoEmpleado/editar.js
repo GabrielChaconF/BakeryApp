@@ -4,7 +4,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     ObtenerTodosLasRecetas()
     ObtenerTodosLasCategorias()
-    ObtenerProductoEspecifico();
 });
 
 
@@ -178,6 +177,7 @@ function ObtenerTodosLasCategorias() {
         return respuesta.json()
     }).then(respuesta => {
         LlenarSelectCategorias(respuesta)
+        ObtenerProductoEspecifico();
     }).catch(error => {
         console.error("Error", error);
     });

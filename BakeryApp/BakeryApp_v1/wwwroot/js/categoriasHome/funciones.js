@@ -66,7 +66,7 @@ function CrearTarjetas(respuesta) {
 
         const nombreCategoria = document.createTextNode(categoria.nombreCategoria);
 
-        aLink.href = "/Home/IniciarSesion"
+        aLink.href = "/Home/ProductosPorCategoria?categoria=" + categoria.idCategoria;
         strongNombreCategoria.appendChild(nombreCategoria)
         imgCategoria.src = "/"+ categoria.imagenCategoria
         imgSpan.src = "/img/cross.svg"

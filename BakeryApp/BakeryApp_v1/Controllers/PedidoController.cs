@@ -104,6 +104,7 @@ namespace BakeryApp_v1.Controllers
 
                     Session intentoPago = eventoStripe.Data.Object as Session;
 
+                  
 
 
                     string correoUsuario = intentoPago.CustomerEmail;

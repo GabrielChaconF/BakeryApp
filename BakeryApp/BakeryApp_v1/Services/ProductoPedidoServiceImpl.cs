@@ -1,4 +1,5 @@
 ﻿using BakeryApp_v1.DAO;
+using BakeryApp_v1.DTO;
 using BakeryApp_v1.Models;
 
 namespace BakeryApp_v1.Services
@@ -21,6 +22,12 @@ namespace BakeryApp_v1.Services
         {
             IEnumerable<Pedidoproducto> todosLosProductosPorPedido = await productoPedidoDAO.ObtenerTodosLosProductosPorPedido(idPedido);
             return todosLosProductosPorPedido;
+        }
+
+        public async Task<IEnumerable<ProductoPedidoDTO>> ObtenerProductosMasVendidos()
+        {
+            IEnumerable<ProductoPedidoDTO> top3Productos = await productoPedidoDAO.ObtenerProductosMasVendidos();
+            return top3Productos;
         }
     }
 }

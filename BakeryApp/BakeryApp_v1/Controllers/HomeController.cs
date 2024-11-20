@@ -23,8 +23,9 @@ namespace BakeryApp_v1.Controllers
         private readonly ReestablecerContraService reestablecerContraService;
         private readonly CategoriaService categoriaService; 
         private readonly ProductoService productoService;
+        private readonly ProductoPedidoService productoPedidoService;
 
-        public HomeController(PersonaService personaService, IFuncionesUtiles funcionesUtiles, IMailEnviar mailEnviar, ReestablecerContraService reestablecerContraService, CategoriaService categoriaService, ProductoService productoService)
+        public HomeController(PersonaService personaService, IFuncionesUtiles funcionesUtiles, IMailEnviar mailEnviar, ReestablecerContraService reestablecerContraService, CategoriaService categoriaService, ProductoService productoService, ProductoPedidoService productoPedidoService)
         {
             this.personaService = personaService;
             this.funcionesUtiles = funcionesUtiles;
@@ -32,6 +33,7 @@ namespace BakeryApp_v1.Controllers
             this.reestablecerContraService = reestablecerContraService;
             this.categoriaService = categoriaService;
             this.productoService = productoService;
+            this.productoPedidoService = productoPedidoService;
         }
 
 
@@ -48,9 +50,42 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
+        public async Task<IActionResult> ProductosPorCategoria([FromQuery] int categoria)
+        {
+            Categoria categoriaBuscada = await categoriaService.ObtenerCategoriaPorId(categoria);
+
+            if (categoriaBuscada == null)
+            {
+                return NotFound();
+            }
+
+
+            return View();
+        }
+
+
+        [HttpGet]
+
+        public async Task<IActionResult> ObtenerProductosMasVendidos()
+        {
+            return new JsonResult(new { arregloProductosMasVendidos = await productoPedidoService.ObtenerProductosMasVendidos() });
+        }
 
 
 
+        [HttpGet("/Home/ObtenerProductosPorCategoria/{idCategoria}")]
+
+        public async Task<IActionResult> ObtenerProductosPorCategoria(int idCategoria)
+        {
+            return new JsonResult(new { arregloProductos = await productoService.ObtenerTodasLasProductosPorCategoria(idCategoria) });
+        }
+
+        [HttpGet("/Home/ObtenerCategoriaPorId/{idCategoria}")]
+
+        public async Task<IActionResult> ObtenerCategoriaPorId(int idCategoria)
+        {
+            return new JsonResult(new { categoria = await categoriaService.ObtenerCategoriaPorId(idCategoria) });
+        }
 
         [HttpGet]
 
@@ -85,10 +120,7 @@ namespace BakeryApp_v1.Controllers
 
         }
 
-        public IActionResult Categorias()
-        {
-            return View();
-        }
+      
 
         public IActionResult PersonalizarProducto()
         {

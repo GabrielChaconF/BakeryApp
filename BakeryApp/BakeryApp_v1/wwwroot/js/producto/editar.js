@@ -4,7 +4,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     ObtenerTodosLasRecetas()
     ObtenerTodosLasCategorias()
-    ObtenerProductoEspecifico();
+
+  
 });
 
 
@@ -28,6 +29,7 @@ function ObtenerProductoEspecifico() {
         return respuesta.json()
     }).then(respuesta => {
         RellenarDatosFormulario(respuesta.producto)
+      
     }).catch(error => {
         console.error("Error", error);
     });
@@ -52,6 +54,7 @@ function RellenarDatosFormulario(producto) {
 
     const selectReceta = document.getElementById("recetas")
 
+ 
     selectReceta.value = producto.idReceta;
 
     const inputPrecio = document.getElementById("precioProducto")
@@ -160,6 +163,7 @@ function ObtenerTodosLasRecetas() {
         return respuesta.json()
     }).then(respuesta => {
         LlenarSelectRecetas(respuesta)
+      
     }).catch(error => {
         console.error("Error", error);
     });
@@ -177,6 +181,7 @@ function ObtenerTodosLasCategorias() {
         return respuesta.json()
     }).then(respuesta => {
         LlenarSelectCategorias(respuesta)
+        ObtenerProductoEspecifico();
     }).catch(error => {
         console.error("Error", error);
     });

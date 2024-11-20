@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\users\\gabri\\onedrive\\desktop\\pruebas y pruebas\\githubdesarrollosistemas\\bakeryapp\\bakeryapp\\bakeryapp_v1\\wwwroot\\js\\productosmasvendidosusuario\\obtenerproductos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\wwwroot\\js\\productosmasvendidosusuario\\obtenerproductos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|c:\\users\\gabri\\onedrive\\desktop\\pruebas y pruebas\\githubdesarrollosistemas\\bakeryapp\\bakeryapp\\bakeryapp_v1\\views\\usuarioregistrado\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EC55001-242C-4880-A3B1-2958E7BB9FB6}|BakeryApp_v1\\BakeryApp_v1.csproj|solutionrelative:bakeryapp_v1\\views\\usuarioregistrado\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,6 +75,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\UsuarioRegistrado\\Index.cshtml",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\Views\\UsuarioRegistrado\\Index.cshtml",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\Views\\UsuarioRegistrado\\Index.cshtml",
+              "RelativeToolTip": "BakeryApp_v1\\Views\\UsuarioRegistrado\\Index.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAABgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T17:13:04.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "obtenerProductos.js",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productosMasVendidosUsuario\\obtenerProductos.js",
+              "RelativeDocumentMoniker": "BakeryApp_v1\\wwwroot\\js\\productosMasVendidosUsuario\\obtenerProductos.js",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Desktop\\Pruebas y pruebas\\GithubDesarrolloSistemas\\BakeryApp\\BakeryApp\\BakeryApp_v1\\wwwroot\\js\\productosMasVendidosUsuario\\obtenerProductos.js",
+              "RelativeToolTip": "BakeryApp_v1\\wwwroot\\js\\productosMasVendidosUsuario\\obtenerProductos.js",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAwDUAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-20T17:11:48.802Z",
+              "EditorCaption": ""
             }
           ]
         }

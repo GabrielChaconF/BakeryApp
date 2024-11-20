@@ -236,7 +236,7 @@ function CrearPaginacion(paginas) {
         aLista.setAttribute("pagina", contador);
 
         aLista.addEventListener("click", function (event) {
-            ObtenerTodasLasPersonas(event.target.getAttribute("pagina"));
+            ObtenerTodosLosIngredientes(event.target.getAttribute("pagina"));
         });
 
         aLista.innerText = contador;

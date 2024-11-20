@@ -30,6 +30,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Content Remove="wwwroot\js\productosMasVendidosUsuario\obtenerProductos.js" />
+	  <Content Remove="wwwroot\js\productosMasVendidosHome\obtenerProductos.js" />
+	  <Content Remove="wwwroot\js\productosPorCategoriaHome\funciones.js" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Content Update="Views\Home\AccesoDenegado.cshtml">
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

@@ -8,7 +8,7 @@
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
-                    <h1>Bakery App <span class="d-block"></span></h1>
+                    <h1>Panadería Artesanal Dulce Espiga <span class="d-block"></span></h1>
 
                     <p><a href="@Url.Action("Tienda", "Home")" class="btn btn-secondary me-2">Comprar ahora</a></p>
                 </div>
@@ -26,52 +26,17 @@
 
 <div class="product-section">
     <div class="container">
-        <div class="row">
+        <div class="row" id="divPrincipal">
 
-
-
-
+      
             <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
                 <h2 class="mb-4 section-title">Productos en Tendencia</h2>
-                <p class="mb-4">Algunos de los productos mas vendidos en nuestra tienda son los siguientes: </p>
-                <p><a href="@Url.Action("Tienda", "Home")" class="btn">Ir a la tienda</a></p>
+                <p class="mb-4">Algunos de los productos más vendidos en nuestra tienda son los siguientes:</p>
+                <a href="/Home/Tienda" class="btn">Ir a la tienda</a>
             </div>
 
-            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <a class="product-item" href="@Url.Action("IniciarSesion", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Cupcake</h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-
-            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <a class="product-item" href="@Url.Action("IniciarSesion", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Cupcake</h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
-
-            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                <a class="product-item" href="@Url.Action("IniciarSesion", "Home")">
-                    <img src="~/img/CupcakePrueba.jpg" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Cupcake</h3>
-                    <strong class="product-price">₡2500.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="~/img/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div>
+            
+            
 
 
         </div>
@@ -132,6 +97,8 @@
 
 
 
-
+@section Scripts {
+    <script type="text/javascript" src="~/js/productosMasVendidosHome/obtenerProductos.js" asp-append-version="true"></script>
+}
 
 

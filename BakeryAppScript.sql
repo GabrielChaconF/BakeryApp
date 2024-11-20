@@ -618,6 +618,10 @@ select * from Boletin;
 
 select * from MensajesBoletin;
 
+/* Consulta para ver los productos mas vendidos*/
+select pro.nombreProducto, sum(pedPro.CantidadProducto) as CantidadProductoVendido, pro.IdProducto
+from pedidoproducto pedPro inner join productos pro on pro.IdProducto = pedPro.IdProducto 
+group by(pro.IdProducto);
 
 /* Consulta para ver el tamaño de la base de datos en MB */
 

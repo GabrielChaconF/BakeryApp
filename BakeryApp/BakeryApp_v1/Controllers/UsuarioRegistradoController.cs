@@ -22,8 +22,9 @@ namespace BakeryApp_v1.Controllers
         private readonly CategoriaService categoriaService;
         private readonly ProductoService productoService;
         private readonly BoletinService boletinService;
+        private readonly ProductoPedidoService productoPedidoService;
 
-        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService, BoletinService boletinService)
+        public UsuarioRegistradoController(PersonaService personaService, ProvinciaService provinciaService, CantonService cantonService, DistritoService distritoService, DireccionesService direccionesService, CategoriaService categoriaService, ProductoService productoService, BoletinService boletinService, ProductoPedidoService productoPedidoService)
         {
             this.personaService = personaService;
             this.provinciaService = provinciaService;
@@ -33,6 +34,7 @@ namespace BakeryApp_v1.Controllers
             this.categoriaService = categoriaService;   
             this.productoService = productoService;
             this.boletinService = boletinService;
+            this.productoPedidoService = productoPedidoService;
         }
 
 
@@ -74,6 +76,13 @@ namespace BakeryApp_v1.Controllers
             return View();
         }
 
+
+        [HttpGet]
+
+        public async Task<IActionResult> ObtenerProductosMasVendidos()
+        {
+            return new JsonResult(new { arregloProductosMasVendidos = await productoPedidoService.ObtenerProductosMasVendidos() });
+        }
 
 
         [HttpGet("/UsuarioRegistrado/VerDetallesProductoBuscado/{producto}")]
