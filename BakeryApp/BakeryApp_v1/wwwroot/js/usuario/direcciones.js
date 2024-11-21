@@ -35,7 +35,7 @@ function LlenarTablaDirecciones(arregloDirecciones) {
         const divTabla = document.getElementById("cardTabla")
         const divHeader = document.createElement("div")
         const h3Mensaje = document.createElement("h3")
-
+        h3Mensaje.setAttribute("id", "mensajeSinDirecciones")
         divHeader.classList.add("card-header")
         h3Mensaje.classList.add("card-title")
 

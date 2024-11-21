@@ -66,13 +66,18 @@ function ActualizarInterfazDireccionAgregada() {
         LlenarTablaDireccionesInterfaz(respuesta.arregloDirecciones)
         LlenarSelectEliminarDireccion(respuesta.arregloDirecciones)
         LlenarSelectModificarDireccion(respuesta.arregloDirecciones)
+        EliminarMensajeUsuarioSinDirecciones()
     }).catch(error => {
         console.error("Error", error);
     });
 }
 
 
+function EliminarMensajeUsuarioSinDirecciones() {
+    const h3Mensaje = document.getElementById("mensajeSinDirecciones")
 
+    h3Mensaje.remove()
+}
 
 function ActualizarInterfazDireccionEliminadaTabla() {
     fetch("/UsuarioRegistrado/ObtenerDireccionUsuario", {
