@@ -179,9 +179,9 @@ namespace BakeryApp_v1.Services
                 PaymentMethodTypes = new List<string> { "card" },
                 LineItems = itemsAPagar,
                 Mode = "payment",
-                SuccessUrl = "https://localhost:7214/Pedido/Gracias",
+                SuccessUrl = "https://dulceespiga.net/Pedido/Gracias",
    
-                CancelUrl = "https://localhost:7214/Pedido/Checkout",
+                CancelUrl = "https://dulceespiga.net/Pedido/Checkout",
                 PaymentIntentData = new SessionPaymentIntentDataOptions
                 {
                     StatementDescriptor = "Dulce Espiga",
