@@ -89,7 +89,7 @@ namespace BakeryApp_v1.Controllers
         public async Task<IActionResult> PagoCompletado()
         {
 
-            const string endpointSecret = "whsec_ad9ef5df2c597c92d4d3a67be0f12b9293c49906087e28d321739855de8f7d3e";
+            const string endpointSecret = "whsec_7C4Duuo1yhZYaRDhMHBTnXI3mTVVyt1V";
 
             string json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
             try
