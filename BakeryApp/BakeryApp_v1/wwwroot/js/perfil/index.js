@@ -200,11 +200,20 @@ function EliminarPerfil(event) {
     }).then(respuesta => {
         return respuesta.json()
     }).then(respuesta => {
-        swal({
-            text: respuesta.mensaje
-        })
-        const filaEliminar = document.getElementById(idPersona)
-        filaEliminar.remove()
+        if (respuesta.correcto) {
+            swal({
+                text: respuesta.mensaje,
+                icon: "success"
+            })
+            const filaEliminar = document.getElementById(idPersona)
+            filaEliminar.remove()
+        } else {
+            swal({
+                text: respuesta.mensaje,
+                icon: "error"
+            });
+        }
+      
     }).catch(error => {
         console.error("Error", error);
     })

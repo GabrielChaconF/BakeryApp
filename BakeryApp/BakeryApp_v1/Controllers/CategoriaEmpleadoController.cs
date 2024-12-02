@@ -112,14 +112,14 @@ namespace BakeryApp_v1.Controllers
 
                 if (!funcionesUtiles.BorrarImagenGuardadaEnSistemaCategoria(categoriaBorrarImagen))
                 {
-                    return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen" });
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen", correcto = false });
                 }
                 await categoriaService.Eliminar(categoriaBorrarImagen);
-                return new JsonResult(new { mensaje = "Categoria eliminada con éxito" });
+                return new JsonResult(new { mensaje = "Categoria eliminada con éxito", correcto = true });
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar la categoria" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar la categoria", correcto = false});
             }
         }
 

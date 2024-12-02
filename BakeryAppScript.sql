@@ -215,7 +215,7 @@ create table Facturas(
     Envio decimal(10,2) null,
     FechaFactura datetime not null,
     constraint pk_id_factura primary key(IdFactura),
-    constraint fk_id_pedido_factura foreign key(IdPedido) references Pedidos(IdPedido)
+    constraint fk_id_pedido_factura foreign key(IdPedido) references Pedidos(IdPedido) on delete cascade
 );
 
 create table DetalleFactura(
@@ -232,7 +232,7 @@ create table NotasCredito(
 	IdNotaCredito int not null auto_increment,
     IdFactura int not null,
     constraint pk_id_nota_credito primary key (IdNotaCredito),
-    constraint fk_id_factura_nota foreign key (IdFactura) references Facturas(IdFactura)
+    constraint fk_id_factura_nota foreign key (IdFactura) references Facturas(IdFactura) on delete cascade
 );
 
 create table BoletinNoticias(
@@ -246,8 +246,8 @@ create table Boletin(
     IdBoletinNoticias int not null,
     IdUsuario int not null,
     constraint pk_id_boletin primary key (IdBoletin),
-    constraint fk_id_usuario_boletin foreign key (IdUsuario) references Personas(IdPersona),
-    constraint pk_id_boletin_noticias foreign key (IdBoletinNoticias) references BoletinNoticias(IdBoletinNoticias)
+    constraint fk_id_usuario_boletin foreign key (IdUsuario) references Personas(IdPersona) on delete cascade,
+    constraint pk_id_boletin_noticias foreign key (IdBoletinNoticias) references BoletinNoticias(IdBoletinNoticias) on delete cascade
 );
 
 create table MensajesBoletin(

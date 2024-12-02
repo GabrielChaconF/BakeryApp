@@ -22,7 +22,7 @@ function ModificarPagoSinpe(event) {
 
 
 
- 
+
 
     pedido.append("PagoSinpe.ArchivoSinpe", archivoSinpe)
 
@@ -37,16 +37,21 @@ function ModificarPagoSinpe(event) {
     }).then(respuesta => {
         return respuesta.json()
             .then(respuesta => {
-
-
                 if (respuesta.correcto) {
-                    window.location.href = respuesta.mensaje
+                    swal({
+                        text: respuesta.mensajeInfo,
+                        icon: "success"
+                    }).then(() => {
+
+                        window.location.href = respuesta.mensaje;
+                    });;
                 } else {
                     swal({
                         text: respuesta.mensaje,
                         icon: "error"
                     });
                 }
+
 
             })
     }).catch(error => {

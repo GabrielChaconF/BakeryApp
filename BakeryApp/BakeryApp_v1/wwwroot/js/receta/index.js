@@ -221,11 +221,19 @@ function EliminarReceta(event) {
     }).then(respuesta => {
         return respuesta.json()
     }).then(respuesta => {
-        swal({
-            text: respuesta.mensaje
-        })
-        const cardAEliminar = document.getElementById(idReceta)
-        cardAEliminar.remove()
+        if (respuesta.correcto) {
+            swal({
+                text: respuesta.mensaje,
+                icon: "success"
+            })
+            const cardAEliminar = document.getElementById(idReceta)
+            cardAEliminar.remove()    
+        } else {
+            swal({
+                text: respuesta.mensaje,
+                icon: "error"
+            });
+        }
     }).catch(error => {
         console.error("Error", error);
     })

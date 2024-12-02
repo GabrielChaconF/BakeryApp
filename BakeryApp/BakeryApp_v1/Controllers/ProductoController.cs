@@ -149,17 +149,17 @@ namespace BakeryApp_v1.Controllers
 
                 if (!funcionesUtiles.BorrarImagenGuardadaEnSistemaProducto(productoBorrarImagen))
                 {
-                    return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen" });
+                    return new JsonResult(new { mensaje = "Ha ocurrido un error al borrar la imagen", correcto = false });
                 }
 
 
               
                 await productoService.Eliminar(productoBorrarImagen);
-                return new JsonResult(new { mensaje = "Producto eliminado con éxito" });
+                return new JsonResult(new { mensaje = "Producto eliminado con éxito", correcto = true });
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar el producto" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar el producto", correcto = false});
             }
         }
 

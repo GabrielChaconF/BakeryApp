@@ -87,13 +87,11 @@ C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\Baker
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\.gitkeep
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\1d46228a-3e42-46d4-87f6-25476349b32d.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\21fb6b56-a488-47dc-9632-583d1f77153b.png
-C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\5c6cde9c-8ca7-4739-9cb2-a78904398613.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\5d05ba0f-d46a-47f1-9bff-83169c8b42e9.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\732e70ea-837f-4894-a286-899fd8ace6fd.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\89c2cdc0-866e-4f84-89d0-8566eeb11553.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\8e758f71-b2c0-4f39-a477-84580243d2af.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\9c8e38dc-eed7-40a7-93f8-4e4eb51572a4.png
-C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\a8cdf4d4-33ea-4c83-b2c0-6e479dc3ddd7.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\bdc4a54c-afe2-4dd6-b09d-2f633b2f0cbe.jpg
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\c2927f8e-d2c4-462d-9852-2c56b21641df.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\cb11a19e-d1f5-4288-8c22-a48cae410064.png
@@ -2309,3 +2307,8 @@ C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\Baker
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\productos\e61df007-83e9-45c2-8cbe-0183622be768.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\productos\d36ae217-5a80-4deb-876d-c18c36473fac.png
 C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\js\productosMasVendidosUsuario\obtenerProductos.js
+C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\11995581-fb48-4adc-bc22-698f667ed79b.png
+C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\5d74557f-ba40-42ce-b535-3e8f377368ac.png
+C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\productos\148c1c13-e202-4244-93f2-68009cac6a20.jpg
+C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\productos\b6ba5bf9-7971-47da-8aca-fabe730d2128.jpg
+C:\Users\gabri\OneDrive\Desktop\Pruebas y pruebas\GithubDesarrolloSistemas\BakeryApp\BakeryApp\BakeryApp_v1\bin\Debug\net8.0\wwwroot\img\sinpes\ce477b91-0cfa-43a0-be49-468e62486fb8.jpg

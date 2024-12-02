@@ -104,7 +104,7 @@ namespace BakeryApp_v1.Controllers
 
                     Session intentoPago = eventoStripe.Data.Object as Session;
 
-                  
+
 
 
                     string correoUsuario = intentoPago.CustomerEmail;
@@ -117,13 +117,21 @@ namespace BakeryApp_v1.Controllers
 
                     IEnumerable<CarritoDTO> todosLosElementosDelCarrito = await carritoService.ObtenerCarritoUsuario(personaABuscar.IdPersona);
 
-        
+
 
                     Pedido pedidoObjeto = new Pedido();
-                    
+
                     pedidoObjeto.IdPersona = personaABuscar.IdPersona;
-                    pedidoObjeto.IdDireccion = int.Parse(intentoPago.Metadata["IdDireccion"]);
+                 
+
+
                     pedidoObjeto.IdTipoEnvio = int.Parse(intentoPago.Metadata["IdTipoEnvio"]);
+
+
+                    if (!string.IsNullOrEmpty(intentoPago.Metadata["IdDireccion"]))
+                    {
+                           pedidoObjeto.IdDireccion = int.Parse(intentoPago.Metadata["IdDireccion"]);
+                    }
 
                     //Tipo de pago en tarjeta
                     pedidoObjeto.IdTipoPago = 3;
@@ -671,7 +679,7 @@ namespace BakeryApp_v1.Controllers
                 }
 
                 await pagoSinpeService.EditarPagoSinpe(pagoSinpeAModificar);
-                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true });
+                return new JsonResult(new { mensaje = Url.Action("PerfilUsuario", "UsuarioRegistrado"), correcto = true, mensajeInfo = "Imagen modificada con exito"});
 
             }
             catch (Exception ex)

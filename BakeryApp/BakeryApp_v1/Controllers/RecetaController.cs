@@ -229,11 +229,11 @@ public class RecetaController : Controller
             Receta recetaAEliminar = await recetaService.ObtenerRecetaPorId(idReceta);
 
             await recetaService.Eliminar(recetaAEliminar);
-            return new JsonResult(new { mensaje = "Receta eliminada con éxito" });
+            return new JsonResult(new { mensaje = "Receta eliminada con éxito", correcto = true });
         }
         catch (Exception ex)
         {
-            return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar la receta" });
+            return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar la receta", correcto = false});
         }
     }
 

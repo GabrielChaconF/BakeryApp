@@ -229,11 +229,11 @@ namespace BakeryApp_v1.Controllers
                 Persona personaABorrar = await personaService.ObtenerPersonaPorId(idPersona);
 
                 await personaService.Eliminar(personaABorrar);
-                return new JsonResult(new { mensaje = "Perfil borrado con exito" });
+                return new JsonResult(new { mensaje = "Perfil borrado con exito", correcto = true });
             }
             catch (Exception ex)
             {
-                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar el perfil de la persona" });
+                return new JsonResult(new { mensaje = "Ha ocurrido un error al eliminar el perfil de la persona", correcto = false });
             }
         }
     }
